@@ -10,11 +10,11 @@ An Angular implementation of a Style Guide/Components for building enterprise ap
 
 ####Design principles:
 
-    -  Simple - Just a set of angular directives - Angular + Yahoo PureCss + lodash
-    - Modular - take only the components you need
-    - Pattern Based - provides a set of widely used UI Patterns 
-    - User Friendly - opinionated in terms of look and feel and UX 
-    - Mobile - allows using the same team for building desktop and mobile form-based apps
+-  Simple - Just a set of angular directives - Angular + Yahoo PureCss + lodash
+- Modular - take only the components you need
+- Pattern Based - provides a set of widely used UI Patterns 
+- User Friendly - opinionated in terms of look and feel and UX 
+- Mobile - allows using the same team for building desktop and mobile form-based apps
 
 ####Running it:
 
