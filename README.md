@@ -1,4 +1,5 @@
-Angular Velocity - Enterprise-Ready Angular Widgets
+##Angular Velocity - Enterprise-Ready Angular Widgets
+=================
 
 A set of Angular UI Components for building Enterprise Desktop Webapps.
 
