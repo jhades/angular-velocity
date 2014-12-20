@@ -4,7 +4,7 @@ A set of Angular UI Components for building Enterprise Desktop Webapps.
 
 An Angular implementation of a Style Guide/Components for building enterprise applications, with the focus on form-intensive applications. This what it looks like on 20th of December 2014:
 
-![alt Angular Velocity Showcase](http://url/to/img.png)
+![alt Angular Velocity Showcase](http://d2huq83j2o5dyd.cloudfront.net/AngularVelocityShowcase-small.png)
 
 
 ####Design principles:
