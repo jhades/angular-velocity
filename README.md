@@ -1,4 +1,4 @@
-Angular Velocity - Enterprise-Ready Angular Widgets
+## Angular Velocity - Enterprise-Ready Angular Widgets
 ================
 
 A set of Angular UI Components for building Enterprise Desktop Webapps.
@@ -7,7 +7,8 @@ An Angular implementation of a Style Guide/Components for building enterprise ap
 
 ![alt Angular Velocity Showcase](http://url/to/img.png)
 
-- Design principles:
+
+####Design principles:
 
     -  Simple - Just a set of angular directives - Angular + Yahoo PureCss + lodash
     - Modular - take only the components you need
@@ -15,7 +16,9 @@ An Angular implementation of a Style Guide/Components for building enterprise ap
     - User Friendly - opinionated in terms of look and feel and UX 
     - Mobile - allows using the same team for building desktop and mobile form-based apps
 
-To run it, clone the repo and run:
+####Running it:
+
+clone the repo and run:
 
     bower install
 
