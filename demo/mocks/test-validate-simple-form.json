@@ -1,0 +1,19 @@
+{
+    "errors": [
+        {
+            "msgId": "FN001"
+        },
+        {
+            "msgId": "FN002"
+        },
+        {
+            "msgId": "FN003"
+        },
+        {
+            "msgId": "FN004"
+        },
+        {
+            "msgId": "FN005"
+        }
+    ]
+}

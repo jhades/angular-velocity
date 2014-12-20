@@ -1,0 +1,123 @@
+{
+    "menu": {
+        "defaultHref": "/index",
+        "length": 3,
+        "resizable": false,
+        "entries": [
+            {
+                "text": "Widgets & Forms",
+                "href": "/index",
+                "entries": [
+                    {
+                        "text": "Input Widgets",
+                        "entries": [
+                            {
+                                "text": "Three Columns",
+                                "href": "/index",
+                                "templateUrl": "/demo/forms/simple-form.html",
+                                "controller": "SimpleFormCtrl"
+                            },
+                            {
+                                "text": "Two Columns",
+                                "href": "/twocolsform",
+                                "templateUrl": "/demo/forms/dropdown-samples.html",
+                                "controller": "DropdownCtrl"
+                            },
+                            {
+                                "text": "Single Column",
+                                "href": "/singlecolsform"
+                            },
+                            {
+                                "text": "Custom Form",
+                                "href": "/customform"
+                            },
+                            {
+                                "text": "Responsive Form",
+                                "href": "/responsive"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Tables",
+                        "entries": [
+                            {
+                                "text": "Editable Tables",
+                                "href": "/modal"
+                            },
+                            {
+                                "text": "Tree Tables",
+                                "href": "/pleasewait"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Navigation & Containers",
+                "href": "/leftmenulayout",
+                "entries": [
+                    {
+                        "text": "Navigation",
+                        "entries": [
+                            {
+                                "text": "Left Menu Layout",
+                                "href": "/leftmenulayout",
+                                "templateUrl": "/demo/forms/left-menu-demo.html",
+                                "controller": "LeftMenuCtrl"
+                            },
+                            {
+                                "text": "Top Menu Layout",
+                                "href": "/topmenulayout"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "heading",
+                        "text": "Containers",
+                        "collapsed": true,
+                        "entries": [
+                            {
+                                "text": "Collapsible Panel",
+                                "href": "/collapsiblepanel",
+                                "controller": "CollapsibleCtrl",
+                                "templateUrl": "/demo/forms/collapsible-demo.html"
+                            },
+                            {
+                                "text": "Tabbed Panel",
+                                "href": "/twocolumnform"
+                            },
+                            {
+                                "text": "Modal Dialog",
+                                "href": "/twocolumnform"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "UI Patterns",
+                "entries": [
+                    {
+                        "text": "SLD - Search List Detail"
+                    },
+                    {
+                        "text": "Entry Selection Overlay"
+                    }
+                ]
+            },
+            {
+                "text": "Validations & Messages"
+            },
+            {
+                "text": "Responsive / Mobile"
+            },
+            {
+                "text": "Themeable"
+            }
+        ]
+    },
+    "pageContent": {
+        "length": 21
+    }
+
+}

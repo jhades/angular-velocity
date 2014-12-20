@@ -1,0 +1,21 @@
+<div>
+
+    <div class="resize-menu-wrapper">
+
+        <div class="resize-menu" ng-class="{'resizing-inactive': !menu.resizable}">
+        <img ng-show="menu.resizable" src="/ngv/images/slider-ticks.png" class="slider-ticks">
+        </div>
+
+        <div ng-show="menu.resizable"
+             ngv-draggable
+             min-drag-position="150"
+             max-drag-position="500"
+             on-drag-completed="onDragCompleted(newClientX)"
+             ngv-menu-drag-bar
+             class="resize-menu resize-menu-drag-bar"
+             ng-class="{'resize-menu-drag-ongoing': dragOngoing, 'resizing-active': menu.resizable}">
+        </div>
+
+    </div>
+
+</div>

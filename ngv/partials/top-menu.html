@@ -1,0 +1,9 @@
+<nav class="main-block top-menu">
+    <div class="pure-menu pure-menu-open pure-menu-horizontal">
+        <ul style="z-index:50">
+            <li ng-repeat="entry in topMenuEntries" ng-class="{'pure-menu-selected':entry.selected}">
+                <a href="#{{::entry.href}}">{{::entry.description}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

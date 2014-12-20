@@ -1,0 +1,1628 @@
+/**
+*
+* Theme master color -> #0078e7
+*
+*/
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.site-header {
+    background: #214685; /* this is the main header color */
+}
+
+.site-header h1 {
+    color: #ffffff;
+}
+
+body.pure-skin-ngv {
+    background: #d7d7d9; /* the page outer background */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main {
+    background: white;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 0 15px #999999;
+    margin: 5px 7px 5px 7px;
+}
+
+.logo {
+    height: 32px;
+    margin-left: 17px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.site-header {
+    margin-top: 3px;
+}
+
+@media screen and (min-width: 35.5em) {
+    .site-header {
+        height: 51px;
+    }
+}
+
+.main-block {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.site-header h1 {
+    font-size: 1.49em;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 16px;
+    color: #ffffff;
+    margin-top: 10px;
+    text-shadow: 1px 1px black;
+}
+
+.site-footer {
+    color: #636363;
+    font-size: 0.68em;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.site-footer p {
+    margin-top: 1px;
+}
+
+.pure-skin-ngv .top-menu .pure-menu ul li.pure-menu-selected a {
+    border-left: solid 1px #d3e6f8;
+    border-right: solid 1px #d3e6f8;
+}
+
+.top-menu a {
+    cursor: pointer;
+}
+
+.pure-skin-ngv .left-menu {
+    position: relative;
+}
+
+.pure-skin-ngv .left-menu .pure-menu.pure-menu-open {
+    background: #f7f7f7;
+}
+
+.pure-skin-ngv .pure-menu li a.pure-menu-heading:hover {
+    background: inherit;
+}
+
+.ngv-left-menu-layout .top-menu-bar .pure-menu a {
+    line-height: 35px;
+}
+
+@media screen and (max-width: 64em) {
+    .resize-menu {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 64em) {
+
+    .resize-menu-wrapper {
+        float: right;
+    }
+
+    .resize-menu {
+        background: #e1eefa;
+        border-left: solid 1px #d3e6f8;
+        border-right: solid 1px #d3e6f8;
+        width: 5px;
+        z-index: 30;
+        position: absolute;
+        height: 100%;
+        margin-left: -5px;
+    }
+
+    .resizing-inactive {
+        width: 4px;
+        padding-left: 1px;
+    }
+
+    .resizing-active {
+        cursor: col-resize;
+        width: 4px;
+    }
+
+    .resize-menu.resize-menu-drag-bar {
+        z-index: 40;
+        background: #c0c0c0;
+        opacity: 0;
+    }
+
+    .resize-menu.resize-menu-drag-bar.resize-menu-drag-ongoing {
+        opacity: 1;
+        width: 3px;
+        margin-left: -4px;
+    }
+
+    .slider-ticks {
+        margin-top: 15px;
+        margin-left: 0.5px;
+        width: 3px;
+        height: 7px;
+    }
+}
+
+.left-menu-wrapper {
+    margin-top: -1px;
+}
+
+.left-menu {
+    background: #f7f7f7;
+}
+
+@media screen and (min-width: 64em) {
+    .left-menu {
+        min-height: 500px;
+    }
+}
+
+.left-menu .pure-menu-heading {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.left-menu .pure-menu-heading .collapsible-icon {
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    width: 14px;
+    height: 14px;
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+}
+
+div[ngv-collapsible-section] {
+    overflow-y: hidden;
+    -webkit-transition: 0.4s ease-in-out -webkit-height;
+    -moz-transition: 0.4s ease-in-out -moz-height;
+    -ms-transition: 0.4s ease-in-out height;
+    -o-transition: 0.4s ease-in-out height;
+    transition: 0.4s ease-in-out height;
+    transition-delay: 0s;
+}
+
+.left-menu .collapsed-section .pure-menu-heading .collapsible-icon {
+    background-image: url('/ngv/images/glyphicons_368_collapse.png');
+
+}
+
+.left-menu .expanded-section .pure-menu-heading .collapsible-icon {
+    background-image: url('/ngv/images/glyphicons_367_expand.png');
+}
+
+.left-menu-not-resizable {
+    margin-right: -3px;
+    border-right: solid 1px #d3e6f8;
+}
+
+.left-menu-entry {
+    cursor: pointer;
+}
+
+.left-menu .collapsible-menu-section {
+    overflow: hidden;
+}
+
+.page-title h3 {
+    margin-bottom: 0;
+}
+
+.page-title hr {
+    margin-top: 0.2em;
+}
+
+.page-content {
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+.pure-skin-ngv .pure-menu ul li.pure-menu-selected a {
+    color: #05101a;
+    background: linear-gradient(to bottom, #E1EEFE, #c4ddf7);
+    border-top-width: 0;
+    border-color: #c4ddf7 transparent #c4ddf7 #c4ddf7;
+}
+
+.horizontally-centered {
+    margin: 0 auto;
+}
+
+.vertically-centered {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.positioned {
+    position: relative;
+}
+
+.click-blocking-barrier {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: -10000;
+}
+
+.click-blocking-barrier.active {
+    display: block;
+    z-index: 10000;
+}
+
+.click-blocking-barrier.active.wait-ongoing {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.please-wait-dialog {
+    background: #e1eefa;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    width: 350px;
+    height: 140px;
+    margin: 0 auto;
+    display: none;
+    z-index: 2000;
+    opacity: 1;
+    position: relative;
+    top: 50%;
+    margin-top: -100px;
+}
+
+.please-wait-dialog h3 {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.please-wait-dialog img {
+    display: block;
+    margin: 0 auto;
+}
+
+.loading-bar {
+
+}
+
+.click-blocking-barrier.active.wait-ongoing .please-wait-dialog {
+    display: block;
+}
+
+.pure-skin-ngv div.select-one input[type="text"],
+.pure-skin-ngv div.calendar input[type="text"]{
+    display: inline-block;
+}
+
+.widget-button {
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 28px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #A0C8F2;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-left: -2px;
+    vertical-align: top;
+    margin-top: 0.20em;
+}
+
+.dropdown-button {
+    background-image: url('/ngv/images/dropdown.png');
+    background-position: center 8px;
+    background-size: 15px 10px;
+}
+
+.autocomplete-button {
+    background-image: url('/ngv/images/autocomplete.png');
+    background-size:  18px;
+    background-position: center 3.5px;
+}
+
+.calendar-button {
+    background-image: url('/ngv/images/calendar.png');
+    background-position: center 9px;
+    background-size: 8.5px;
+}
+
+.pure-skin-ngv .calendar .pure-table td {
+    padding: 0.3em;
+    text-align: center;
+    font-size: 82%;
+}
+
+.pure-skin-ngv .calendar .pure-table th {
+    padding: 0.3em;
+    text-align: center;
+    font-size: 82%;
+}
+
+
+
+.widget-button:hover {
+    background-color: #96bbde;
+}
+
+.widget-button:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+    border: 1px solid dimgrey;
+}
+
+.select-one .selection-list {
+    background-color: #ffffff;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 1px solid darkgrey;
+    font-size: 0.8em;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15), -3px 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.select-one .selection-list .selection-option {
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    height: 18px;
+}
+
+.select-one .selection-list .selection-option.selected {
+    background-image: linear-gradient(to right bottom, #3c71f7, #0078e7);
+    color: #ffffff;
+}
+
+.selection-description {
+    height: 100%;
+}
+
+.date-picker {
+    position: absolute;
+    z-index: 10;
+    border: 1px solid #000000;
+    background: #ffffff;
+}
+
+.date-picker td {
+    cursor: pointer;
+}
+
+
+.page-actions {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.pure-skin-ngv .pure-form .page-actions button {
+    font-size: 107%;
+}
+
+.page-actions {
+    margin-left: 13em;
+}
+
+.pure-skin-ngv .page-buttons-separator {
+    margin-top: 1em;
+    background: url(/ngv/images/form-footer-bg.gif) no-repeat;
+    height: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+}
+
+.pure-skin-ngv .pure-form .page-actions button {
+    margin-left: 5px;
+    box-shadow: 0 1px 3px rgba(64, 64, 64, 0.5);
+}
+
+.pure-skin-ngv .pure-form .page-actions button:active,
+.pure-skin-ngv .pure-form .page-actions button.pure-button-tertiary:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+}
+
+.pure-skin-ngv .pure-form .page-actions button.pure-button-tertiary {
+    box-shadow: none;
+}
+
+.pure-skin-ngv .pure-button.pure-button-tertiary {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.pure-skin-ngv .pure-form .form-messages {
+    -webkit-transition: 0.2s ease-in-out -webkit-opacity;
+    -moz-transition: 0.2s ease-in-out -moz-opacity;
+    -ms-transition: 0.2s ease-in-out opacity;
+    -o-transition: 0.2s ease-in-out opacity;
+    transition: 0.2s ease-in-out opacity;
+    transition-delay: 0s;
+    opacity: 0;
+}
+
+.pure-skin-ngv .pure-form.messages-visible .form-messages {
+    opacity: 1;
+}
+
+.pure-skin-ngv .pure-form.messages-visible input.ng-invalid {
+    border-color: #e9322d;
+    background-color: #fef8f6;
+}
+
+.form-messages .errors {
+    color: #e9322d;
+    font-size: 0.8em;
+    background-color: #fbe8e5;
+    border-radius: 4px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.message-icon {
+    margin-left: 0.8em;
+    display: inline-block;
+    height: 30px;
+}
+
+.messages-group {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 0.1em;
+}
+
+.client-messages {
+    color: #e9322d;
+    font-size: 70%;
+    font-weight: lighter;
+    position: absolute;
+}
+
+.pure-skin-ngv ngv-form.pure-form-stacked label {
+    margin-top: 1em;
+    margin-bottom: 0.1em;
+}
+
+ngv-messages {
+    display: none;
+}
+
+
+.collapsible-title span {
+    display: inline-block;
+    letter-spacing: normal;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+}
+
+.collapsible-panel {
+    padding-bottom: 0.8em;
+    padding-left: 0.2em;
+}
+
+.collapsible-panel .collapsible-section {
+    padding-left: 1.5em;
+}
+
+.collapsible-panel .collapsible-icon {
+    background-repeat: no-repeat;
+    background-position-x: 0.2em;
+}
+
+.collapsible-panel.collapsed .collapsible-icon {
+    background-image: url('/ngv/images/arrow-closed.png');
+    background-position-y: 0.75em;
+}
+
+.collapsible-panel.expanded .collapsible-icon {
+    background-image: url('/ngv/images/arrow-open.png');
+    background-position-y: 0.85em;
+}
+
+.tab-body {
+    border: solid 1px;
+    border-color: #ededed;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px;
+    padding: 0.5em;
+    border-top-width: 0;
+    background: linear-gradient(to bottom, #b4d3f3, #ffffff);
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+}
+
+.tab-list {
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+ul.tab-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tab-list li {
+    display: inline-block;
+    font-size: 90%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: linear-gradient(to bottom, #dedede, #c6c7c7);
+    border-style: solid;
+    border-color: #dedede #b9bbbb transparent #dedede;
+    color: #000000;
+    border-width: 1px;
+    cursor: pointer;
+    margin-right: 0.15em;
+}
+
+.tab-list .tab-button {
+    min-height: 1.7em;
+}
+
+.tab-list .tab-button-text {
+    margin-top: 0.2em;
+    margin-bottom: 0em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+}
+
+.tab-list li:hover {
+    background: linear-gradient(to bottom, #b9bbbb, #c6c7c7);
+    color: #080808;
+    border: solid 1px;
+    border-color: #cecfcf #a5a7a7 transparent #cecfcf;
+}
+
+.tab-list li.selected {
+    background: linear-gradient(to bottom, #E1EEFE, #b4d3f3);
+    border: solid 1px;
+    border-color: #b4d3f3;
+    color: #000000;
+}
+
+.tab-container .tab-body div[ngv-tab-pane] {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: 0.2s ease-in-out -webkit-opacity;
+    -moz-transition: 0.2s ease-in-out -moz-opacity;
+    -ms-transition: 0.2s ease-in-out opacity;
+    -o-transition: 0.2s ease-in-out opacity;
+    transition: 0.2s ease-in-out opacity;
+    transition-delay: 0s;
+}
+
+.tab-container .tab-body div[ngv-tab-pane].selected {
+    position: inherit;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*
+ *
+ * Taken from the Pure CSS theme generator
+ *
+ *
+ *
+ */
+
+body {
+    background-color: #ffffff;
+}
+
+/* from PURE buttons-core.css */
+.pure-skin-ngv .pure-button {
+    /* Structure */
+    display: inline-block;
+    *display: inline; /*IE 6/7*/
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-skin-ngv .pure-button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/* end from PURE buttons-core.css */
+/* from PURE buttons.css */
+/*csslint unqualified-attributes:false*/
+
+.pure-skin-ngv .pure-button {
+    font-size: 100%;
+    *font-size: 90%; /*IE 6/7 - To reduce IE's oversized button text*/
+    *overflow: visible; /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
+    padding: 0.5em 1.5em 0.5em;
+    color: #05101a; /* rgba not supported (IE 8) */
+    /* color: rgba(0, 0, 0, 0.80); rgba supported */
+    /* *color: #444; IE 6 & 7 */
+    border: 1px solid #81b7e9; /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0); /*IE9 + everything else*/
+    background-color: #a0c8ee;
+    text-decoration: none;
+    border-radius: 2px;
+    -webkit-font-smoothing: antialiased;
+    /* Transitions */
+    -webkit-transition: 0.1s linear -webkit-box-shadow;
+    -moz-transition: 0.1s linear -moz-box-shadow;
+    -ms-transition: 0.1s linear box-shadow;
+    -o-transition: 0.1s linear box-shadow;
+    transition: 0.1s linear box-shadow;
+}
+
+.pure-skin-ngv .pure-button-hover,
+.pure-skin-ngv .pure-button:hover {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05));
+    background-image: -ms-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));
+    background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.05));
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.05));
+}
+
+.pure-skin-ngv .pure-button:focus {
+    outline: 0;
+}
+
+.pure-skin-ngv .pure-button-active,
+.pure-skin-ngv .pure-button:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+}
+
+.pure-skin-ngv .pure-button[disabled],
+.pure-skin-ngv .pure-button-disabled,
+.pure-skin-ngv .pure-button-disabled:hover,
+.pure-skin-ngv .pure-button-disabled:active {
+    border: none;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.40;
+    -moz-opacity: 0.40;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pure-skin-ngv .pure-button-hidden {
+    display: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-skin-ngv .pure-button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.pure-skin-ngv .pure-button-primary,
+.pure-skin-ngv .pure-button-selected,
+.pure-skin-ngv a.pure-button-primary,
+.pure-skin-ngv a.pure-button-selected {
+    background-color: #0078e7;
+    color: #fafdff;
+}
+
+/*! Copyright 2013 Yahoo! Inc. http://yuilibrary.com/license/ */
+/* This page lists core form styles adopted from Normalize.css. */
+/*! Copyright (c) Nicolas Gallagher and Jonathan Neal */
+
+/*! normalize.css v1.1.0 | MIT License | git.io/normalize */
+
+/* This page has Normalize.css form-specific style rules applied to a .yui3-form context */
+
+/* ==========
+Forms Core
+=========*/
+
+/*
+ * Corrects margin displayed oddly in IE 6/7.
+ */
+
+.pure-skin-ngv .pure-form {
+    margin: 0;
+}
+
+/* Define consistent border, margin, and padding.*/
+
+.pure-skin-ngv .pure-form fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 6/7/8/9.
+ * 2. Corrects text not wrapping in Firefox 3.
+ * 3. Corrects alignment displayed oddly in IE 6/7.
+ */
+
+.pure-skin-ngv .pure-form legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improves appearance and consistency in all browsers.
+ */
+
+.pure-skin-ngv .pure-form button,
+.pure-skin-ngv .pure-form input,
+.pure-skin-ngv .pure-form select,
+.pure-skin-ngv .pure-form textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/*
+ * Addresses Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+.pure-skin-ngv .pure-form button,
+.pure-skin-ngv .pure-form input {
+    line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+.pure-skin-ngv .pure-form button,
+.pure-skin-ngv .pure-form input[type="button"], /* 1 */
+.pure-skin-ngv .pure-form input[type="reset"],
+.pure-skin-ngv .pure-form input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible; /* 4 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+
+.pure-skin-ngv .pure-form button[disabled],
+.pure-skin-ngv .pure-form input[disabled] {
+    cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ * 3. Removes excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+.pure-skin-ngv .pure-form input[type="checkbox"],
+.pure-skin-ngv .pure-form input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+.pure-skin-ngv .pure-form input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+.pure-skin-ngv .pure-form input[type="search"]::-webkit-search-cancel-button,
+.pure-skin-ngv .pure-form input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 3+.
+ */
+
+.pure-skin-ngv .pure-form button::-moz-focus-inner,
+.pure-skin-ngv .pure-form input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+
+.pure-skin-ngv .pure-form textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ===============  forms-responsive.css =================*/
+@media only screen and (max-width: 480px) {
+    .pure-skin-ngv .pure-form button[type="submit"] {
+        margin: 0.7em 0 0;
+    }
+
+    .pure-skin-ngv .pure-form input[type="text"],
+    .pure-skin-ngv .pure-form input[type="password"],
+    .pure-skin-ngv .pure-form input[type="email"],
+    .pure-skin-ngv .pure-form input[type="url"],
+    .pure-skin-ngv .pure-form input[type="date"],
+    .pure-skin-ngv .pure-form input[type="month"],
+    .pure-skin-ngv .pure-form input[type="time"],
+    .pure-skin-ngv .pure-form input[type="datetime"],
+    .pure-skin-ngv .pure-form input[type="datetime-local"],
+    .pure-skin-ngv .pure-form input[type="week"],
+    .pure-skin-ngv .pure-form input[type="number"],
+    .pure-skin-ngv .pure-form input[type="search"],
+    .pure-skin-ngv .pure-form input[type="tel"],
+    .pure-skin-ngv .pure-form input[type="color"],
+    .pure-skin-ngv .pure-form label {
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .pure-skin-ngv .pure-group input[type="text"],
+    .pure-skin-ngv .pure-group input[type="password"],
+    .pure-skin-ngv .pure-group input[type="email"],
+    .pure-skin-ngv .pure-group input[type="url"],
+    .pure-skin-ngv .pure-group input[type="date"],
+    .pure-skin-ngv .pure-group input[type="month"],
+    .pure-skin-ngv .pure-group input[type="time"],
+    .pure-skin-ngv .pure-group input[type="datetime"],
+    .pure-skin-ngv .pure-group input[type="datetime-local"],
+    .pure-skin-ngv .pure-group input[type="week"],
+    .pure-skin-ngv .pure-group input[type="number"],
+    .pure-skin-ngv .pure-group input[type="search"],
+    .pure-skin-ngv .pure-group input[type="tel"],
+    .pure-skin-ngv .pure-group input[type="color"] {
+        margin-bottom: 0;
+    }
+
+    .pure-skin-ngv .pure-form-aligned .pure-control-group label {
+        margin-bottom: 0.3em;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    .pure-skin-ngv .pure-form-aligned .pure-controls {
+        margin: 1.5em 0 0 0;
+    }
+
+    /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+    .pure-skin-ngv .pure-form .pure-help-inline,
+    .pure-skin-ngv .pure-form-message-inline,
+    .pure-skin-ngv .pure-form-message {
+        display: block;
+        font-size: 80%;
+        /* increased bottom padding to make it group with its related input element */
+        padding: 0.2em 0 0.8em;
+    }
+}
+
+/* ===============  forms.css =================================*/
+.pure-skin-ngv .pure-form input[type="text"],
+.pure-skin-ngv .pure-form input[type="password"],
+.pure-skin-ngv .pure-form input[type="email"],
+.pure-skin-ngv .pure-form input[type="url"],
+.pure-skin-ngv .pure-form input[type="date"],
+.pure-skin-ngv .pure-form input[type="month"],
+.pure-skin-ngv .pure-form input[type="time"],
+.pure-skin-ngv .pure-form input[type="datetime"],
+.pure-skin-ngv .pure-form input[type="datetime-local"],
+.pure-skin-ngv .pure-form input[type="week"],
+.pure-skin-ngv .pure-form input[type="number"],
+.pure-skin-ngv .pure-form input[type="search"],
+.pure-skin-ngv .pure-form input[type="tel"],
+.pure-skin-ngv .pure-form input[type="color"],
+.pure-skin-ngv .pure-form select,
+.pure-skin-ngv .pure-form textarea {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    font-size: 0.8em;
+    box-shadow: inset 0 1px 3px #e6e6e6;
+    border-radius: 4px;
+    -webkit-transition: 0.3s linear border;
+    -moz-transition: 0.3s linear border;
+    -ms-transition: 0.3s linear border;
+    -o-transition: 0.3s linear border;
+    transition: 0.3s linear border;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pure-skin-ngv .pure-form input[type="text"]:focus,
+.pure-skin-ngv .pure-form input[type="password"]:focus,
+.pure-skin-ngv .pure-form input[type="email"]:focus,
+.pure-skin-ngv .pure-form input[type="url"]:focus,
+.pure-skin-ngv .pure-form input[type="date"]:focus,
+.pure-skin-ngv .pure-form input[type="month"]:focus,
+.pure-skin-ngv .pure-form input[type="time"]:focus,
+.pure-skin-ngv .pure-form input[type="datetime"]:focus,
+.pure-skin-ngv .pure-form input[type="datetime-local"]:focus,
+.pure-skin-ngv .pure-form input[type="week"]:focus,
+.pure-skin-ngv .pure-form input[type="number"]:focus,
+.pure-skin-ngv .pure-form input[type="search"]:focus,
+.pure-skin-ngv .pure-form input[type="tel"]:focus,
+.pure-skin-ngv .pure-form input[type="color"]:focus,
+.pure-skin-ngv .pure-form select:focus,
+.pure-skin-ngv .pure-form textarea:focus {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: #129FEA;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.pure-skin-ngv .pure-form input[type="file"]:focus,
+.pure-skin-ngv .pure-form input[type="radio"]:focus,
+.pure-skin-ngv .pure-form input[type="checkbox"]:focus {
+    outline: thin dotted #333;
+    outline: 1px auto #129FEA;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.pure-skin-ngv .pure-form .pure-checkbox,
+.pure-skin-ngv .pure-form .pure-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+
+.pure-skin-ngv .pure-form input[type="text"][disabled],
+.pure-skin-ngv .pure-form input[type="password"][disabled],
+.pure-skin-ngv .pure-form input[type="email"][disabled],
+.pure-skin-ngv .pure-form input[type="url"][disabled],
+.pure-skin-ngv .pure-form input[type="date"][disabled],
+.pure-skin-ngv .pure-form input[type="month"][disabled],
+.pure-skin-ngv .pure-form input[type="time"][disabled],
+.pure-skin-ngv .pure-form input[type="datetime"][disabled],
+.pure-skin-ngv .pure-form input[type="datetime-local"][disabled],
+.pure-skin-ngv .pure-form input[type="week"][disabled],
+.pure-skin-ngv .pure-form input[type="number"][disabled],
+.pure-skin-ngv .pure-form input[type="search"][disabled],
+.pure-skin-ngv .pure-form input[type="tel"][disabled],
+.pure-skin-ngv .pure-form input[type="color"][disabled],
+.pure-skin-ngv .pure-form select[disabled],
+.pure-skin-ngv .pure-form textarea[disabled] {
+    cursor: not-allowed;
+    box-shadow: inset 0 1px 10px #ededed;
+    background-color: #ededed;
+    color: #adadad;
+    border-color: #e6e6e6;
+}
+
+.pure-skin-ngv .pure-form input[readonly],
+.pure-skin-ngv .pure-form select[readonly],
+.pure-skin-ngv .pure-form textarea[readonly],
+.pure-skin-ngv .pure-form input[readonly]:focus,
+.pure-skin-ngv .pure-form select[readonly]:focus,
+.pure-skin-ngv .pure-form textarea[readonly]:focus {
+    background: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+.pure-skin-ngv .pure-form input.ng-invalid:focus,
+.pure-skin-ngv .pure-form textarea.ng-invalid:focus,
+.pure-skin-ngv .pure-form select.ng-invalid:focus {
+    color: #b94a48;
+    border: 1px solid #ee5f5b;
+}
+
+.pure-skin-ngv .pure-form input.ng-invalid:focus:focus,
+.pure-skin-ngv .pure-form textarea.ng-invalid:focus:focus,
+.pure-skin-ngv .pure-form select.ng-invalid:focus:focus {
+    border-color: #e9322d;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(233, 50, 45, 0.4);
+}
+
+.pure-skin-ngv .pure-form input[type="file"].ng-invalid:focus:focus,
+.pure-skin-ngv .pure-form input[type="radio"].ng-invalid:focus:focus,
+.pure-skin-ngv .pure-form input[type="checkbox"].ng-invalid:focus:focus {
+    outline-color: #e9322d;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(233, 50, 45, 0.4);
+}
+
+.pure-skin-ngv .pure-form select {
+    border: 1px solid #e6e6e6;
+    background-color: white;
+}
+
+.pure-skin-ngv .pure-form select[multiple] {
+    height: auto;
+}
+
+.pure-skin-ngv .pure-form label {
+    margin: 0.5em 0 0.2em;
+    color: #4f4f4f;
+    font-size: 90%;
+}
+
+.pure-skin-ngv .pure-form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+
+.pure-skin-ngv .pure-form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    font-size: 125%;
+    color: #262626;
+    border-bottom: 1px solid #ededed;
+}
+
+.pure-skin-ngv .pure-form-stacked input[type="text"],
+.pure-skin-ngv .pure-form-stacked input[type="password"],
+.pure-skin-ngv .pure-form-stacked input[type="email"],
+.pure-skin-ngv .pure-form-stacked input[type="url"],
+.pure-skin-ngv .pure-form-stacked input[type="date"],
+.pure-skin-ngv .pure-form-stacked input[type="month"],
+.pure-skin-ngv .pure-form-stacked input[type="time"],
+.pure-skin-ngv .pure-form-stacked input[type="datetime"],
+.pure-skin-ngv .pure-form-stacked input[type="datetime-local"],
+.pure-skin-ngv .pure-form-stacked input[type="week"],
+.pure-skin-ngv .pure-form-stacked input[type="number"],
+.pure-skin-ngv .pure-form-stacked input[type="search"],
+.pure-skin-ngv .pure-form-stacked input[type="tel"],
+.pure-skin-ngv .pure-form-stacked input[type="color"],
+.pure-skin-ngv .pure-form-stacked select,
+.pure-skin-ngv .pure-form-stacked label,
+.pure-skin-ngv .pure-form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+.pure-skin-ngv .pure-form-aligned input,
+.pure-skin-ngv .pure-form-aligned textarea,
+.pure-skin-ngv .pure-form-aligned select,
+    /* note: pure-help-inline is deprecated. Use .pure-form-message-inline instead */
+.pure-skin-ngv .pure-form-aligned .pure-help-inline,
+.pure-skin-ngv .pure-form-message-inline {
+    display: inline-block;
+    *display: inline; /* IE7 inline-block hack */
+    *zoom: 1;
+    vertical-align: middle;
+}
+
+/* aligned Forms */
+.pure-skin-ngv .pure-form-aligned .pure-control-group {
+    margin-bottom: 0.5em;
+}
+
+.pure-skin-ngv .pure-form-aligned .pure-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+
+.pure-skin-ngv .pure-form-aligned .pure-controls {
+    margin: 1.5em 0 0 10em;
+}
+
+/* Rounded Inputs */
+.pure-skin-ngv .pure-form input.pure-input-rounded,
+.pure-skin-ngv .pure-form .pure-input-rounded {
+    border-radius: 30px;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.pure-skin-ngv .pure-form .pure-group fieldset {
+    margin-bottom: 10px;
+}
+
+.pure-skin-ngv .pure-form .pure-group input {
+    display: block;
+    padding: 0.5em 0.6em;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+
+.pure-skin-ngv .pure-form .pure-group input:focus {
+    z-index: 2;
+}
+
+.pure-skin-ngv .pure-form .pure-group input:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.pure-skin-ngv .pure-form .pure-group input:last-child {
+    top: -2px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.pure-skin-ngv .pure-form .pure-group button {
+    margin: 0.35em 0;
+}
+
+.pure-skin-ngv .pure-form .pure-input-1 {
+    width: 100%;
+}
+
+.pure-skin-ngv .pure-form .pure-input-2-3 {
+    width: 66%;
+}
+
+.pure-skin-ngv .pure-form .pure-input-1-2 {
+    width: 50%;
+}
+
+.pure-skin-ngv .pure-form .pure-input-1-3 {
+    width: 33%;
+}
+
+.pure-skin-ngv .pure-form .pure-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+/* Note: pure-help-inline is deprecated. Use .pure-form-message-inline instead */
+.pure-skin-ngv .pure-form .pure-help-inline,
+.pure-skin-ngv .pure-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #adadad;
+    vertical-align: middle;
+    font-size: 90%;
+}
+
+/* Block help for forms */
+.pure-skin-ngv .pure-form-message {
+    display: block;
+    color: #adadad;
+    font-size: 90%;
+}
+
+/* note no template for forms-r.css. no skinnable properties */
+
+/* foundational CSS */
+.pure-skin-ngv .pure-table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #d3e6f8;
+}
+
+.pure-skin-ngv .pure-table caption {
+    color: #adadad;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-skin-ngv .pure-table td,
+.pure-skin-ngv .pure-table th {
+    border-left: 1px solid #d3e6f8; /* inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.3em 0.6em; /* cell padding */
+}
+
+.pure-skin-ngv .pure-table td:first-child,
+.pure-skin-ngv .pure-table th:first-child {
+    border-left-width: 0;
+}
+
+.pure-skin-ngv .pure-table thead {
+    background-color: #c7dff5;
+    color: #0e2f4e;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+.pure-skin-ngv .pure-table td {
+    background-color: #e1eefa;
+    color: #12416d;
+}
+
+.pure-skin-ngv .pure-table-odd td {
+    background-color: #d3e6f8;
+    color: #0b2741;
+}
+
+/* nth-child selector for modern browsers */
+.pure-skin-ngv .pure-table-striped tr:nth-child(2n-1) td {
+    background-color: #d3e6f8;
+    color: #0b2741;
+}
+
+/* BORDERED TABLES */
+.pure-skin-ngv .pure-table-bordered td {
+    border-bottom: 1px solid #d3e6f8;
+}
+
+.pure-skin-ngv .pure-table-bordered tbody > tr:last-child td,
+.pure-skin-ngv .pure-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+/* HORIZONTAL BORDERED TABLES */
+.pure-skin-ngv .pure-table-horizontal td,
+.pure-skin-ngv .pure-table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #d3e6f8;
+}
+
+.pure-skin-ngv .pure-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+/* from PURE menu-core.css */
+/*csslint adjoining-classes:false, outline-none:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+.pure-skin-ngv .pure-menu ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.pure-skin-ngv .pure-menu.pure-menu-open {
+    visibility: visible;
+    z-index: 2;
+    width: 100%;
+}
+
+.pure-skin-ngv .pure-menu ul {
+    left: -10000px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: -10000px;
+    z-index: 1;
+}
+
+.pure-skin-ngv .pure-menu > ul {
+    position: relative;
+}
+
+.pure-skin-ngv .pure-menu-open > ul {
+    left: 0;
+    top: 0;
+    visibility: visible;
+}
+
+.pure-skin-ngv .pure-menu-open > ul:focus {
+    outline: 0;
+}
+
+.pure-skin-ngv .pure-menu li {
+    position: relative;
+}
+
+.pure-skin-ngv .pure-menu a, .pure-skin-ngv .pure-menu .pure-menu-heading {
+    display: block;
+    color: inherit;
+    line-height: 1.5em;
+    padding: 0.35em 1.4em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.pure-skin-ngv .pure-menu.pure-menu-horizontal > .pure-menu-heading {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.pure-skin-ngv .pure-menu.pure-menu-horizontal > ul {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    /* height: 2.4em; removed for Skin Builder */
+}
+
+.pure-skin-ngv .pure-menu li a {
+    padding: 0.35em 1.4em;
+}
+
+.pure-skin-ngv .pure-menu-can-have-children > .pure-menu-label:after {
+    content: '\25B8';
+    float: right;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif; /* These specific fonts have the Unicode char we need. */
+    margin-right: -20px;
+    margin-top: -1px;
+}
+
+.pure-skin-ngv .pure-menu-can-have-children > .pure-menu-label {
+    padding-right: 30px;
+}
+
+.pure-skin-ngv .pure-menu-separator {
+    background-color: #d3e6f8;
+    display: block;
+    height: 1px;
+    font-size: 0;
+    margin: 7px 2px;
+    overflow: hidden;
+}
+
+.pure-skin-ngv .pure-menu-hidden {
+    display: none;
+}
+
+/* FIXED MENU */
+.pure-skin-ngv .pure-menu-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* HORIZONTAL MENU CODE */
+
+/* Initial menus should be inline-block so that they are horizontal */
+.pure-skin-ngv .pure-menu-horizontal li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+/* Submenus should still be display:block; */
+.pure-skin-ngv .pure-menu-horizontal li li {
+    display: block;
+}
+
+/* Content after should be down arrow */
+.pure-skin-ngv .pure-menu-horizontal > .pure-menu-children > .pure-menu-can-have-children > .pure-menu-label:after {
+    content: "\25BE";
+}
+
+/*Add extra padding to elements that have the arrow so that the hover looks nice */
+.pure-skin-ngv .pure-menu-horizontal > .pure-menu-children > .pure-menu-can-have-children > .pure-menu-label {
+    padding-right: 30px;
+}
+
+/* Adjusting separator for vertical menus */
+.pure-skin-ngv .pure-menu-horizontal li.pure-menu-separator {
+    height: 50%;
+    width: 1px;
+    margin: 0 7px;
+}
+
+/* Submenus should be horizontal separator again */
+.pure-skin-ngv .pure-menu-horizontal li li.pure-menu-separator {
+    height: 1px;
+    width: auto;
+    margin: 7px 2px;
+}
+
+/* end from yuicss/menu-core.css *******************************************/
+/* from yuicss menu-paginator.css */
+/*csslint box-model:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+.pure-skin-ngv .pure-paginator {
+
+    /* `pure-g` Grid styles */
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    *letter-spacing: normal; /* reset IE < 8 */
+    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+    /* `pure-paginator` Specific styles */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.opera-only :-o-prefocus,
+.pure-skin-ngv .pure-paginator {
+    word-spacing: -0.43em;
+}
+
+/* `pure-u` Grid styles */
+.pure-skin-ngv .pure-paginator li {
+    display: inline-block;
+    *display: inline; /* IE < 8: fake inline-block */
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.pure-skin-ngv .pure-paginator .pure-button {
+    border-radius: 0;
+    padding: 0.8em 1.4em;
+    vertical-align: top;
+    height: 1.1em;
+}
+
+.pure-skin-ngv .pure-paginator .pure-button:focus,
+.pure-skin-ngv .pure-paginator .pure-button:active {
+    outline-style: none;
+}
+
+.pure-skin-ngv .pure-paginator .prev,
+.pure-skin-ngv .pure-paginator .next {
+    /*color: #C0C1C3; allow .pure-button to color text*/
+}
+
+.pure-skin-ngv .pure-paginator .prev {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.pure-skin-ngv .pure-paginator .next {
+    border-radius: 0px 4px 4px 0px;
+}
+
+/* end from PURE menu-paginator.css ******************************/
+/* from PURE menu.css *******************************************/
+/* MAIN MENU STYLING */
+/*csslint adjoining-classes:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+.pure-skin-ngv .pure-menu.pure-menu-open,
+.pure-skin-ngv .pure-menu.pure-menu-horizontal li .pure-menu-children {
+    background: linear-gradient(to bottom, #e1eefa, #e1eefa); /* Old browsers */
+
+    border: 1px solid #d3e6f8;
+}
+
+/* remove borders for horizontal menus */
+.pure-skin-ngv .pure-menu.pure-menu-horizontal,
+.pure-skin-ngv .pure-menu.pure-menu-horizontal .pure-menu-heading {
+    border: none;
+}
+
+/* LINK STYLES */
+
+.pure-skin-ngv .pure-menu a {
+    border: 1px solid transparent;
+    border-left: none;
+    border-right: none;
+
+}
+
+.pure-skin-ngv .pure-menu a,
+.pure-skin-ngv .pure-menu .pure-menu-can-have-children > li:after {
+    color: #12416d;
+}
+
+.pure-skin-ngv .pure-menu .pure-menu-can-have-children > li:hover:after {
+    color: #0b2741;
+}
+
+/* Focus style for a dropdown menu-item when the parent has been opened */
+.pure-skin-ngv .pure-menu .pure-menu-open {
+    background: #b9d7f3;
+}
+
+.pure-skin-ngv .pure-menu li a:hover,
+.pure-skin-ngv .pure-menu li a:focus {
+    background: #dedede;
+}
+
+.pure-skin-ngv .top-menu .pure-menu li a:hover {
+    background: #d3e6f8;
+}
+
+
+/* DISABLED STATES */
+.pure-skin-ngv .pure-menu li.pure-menu-disabled a:hover,
+.pure-skin-ngv .pure-menu li.pure-menu-disabled a:focus {
+    background: #e1eefa;
+    color: #66a8e5;
+}
+
+.pure-skin-ngv .pure-menu .pure-menu-disabled > a {
+    background-image: none;
+    border-color: transparent;
+    cursor: default;
+}
+
+.pure-skin-ngv .pure-menu .pure-menu-disabled > a,
+.pure-skin-ngv .pure-menu .pure-menu-can-have-children.pure-menu-disabled > a:after {
+    color: #66a8e5;
+}
+
+/* HEADINGS */
+.pure-skin-ngv .pure-menu .pure-menu-heading {
+    color: #071727;
+    text-transform: uppercase;
+    font-size: 90%;
+    margin-top: 0.5em;
+    border-bottom: solid 1px #d3e6f8;
+}
+
+/* SELECTED MENU ITEM */
+.pure-skin-ngv .pure-menu li.pure-menu-selected a {
+    background-color: #0078e7;
+    color: #fafdff;
+}
+
+/* FIXED MENU */
+.pure-skin-ngv .pure-menu.pure-menu-open.pure-menu-fixed {
+    border: none;
+    border-bottom: 1px solid #d3e6f8;
+}
+
+/* end from PURE menu.css ***********************************/
+/* from PURE menu-responsive.css ****************************/
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+
+    .pure-skin-ngv .pure-menu-horizontal {
+        width: 100%;
+    }
+
+    .pure-skin-ngv .pure-menu-children li {
+        display: block;
+        border-bottom: 1px solid #d3e6f8;
+    }
+
+}
+
+/* end from menu-responsive.css ******************/
+

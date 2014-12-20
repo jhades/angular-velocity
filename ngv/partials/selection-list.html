@@ -1,0 +1,15 @@
+<div class="selection-list"
+     ng-style="{'max-height': (getMaxVisibleEntries() * 22) + 'px' , 'width': (dropdownWidth || '280px')}"
+     ng-mouseenter="mouseInsideSelectionList = true"
+     ng-mouseleave="mouseInsideSelectionList = false"
+     ng-mousemove="suspendMouseSelection = false">
+
+    <div class="selection-option"
+         ng-repeat="entry in selectionEntries track by $index"
+         ng-class="{'selected': selectedIndex == $index}"
+         ng-mouseenter="onEntryHover($event, $index)">
+
+        <div class="selection-description" ng-mousedown="selectEntry($index, true)">{{entry.description}}</div>
+
+    </div>
+</div>

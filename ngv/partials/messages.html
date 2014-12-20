@@ -1,0 +1,9 @@
+<div class="form-messages" ng-hide="!$parent.messagesVisible">
+    <div class="errors">
+        <img class="message-icon" src="/ngv/images/error-icon.png">
+
+        <div class="messages-group">
+            <div ng-repeat="error in formCtrl.errors">{{::formCtrl.textPerMessage[error.msgId]}}</div>
+        </div>
+    </div>
+</div>

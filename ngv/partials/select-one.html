@@ -1,0 +1,24 @@
+<div class="select-one">
+
+    <input type="text"
+           name="{{name}}"
+           ng-model="model.searchInput"
+           ng-click="onInputClicked()"
+           ng-blur="onInputBlur()"
+           ng-keydown="onKeyDown($event)"
+           check-empty-allowed>
+
+    <div class="widget-button {{cssIcon}}"
+         ng-click="onButtonClicked()"
+         ng-show="isShowDropdownButton()"></div>
+
+    <div ngv-selection-list
+         ng-hide="!showDropdown || selectionEntries.length == 0"
+         selection-entries="selectionEntries"
+         max-visible-entries="maxVisibleEntries"
+         dropdown-width="dropdownWidth"
+         on-entry-selected="onEntrySelected(selectedIndex, selectText)">
+
+    </div>
+
+</div>

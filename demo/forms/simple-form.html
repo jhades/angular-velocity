@@ -1,0 +1,161 @@
+<ngv-form class="pure-form-stacked" ng-controller="SimpleFormCtrl">
+
+    <ngv-messages>
+        <ngv-error msgId="FN001" field="lastName" clientTrigger="required">You did not enter a last name</ngv-error>
+        <ngv-error msgId="FN002" field="lastName">A person with this name already exists</ngv-error>
+        <ngv-error msgId="FN003" field="lastName" clientTrigger="minlength">The last name must have a minimum of two
+            characters
+        </ngv-error>
+        <ngv-error msgId="FN004" field="email" clientTrigger="required">Invalid email address</ngv-error>
+        <ngv-error msgId="FN005" field="country" clientTrigger="required">Country is required</ngv-error>
+    </ngv-messages>
+
+    <div ngv-tab-container>
+
+        <div ngv-tab-pane="Personal Data">
+            <div ngv-collapsible-panel="Simple Input Form">
+                <div class="pure-g">
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>First Name</label>
+                        <input type="text" ngv-field name="firstName" ng-model="user.firstName" grab-focus>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Last Name</label>
+                        <input ngv-field name="lastName" type="text" ng-model="user.lastName" required ng-minlength="2">
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>BirthDate</label>
+                        <input ngv-calendar name="birthDate" type="date" ng-model="user.birthDate" required>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>E-Mail</label>
+                        <input ngv-field name="email" type="email" ng-model="user.email" required>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Country</label>
+                        <input ngv-dropdown
+                               options-command="findAllCountryRefData()"
+                               empty-entry="please.select.country"
+                               name="country"
+                               ng-model="user.country"
+                               required>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>City</label>
+                        <input ngv-autocomplete
+                               options-command="findAllCountryRefData()"
+                               empty-entry="please.select.city"
+                               name="city"
+                               ng-model="user.city"
+                               required>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Comments</label>
+                        <textarea name="comments" type="text" ng-model="user.comments"></textarea>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Gender</label>
+                        <input type="text" ngv-select name="gender" ng-model="user.gender"
+                               options-command="findGenders()" required>
+                    </div>
+
+                </div>
+            </div>
+
+            <div ngv-collapsible-panel="Another Collapsible">
+                <div class="pure-g">
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Field 1</label>
+                        <input type="text" ng-model="user.field1">
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Field 2</label>
+                        <input ngv-field name="field2" type="text" ng-model="user.field2" required ng-minlength="2">
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Field 3</label>
+                        <input name="field3" type="date" ng-model="user.field3" required>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div ngv-tab-pane="Addresses">
+            <div class="pure-g" ngv-collapsible-panel="Home Address">
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label>Street Name</label>
+                    <input type="text" ng-model="user.firstName">
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label>Street Number</label>
+                    <input ngv-field name="streetNumber" type="text" ng-model="address.streetNumber" required
+                           ng-minlength="2">
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label >Zip Code</label>
+                    <input type="text" ng-model="address.zipCode">
+                </div>
+
+               <div class="pure-u-1 pure-u-md-1-3">
+                    <label>City</label>
+                    <input type="text" ng-model="user.firstName">
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label>Comments</label>
+                    <textarea name="comments" type="text" ng-model="user.comments"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div ngv-tab-pane="Billing">
+            <div ngv-collapsible-panel="Shipping Address">
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label>Company Name</label>
+                    <input type="text" ng-model="user.firstName">
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label>Shipping Date</label>
+                    <input ngv-field name="shippingDate" type="text" ng-model="billing.shippingDate" required
+                           ng-minlength="2">
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-3">
+                    <label>Zip Code</label>
+                    <input type="text" ng-model="user.firstName">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-buttons-separator"></div>
+
+    <div class="page-actions">
+        <button class="pure-button" ngv-validate="validateSimpleForm()">Validate</button>
+        <button type="submit" class="pure-button pure-button-primary">Save</button>
+        <button type="reset" class="pure-button pure-button-tertiary">Cancel</button>
+
+    </div>
+
+</ngv-form>

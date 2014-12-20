@@ -1,0 +1,21 @@
+<ngv-form class="pure-form-aligned" ng-controller="CollapsibleCtrl">
+
+<div ngv-collapsible-panel="Collapsible Panel">
+
+        <div class="pure-control-group">
+            <label>Street Name:</label>
+            <input type="text" name="streetName" ng-model="address.streetName" grab-focus>
+        </div>
+        <div class="pure-control-group">
+            <label>Street Number:</label>
+            <input ngv-field name="streetNumber" type="text" ng-model="address.streetNumber">
+        </div>
+
+        <div class="pure-control-group">
+            <label>Zip Code:</label>
+            <input name="city" type="text" ng-model="address.zipCode">
+        </div>
+
+    </div>
+
+</ngv-form>
