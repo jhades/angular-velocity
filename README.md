@@ -27,6 +27,4 @@ Then launch an http server on the root directory, for example this will launch h
 Then access the following url:
 
     http://localhost:8080/showcase.html
-    
-This is what it currently (20 Dec 2014) looks like:
 
