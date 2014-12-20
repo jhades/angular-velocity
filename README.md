@@ -21,7 +21,7 @@ clone the repo and run:
 
     bower install
 
-Then launch an http server on the root directory, for example this will launch http-server with the cache disabled:
+Then launch an http server on the root directory, for example this will launch http-server with no caching headers:
 
     npm install http-server
     http-server -c-1 .
