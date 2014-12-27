@@ -1,8 +1,8 @@
 {
-  "name": "angular-velocity-demo",
+  "name": "angular-velocity",
   "version": "0.0.1",
   "authors": [
-    "Aleksey Novik <jhades.dev@gmail.com>"
+    "jhades.dev@gmail.com"
   ],
   "description": "Angular Velocity",
   "license": "MIT",
