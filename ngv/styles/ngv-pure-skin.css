@@ -309,7 +309,7 @@ div[ngv-collapsible-section] {
 
 .widget-button {
     background-repeat: no-repeat;
-    height: 27px;
+    height: 26px;
     width: 28px;
     display: inline-block;
     cursor: pointer;
@@ -324,7 +324,7 @@ div[ngv-collapsible-section] {
 .dropdown-button {
     background-image: url('/ngv/images/dropdown.png');
     background-position: center 8px;
-    background-size: 15px 10px;
+    background-size: 14px 10px;
 }
 
 .autocomplete-button {
