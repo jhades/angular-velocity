@@ -25,9 +25,10 @@ require.config({
         ngvCalendar: "/ngv/directives/calendar",
         ngvForms: "/ngv/directives/forms",
         ngvPanels: "/ngv/directives/panels",
-        angularVelocity: 'angular-velocity',
+        angularVelocity: '/ngv/angular-velocity',
         // demo application dependencies
-        referenceData: "/demo/scripts/referenceData"
+        referenceData: "/demo/scripts/referenceData",
+        partials: '/dist/partials'
     },
     shim: {
         referenceData: {
@@ -48,41 +49,44 @@ require.config({
         angularMessages: {
             deps: ['angular']
         },
+        partials: {
+            deps: ['angular']
+        },
         ngvCommons: {
             deps: ['angular', 'lodash']
         },
         ngvCollapsible: {
-            deps: ['angular']
+            deps: ['angular', 'partials']
         },
         ngvDraggable: {
-            deps: ['angular']
+            deps: ['angular' , 'partials']
         },
         ngvStartApp: {
-            deps: ['angular']
+            deps: ['angular' , 'partials']
         },
         ngvUtilityDialogs: {
-            deps: ['angular']
+            deps: ['angular' , 'partials']
         },
         ngvNavigationCommons: {
-            deps: ['angular']
+            deps: ['angular' , 'partials']
         },
         ngvMenuModel: {
-            deps: ['lodash']
+            deps: ['lodash' , 'partials']
         },
         ngvLeftMenuNavigation: {
-            deps: ['angular']
-        },
+            deps: ['angular', 'partials']
+        },      
         ngvSelectOne: {
-            deps: ['angular', 'ngvCommons']
+            deps: ['angular', 'ngvCommons', 'partials']
         },
         ngvCalendar: {
-            deps: ['angular', 'ngvCommons']
+            deps: ['angular', 'ngvCommons', 'partials']
         },
         ngvForms: {
-            deps: ['angular', 'angularMessages', 'ngvCommons', 'ngvPanels', 'ngvSelectOne', 'ngvCalendar']
+            deps: ['angular', 'angularMessages', 'ngvCommons', 'ngvPanels', 'ngvSelectOne', 'ngvCalendar', 'partials']
         },
         ngvPanels: {
-            deps: ['angular', 'ngvCommons']
+            deps: ['angular', 'ngvCommons', 'partials']
         },
         angularVelocity: {
             deps: [ 'lodash', 'angular', 'angularRoute', 'angularAnimate', 'angularCookies',

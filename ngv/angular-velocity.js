@@ -53,7 +53,7 @@ var AngularVelocity = (function () {
 // private variable containing the main Angular Velocity app, initializes the router.
 
     var angularVelocityApp = angular.module('ngvApp', ['ngvStartApp', 'ngRoute', 'ngAnimate', 'ngMessages',
-        'ngCookies', 'ngvLeftMenuNavigation', 'ngvForms'])
+        'ngCookies', 'ngvLeftMenuNavigation', 'ngvForms', 'ngvPartials'])
         .config(function ($routeProvider) {
 
             var routes = menuConfig.findRoutableMenuEntries();
