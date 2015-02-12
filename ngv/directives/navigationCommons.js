@@ -7,9 +7,6 @@ angular.module('ngvNavigationCommons', [])
     .constant('AppConfig', {
         getMenuConfig: function () {
             return AngularVelocity.getMenuConfig();
-        },
-        getPageLength: function () {
-            return AngularVelocity.getPageContentConfig().length;
         }
     })
     .directive('ngvTopMenu', function () {

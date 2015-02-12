@@ -2,7 +2,7 @@
     "menu": {
         "defaultHref": "/index",
         "length": 3,
-        "resizable": false,
+        "resizable": true,
         "entries": [
             {
                 "text": "Widgets & Forms",
@@ -115,9 +115,6 @@
                 "text": "Themeable"
             }
         ]
-    },
-    "pageContent": {
-        "length": 21
     }
 
 }

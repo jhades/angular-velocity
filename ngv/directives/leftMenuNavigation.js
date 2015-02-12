@@ -63,7 +63,7 @@ angular.module('ngvLeftMenuNavigation', ['ngvUtilityDialogs', 'ngvDraggable',
 
                 $scope.page = {
                     menuLength: $scope.menu.menuLength,
-                    pageLength: AppConfig.getPageLength()
+                    pageLength: 24 - $scope.menu.menuLength
                 };
 
                 var leftMenuOffset = 0, pageContentMaxX = 0;
