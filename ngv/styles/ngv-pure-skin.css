@@ -573,7 +573,8 @@ ul.tab-list {
 }
 
 .tab-list .tab-button {
-    min-height: 1.7em;
+    height: 1.7em;
+    line-height: 1.7em;
 }
 
 .tab-list .tab-button-text {
