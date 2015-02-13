@@ -1,9 +1,10 @@
 var gulp = require('gulp');
 
-gulp.task('html2js', function() {
+gulp.task('default', function() {
 
     var ngHtml2Js = require("gulp-ng-html2js");
     var concat = require("gulp-concat");
+    var uglify = require("gulp-uglify");
 
     gulp.src("./ngv/partials/*.html")
         .pipe(ngHtml2Js({
@@ -11,13 +12,14 @@ gulp.task('html2js', function() {
             prefix: "/ngv/partials/"
         }))
         .pipe(concat("partials.js"))
+        .pipe(uglify())
         .pipe(gulp.dest("./dist"));
     
 });
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch('./ngv/partials/*.html', ['html2js']);
+    gulp.watch('./ngv/partials/*.html', ['default']);
 });
 
 gulp.task('production', function() {
