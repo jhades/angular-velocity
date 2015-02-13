@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-gulp.task('default', function() {
+gulp.task('html2js', function() {
 
     var ngHtml2Js = require("gulp-ng-html2js");
     var concat = require("gulp-concat");
@@ -13,6 +13,11 @@ gulp.task('default', function() {
         .pipe(concat("partials.js"))
         .pipe(gulp.dest("./dist"));
     
+});
+
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+    gulp.watch('./ngv/partials/*.html', ['html2js']);
 });
 
 gulp.task('production', function() {
