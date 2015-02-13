@@ -1,5 +1,11 @@
 var gulp = require('gulp');
 
+/**
+ * 
+ * pre-populate the template cache with all the HTML templates 
+ *  
+ */
+
 gulp.task('default', function() {
 
     var ngHtml2Js = require("gulp-ng-html2js");
@@ -17,11 +23,21 @@ gulp.task('default', function() {
     
 });
 
-// Rerun the task when a file changes
+/**
+ * 
+ * update the template cache with the latest changes - meant for development mode
+ *  
+ */
+
 gulp.task('watch', function() {
     gulp.watch('./ngv/partials/*.html', ['default']);
 });
 
+/**
+ * 
+ * production mode 
+ *  
+ */
 gulp.task('production', function() {
 
     var ngHtml2Js = require("gulp-ng-html2js");
