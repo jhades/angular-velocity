@@ -1,0 +1,46 @@
+.site-header {
+    background: #214685; /* this is the main header color */
+}
+
+.site-header h1 {
+    color: #ffffff;
+}
+
+.logo {
+    height: 32px;
+    margin-left: 17px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.site-header {
+    margin-top: 3px;
+}
+
+@media screen and (min-width: 35.5em) {
+    .site-header {
+        height: 51px;
+    }
+}
+
+.site-header h1 {
+    font-size: 1.49em;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 16px;
+    color: #ffffff;
+    margin-top: 10px;
+    text-shadow: 1px 1px black;
+}
+
+.site-footer {
+    color: #636363;
+    font-size: 0.68em;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.site-footer p {
+    margin-top: 1px;
+}
+
