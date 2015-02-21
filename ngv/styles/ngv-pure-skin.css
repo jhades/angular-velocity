@@ -389,6 +389,7 @@ div[ngv-collapsible-section] {
 
 .selection-description {
     height: 100%;
+    line-height:18px;
 }
 
 .date-picker {
@@ -1626,4 +1627,3 @@ striping:
 }
 
 /* end from menu-responsive.css ******************/
-
