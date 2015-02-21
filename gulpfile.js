@@ -20,7 +20,12 @@ gulp.task('default', function() {
         .pipe(concat("partials.js"))
         .pipe(uglify())
         .pipe(gulp.dest("./dist"));
-    
+
+    gulp.src("./ngv/styles/*.css")
+        .pipe(concat("angular-velocity.css"))
+        .pipe(gulp.dest("./dist"));
+
+
 });
 
 /**
@@ -30,7 +35,7 @@ gulp.task('default', function() {
  */
 
 gulp.task('watch', function() {
-    gulp.watch('./ngv/partials/*.html', ['default']);
+    gulp.watch(['./ngv/partials/*.html', './ngv/styles/*.css'], ['default']);
 });
 
 /**
