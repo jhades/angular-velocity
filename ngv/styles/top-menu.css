@@ -1,0 +1,9 @@
+
+.pure-skin-ngv .top-menu .pure-menu ul li.pure-menu-selected a {
+    border-left: solid 1px #d3e6f8;
+    border-right: solid 1px #d3e6f8;
+}
+
+.top-menu a {
+    cursor: pointer;
+}

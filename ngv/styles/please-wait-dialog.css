@@ -1,0 +1,28 @@
+.please-wait-dialog {
+    background: #e1eefa;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    width: 350px;
+    height: 140px;
+    margin: 0 auto;
+    display: none;
+    z-index: 2000;
+    opacity: 1;
+    position: relative;
+    top: 50%;
+    margin-top: -100px;
+}
+
+.please-wait-dialog h3 {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.please-wait-dialog img {
+    display: block;
+    margin: 0 auto;
+}
+
+.click-blocking-barrier.active.wait-ongoing .please-wait-dialog {
+    display: block;
+}

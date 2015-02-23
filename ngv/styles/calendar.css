@@ -1,0 +1,32 @@
+
+.calendar-button {
+    background-image: url('/ngv/images/calendar.png');
+    background-position: center 9px;
+    background-size: 8.5px;
+}
+
+.pure-skin-ngv .calendar .pure-table td {
+    padding: 0.3em;
+    text-align: center;
+    font-size: 82%;
+}
+
+.pure-skin-ngv .calendar .pure-table th {
+    padding: 0.3em;
+    text-align: center;
+    font-size: 82%;
+}
+
+.date-picker {
+    position: absolute;
+    z-index: 10;
+    border: 1px solid #000000;
+    background: #ffffff;
+}
+
+.date-picker td {
+    cursor: pointer;
+}
+
+
+

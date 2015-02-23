@@ -1,0 +1,70 @@
+
+.pure-skin-ngv div.select-one input[type="text"],
+.pure-skin-ngv div.calendar input[type="text"]{
+    display: inline-block;
+}
+
+.widget-button {
+    background-repeat: no-repeat;
+    height: 26px;
+    width: 28px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #A0C8F2;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-left: -2px;
+    vertical-align: top;
+    margin-top: 0.20em;
+}
+
+.dropdown-button {
+    background-image: url('/ngv/images/dropdown.png');
+    background-position: center 8px;
+    background-size: 14px 10px;
+}
+
+.autocomplete-button {
+    background-image: url('/ngv/images/autocomplete.png');
+    background-size:  18px;
+    background-position: center 3.5px;
+}
+
+.widget-button:hover {
+    background-color: #96bbde;
+}
+
+.widget-button:active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+    border: 1px solid dimgrey;
+}
+
+.select-one .selection-list {
+    background-color: #ffffff;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 1px solid darkgrey;
+    font-size: 0.8em;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15), -3px 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.select-one .selection-list .selection-option {
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    height: 18px;
+}
+
+.select-one .selection-list .selection-option.selected {
+    background-image: linear-gradient(to right bottom, #3c71f7, #0078e7);
+    color: #ffffff;
+}
+
+.selection-description {
+    height: 100%;
+    line-height:18px;
+}

@@ -1,0 +1,34 @@
+.collapsible-title span {
+    display: inline-block;
+    letter-spacing: normal;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+}
+
+.collapsible-panel {
+    padding-bottom: 0.8em;
+    padding-left: 0.2em;
+}
+
+.collapsible-panel .collapsible-section {
+    padding-left: 1.5em;
+}
+
+.collapsible-panel .collapsible-icon {
+    background-repeat: no-repeat;
+    background-position-x: 0.2em;
+}
+
+.collapsible-panel.collapsed .collapsible-icon {
+    background-image: url('/ngv/images/arrow-closed.png');
+    background-position-y: 0.75em;
+}
+
+.collapsible-panel.expanded .collapsible-icon {
+    background-image: url('/ngv/images/arrow-open.png');
+    background-position-y: 0.85em;
+}
