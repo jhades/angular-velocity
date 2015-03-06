@@ -28,7 +28,7 @@ require.config({
         angularVelocity: '/ngv/angular-velocity',
         // demo application dependencies
         referenceData: "/demo/scripts/referenceData",
-        partials: '/dist/partials'
+        partials: '/dist/templateCachePartials'
     },
     shim: {
         referenceData: {
