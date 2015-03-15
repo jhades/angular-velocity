@@ -1,21 +1,22 @@
 
 .pure-skin-ngv div.select-one input[type="text"],
 .pure-skin-ngv div.calendar input[type="text"]{
-    display: inline-block;
+    float: left;
+    border-radius: 4px 0 0 4px;
+    margin: 0;
 }
 
 .widget-button {
     background-repeat: no-repeat;
     height: 26px;
-    width: 28px;
-    display: inline-block;
+    width: 26px;
+    float: left;
     cursor: pointer;
     background-color: #A0C8F2;
     border: 1px solid #cccccc;
-    border-radius: 4px;
-    margin-left: -2px;
-    vertical-align: top;
-    margin-top: 0.20em;
+    border-left-width: 0;
+    border-radius: 0 4px 4px 0;
+    margin: 0;
 }
 
 .dropdown-button {
