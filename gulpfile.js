@@ -1,5 +1,13 @@
 
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    connect = require('gulp-connect');
+
+
+gulp.task('webserver', function() {
+    connect.server({
+        livereload: true
+    });
+});
 
 
 gulp.task('install', function() {
@@ -12,7 +20,7 @@ gulp.task('install', function() {
 });
 
 
-gulp.task('default', ['install'], function() {
+gulp.task('build', ['install'], function() {
 
     var ngHtml2Js = require("gulp-ng-html2js"),
         concat = require("gulp-concat");
@@ -32,8 +40,11 @@ gulp.task('default', ['install'], function() {
 
 
 gulp.task('watch', function() {
-    gulp.watch(['./ngv/partials/*.html', './ngv/styles/*.css'], ['default']);
+    gulp.watch(['./ngv/partials/*.html', './ngv/styles/*.css'], ['build']);
 });
+
+
+gulp.task('default', ['watch', 'webserver']);
 
 
 gulp.task('prod', function() {
@@ -56,9 +67,6 @@ gulp.task('prod', function() {
         .pipe(concat("partials.min.js"))
         .pipe(uglify())
         .pipe(gulp.dest("./dist/partials"));
-    
+
 });
-
-
-
 
