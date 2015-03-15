@@ -1,10 +1,19 @@
 
+/**
+    TODO mixin
+*/
 .pure-skin-ngv div.select-one input[type="text"],
 .pure-skin-ngv div.calendar input[type="text"]{
     float: left;
     border-radius: 4px 0 0 4px;
+    border-right-width: 0;
     margin: 0;
 }
+
+.pure-skin-ngv div.select-one input[type="text"]:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
 
 .widget-button {
     background-repeat: no-repeat;
@@ -13,10 +22,17 @@
     float: left;
     cursor: pointer;
     background-color: #A0C8F2;
-    border: 1px solid #cccccc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cccccc;
     border-left-width: 0;
     border-radius: 0 4px 4px 0;
     margin: 0;
+}
+
+.widget-button.active {
+    border-color:#129FEA;
+    box-shadow: 1px 0 5px rgba(102, 175, 233, 0.6);
 }
 
 .dropdown-button {
@@ -40,6 +56,11 @@
     border: 1px solid dimgrey;
 }
 
+.select-one {
+    display: inline-block;
+    
+}
+
 .select-one .selection-list {
     background-color: #ffffff;
     position: absolute;
@@ -50,6 +71,7 @@
     font-size: 0.8em;
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15), -3px 5px 15px rgba(0, 0, 0, 0.15);
     z-index: 100;
+    margin-top:27px;
 }
 
 .select-one .selection-list .selection-option {

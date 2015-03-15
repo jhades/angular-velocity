@@ -1,14 +1,16 @@
-<div class="select-one">
+<div class="select-one clearfix">
 
     <input type="text"
            name="{{name}}"
            ng-model="model.searchInput"
            ng-click="onInputClicked()"
+           ng-focus="onInputFocus()"
            ng-blur="onInputBlur()"
            ng-keydown="onKeyDown($event)"
            check-empty-allowed>
 
     <div class="widget-button {{cssIcon}}"
+         ng-class="{'active': active}"
          ng-click="onButtonClicked()"
          ng-show="isShowDropdownButton()"></div>
 

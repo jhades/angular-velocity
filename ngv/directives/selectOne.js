@@ -211,7 +211,12 @@ angular.module('ngvSelectOne', ['ngvCommons'])
                     $scope.ngModel.$setValidity('fieldRequired', true);
                 };
 
+                $scope.onInputFocus = function () {
+                    $scope.active = true;
+                };
+                
                 $scope.onInputClicked = function () {
+                    $scope.active = true;
                     if ($scope.openSelectionOnClick) {
                         $scope.showDropdown = true;
                     }
@@ -219,6 +224,7 @@ angular.module('ngvSelectOne', ['ngvCommons'])
 
                 $scope.onInputBlur = function () {
                     $scope.showDropdown = false;
+                    $scope.active = false;
                 };
 
                 /**

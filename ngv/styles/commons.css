@@ -34,3 +34,9 @@
 .click-blocking-barrier.active.wait-ongoing {
     background: rgba(0, 0, 0, 0.5);
 }
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
