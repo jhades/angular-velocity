@@ -28,5 +28,13 @@
     cursor: pointer;
 }
 
-
-
+// TODO repeated from select one ?
+.pure-skin-ngv div.calendar input[type="text"]{
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 4px 0 0 4px;
+  border-right-width: 0;
+  margin: 0;
+  height: 100%;
+  @include border-box;
+}
