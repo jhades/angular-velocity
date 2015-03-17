@@ -4,10 +4,15 @@
 */
 .pure-skin-ngv div.select-one input[type="text"],
 .pure-skin-ngv div.calendar input[type="text"]{
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     border-radius: 4px 0 0 4px;
     border-right-width: 0;
     margin: 0;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .pure-skin-ngv div.select-one input[type="text"]:focus {
@@ -17,9 +22,10 @@
 
 .widget-button {
     background-repeat: no-repeat;
-    height: 26px;
+    height: 100%;
     width: 26px;
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     cursor: pointer;
     background-color: #A0C8F2;
     border-width: 1px;
@@ -27,7 +33,10 @@
     border-color: #cccccc;
     border-left-width: 0;
     border-radius: 0 4px 4px 0;
-    margin: 0;
+    margin: 0 0 0 -5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .widget-button.active {
@@ -58,7 +67,11 @@
 
 .select-one {
     display: inline-block;
-    
+    height: 27px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
 }
 
 .select-one .selection-list {
