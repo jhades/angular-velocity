@@ -1,6 +1,7 @@
 
 var gulp = require('gulp'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    sass = require('gulp-sass');
 
 
 gulp.task('webserver', function() {
@@ -33,14 +34,15 @@ gulp.task('build', ['install'], function() {
         .pipe(concat("templateCachePartials.js"))
         .pipe(gulp.dest("./dist"));
 
-    gulp.src("./ngv/styles/*.css")
-        .pipe(concat("angular-velocity.css"))
-        .pipe(gulp.dest("./dist"));
+    gulp.src('./ngv/styles/*.*css')
+        .pipe(sass())
+        .pipe(gulp.dest('./dist'));
+    
 });
 
 
 gulp.task('watch', function() {
-    gulp.watch(['./ngv/partials/*.html', './ngv/styles/*.css'], ['build']);
+    gulp.watch(['./ngv/partials/*.html', './ngv/styles/*.*css'], ['build']);
 });
 
 

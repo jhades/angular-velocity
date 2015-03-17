@@ -1,7 +1,4 @@
 
-/**
-    TODO mixin
-*/
 .pure-skin-ngv div.select-one input[type="text"],
 .pure-skin-ngv div.calendar input[type="text"]{
     display: inline-block;
@@ -10,9 +7,7 @@
     border-right-width: 0;
     margin: 0;
     height: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include border-box;
 }
 
 .pure-skin-ngv div.select-one input[type="text"]:focus {
