@@ -1,20 +1,28 @@
 
-.calendar-button {
-    background-image: url('/ngv/images/calendar.png');
-    background-position: center 9px;
-    background-size: 8.5px;
-}
+.pure-skin-ngv div.calendar {
 
-.pure-skin-ngv .calendar .pure-table td {
-    padding: 0.3em;
-    text-align: center;
-    font-size: 82%;
-}
+    .calendar-button {
+      display: inline-block;
+      vertical-align: top;
+      height: 100%;
+      @include border-box;
+      background-image: url('/ngv/images/calendar.png');
+      background-position: center 9px;
+      background-size: 8.5px;
+    }
+  
+    &.pure-table td {
+      padding: 0.3em;
+      text-align: center;
+      font-size: 82%;
+    }
 
-.pure-skin-ngv .calendar .pure-table th {
-    padding: 0.3em;
-    text-align: center;
-    font-size: 82%;
+    &.pure-table th {
+      padding: 0.3em;
+      text-align: center;
+      font-size: 82%;
+    }
+
 }
 
 .date-picker {
@@ -26,15 +34,4 @@
 
 .date-picker td {
     cursor: pointer;
-}
-
-// TODO repeated from select one ?
-.pure-skin-ngv div.calendar input[type="text"]{
-  display: inline-block;
-  vertical-align: top;
-  border-radius: 4px 0 0 4px;
-  border-right-width: 0;
-  margin: 0;
-  height: 100%;
-  @include border-box;
 }

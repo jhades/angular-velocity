@@ -47,3 +47,55 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.pure-skin-ngv div.ngv-input {
+    display: inline-block;
+    height: 27px;
+    @include border-box;
+
+    input[type="text"] {
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 4px 0 0 4px;
+        border-right-width: 0;
+        margin: 0;
+        height: 100%;
+        @include border-box;
+
+        &:focus {
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+    }
+  
+    .widget-button {
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 26px;
+        display: inline-block;
+        vertical-align: top;
+        cursor: pointer;
+        background-color: #A0C8F2;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #cccccc;
+        border-left-width: 0;
+        border-radius: 0 4px 4px 0;
+        margin: 0 0 0 -5px;
+        @include border-box;
+
+        &.active {
+            border-color:#129FEA;
+            box-shadow: 1px 0 5px rgba(102, 175, 233, 0.6);
+        }
+
+        &:hover {
+           background-color: #96bbde;
+        }
+
+        &:active {
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+          border: 1px solid dimgrey;
+        }
+    }
+  
+}
