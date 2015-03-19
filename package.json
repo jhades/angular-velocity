@@ -22,6 +22,7 @@
     "gulp-uglify": "^1.1.0"
   },
   "devDependencies": {
+    "gulp-sourcemaps": "^1.5.1",
     "gulp-connect": "^2.2.0"
   }
 }

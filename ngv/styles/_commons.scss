@@ -24,15 +24,16 @@
     left: 0;
     top: 0;
     z-index: -10000;
-}
 
-.click-blocking-barrier.active {
-    display: block;
-    z-index: 10000;
-}
+    &.active {
+      display: block;
+      z-index: 10000;
+    }
 
-.click-blocking-barrier.active.wait-ongoing {
-    background: rgba(0, 0, 0, 0.5);
+    &.active.wait-ongoing {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
 }
 
 .clearfix:after {

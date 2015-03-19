@@ -1,7 +1,8 @@
 
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps');
 
 
 gulp.task('webserver', function() {
@@ -35,7 +36,9 @@ gulp.task('build', ['install'], function() {
         .pipe(gulp.dest("./dist"));
 
     gulp.src('./ngv/styles/*.*css')
+        .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./dist'));
     
 });

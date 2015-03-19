@@ -1,9 +1,13 @@
+
+$main-header-color: #214685;
+$page-outer-background: #d7d7d9;
+
 .site-header {
-    background: #214685; /* this is the main header color */
+  background: $main-header-color;
 }
 
 body.pure-skin-ngv {
-    background: #d7d7d9; /* the page outer background */
+    background: $page-outer-background;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
