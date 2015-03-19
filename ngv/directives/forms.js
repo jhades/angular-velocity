@@ -107,7 +107,7 @@ angular.module('ngvForms', ['ngvCommons', 'ngvPanels', 'ngvSelectOne', 'ngvCalen
         return {
             scope: true,
             link: function (scope, element, attrs) {
-                var fieldMessages = $compile('<ngv-field-messages ng-show="messagesVisible" field="' + attrs.name + '"></ngv-field-messages>')(scope);
+                var fieldMessages = $compile('<ngv-field-messages class="ngv-field-messages" ng-class="{\'visible\':messagesVisible}" field="' + attrs.name + '"></ngv-field-messages>')(scope);
                 element.after(fieldMessages);
             },
             controller: function ($scope, $element) {

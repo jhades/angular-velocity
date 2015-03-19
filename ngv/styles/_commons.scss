@@ -16,6 +16,10 @@
     position: relative;
 }
 
+.visible {
+  visibility: visible !important;
+}
+
 .click-blocking-barrier {
     width: 100%;
     height: 100%;
@@ -97,5 +101,10 @@
           border: 1px solid dimgrey;
         }
     }
-  
+}
+
+@mixin widget-selection-box {
+  border: 1px solid darkgrey;
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15), -3px 5px 15px rgba(0, 0, 0, 0.15);
+
 }

@@ -40,7 +40,7 @@
 
 .client-messages {
     color: #e9322d;
-    font-size: 70%;
+    font-size: 75%;
     font-weight: lighter;
     position: absolute;
 }
@@ -52,4 +52,12 @@
 
 ngv-messages {
     display: none;
+}
+
+ngv-field-messages {
+  visibility: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.1em;
+  max-height: 0.3em;
 }

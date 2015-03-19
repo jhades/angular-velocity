@@ -1,6 +1,6 @@
 
 .pure-skin-ngv div.calendar {
-
+  
     .calendar-button {
       display: inline-block;
       vertical-align: top;
@@ -11,27 +11,27 @@
       background-size: 8.5px;
     }
   
-    &.pure-table td {
-      padding: 0.3em;
-      text-align: center;
-      font-size: 82%;
-    }
+  .date-picker {
+      position: absolute;
+      z-index: 10;
+      background: #ffffff;
+      border-radius: 2px;
+      @include widget-selection-box;
 
-    &.pure-table th {
-      padding: 0.3em;
-      text-align: center;
-      font-size: 82%;
-    }
+    td {
+        padding: 0.3em;
+        text-align: center;
+        font-size: 82%;
+        cursor: pointer;
+      }
+
+      th {
+        padding: 0.3em;
+        text-align: center;
+        font-size: 80%;
+      }
+
+  }
 
 }
 
-.date-picker {
-    position: absolute;
-    z-index: 10;
-    border: 1px solid #000000;
-    background: #ffffff;
-}
-
-.date-picker td {
-    cursor: pointer;
-}
