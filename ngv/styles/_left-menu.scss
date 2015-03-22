@@ -1,6 +1,7 @@
 
 .pure-skin-ngv .left-menu {
     position: relative;
+    max-width: 200px;
 }
 
 .pure-skin-ngv .left-menu .pure-menu.pure-menu-open {
@@ -132,8 +133,8 @@ div[ngv-collapsible-section] {
 
 .pure-skin-ngv .pure-menu ul li.pure-menu-selected a {
     color: #05101a;
-    background: linear-gradient(to bottom, #E1EEFE, #c4ddf7);
+    background: linear-gradient(to bottom, #E1EEFE, $selected-background);
     border-top-width: 0;
-    border-color: #c4ddf7 transparent #c4ddf7 #c4ddf7;
+    border-color: $selected-background transparent $selected-background $selected-background;
 }
 

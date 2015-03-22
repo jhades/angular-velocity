@@ -1,7 +1,7 @@
 {
     "menu": {
         "defaultHref": "/index",
-        "length": 3,
+        "length": 4,
         "resizable": true,
         "entries": [
             {
