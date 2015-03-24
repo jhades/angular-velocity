@@ -27,7 +27,9 @@ gulp.task('sprite', function () {
     var spriteData = gulp.src('./ngv/images/sprite/*.png')
         .pipe(spritesmith({
             imgName: 'angular-velocity-sprite.png',
-            cssName: 'angular-velocity-sprite.scss'
+            cssName: 'angular-velocity-sprite.scss',
+            algorithm: 'top-down',
+            padding: 5
         }));
 
     spriteData.img
