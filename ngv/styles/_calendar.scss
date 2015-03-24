@@ -3,7 +3,7 @@
   
     .calendar-button {
       display: inline-block;
-      vertical-align: top;
+      vertical-align: top; 
       height: 100%;
       @include border-box;
       background-image: url('/ngv/images/calendar.png');
@@ -47,7 +47,6 @@
         background-color: #c7dff5;
         text-align: center;
         height: 1.6em;
-        line-height: 1.6em;
         font-size: 85%;
 
         .cal-title-button {
@@ -65,12 +64,13 @@
         }
 
         .cal-left-button {
-
+          float: left;
+          margin-left: 5px;
         }
 
         .cal-right-button {
-
- 
+          float: right;
+          margin-right: 5px;
         }
 
       }
