@@ -2,7 +2,8 @@
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
     sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    spritesmith = require('gulp.spritesmith');
 
 
 gulp.task('webserver', function() {
@@ -16,13 +17,28 @@ gulp.task('install', function() {
 
     var install = require("gulp-install");
 
-    gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./bower.json', './package.json'])
         .pipe(install());
     
 });
 
+gulp.task('sprite', function () {
+    
+    var spriteData = gulp.src('./ngv/images/sprite/*.png')
+        .pipe(spritesmith({
+            imgName: 'angular-velocity-sprite.png',
+            cssName: 'angular-velocity-sprite.scss'
+        }));
 
-gulp.task('build', ['install'], function() {
+    spriteData.img
+        .pipe(gulp.dest('./dist'));
+
+    return spriteData.css
+        .pipe(gulp.dest('./ngv/styles'));
+});
+
+
+gulp.task('build', ['install','sprite'], function() {
 
     var ngHtml2Js = require("gulp-ng-html2js"),
         concat = require("gulp-concat");

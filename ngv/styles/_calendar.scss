@@ -48,7 +48,6 @@
         text-align: center;
         height: 1.6em;
         line-height: 1.6em;
-        vertical-align: middle;
         font-size: 85%;
 
         .cal-title-button {
@@ -60,24 +59,18 @@
           }
           
         }
-
         .cal-nav-button {
           display: inline-block;
-          width: 10px;
-          height: 10px;
           cursor: pointer;
         }
 
         .cal-left-button {
-          margin-right: 5px;
-          background-image: url('/ngv/images/left_arrow.png');
-          background-size: 10px 10px;
+
         }
 
         .cal-right-button {
-          margin-left: 5px;
-          background-image: url('/ngv/images/right_arrow.png');
-          background-size: 10px 10px;
+
+ 
         }
 
       }
