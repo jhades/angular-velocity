@@ -5,23 +5,28 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     spritesmith = require('gulp.spritesmith');
 
+var CacheBuster = require('gulp-cachebust');
+var cachebust = new CacheBuster();
 
-gulp.task('webserver', function() {
-    connect.server({
-        livereload: true
-    });
-});
-
-
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// run bower to install frontend dependencies
+//
+/////////////////////////////////////////////////////////////////////////////////////
 gulp.task('install', function() {
 
     var install = require("gulp-install");
 
-    return gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./bower.json'])
         .pipe(install());
-    
 });
 
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// generates a sprite png and the corresponding sass sprite map.
+// This is not included in the recurring build and needs to be run separately
+//
+/////////////////////////////////////////////////////////////////////////////////////
 gulp.task('sprite', function () {
     
     var spriteData = gulp.src('./ngv/images/sprite/*.png')
@@ -37,57 +42,81 @@ gulp.task('sprite', function () {
         spriteData.img.pipe(gulp.dest('./dist'))
 });
 
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// runs sass, creates css source maps and stores file names for cache busting purposes 
+//
+/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('build-css', ['install'], function() {
+    return gulp.src('./ngv/styles/*.*css')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(cachebust.resources())
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./dist'));
+});
 
-gulp.task('build', ['install'], function() {
-
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// fills in the Angular template cache, to prevent loading html template via multiple
+// http requests
+//
+/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('build-template-cache',  function() {
+    
     var ngHtml2Js = require("gulp-ng-html2js"),
         concat = require("gulp-concat");
     
-    gulp.src("./ngv/partials/*.html")
+    return gulp.src("./ngv/partials/*.html")
         .pipe(ngHtml2Js({
             moduleName: "ngvPartials",
             prefix: "/ngv/partials/"
         }))
         .pipe(concat("templateCachePartials.js"))
         .pipe(gulp.dest("./dist"));
-
-    gulp.src('./ngv/styles/*.*css')
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist'));
-    
 });
 
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// full build (except sprites), applies cache busting to the main page css references
+//
+/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('build', ['install','build-css','build-template-cache'], function() {
+    return gulp.src('showcase.html')
+        .pipe(cachebust.references())
+        .pipe(gulp.dest('dist'));
+});
 
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// watches the main file types, and triggers a build when a modification is detected
+//
+/////////////////////////////////////////////////////////////////////////////////////
 gulp.task('watch', function() {
     gulp.watch(['./ngv/partials/*.html', './ngv/styles/*.*css'], ['build']);
 });
 
-
-gulp.task('default', ['watch', 'webserver']);
-
-
-gulp.task('prod', function() {
-
-    var ngHtml2Js = require("gulp-ng-html2js");
-    var minifyHtml = require("gulp-minify-html");
-    var concat = require("gulp-concat");
-    var uglify = require("gulp-uglify");
-
-    gulp.src("./ngv/partials/*.html")
-        .pipe(minifyHtml({
-            empty: true,
-            spare: true,
-            quotes: true
-        }))
-        .pipe(ngHtml2Js({
-            moduleName: "NgvPartials",
-            prefix: "/partials"
-        }))
-        .pipe(concat("partials.min.js"))
-        .pipe(uglify())
-        .pipe(gulp.dest("./dist/partials"));
-
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// launches a web server that serves files in the current directory
+//
+/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('webserver', function() {
+    connect.server({
+        livereload: true
+    });
 });
 
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// launch a build upon modification and publish it to a running server
+//
+/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('server', ['watch', 'webserver']);
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// installs and builds everything, including sprites
+//
+/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('default', ['sprite','build']);
