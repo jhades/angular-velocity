@@ -1,6 +1,6 @@
 
 var gulp = require('gulp'),
-    connect = require('gulp-connect'),
+    webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     spritesmith = require('gulp.spritesmith');
@@ -102,9 +102,12 @@ gulp.task('watch', function() {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 gulp.task('webserver', function() {
-    connect.server({
-        livereload: true
-    });
+    gulp.src('.')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: true,
+            open: "http://localhost:8000/dist/showcase.html"
+        }));
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
