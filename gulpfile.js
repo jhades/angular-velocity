@@ -31,12 +31,11 @@ gulp.task('sprite', function () {
             algorithm: 'top-down',
             padding: 5
         }));
-
-    spriteData.img
-        .pipe(gulp.dest('./dist'));
-
-    return spriteData.css
-        .pipe(gulp.dest('./ngv/styles'));
+    
+    return [
+        spriteData.css.pipe(gulp.dest('./ngv/styles')), 
+        spriteData.img.pipe(gulp.dest('./dist'))
+    ];
 });
 
 
