@@ -6,14 +6,18 @@ A set of Angular UI components.
 
 clone the repo and run:
 
-    bower install
+    npm install
 
-Then launch an http server on the root directory, for example this will launch http-server with no caching headers:
+Then run the following command:
 
-    npm install http-server
-    http-server -c-1 .
+    gulp
 
-Then access the following url in order to see the showcase:
+ A development server can be started using:
+ 
+    gulp server
 
-    http://localhost:8080/showcase.html
+A browser opens to see the showcase main page located at: 
+
+    http://localhost:8000//dist/showcase.html
+
 
