@@ -32,14 +32,13 @@ gulp.task('sprite', function () {
             padding: 5
         }));
     
-    return [
-        spriteData.css.pipe(gulp.dest('./ngv/styles')), 
+        spriteData.css.pipe(gulp.dest('./ngv/styles'));
+    
         spriteData.img.pipe(gulp.dest('./dist'))
-    ];
 });
 
 
-gulp.task('build', ['install','sprite'], function() {
+gulp.task('build', ['install'], function() {
 
     var ngHtml2Js = require("gulp-ng-html2js"),
         concat = require("gulp-concat");
