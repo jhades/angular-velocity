@@ -24,7 +24,7 @@ gulp.task('install', function() {
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // generates a sprite png and the corresponding sass sprite map.
-// This is not included in the recurring build and needs to be run separately
+// This is not included in the recurring development build and needs to be run separately
 //
 /////////////////////////////////////////////////////////////////////////////////////
 gulp.task('sprite', function () {
@@ -32,12 +32,12 @@ gulp.task('sprite', function () {
     var spriteData = gulp.src('./ngv/images/sprite/*.png')
         .pipe(spritesmith({
             imgName: 'angular-velocity-sprite.png',
-            cssName: 'angular-velocity-sprite.scss',
+            cssName: '_angular-velocity-sprite.scss',
             algorithm: 'top-down',
             padding: 5
         }));
     
-        spriteData.css.pipe(gulp.dest('./ngv/styles'));
+        spriteData.css.pipe(gulp.dest('./ngv/styles/project'));
     
         spriteData.img.pipe(gulp.dest('./dist'))
 });
@@ -48,7 +48,7 @@ gulp.task('sprite', function () {
 //
 /////////////////////////////////////////////////////////////////////////////////////
 gulp.task('build-css', ['install'], function() {
-    return gulp.src('./ngv/styles/*.*css')
+    return gulp.src('./ngv/styles/**/*.*css')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cachebust.resources())
