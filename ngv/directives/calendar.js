@@ -29,6 +29,8 @@ angular.module('ngvCalendar', ['ngvCommons'])
                         });
                     }
                 }
+                
+                $scope.mode = "MONTH";
             }
         }
     });

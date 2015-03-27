@@ -6,11 +6,12 @@
             ng-click="toggleDatePicker()"></div>
 
     <div class="date-picker" ng-show="showDatePicker">
-        <div class="calendar-month">
+        
+        <div class="calendar-month" ng-show="mode == 'MONTH'">
             <div class="calendar-top-buttons positioned">
                 <div class="vertically-centered">
                     <span class="cal-nav-button cal-left-button left_arrow"></span>
-                    <span class="cal-nav-button zoom-out"></span>
+                    <span class="cal-nav-button zoom-out" ng-click="mode = 'YEAR'"></span>
                     <span class="cal-title-button">March 2015</span>
                     <span class="cal-nav-button cal-right-button right_arrow"></span>
                 </div>
@@ -77,11 +78,11 @@
         </div>
 
 
-        <div class="calendar-year">
+        <div class="calendar-year" ng-show="mode == 'YEAR'">
             <div class="calendar-top-buttons positioned">
                 <div class="vertically-centered">
                     <span class="cal-nav-button cal-left-button left_arrow"></span>
-                    <span class="cal-nav-button zoom-out"></span>
+                    <span class="cal-nav-button zoom-out" ng-click="mode ='DECADE'"></span>
                     <span class="cal-title-button">2015</span>
                     <span class="cal-nav-button cal-right-button right_arrow"></span>
                 </div>
@@ -111,7 +112,35 @@
             </table>
         </div>
 
-        
+
+
+        <div class="calendar-decade" ng-show="mode == 'DECADE'">
+            <div class="calendar-top-buttons positioned">
+                <div class="vertically-centered">
+                    <span class="cal-nav-button cal-left-button left_arrow"></span>
+                    <span class="cal-nav-button zoom-out"></span>
+                    <span class="cal-title-button">2015</span>
+                    <span class="cal-nav-button cal-right-button right_arrow"></span>
+                </div>
+            </div>
+
+            <table class="pure-table pure-table-bordered">
+                <tbody>
+                <tr>
+                    <td>40-50</td>
+                    <td>50-60</td>
+                    <td>60-70</td>
+                    <td>70-80</td>
+                </tr>
+                <tr>
+                    <td>80-90</td>
+                    <td>90-00</td>
+                    <td>00-10</td>
+                    <td>10-20</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         
     </div>
 
