@@ -129,6 +129,9 @@ require(['angularVelocity', 'referenceData'], function () {
         .controller('DropdownCtrl', function ($scope) {
             $scope.page.title = $scope.lbl['dropdown.samples'];
         })
+        .controller('EditableTablesCtrl', function ($scope) {
+            $scope.page.title = $scope.lbl['editable.tables'];
+        })
         .controller('LeftMenuCtrl', function ($scope) {
             $scope.page.title = $scope.lbl['left.menu.page.title'];
         });

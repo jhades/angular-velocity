@@ -42,7 +42,9 @@
                         "entries": [
                             {
                                 "text": "Editable Tables",
-                                "href": "/modal"
+                                "href": "/tables",
+                                "templateUrl": "/demo/forms/editable-tables.html",
+                                "controller": "EditableTablesCtrl"
                             },
                             {
                                 "text": "Tree Tables",

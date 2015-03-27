@@ -1,0 +1,57 @@
+<ngv-form class="pure-form-stacked" ng-controller="SimpleFormCtrl">
+
+    <ngv-messages>
+        <ngv-error msgId="FN001" field="lastName" clientTrigger="required">You did not enter a last name</ngv-error>
+        <ngv-error msgId="FN002" field="lastName">A person with this name already exists</ngv-error>
+        <ngv-error msgId="FN003" field="lastName" clientTrigger="minlength">The last name must have a minimum of two
+            characters
+        </ngv-error>
+        <ngv-error msgId="FN004" field="email" clientTrigger="required">Invalid email address</ngv-error>
+        <ngv-error msgId="FN005" field="country" clientTrigger="required">Country is required</ngv-error>
+    </ngv-messages>
+
+    
+    <div class="block-panel">
+        <div class="block-item"></div><span>Editable Table</span>
+        <input type="text" name="firstName"  grab-focus>
+
+        <table>
+            <thead>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+
+
+    <div class="page-buttons-separator"></div>
+
+    <div class="page-actions">
+        <button class="pure-button" ngv-validate="validateSimpleForm()">Validate</button>
+        <button type="submit" class="pure-button pure-button-primary">Save</button>
+        <button type="reset" class="pure-button pure-button-tertiary">Cancel</button>
+
+    </div>
+
+</ngv-form>

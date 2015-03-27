@@ -17,7 +17,8 @@ angular.module('ngvLeftMenuNavigation', ['ngvUtilityDialogs', 'ngvDraggable',
         "panels.collapsible": "Collapsible Panels",
         "left.menu.page.title": "Left Menu Layout",
         "please.select.country": "Please select country",
-        "please.select.city": "Please select city"
+        "please.select.city": "Please select city",
+        "editable.tables": "Editable Tables"
     })
     .value('page', {
         title: ""
