@@ -1,0 +1,24 @@
+
+.pure-skin-ngv .ngv-table {
+  
+  table.pure-table {
+    table-layout: fixed;
+    width: 100%;
+    
+    th {
+      background-color: #e0e0e0;
+      border: 1px solid #cbcbcb;
+      border-bottom-width: 2px;
+    }
+    
+    tr td {
+      background-color: #edf6fd;
+    }
+
+    tr:nth-child(2n-1) td {
+      background-color: #f8fbfe;
+    }
+
+  }
+  
+}
