@@ -7,6 +7,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+
 angular.module('ngvDraggable', [])
     .directive('ngvDraggable', function ($document) {
         return {

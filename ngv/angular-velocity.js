@@ -4,120 +4,130 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var AngularVelocity = (function () {
+var angular = require('angular');
+require('angular-route');
+require('angular-animate');
+require('angular-messages');
+var _ = require('lodash');
 
-    var menuConfig, pageConfig;
+var model = require('./model/menuModel');
 
-    //private function that creates a div containing the bootstrap invisible application (loads config from backend)
-    function createBootstrapDiv() {
+require('./directives/startApp');
+require('./directives/leftMenuNavigation');
+require('./directives/forms');
+require('../dist/templateCachePartials');
 
-        var body = document.getElementsByTagName('body')[0];
+//  'ngvLeftMenuNavigation', 'ngvForms', 'ngvPartials'
 
-        var bootstrapDiv = document.createElement('div');
-        bootstrapDiv['ngv-start-app'] = '';
+var menuConfig, pageConfig;
 
-        body.appendChild(bootstrapDiv);
+//private function that creates a div containing the bootstrap invisible application (loads config from backend)
+function createBootstrapDiv() {
 
-        return bootstrapDiv;
-    }
+    var body = document.getElementsByTagName('body')[0];
 
-    // private function that initializes the Angular Velocity App with the JSON config received from the backend.
-    function initConfig(cfg) {
+    var bootstrapDiv = document.createElement('div');
+    bootstrapDiv['ngv-start-app'] = '';
 
-        pageConfig = cfg.pageContent;
-        var topMenuEntries = [];
+    body.appendChild(bootstrapDiv);
 
-        // build the menu model based on the JSON config
-        _.each(cfg.menu.entries, function (topJsonEntry) {
+    return bootstrapDiv;
+}
 
-            var topMenuEntry = new SelectableMenuEntry(topJsonEntry.text, topJsonEntry.href, []);
+// private function that initializes the Angular Velocity App with the JSON config received from the backend.
+function initConfig(cfg) {
 
-            _.each(topJsonEntry.entries, function (leftSection) {
-                var section = new CollapsibleMenuEntry(leftSection.text, []);
+    pageConfig = cfg.pageContent;
+    var topMenuEntries = [];
 
-                _.each(leftSection.entries, function (leafEntry) {
-                    section.addSubEntry(new SelectableMenuEntry(leafEntry.text, leafEntry.href, [],
-                        leafEntry.templateUrl, leafEntry.controller));
-                });
+    // build the menu model based on the JSON config
+    _.each(cfg.menu.entries, function (topJsonEntry) {
 
-                topMenuEntry.addSubEntry(section);
+        var topMenuEntry = new model.SelectableMenuEntry(topJsonEntry.text, topJsonEntry.href, []);
+
+        _.each(topJsonEntry.entries, function (leftSection) {
+            var section = new model.CollapsibleMenuEntry(leftSection.text, []);
+
+            _.each(leftSection.entries, function (leafEntry) {
+                section.addSubEntry(new model.SelectableMenuEntry(leafEntry.text, leafEntry.href, [],
+                    leafEntry.templateUrl, leafEntry.controller));
             });
 
-            topMenuEntries.push(topMenuEntry);
+            topMenuEntry.addSubEntry(section);
         });
 
-        menuConfig = new Menu(topMenuEntries, cfg.menu.defaultHref, cfg.menu.length, cfg.menu.resizable);
-    }
+        topMenuEntries.push(topMenuEntry);
+    });
+
+    menuConfig = new model.Menu(topMenuEntries, cfg.menu.defaultHref, cfg.menu.length, cfg.menu.resizable);
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // private variable containing the main Angular Velocity app, initializes the router.
 
-    var angularVelocityApp = angular.module('ngvApp', ['ngvStartApp', 'ngRoute', 'ngAnimate', 'ngMessages',
-        'ngCookies', 'ngvLeftMenuNavigation', 'ngvForms', 'ngvPartials'])
-        .config(function ($routeProvider) {
+var angularVelocityApp = angular.module('ngvApp', ['ngvStartApp', 'ngRoute', 'ngAnimate', 'ngMessages',
+     'ngvLeftMenuNavigation', 'ngvForms', 'ngvPartials'])
+    .config(function ($routeProvider) {
 
-            var routes = menuConfig.findRoutableMenuEntries();
+        var routes = menuConfig.findRoutableMenuEntries();
 
-            _.each(routes, function (routeConfig) {
-                $routeProvider.when(routeConfig.href, routeConfig);
-            });
-
-            $routeProvider.otherwise({redirectTo: menuConfig.defaultHref});
-
-        })
-        .run(function ($rootScope, lbl) {
-            $rootScope.lbl = lbl;
-
-            // highlight the menu's selected entry
-            $rootScope.$on('$routeChangeSuccess', function (event, current) {
-                menuConfig.selectMenuWithHref(current.$$route.href);
-            });
-
+        _.each(routes, function (routeConfig) {
+            $routeProvider.when(routeConfig.href, routeConfig);
         });
+
+        $routeProvider.otherwise({redirectTo: menuConfig.defaultHref});
+
+    })
+    .run(function ($rootScope, lbl) {
+        $rootScope.lbl = lbl;
+
+        // highlight the menu's selected entry
+        $rootScope.$on('$routeChangeSuccess', function (event, current) {
+            menuConfig.selectMenuWithHref(current.$$route.href);
+        });
+
+    });
+
+
+AngularVelocity  =  {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     //
-    // The Public API of the Angular Velocity module.
-    //
-    return {
+    // Start the application - launch the bootstrap application, retrieve the config from the backend
+    // and initialize the main application.
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    start: function () {
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //
-        // Start the application - launch the bootstrap application, retrieve the config from the backend
-        // and initialize the main application.
-        //
-        start: function () {
+        var bootstrapDiv = createBootstrapDiv(),
+            configHRef = document.getElementById('ngvApp').getAttribute("config-href");
 
-            var bootstrapDiv = createBootstrapDiv(),
-                configHRef = document.getElementById('ngvApp').getAttribute("config-href");
+        // run the bootstrap app
+        angular.bootstrap(bootstrapDiv, ['ngvStartApp']);
 
-            // run the bootstrap app
-            angular.bootstrap(bootstrapDiv, ['ngvStartApp']);
+        var bootstrapInjector = angular.element(bootstrapDiv).injector(),
+            configLoader = bootstrapInjector.get('ConfigLoader');
 
-            var bootstrapInjector = angular.element(bootstrapDiv).injector(),
-                configLoader = bootstrapInjector.get('ConfigLoader');
+        // use the bootstrap app to load the config and start the Angular Velocity app
+        configLoader.loadConfig(configHRef).then(function (cfg) {
 
-            // use the bootstrap app to load the config and start the Angular Velocity app
-            configLoader.loadConfig(configHRef).then(function (cfg) {
+            initConfig(cfg);
 
-                initConfig(cfg);
+            // run the main app
+            angular.bootstrap(document.getElementById('ngvApp'), ['ngvApp']);
+        });
+    },
 
-                // run the main app
-                angular.bootstrap(document.getElementById('ngvApp'), ['ngvApp']);
-            });
-        },
+    app: function () {
+        return angularVelocityApp;
+    },
 
-        app: function () {
-            return angularVelocityApp;
-        },
+    getMenuConfig: function () {
+        return menuConfig;
+    },
 
-        getMenuConfig: function () {
-            return menuConfig;
-        },
-
-        getPageContentConfig: function () {
-            return pageConfig;
-        }
+    getPageContentConfig: function () {
+        return pageConfig;
     }
-}());
+};
 
+module.exports = AngularVelocity;

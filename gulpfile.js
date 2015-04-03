@@ -4,7 +4,12 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     jshint = require('gulp-jshint'),
     sourcemaps = require('gulp-sourcemaps'),
-    spritesmith = require('gulp.spritesmith');
+    spritesmith = require('gulp.spritesmith'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
+    uglify = require('gulp-uglify'),
+    gutil = require('gulp-util');
 
 var CacheBuster = require('gulp-cachebust');
 var cachebust = new CacheBuster();
@@ -91,10 +96,34 @@ gulp.task('jshint', function() {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
+// TODO
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('build-js', function() {
+    var b = browserify({
+        entries: './demo/run-demo-app.js',
+        debug: true,
+        paths: ['/demo/scripts','./ngv','/ngv/directives']
+    });
+
+    return b.bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(cachebust.resources())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        /*.pipe(uglify())*/
+        .on('error', gutil.log)
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('./dist/js/'));
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
 // full build (except sprites), applies cache busting to the main page css references
 //
 /////////////////////////////////////////////////////////////////////////////////////
-gulp.task('build', ['install','build-css','build-template-cache', 'jshint'], function() {
+gulp.task('build', ['install','build-css','build-template-cache', 'jshint', 'build-js'], function() {
     return gulp.src('showcase.html')
         .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));
@@ -128,7 +157,7 @@ gulp.task('webserver', function() {
 // launch a build upon modification and publish it to a running server
 //
 /////////////////////////////////////////////////////////////////////////////////////
-gulp.task('server', ['watch', 'webserver']);
+gulp.task('dev', ['watch', 'webserver']);
 
 /////////////////////////////////////////////////////////////////////////////////////
 //

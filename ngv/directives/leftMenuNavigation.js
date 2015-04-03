@@ -4,6 +4,11 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+require('./utilityDialogs');
+require('./draggable');
+require('./collapsible');
+require('./navigationCommons');
 
 angular.module('ngvLeftMenuNavigation', ['ngvUtilityDialogs', 'ngvDraggable',
     'ngvCollapsible', 'ngvNavigationCommons'])

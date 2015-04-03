@@ -4,6 +4,11 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+require('../services/ngvCommons');
+require('./panels');
+require('./selectOne');
+require('./calendar');
 
 angular.module('ngvForms', ['ngvCommons', 'ngvPanels', 'ngvSelectOne', 'ngvCalendar'])
     .directive('grabFocus', function () {

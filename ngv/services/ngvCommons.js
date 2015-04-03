@@ -1,3 +1,6 @@
+
+var _ = require('lodash');
+
 angular.module('ngvCommons', [])
     .factory('KeyUtils', function () {
         return {

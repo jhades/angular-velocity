@@ -5,6 +5,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+require('../services/ngvCommons');
+
 angular.module('ngvSelectOne', ['ngvCommons'])
     .directive('ngvSelectionList', function () {
         return {

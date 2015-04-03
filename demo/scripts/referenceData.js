@@ -1,4 +1,4 @@
-var countries = [
+module.exports  = [
     {description: 'Afghanistan', id: 'AF'},
     {description: 'Åland Islands', id: 'AX'},
     {description: 'Albania', id: 'AL'},

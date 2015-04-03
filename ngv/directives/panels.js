@@ -4,6 +4,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+require('../services/ngvCommons');
 
 angular.module('ngvPanels', ['ngvCommons'])
     .directive('ngvCollapsiblePanel', function() {

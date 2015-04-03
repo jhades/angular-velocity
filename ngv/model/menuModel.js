@@ -6,16 +6,18 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AbstractMenuEntry class
 
-function AbstractMenuEntry(description, subEntries) {
+exports.AbstractMenuEntry = function(description, subEntries) {
     this.description = description;
     this.subEntries = subEntries;
-}
+};
 
 // recursively extract all routable entries (containing href and template, so they affect the router )
-AbstractMenuEntry.prototype.findRoutableMenuEntries = function () {
+exports.AbstractMenuEntry.prototype.findRoutableMenuEntries = function () {
 
     var routableEntries = [];
 
@@ -39,16 +41,16 @@ AbstractMenuEntry.prototype.findRoutableMenuEntries = function () {
     return routableEntries;
 };
 
-AbstractMenuEntry.prototype.addSubEntry = function (subEntry) {
+exports.AbstractMenuEntry.prototype.addSubEntry = function (subEntry) {
     this.subEntries.push(subEntry);
 }
 
-AbstractMenuEntry.prototype.hasSubEntries = function () {
+exports.AbstractMenuEntry.prototype.hasSubEntries = function () {
     return this.subEntries && this.subEntries.length > 0;
 }
 
 
-AbstractMenuEntry.prototype.selectEntry = function (index) {
+exports.AbstractMenuEntry.prototype.selectEntry = function (index) {
     if (this.hasSubEntries()) {
         _.each(this.subEntries, function (entry) {
             entry.selected = false;
@@ -60,20 +62,20 @@ AbstractMenuEntry.prototype.selectEntry = function (index) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Menu class
 
-function Menu(subEntries, defaultHref, menuLength, resizable) {
+exports.Menu = function(subEntries, defaultHref, menuLength, resizable) {
     this.subEntries = subEntries;
     this.defaultHref = defaultHref;
     this.menuLength = menuLength;
     this.resizable = resizable;
 }
 
-Menu.prototype = new AbstractMenuEntry();
+exports.Menu.prototype = new exports.AbstractMenuEntry();
 
-Menu.prototype.getTopMenuEntries = function () {
+exports.Menu.prototype.getTopMenuEntries = function () {
     return this.subEntries;
 }
 
-Menu.prototype.reset = function () {
+exports.Menu.prototype.reset = function () {
     _.each(this.subEntries, function (topEntry) {
         _.each(topEntry.subEntries, function (collapsibleEntry) {
             _.each(collapsibleEntry.subEntries, function (leafEntry) {
@@ -85,7 +87,7 @@ Menu.prototype.reset = function () {
     });
 }
 
-Menu.prototype.selectTopMenuEntry = function (index) {
+exports.Menu.prototype.selectTopMenuEntry = function (index) {
 
     this.reset();
 
@@ -102,7 +104,7 @@ Menu.prototype.selectTopMenuEntry = function (index) {
     }
 };
 
-Menu.prototype.clearLeftMenuSelection = function () {
+exports.Menu.prototype.clearLeftMenuSelection = function () {
     var activeTopEntry = _.filter(this.subEntries, function (entry) {
         return entry.selected;
     })[0];
@@ -116,7 +118,7 @@ Menu.prototype.clearLeftMenuSelection = function () {
     }
 };
 
-Menu.prototype.getLeftMenuSections = function () {
+exports.Menu.prototype.getLeftMenuSections = function () {
     var selectedTopEntry = _.filter(this.subEntries, function (topEntry) {
         return topEntry.selected;
     })[0];
@@ -129,11 +131,11 @@ Menu.prototype.getLeftMenuSections = function () {
     }
 };
 
-Menu.prototype.getLength = function () {
+exports.Menu.prototype.getLength = function () {
     return this.menuLength;
 };
 
-Menu.prototype.selectMenuWithHref = function (href) {
+exports.Menu.prototype.selectMenuWithHref = function (href) {
     this.reset();
     _.each(this.subEntries, function (topEntry) {
         _.each(topEntry.subEntries, function (collapsibleEntry) {
@@ -150,23 +152,23 @@ Menu.prototype.selectMenuWithHref = function (href) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CollapsibleMenuEntry class
 
-function CollapsibleMenuEntry(description, subEntries, collapsed) {
-    AbstractMenuEntry.call(this, description, subEntries);
+exports.CollapsibleMenuEntry = function(description, subEntries, collapsed) {
+    exports.AbstractMenuEntry.call(this, description, subEntries);
     this.collapsed = collapsed || false;
 }
 
-CollapsibleMenuEntry.prototype = new AbstractMenuEntry();
+exports.CollapsibleMenuEntry.prototype = new exports.AbstractMenuEntry();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SelectableMenuEntry class
 
-function SelectableMenuEntry(description, href, subEntries, templateUrl, controller) {
-    AbstractMenuEntry.call(this, description, subEntries);
+exports.SelectableMenuEntry = function(description, href, subEntries, templateUrl, controller) {
+    exports.AbstractMenuEntry.call(this, description, subEntries);
     this.href = href;
     this.templateUrl = templateUrl;
     this.controller = controller;
     this.selected = false;
 }
 
-SelectableMenuEntry.prototype = new AbstractMenuEntry();
+exports.SelectableMenuEntry.prototype = new exports.AbstractMenuEntry();
 

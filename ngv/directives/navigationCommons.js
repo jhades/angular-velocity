@@ -3,6 +3,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var _ = require('lodash');
+
 angular.module('ngvNavigationCommons', [])
     .constant('AppConfig', {
         getMenuConfig: function () {
