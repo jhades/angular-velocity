@@ -2,6 +2,7 @@
 var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
+    jshint = require('gulp-jshint'),
     sourcemaps = require('gulp-sourcemaps'),
     spritesmith = require('gulp.spritesmith');
 
@@ -10,7 +11,7 @@ var cachebust = new CacheBuster();
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
-// run bower to install frontend dependencies
+// runs bower to install frontend dependencies
 //
 /////////////////////////////////////////////////////////////////////////////////////
 gulp.task('install', function() {
@@ -38,7 +39,7 @@ gulp.task('sprite', function () {
         }));
     
         spriteData.css.pipe(gulp.dest('./ngv/styles/project'));
-    
+
         spriteData.img.pipe(gulp.dest('./dist'))
 });
 
@@ -78,10 +79,22 @@ gulp.task('build-template-cache',  function() {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
+// runs jshint
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('jshint', function() {
+    gulp.src('/ngv/directives/**/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
 // full build (except sprites), applies cache busting to the main page css references
 //
 /////////////////////////////////////////////////////////////////////////////////////
-gulp.task('build', ['install','build-css','build-template-cache'], function() {
+gulp.task('build', ['install','build-css','build-template-cache', 'jshint'], function() {
     return gulp.src('showcase.html')
         .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));
