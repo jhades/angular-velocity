@@ -1,13 +1,12 @@
 
-var NGV_VERSION = "0.0.2";
-
 var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    spritesmith = require('gulp.spritesmith'),
-    replace = require('gulp-replace-task'),
-    rename = require("gulp-rename");
+    spritesmith = require('gulp.spritesmith');
+
+var CacheBuster = require('gulp-cachebust');
+var cachebust = new CacheBuster();
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
@@ -52,10 +51,8 @@ gulp.task('build-css', ['install'], function() {
     return gulp.src('./ngv/styles/**/*.*css')
         .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(cachebust.resources())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(rename(function (path) {
-            path.basename += "-" + NGV_VERSION;
-        }))
         .pipe(gulp.dest('./dist'));
 });
 
@@ -86,14 +83,7 @@ gulp.task('build-template-cache',  function() {
 /////////////////////////////////////////////////////////////////////////////////////
 gulp.task('build', ['install','build-css','build-template-cache'], function() {
     return gulp.src('showcase.html')
-        .pipe(replace({
-            patterns: [
-                {
-                    match: 'ngv-version',
-                    replacement: NGV_VERSION
-                }
-            ]
-        }))
+        .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));
 });
 
