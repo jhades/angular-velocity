@@ -38,12 +38,7 @@
 
                     <div class="pure-u-1 pure-u-md-1-3">
                         <label>Dropdown</label>
-                        <input ngv-dropdown
-                               options-command="findAllCountryRefData()"
-                               empty-entry="please.select.country"
-                               name="country"
-                               ng-model="user.country"
-                               required>
+                        <input>
                     </div>
 
                     <div class="pure-u-1 pure-u-md-1-3">
@@ -72,6 +67,16 @@
                         <label>Masked Field</label>
                         <input type="text" ngv-select name="gender" ng-model="user.gender"
                                options-command="findGenders()" required>
+                    </div>
+
+                    <div class="pure-u-1 pure-u-md-1-3">
+                        <label>Dropdown</label>
+                        <input ngv-dropdown
+                               options-command="findAllCountryRefData()"
+                               empty-entry="please.select.country"
+                               name="country"
+                               ng-model="user.country"
+                               required>
                     </div>
 
                 </div>
