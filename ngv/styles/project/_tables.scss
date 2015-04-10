@@ -87,6 +87,7 @@
       border-bottom-width: 2px;
 
       &:first-child {
+        width: 1.1em;
         border-left: $table-border;
         border-top-left-radius: $table-outer-border-radius;
       }
