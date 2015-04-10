@@ -29,7 +29,7 @@
     }
 
     .resize-menu {
-        background: #e1eefa;
+        background: $list-background-color;
         border-left: solid 1px #d3e6f8;
         border-right: solid 1px #d3e6f8;
         width: 5px;
@@ -132,7 +132,7 @@ div[ngv-collapsible-section] {
 }
 
 .pure-skin-ngv .pure-menu ul li.pure-menu-selected a {
-    color: #05101a;
+    color: $selected-color;
     background: linear-gradient(to bottom, #E1EEFE, $selected-background);
     border-top-width: 0;
     border-color: $selected-background transparent $selected-background $selected-background;

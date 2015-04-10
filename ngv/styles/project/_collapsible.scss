@@ -6,13 +6,18 @@
     font-weight: bold;
     margin-left: 1.2em;
     margin-top: 0.6em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.1em;
     cursor: pointer;
+}
+
+.page-form .collapsible-panel:first-child {
+  margin: 0;
 }
 
 .collapsible-panel {
     padding-bottom: 0.8em;
     padding-left: 0.2em;
+    margin-top: 1em;
 
     .collapsible-section {
       padding-left: 1.5em;

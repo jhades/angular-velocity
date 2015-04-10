@@ -1,24 +1,117 @@
 
 .pure-skin-ngv .ngv-table {
-  
+
+  .ngv-paginator {
+
+    $vertical-gap-with-grid: 0.5em;
+
+    .pure-paginator {
+      text-align: center;
+
+      .pure-button {
+        background-color: #f7f7f7;
+        font-size: 13px;
+        padding: 0.4em 0.75em;
+        border-top: $tertiary-button-border;
+        border-bottom: $tertiary-button-border;
+
+        &.prev {
+          border-left: $tertiary-button-border;
+        }
+
+        &.next {
+          border-right: $tertiary-button-border;
+        }
+
+        &.pure-button-selected {
+          color: $selected-color;
+          background: $selected-background-gradient;
+        }
+      }
+    }
+
+    &.top-paginator {
+      margin-bottom: $vertical-gap-with-grid;
+    }
+
+    &.bottom-paginator {
+      margin-top: $vertical-gap-with-grid;
+    }
+
+  }
+
   table {
     table-layout: fixed;
     width: 100%;
-    
-    th {
-      background-color: #f3f3f3;
-      border: 1px solid #cbcbcb;
-      border-bottom-width: 2px;
+    border-radius: 4px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
+
+    $table-outer-border: 1px solid #A1C4E6;
+    $table-cells-border-color: #C0D9F2;
+    $table-outer-border-radius: 4px;
+
+    border: none;
+    border-collapse: separate;
+
+    td, th {
+      border-left-color: $table-cells-border-color;
     }
-    
+
+    th {
+      background-color: #e1eefa;
+      font-weight: bold;
+      line-height: 1.3em;
+      border-top: $table-outer-border;
+      border-bottom-style: solid;
+      border-bottom-color: #B8CBED;
+      border-bottom-width: 2px;
+
+      &:first-child {
+        border-left: $table-outer-border;
+        border-top-left-radius: $table-outer-border-radius;
+      }
+
+      &:last-child {
+        border-right: $table-outer-border;
+        border-top-right-radius: $table-outer-border-radius;
+      }
+
+
+    }
+
     tr td {
-      background-color: #edf6fd;
+      background-color: rgba(142, 162, 255, 0.07);
+      border-bottom-color: $table-cells-border-color;
+
+      &:first-child {
+        border-left: $table-outer-border;
+      }
+
+      &:last-child {
+        border-right: $table-outer-border;
+      }
     }
 
     tr:nth-child(2n-1) td {
-      background-color: #f8fbfe;
+      background-color: rgba(146, 164, 250, 0.03);
+    }
+
+    tr:last-child {
+
+      td {
+        border-bottom: $table-outer-border;
+      }
+
+      td:first-child {
+        border-bottom-left-radius: $table-outer-border-radius;
+      }
+      td:last-child {
+        border-bottom-right-radius: $table-outer-border-radius;
+      }
     }
 
   }
   
 }
+
+
