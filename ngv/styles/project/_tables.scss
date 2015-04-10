@@ -1,16 +1,33 @@
 
 .pure-skin-ngv .ngv-table {
 
+  margin-top: 0.5em;
+  $table-background-color: #e1eefa;
+  $table-commands-font-size: 13px;
+  $table-border: 1px solid #A1C4E6;
+
+  .table-commands {
+    margin-bottom: 0.3em;
+    button.pure-button {
+      font-size: 13px;
+      background-color : $table-background-color;
+      color:#0e2f4e;
+      border: $table-border;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+  }
+
   .ngv-paginator {
 
-    $vertical-gap-with-grid: 0.5em;
+    $vertical-gap-with-grid: 0.6em;
 
     .pure-paginator {
       text-align: center;
 
       .pure-button {
         background-color: #f7f7f7;
-        font-size: 13px;
+        font-size: $table-commands-font-size;
         padding: 0.4em 0.75em;
         border-top: $tertiary-button-border;
         border-bottom: $tertiary-button-border;
@@ -30,10 +47,6 @@
       }
     }
 
-    &.top-paginator {
-      margin-bottom: $vertical-gap-with-grid;
-    }
-
     &.bottom-paginator {
       margin-top: $vertical-gap-with-grid;
     }
@@ -46,7 +59,6 @@
     border-radius: 4px;
     box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
 
-    $table-outer-border: 1px solid #A1C4E6;
     $table-cells-border-color: #C0D9F2;
     $table-outer-border-radius: 4px;
 
@@ -58,21 +70,21 @@
     }
 
     th {
-      background-color: #e1eefa;
+      background-color: $table-background-color;
       font-weight: bold;
       line-height: 1.3em;
-      border-top: $table-outer-border;
+      border-top: $table-border;
       border-bottom-style: solid;
       border-bottom-color: #B8CBED;
       border-bottom-width: 2px;
 
       &:first-child {
-        border-left: $table-outer-border;
+        border-left: $table-border;
         border-top-left-radius: $table-outer-border-radius;
       }
 
       &:last-child {
-        border-right: $table-outer-border;
+        border-right: $table-border;
         border-top-right-radius: $table-outer-border-radius;
       }
 
@@ -80,15 +92,15 @@
     }
 
     tr td {
-      background-color: rgba(142, 162, 255, 0.07);
+      background-color: rgba(146, 164, 250, 0.03);
       border-bottom-color: $table-cells-border-color;
 
       &:first-child {
-        border-left: $table-outer-border;
+        border-left: $table-border;
       }
 
       &:last-child {
-        border-right: $table-outer-border;
+        border-right: $table-border;
       }
     }
 
@@ -99,7 +111,7 @@
     tr:last-child {
 
       td {
-        border-bottom: $table-outer-border;
+        border-bottom: $table-border;
       }
 
       td:first-child {
