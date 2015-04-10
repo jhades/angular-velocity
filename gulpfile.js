@@ -135,7 +135,11 @@ gulp.task('build', ['install','build-css','build-template-cache', 'jshint', 'bui
 //
 /////////////////////////////////////////////////////////////////////////////////////
 gulp.task('watch', function() {
-    gulp.watch(['./ngv/partials/*.html', './ngv/styles/**/*.*css', './demo/forms/*.html'], ['build']);
+    gulp.watch([
+        './ngv/partials/*.html',
+        './ngv/styles/**/*.*css',
+        './demo/forms/*.html', ', ',
+        './ngv/directives/*.js'], ['build']);
 });
 
 /////////////////////////////////////////////////////////////////////////////////////

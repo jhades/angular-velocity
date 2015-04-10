@@ -5,11 +5,11 @@
         "resizable": true,
         "entries": [
             {
-                "text": "Widgets & Forms",
+                "text": "Forms",
                 "href": "/index",
                 "entries": [
                     {
-                        "text": "Input Widgets",
+                        "text": "Examples",
                         "entries": [
                             {
                                 "text": "Three Columns",
@@ -32,7 +32,7 @@
                                 "href": "/customform"
                             },
                             {
-                                "text": "Responsive Form",
+                                "text": "Responsive",
                                 "href": "/responsive"
                             }
                         ]
@@ -55,7 +55,7 @@
                 ]
             },
             {
-                "text": "Navigation & Containers",
+                "text": "Navigation & UI Patterns",
                 "href": "/leftmenulayout",
                 "entries": [
                     {
@@ -75,21 +75,15 @@
                     },
                     {
                         "type": "heading",
-                        "text": "Containers",
+                        "text": "UI Patterns",
                         "collapsed": true,
                         "entries": [
                             {
-                                "text": "Collapsible Panel",
-                                "href": "/collapsiblepanel",
-                                "controller": "CollapsibleCtrl",
-                                "templateUrl": "/demo/forms/collapsible-demo.html"
+                                "text": "SLD - Search/List/Detail",
+                                "href": "/search-list-details"
                             },
                             {
-                                "text": "Tabbed Panel",
-                                "href": "/twocolumnform"
-                            },
-                            {
-                                "text": "Modal Dialog",
+                                "text": "Bulk Edit",
                                 "href": "/twocolumnform"
                             }
                         ]
@@ -97,24 +91,13 @@
                 ]
             },
             {
-                "text": "UI Patterns",
-                "entries": [
-                    {
-                        "text": "SLD - Search List Detail"
-                    },
-                    {
-                        "text": "Entry Selection Overlay"
-                    }
-                ]
-            },
-            {
                 "text": "Validations & Messages"
             },
             {
-                "text": "Responsive / Mobile"
+                "text": "Code Examples"
             },
             {
-                "text": "Themeable"
+                "text": "Contact & Feedback"
             }
         ]
     }

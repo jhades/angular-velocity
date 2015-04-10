@@ -17,7 +17,7 @@ angular.module('ngvLeftMenuNavigation', ['ngvUtilityDialogs', 'ngvDraggable',
         //TODO
         "please.wait.dialog": "Please wait ...",
         "page.header": "Angular Velocity Showcase",
-        "input.widgets.page.title": "Input Widgets Overview",
+        "input.widgets.page.title": "Three Column Form",
         "dropdown.samples": "Dropdown Samples",
         "panels.collapsible": "Collapsible Panels",
         "left.menu.page.title": "Left Menu Layout",
