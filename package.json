@@ -43,12 +43,9 @@
     "vinyl-source-stream": "^1.1.0",
     "connect": "^3.3.4",
     "del": "~1.1.1",
-    "gulp-size": "^1.2.1",
     "gulp-plumber": "^1.0.0",
     "gulp-rename": "~1.2.0",
     "gulp-traceur": "0.17.*",
-    "open": "0.0.5",
-    "serve-static": "~1.8.1",
     "systemjs-builder": "^0.10.3"
 
 
