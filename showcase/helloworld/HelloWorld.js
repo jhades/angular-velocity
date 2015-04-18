@@ -4,7 +4,7 @@ import {Component,Template, View, bootstrap} from 'angular2/angular2';
     selector: 'hello-world'
 })
 @View({
-    template: ` <h1>Angular 2 Hello World</h1>
+    template: ` <h2>Angular 2 Hello World</h2>
                 <div>
                     <label>Message:</label>
                     <input type="text" (keyup)  #ref>
