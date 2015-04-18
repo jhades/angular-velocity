@@ -1,6 +1,6 @@
-Angular Widgets
+Angular Velocity
 =================
-A set of Angular UI components.
+A set of Angular 2 UI components.
 
 ####Installation
 
