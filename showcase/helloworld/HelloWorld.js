@@ -8,7 +8,7 @@ import {Component,Template, View, bootstrap} from 'angular2/angular2';
                 <div>
                     <label>Message:</label>
                     <input type="text" (keyup)  #ref>
-                    <div>Echo:{{ref.domElement.value}}</div>
+                    <div>Echo:{{ref.value}}</div>
                 </div>`
 })
 export class HelloWorld {
