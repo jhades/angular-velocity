@@ -1,4 +1,4 @@
-import {Component,Template, View, bootstrap} from 'angular2/angular2';
+import {Component,Template, View} from 'angular2/angular2';
 
 @Component({
     selector: 'hello-world'
@@ -15,5 +15,3 @@ export class HelloWorld {
 
 
 }
-
-bootstrap(HelloWorld);

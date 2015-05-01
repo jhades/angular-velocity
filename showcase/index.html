@@ -8,21 +8,7 @@
 </head>
 <body class="pure-skin-ngv" style="background: white">
 
-    <div class="demos">
-
-        <div class="demo">
-            <hello-world></hello-world>
-        </div>
-
-        <div class="demo">
-
-            <form class="pure-form">
-                <h2>Dropdown</h2>
-                <ngv-dropdown></ngv-dropdown>
-            </form>
-        </div>
-
-    </div>
+    <demo-app></demo-app>
 
     <!-- ES6-related imports -->
     <script src="/node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js"></script>
@@ -38,13 +24,9 @@
     <script src="/node_modules/angular2/node_modules/zone.js/long-stack-trace-zone.js"></script>
     <script src="/dist/lib/angular2.js"></script>
 
-
-    <script src="helloworld/referenceData.js"></script>
-
     <!-- Application bootstrap logic -->
     <script>
-        System.import('helloworld/HelloWorld').catch(console.log.bind(console));
-        System.import('dropdown/Dropdown').catch(console.log.bind(console));
+        System.import('DemoApp').catch(console.log.bind(console));
     </script>
 
 </body>

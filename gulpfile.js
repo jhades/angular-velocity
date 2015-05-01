@@ -102,7 +102,7 @@ gulp.task('jshint', function() {
 
 gulp.task('build-js', function() {
     var b = browserify({
-        entries: './demo/run-demo-app.js',
+        entries: './demo/run-DemoApp.js',
         debug: true,
         paths: ['/demo/scripts','./ngv','/ngv/directives']
     });

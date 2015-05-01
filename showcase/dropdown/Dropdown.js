@@ -1,44 +1,77 @@
-import {Component,Template, View, bootstrap} from 'angular2/angular2';
+import {Component,Template, View, For, If} from 'angular2/angular2';
 
 
 @Component({
-    selector: 'ngv-selection-list'
+    selector: 'ngv-selection-list',
+    properties: {
+        options: 'options',
+        height: 'height',
+        width: 'width'
+    }
 })
 @View({
     template: `
-                <div class="selection-list" style="max-height:100px;width:280px">
-                    <div class="selection-option">
-                        <div class="selection-description">Option 1</div>
+                <div class="selection-list" [style.max-height]="height" [style.width]="width">
+                    <div *for="#option of options;" class="selection-option" #opt>
+                        <div class="selection-description"
+                            (mouseover)="onOptionHover(opt)"
+                            (mouseleave)="onOptionLeave(opt)">
+                                {{option.description}}
+                        </div>
                     </div>
-                    <div class="selection-option selected">
-                        <div class="selection-description">Option 2</div>
-                    </div>
-                    <div class="selection-option">
-                        <div class="selection-description">Option 3</div>
-                    </div>
-                </div>`
+                </div>`,
+    directives: [For]
 })
 class SelectionList {
 
+    constructor() {
+        this.SELECTED_OPTION_CLASS = "selected";
+    }
+
+    onOptionHover(option) {
+        option.classList.add(this.SELECTED_OPTION_CLASS);
+    }
+
+    onOptionLeave(option) {
+        option.classList.remove(this.SELECTED_OPTION_CLASS);
+    }
 
 }
 
 @Component({
-    selector: 'ngv-dropdown'
+    selector: 'ngv-dropdown',
+    properties: {
+       options: 'options',
+       height: 'height',
+       width: 'width'
+    }
 })
 @View({
     template: ` <div class="ngv-input select-one clearfix">
-                    <input type="text">
-                    <div class="widget-button dropdown-button active"></div>
-                    <ngv-selection-list></ngv-selection-list>
+                    <input type="text" (click)="onInputClicked(button)" (blur)="onInputBlur(button)">
+                    <div class="widget-button dropdown-button" #button></div>
+                    <ngv-selection-list *if="showSelectionList" [options]="options" [height]="height" [width]="width"></ngv-selection-list>
 
                 </div>`,
-    directives: [SelectionList]
+    directives: [SelectionList, If]
 })
 export class Dropdown {
 
+    constructor() {
+        this.ACTIVE_BUTTON_CLASS = 'active';
+        this.showSelectionList = false;
+    }
+
+    onInputClicked(button) {
+        this.showSelectionList = true;
+        button.classList.add(this.ACTIVE_BUTTON_CLASS);
+    }
+
+    onInputBlur(button) {
+        this.showSelectionList = false;
+        button.classList.remove(this.ACTIVE_BUTTON_CLASS);
+    }
 
 }
 
 
-bootstrap(Dropdown);
