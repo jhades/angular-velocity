@@ -1,6 +1,22 @@
 
 .pure-skin-ngv div.select-one {
 
+    &.active {
+
+      input {
+        border-color: #129FEA;
+        box-shadow:  0 0 8px rgba(102, 175, 233, 0.6);
+      }
+
+      .widget-button:focus {
+          border-color:#129FEA;
+          box-shadow: 1px 0 5px rgba(102, 175, 233, 0.6);
+      }
+
+    }
+
+
+
     .selection-list {
         background-color: #ffffff;
         position: absolute;
@@ -25,16 +41,21 @@
         }
     }
 
-    .dropdown-button {
-      background-image: url('/ngv/images/dropdown.png');
-      background-position: center 8px;
-      background-size: 14px 10px;
-    }
+    .widget-button {
+      outline: none;
 
-    .autocomplete-button {
-      background-image: url('/ngv/images/autocomplete.png');
-      background-size:  18px;
-      background-position: center 3.5px;
+      &.dropdown-button {
+        background-image: url('/ngv/images/dropdown.png');
+        background-position: center 8px;
+        background-size: 14px 10px;
+      }
+
+      &.autocomplete-button {
+        background-image: url('/ngv/images/autocomplete.png');
+        background-size:  18px;
+        background-position: center 3.5px;
+      }
+
     }
 
     .selection-description {

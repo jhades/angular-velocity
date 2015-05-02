@@ -1,5 +1,5 @@
 import {Component,Template, View, For, If} from 'angular2/angular2';
-
+import { EventEmitter } from 'angular2/angular2';
 
 @Component({
     selector: 'ngv-selection-list',
@@ -7,13 +7,15 @@ import {Component,Template, View, For, If} from 'angular2/angular2';
         options: 'options',
         height: 'height',
         width: 'width'
-    }
+    },
+    events: ['change']
 })
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height" [style.width]="width">
-                    <div *for="#option of options;" class="selection-option" #opt>
+                    <div *for="#option of options;" class="selection-option"  #opt>
                         <div class="selection-description"
+                            (click)="onOptionClicked(option)"
                             (mouseover)="onOptionHover(opt)"
                             (mouseleave)="onOptionLeave(opt)">
                                 {{option.description}}
@@ -26,6 +28,7 @@ class SelectionList {
 
     constructor() {
         this.SELECTED_OPTION_CLASS = "selected";
+        this.change = new EventEmitter();
     }
 
     onOptionHover(option) {
@@ -36,10 +39,14 @@ class SelectionList {
         option.classList.remove(this.SELECTED_OPTION_CLASS);
     }
 
+    onOptionClicked(option) {
+        this.change.next(option);
+    }
 }
 
 @Component({
     selector: 'ngv-dropdown',
+    events: ['change'],
     properties: {
        options: 'options',
        height: 'height',
@@ -47,10 +54,15 @@ class SelectionList {
     }
 })
 @View({
-    template: ` <div class="ngv-input select-one clearfix">
-                    <input type="text" (click)="onInputClicked(button)" (blur)="onInputBlur(button)">
-                    <div class="widget-button dropdown-button" #button></div>
-                    <ngv-selection-list *if="showSelectionList" [options]="options" [height]="height" [width]="width"></ngv-selection-list>
+    template: ` <div class="ngv-input select-one clearfix" #dropdown>
+                    <input type="text" (click)="onInputClicked(input, button, dropdown)" #input>
+                    <div tabindex="0" class="widget-button dropdown-button" (click)="onButtonToggle(dropdown)" #button></div>
+                    <ngv-selection-list *if="active"
+                        [options]="options"
+                         (change)="onSelectionChanged($event)"
+                        [height]="height"
+                        [width]="width">
+                    </ngv-selection-list>
 
                 </div>`,
     directives: [SelectionList, If]
@@ -58,18 +70,34 @@ class SelectionList {
 export class Dropdown {
 
     constructor() {
-        this.ACTIVE_BUTTON_CLASS = 'active';
-        this.showSelectionList = false;
+        this.ACTIVE_CLASS = 'active';
+        this.active = false;
+        this.change = new EventEmitter();
     }
 
-    onInputClicked(button) {
-        this.showSelectionList = true;
-        button.classList.add(this.ACTIVE_BUTTON_CLASS);
+    onButtonToggle(dropdown) {
+        this.active = !this.active;
+        this.updateActiveState(dropdown);
     }
 
-    onInputBlur(button) {
-        this.showSelectionList = false;
-        button.classList.remove(this.ACTIVE_BUTTON_CLASS);
+    onInputClicked(input, button, dropdown) {
+        this.active = true;
+        input.blur();
+        button.focus();
+        this.updateActiveState(dropdown);
+    }
+
+    onSelectionChanged(option) {
+        this.change.next(option);
+    }
+
+    updateActiveState(dropdown) {
+        if (!this.active) {
+            dropdown.classList.remove(this.ACTIVE_CLASS);
+        }
+        else {
+            dropdown.classList.add(this.ACTIVE_CLASS);
+        }
     }
 
 }

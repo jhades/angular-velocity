@@ -90,11 +90,6 @@
         margin: 0 0 0 -5px;
         @include border-box;
 
-        &.active {
-            border-color:#129FEA;
-            box-shadow: 1px 0 5px rgba(102, 175, 233, 0.6);
-        }
-
         &:hover {
            background-color: #96bbde;
         }

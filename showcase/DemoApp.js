@@ -21,7 +21,7 @@ import {Dropdown} from 'dropdown/Dropdown';
                             <h2>Dropdown</h2>
                             <ngv-dropdown
                                 [options]="refData.COUNTRIES"
-                                (selection)="onSelection()"
+                                (change)="onSelection($event)"
                                 [height]="'100px'"
                                 [width]="'280px'">
                             </ngv-dropdown>
@@ -37,8 +37,8 @@ export class DemoApp {
         this.refData = new ReferenceData();
     }
 
-    onSelection(selected) {
-        console.log('selected entry = ' + selected);
+    onSelection(option) {
+        console.log("clicked option, event received in app: " + option.description);
     }
 
 }
