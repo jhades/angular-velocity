@@ -59,7 +59,7 @@ class SelectionList {
                     <div tabindex="0" class="widget-button dropdown-button" (click)="onButtonToggle(dropdown)" #button></div>
                     <ngv-selection-list *if="active"
                         [options]="options"
-                         (change)="onSelectionChanged($event)"
+                         (change)="onSelectionChanged($event, dropdown, input)"
                         [height]="height"
                         [width]="width">
                     </ngv-selection-list>
@@ -87,8 +87,11 @@ export class Dropdown {
         this.updateActiveState(dropdown);
     }
 
-    onSelectionChanged(option) {
+    onSelectionChanged(option, dropdown, input) {
         this.change.next(option);
+        input.value = option.description;
+        this.active = false;
+        this.updateActiveState(dropdown);
     }
 
     updateActiveState(dropdown) {
