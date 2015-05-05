@@ -15,7 +15,11 @@
 
     }
 
-
+    &.dropdown {
+      input {
+        cursor: pointer;
+      }
+    }
 
     .selection-list {
         background-color: #ffffff;

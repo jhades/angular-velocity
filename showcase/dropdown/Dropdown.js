@@ -54,16 +54,20 @@ class SelectionList {
     }
 })
 @View({
-    template: ` <div class="ngv-input select-one clearfix" #dropdown>
-                    <input type="text" (click)="onInputClicked(input, button, dropdown)" #input>
+    template: ` <div class="ngv-input select-one dropdown clearfix" #dropdown>
+
+                    <input type="text"
+                        (click)="onInputClicked(input, button, dropdown)" #input>
+
                     <div tabindex="0" class="widget-button dropdown-button"
                         (click)="onButtonToggle(dropdown)"
                         (keyup)="onKeyUp($event, button)"
-                         (blur)="onDropdownBlur(dropdown)"
-                        #button></div>
-                    <ngv-selection-list *if="active"
+                         (blur)="onFocusLost(dropdown, button, input)" #button>
+                    </div>
+
+                    <ngv-selection-list *if="showSelectionList"
                         [options]="options"
-                         (change)="onSelectionChanged($event, dropdown, input)"
+                         (change)="onSelectionChanged($event, dropdown, input, button)"
                         [height]="height"
                         [width]="width">
                     </ngv-selection-list>
@@ -76,42 +80,53 @@ export class Dropdown {
     constructor() {
         this.ACTIVE_CLASS = 'active';
         this.active = false;
+        this.showSelectionList = false;
         this.change = new EventEmitter();
     }
 
     onButtonToggle(dropdown) {
-        this.active = !this.active;
+        console.log('onButtonToggle');
+        this.showSelectionList = !this.showSelectionList;
+        if (!this.active) {
+            this.active = true;
+        }
         this.updateActiveState(dropdown);
     }
 
     onInputClicked(input, button, dropdown) {
+        console.log('onInputClicked');
         this.active = true;
+        this.showSelectionList = true;
         input.blur();
         button.focus();
         this.updateActiveState(dropdown);
     }
 
-    onSelectionChanged(option, dropdown, input) {
-        this.change.next(option);
+    onSelectionChanged(option, dropdown, input, button) {
+        console.log('onSelectionChanged');
         input.value = option.description;
-        this.active = false;
+        this.showSelectionList = false;
         this.updateActiveState(dropdown);
+        this.change.next(option);
     }
 
-    onDropdownBlur(dropdown) {
-        setTimeout(() => {
-            this.active = false;
-            this.updateActiveState(dropdown);
-        },200);
+    onFocusLost(dropdown, button, input) {
+        console.log('onFocusLost');
+        if (document.activeElement !== input) {
+            setTimeout(() => {
+                this.active = false;
+                this.showSelectionList = false;
+                this.updateActiveState(dropdown);
+            },200);
+        }
     }
 
     onKeyUp(event, button) {
         if (event.keyCode === 27) {
-            button.blur();
+            this.showSelectionList = false;
         }
         console.log(event.keyCode);
     }
-
 
     updateActiveState(dropdown) {
         if (!this.active) {
