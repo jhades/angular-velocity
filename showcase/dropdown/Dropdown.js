@@ -56,7 +56,11 @@ class SelectionList {
 @View({
     template: ` <div class="ngv-input select-one clearfix" #dropdown>
                     <input type="text" (click)="onInputClicked(input, button, dropdown)" #input>
-                    <div tabindex="0" class="widget-button dropdown-button" (click)="onButtonToggle(dropdown)" #button></div>
+                    <div tabindex="0" class="widget-button dropdown-button"
+                        (click)="onButtonToggle(dropdown)"
+                        (keyup)="onKeyUp($event, button)"
+                         (blur)="onDropdownBlur(dropdown)"
+                        #button></div>
                     <ngv-selection-list *if="active"
                         [options]="options"
                          (change)="onSelectionChanged($event, dropdown, input)"
@@ -93,6 +97,21 @@ export class Dropdown {
         this.active = false;
         this.updateActiveState(dropdown);
     }
+
+    onDropdownBlur(dropdown) {
+        setTimeout(() => {
+            this.active = false;
+            this.updateActiveState(dropdown);
+        },200);
+    }
+
+    onKeyUp(event, button) {
+        if (event.keyCode === 27) {
+            button.blur();
+        }
+        console.log(event.keyCode);
+    }
+
 
     updateActiveState(dropdown) {
         if (!this.active) {
