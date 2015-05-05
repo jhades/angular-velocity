@@ -57,7 +57,8 @@ class SelectionList {
     template: ` <div class="ngv-input select-one dropdown clearfix" #dropdown>
 
                     <input type="text"
-                        (click)="onInputClicked(input, button, dropdown)" #input>
+                        (focus)="onInputSelected(input, button, dropdown)"
+                        (click)="onInputSelected(input, button, dropdown)" #input>
 
                     <div tabindex="0" class="widget-button dropdown-button"
                         (click)="onButtonToggle(dropdown)"
@@ -93,8 +94,8 @@ export class Dropdown {
         this.updateActiveState(dropdown);
     }
 
-    onInputClicked(input, button, dropdown) {
-        console.log('onInputClicked');
+    onInputSelected(input, button, dropdown) {
+        console.log('onInputSelected');
         this.active = true;
         this.showSelectionList = true;
         input.blur();
@@ -110,13 +111,14 @@ export class Dropdown {
         this.change.next(option);
     }
 
+    // TODO
     onFocusLost(dropdown, button, input) {
-        console.log('onFocusLost');
+        //console.log('onFocusLost');
         if (document.activeElement !== input) {
             setTimeout(() => {
-                this.active = false;
-                this.showSelectionList = false;
-                this.updateActiveState(dropdown);
+                //this.active = false;
+                //this.showSelectionList = false;
+                //this.updateActiveState(dropdown);
             },200);
         }
     }
