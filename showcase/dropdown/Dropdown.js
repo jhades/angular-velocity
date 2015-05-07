@@ -102,17 +102,15 @@ export class Dropdown {
     }
 
     onFocusLost(dropdown, button, input) {
-/*
-        var currentValue = input.textContent;
+/*        var currentValue = input.textContent;
         setTimeout(() => {
             var maybeNewValue = input.textContent;
-            if (maybeNewValue === currentValue) { //
+            if (maybeNewValue === currentValue) {
                 this.active = false;
                 this.showSelectionList = false;
                 this.updateActiveState(dropdown);
             }
-        });
-*/
+        });*/
     }
 
     onKeyUp(event, button) {
