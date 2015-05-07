@@ -56,14 +56,16 @@ class SelectionList {
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" #dropdown>
 
-                    <input type="text"
-                        (click)="onInputClicked(input, button, dropdown)" #input>
-
-                    <div tabindex="0" class="widget-button dropdown-button"
-                        (click)="onButtonToggle(dropdown)"
-                        (keyup)="onKeyUp($event, button)"
-                         (blur)="onFocusLost(dropdown, button, input)" #button>
+                    <div class="input">
+                        <div tabindex="0" class="widget-button dropdown-button"
+                            (click)="onButtonToggle(dropdown)"
+                            (keyup)="onKeyUp($event, button)"
+                             (blur)="onFocusLost(dropdown, button, input)" #button>
+                        </div>
                     </div>
+
+                    <input type="text" style="border-top:10px"
+                        (click)="onInputClicked(input, button, dropdown)" #input>
 
                     <ngv-selection-list *if="showSelectionList"
                         [options]="options"
