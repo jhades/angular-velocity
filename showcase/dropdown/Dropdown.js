@@ -56,16 +56,14 @@ class SelectionList {
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" #dropdown>
 
-                    <div class="input">
-                        <div tabindex="0" class="widget-button dropdown-button"
-                            (click)="onButtonToggle(dropdown)"
-                            (keyup)="onKeyUp($event, button)"
-                             (blur)="onFocusLost(dropdown, button, input)" #button>
+                    <div tabindex="0" class="input"
+                        (click)="onButtonToggle(dropdown)"
+                        (blur)="onFocusLost(dropdown, button, input)"
+                        (keyup)="onKeyUp($event, button)" #input>
+                        <div class="widget-button dropdown-button"
+                            (click)="onButtonToggle(dropdown)" #button>
                         </div>
                     </div>
-
-                    <input type="text" style="border-top:10px"
-                        (click)="onInputClicked(input, button, dropdown)" #input>
 
                     <ngv-selection-list *if="showSelectionList"
                         [options]="options"
@@ -95,30 +93,26 @@ export class Dropdown {
         this.updateActiveState(dropdown);
     }
 
-    onInputClicked(input, button, dropdown) {
-        console.log('onInputClicked');
-        input.blur();
-        button.click();
-    }
-
     onSelectionChanged(option, dropdown, input, button) {
         console.log('onSelectionChanged');
-        input.value = option.description;
+        input.textContent = option.description;
         this.showSelectionList = false;
         this.updateActiveState(dropdown);
         this.change.next(option);
     }
 
-    // TODO
     onFocusLost(dropdown, button, input) {
-        //console.log('onFocusLost');
-        if (document.activeElement !== input) {
-            setTimeout(() => {
-                //this.active = false;
-                //this.showSelectionList = false;
-                //this.updateActiveState(dropdown);
-            },200);
-        }
+/*
+        var currentValue = input.textContent;
+        setTimeout(() => {
+            var maybeNewValue = input.textContent;
+            if (maybeNewValue === currentValue) { //
+                this.active = false;
+                this.showSelectionList = false;
+                this.updateActiveState(dropdown);
+            }
+        });
+*/
     }
 
     onKeyUp(event, button) {

@@ -17,16 +17,18 @@
 
     .input {
       cursor: pointer;
+      outline: none;
       border: 1px solid #cccccc;
       width: 175px;
+      line-height: 27px;
       height: 27px;
+      padding-left: 3px;
       box-shadow: inset 0 1px 3px #e6e6e6;
       border-radius: 4px;
 
       .widget-button {
         float: right;
         height: 100%;
-        outline: none;
 
         &.dropdown-button {
           background-image: url('/ngv/images/dropdown.png');
