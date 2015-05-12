@@ -1,5 +1,5 @@
 
-import {Component, View, bootstrap} from 'angular2/angular2';
+import {ComponentAnnotation as Component, ViewAnnotation as View, bootstrap} from 'angular2/angular2';
 import {ReferenceData} from "helloworld/referenceData";
 import {HelloWorld} from 'helloworld/HelloWorld';
 import {Dropdown} from 'dropdown/Dropdown';
@@ -11,9 +11,9 @@ import {Dropdown} from 'dropdown/Dropdown';
 @View({
     template: `<div class="demos">
 
-                    <div class="demo">
+                    <!-- div class="demo">
                         <hello-world></hello-world>
-                    </div>
+                    </div -->
 
                     <div class="demo">
 
