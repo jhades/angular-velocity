@@ -60,14 +60,18 @@ class SelectionList {
                         (click)="onButtonToggle(dropdown)"
                         (blur)="onFocusLost(dropdown, button, input)"
                         (keyup)="onKeyUp($event, button)" #input>
+                        
+                        <span #current></span>
+                        
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle(dropdown)" #button>
                         </div>
+                        
                     </div>
 
                     <ngv-selection-list *if="showSelectionList"
                         [options]="options"
-                         (change)="onSelectionChanged($event, dropdown, input, button)"
+                         (change)="onSelectionChanged($event, dropdown, current, button)"
                         [height]="height"
                         [width]="width">
                     </ngv-selection-list>
@@ -93,24 +97,18 @@ export class Dropdown {
         this.updateActiveState(dropdown);
     }
 
-    onSelectionChanged(option, dropdown, input, button) {
+    onSelectionChanged(option, dropdown, current, button) {
         console.log('onSelectionChanged');
-        input.textContent = option.description;
+        current.textContent = option.description;
         this.showSelectionList = false;
         this.updateActiveState(dropdown);
         this.change.next(option);
     }
 
     onFocusLost(dropdown, button, input) {
-/*        var currentValue = input.textContent;
         setTimeout(() => {
-            var maybeNewValue = input.textContent;
-            if (maybeNewValue === currentValue) {
-                this.active = false;
-                this.showSelectionList = false;
-                this.updateActiveState(dropdown);
-            }
-        });*/
+            console.log('debounced focus lost ...');
+        });
     }
 
     onKeyUp(event, button) {
