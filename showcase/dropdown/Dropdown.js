@@ -61,7 +61,7 @@ class SelectionList {
                         (blur)="onFocusLost(dropdown, button, input)"
                         (keyup)="onKeyUp($event, button)" #input>
                         
-                        <span #current></span>
+                        <span #current (click)="onButtonToggle(dropdown)"></span>
                         
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle(dropdown)" #button>
@@ -103,12 +103,21 @@ export class Dropdown {
         this.showSelectionList = false;
         this.updateActiveState(dropdown);
         this.change.next(option);
+        
+        this.justChangedValue = true;
+         setTimeout(() => {
+            console.log('resetting justChangedValue ...');
+            this.justChangedValue = false;
+        },200);       
     }
 
     onFocusLost(dropdown, button, input) {
         setTimeout(() => {
             console.log('debounced focus lost ...');
-        });
+            if (!this.justChangedValue) {
+                this.showSelectionList = false; 
+            }
+        },200);
     }
 
     onKeyUp(event, button) {
