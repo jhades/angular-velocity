@@ -29,7 +29,7 @@ import {SelectionList} from 'dropdown/SelectionList';
 
                     <ngv-selection-list *if="showSelectionList"
                         [options]="options"
-                         (change)="onSelectionChanged($event, dropdown, current, button)"
+                         (change)="onSelectionChanged($event, dropdown, current, input)"
                         [height]="height"
                         [width]="width">
                     </ngv-selection-list>
@@ -55,26 +55,19 @@ export class Dropdown {
         this.updateActiveState(dropdown);
     }
 
-    onSelectionChanged(option, dropdown, current, button) {
+    onSelectionChanged(option, dropdown, current, input) {
         console.log('onSelectionChanged');
         current.textContent = option.description;
         this.showSelectionList = false;
         this.updateActiveState(dropdown);
         this.change.next(option);
-        
-        this.justChangedValue = true;
-         setTimeout(() => {
-            console.log('resetting justChangedValue ...');
-            this.justChangedValue = false;
-        },200);       
+        input.focus();
     }
 
     onFocusLost(dropdown, button, input) {
         setTimeout(() => {
             console.log('debounced focus lost ...');
-            if (!this.justChangedValue) {
-                this.showSelectionList = false; 
-            }
+            this.showSelectionList = false;
         },200);
     }
 
@@ -82,7 +75,8 @@ export class Dropdown {
         if (event.keyCode === 27) {
             this.showSelectionList = false;
         }
-        console.log(event.keyCode);
+        var res = String.fromCharCode(event.keyCode);
+        console.log(res);
     }
 
     updateActiveState(dropdown) {
