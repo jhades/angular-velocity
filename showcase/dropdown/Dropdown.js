@@ -81,8 +81,10 @@ export class Dropdown {
             this.showSelectionList = false;
         }
         else if (this.keyUtils.isArrowKey(key)) {
-            if (this.keyUtils.isArrowDown(key) && !this.showSelectionList) {
-                this.showSelectionList = true;
+            if (this.keyUtils.isArrowDown(key)) {
+                if (!this.showSelectionList) {
+                    this.showSelectionList = true;
+                }
             }
         }
         else {
