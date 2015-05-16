@@ -84,9 +84,17 @@ export class Dropdown {
             console.log('Key code ...');
         }
         else {
+            if (this.resetSearchHandle) {
+                clearTimeout(this.resetSearchHandle);
+            }
             var key = String.fromCharCode(keyCode);
             this.search += key;
             console.log(this.search);
+
+            this.resetSearchHandle = setTimeout(() => {
+                this.search = "";
+                this.resetSearchHandle = null;
+            },500);
         }
     }
 
