@@ -1,10 +1,31 @@
 import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
+import {Injectable} from "angular2/di";
+
+@Injectable
+class KeyboardUtils {
+
+    isNumericKey(keyCode) {
+    return (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105);
+    }
+
+    isBackSpace(keyCode) {
+    return keyCode == 8;
+    }
+
+    isArrowKey(keyCode) {
+        return keyCode >= 37 && keyCode <= 40;
+    }
+
+}
+
+
 
 @Component({ 
     selector: 'ngv-dropdown',
     events: ['change'],
+    injectables: [KeyboardUtils],
     properties: {
        options: 'options',
        height: 'height',
@@ -39,12 +60,13 @@ import {SelectionList} from 'dropdown/SelectionList';
 })
 export class Dropdown {
 
-    constructor() {
+    constructor(keyUtils: KeyboardUtils) {
         this.ACTIVE_CLASS = 'active';
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();
         this.search = "";
+        this.keyUtils = keyUtils;
     }
 
     onButtonToggle(dropdown) {
@@ -73,12 +95,18 @@ export class Dropdown {
     }
 
     onKeyUp(event, button) {
-        if (event.keyCode === 27) {
+        var keyCode = event.keyCode;
+        if (keyCode === 27) {
             this.showSelectionList = false;
         }
-        var key = String.fromCharCode(event.keyCode);
-        this.search += key;
-        console.log(this.search);
+        else if (this.keyUtils.isArrowKey(keyCode)) {
+            console.log('Key code ...');
+        }
+        else {
+            var key = String.fromCharCode(keyCode);
+            this.search += key;
+            console.log(this.search);
+        }
     }
 
     updateActiveState(dropdown) {
