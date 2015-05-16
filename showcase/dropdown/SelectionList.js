@@ -1,4 +1,5 @@
 import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
+import {ParentAnnotation as Parent} from 'angular2/annotations';
 import { EventEmitter } from 'angular2/angular2';
 
 @Component({
@@ -41,5 +42,9 @@ export class SelectionList {
 
     onOptionClicked(option) {
         this.change.next(option);
+    }
+
+    selectFirstElement() {
+        console.log('selecting first element ...');
     }
 }
