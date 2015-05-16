@@ -42,7 +42,7 @@ export class Dropdown {
     constructor() {
         this.ACTIVE_CLASS = 'active';
         this.active = false;
-        this.showSelectionList = false;
+        this.showSelectionList = true;
         this.change = new EventEmitter();
     }
 
