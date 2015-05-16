@@ -16,7 +16,7 @@
     }
 
     .input {
-      font-size: 0.8em; 
+      font-size: 0.8em;       
       cursor: pointer;
       outline: none;
       border: 1px solid #cccccc;
@@ -26,6 +26,14 @@
       padding-left: 3px;
       box-shadow: inset 0 1px 3px #e6e6e6;
       border-radius: 4px;
+      
+      span {
+          white-space: nowrap;
+          width: 150px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: inline-block;          
+      }
 
       .widget-button {
         float: right;
