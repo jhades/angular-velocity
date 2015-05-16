@@ -76,19 +76,21 @@ export class Dropdown {
     }
 
     onKeyUp(event, button) {
-        var keyCode = event.keyCode;
-        if (keyCode === 27) {
+        var key = event.keyCode;
+        if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
         }
-        else if (this.keyUtils.isArrowKey(keyCode)) {
-            console.log('Key code ...');
+        else if (this.keyUtils.isArrowKey(key)) {
+            if (this.keyUtils.isArrowDown(key) && !this.showSelectionList) {
+                this.showSelectionList = true;
+            }
         }
         else {
             if (this.resetSearchHandle) {
                 clearTimeout(this.resetSearchHandle);
             }
-            var key = String.fromCharCode(keyCode);
-            this.search += key;
+            var keyTyped = String.fromCharCode(key);
+            this.search += keyTyped;
             console.log(this.search);
 
             this.resetSearchHandle = setTimeout(() => {
