@@ -1,26 +1,7 @@
 import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
-import {Injectable} from "angular2/di";
-
-@Injectable
-class KeyboardUtils {
-
-    isNumericKey(keyCode) {
-    return (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105);
-    }
-
-    isBackSpace(keyCode) {
-    return keyCode == 8;
-    }
-
-    isArrowKey(keyCode) {
-        return keyCode >= 37 && keyCode <= 40;
-    }
-
-}
-
-
+import {KeyboardUtils} from 'common/KeyboardUtils';
 
 @Component({ 
     selector: 'ngv-dropdown',
