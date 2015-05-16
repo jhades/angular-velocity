@@ -44,6 +44,7 @@ export class Dropdown {
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();
+        this.search = "";
     }
 
     onButtonToggle(dropdown) {
@@ -75,8 +76,9 @@ export class Dropdown {
         if (event.keyCode === 27) {
             this.showSelectionList = false;
         }
-        var res = String.fromCharCode(event.keyCode);
-        console.log(res);
+        var key = String.fromCharCode(event.keyCode);
+        this.search += key;
+        console.log(this.search);
     }
 
     updateActiveState(dropdown) {
