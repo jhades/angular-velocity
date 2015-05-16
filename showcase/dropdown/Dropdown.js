@@ -86,18 +86,22 @@ export class Dropdown {
             }
         }
         else {
-            if (this.resetSearchHandle) {
-                clearTimeout(this.resetSearchHandle);
-            }
-            var keyTyped = String.fromCharCode(key);
-            this.search += keyTyped;
-            console.log(this.search);
-
-            this.resetSearchHandle = setTimeout(() => {
-                this.search = "";
-                this.resetSearchHandle = null;
-            },500);
+            this.handleTypeFilter(key);
         }
+    }
+
+    handleTypeFilter(key) {
+        if (this.resetSearchHandle) {
+            clearTimeout(this.resetSearchHandle);
+        }
+        var keyTyped = String.fromCharCode(key);
+        this.search += keyTyped;
+        console.log(this.search);
+
+        this.resetSearchHandle = setTimeout(() => {
+            this.search = "";
+            this.resetSearchHandle = null;
+        },500);
     }
 
     updateActiveState(dropdown) {
