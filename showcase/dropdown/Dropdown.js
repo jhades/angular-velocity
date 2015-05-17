@@ -19,7 +19,7 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
                     <div tabindex="0" class="input"
                         (click)="onButtonToggle(dropdown)"
                         (blur)="onFocusLost()"
-                        (keyup)="onKeyUp($event, button)" #input>
+                        (keydown)="onKeyDown($event, button)" #input>
                         
                         <span #current (click)="onButtonToggle(dropdown)"></span>
                         
@@ -77,24 +77,32 @@ export class Dropdown {
         },200);
     }
 
-    onKeyUp(event, button) {
+    onKeyDown(event, button) {
         var key = event.keyCode;
+        console.log(key);
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
         }
-        else if (this.keyUtils.isArrowKey(key)) {
-            if (this.keyUtils.isArrowDown(key)) {
-                if (!this.showSelectionList) {
-                    this.showSelectionList = true;
-                    this.selectionList.selectFirstElement();
-                }
-                else {
-                    this.selectionList.selectNext();
-                }
+        else if (this.keyUtils.isTab(key)) {
+            if (this.showSelectionList) {
+                event.preventDefault();
+                event.stopPropagation();
             }
-            else if (this.keyUtils.isArrowUp(key)) {
-                this.selectionList.selectPrevious();
+            else {
+                this.active = false;
             }
+        }
+        else if (this.keyUtils.isArrowDown(key)) {
+            if (!this.showSelectionList) {
+                this.showSelectionList = true;
+                this.selectionList.selectFirstElement();
+            }
+            else {
+                this.selectionList.selectNext();
+            }
+        }
+        else if (this.keyUtils.isArrowUp(key)) {
+            this.selectionList.selectPrevious();
         }
         else {
             this.handleTypeFilter(key);
