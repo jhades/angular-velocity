@@ -7,7 +7,8 @@ import { EventEmitter } from 'angular2/angular2';
     properties: {
         options: 'options',
         height: 'height',
-        width: 'width'
+        width: 'width',
+        owner: 'owner'
     },
     events: ['change']
 })
@@ -30,6 +31,9 @@ export class SelectionList {
     constructor() {
         this.SELECTED_OPTION_CLASS = "selected";
         this.change = new EventEmitter();
+        setTimeout(() => {
+            this.owner.selectionList = this;
+        });
     }
 
     onOptionHover(option) {

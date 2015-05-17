@@ -10,7 +10,7 @@ import {Dropdown} from 'dropdown/Dropdown';
 @View({
     template: `<div class="demos">
 
-                    <!-- div class="demo">
+                    <!--div class="demo">
                         <hello-world></hello-world>
                     </div -->
 

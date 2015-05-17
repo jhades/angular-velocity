@@ -2,7 +2,6 @@ import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
 import {KeyboardUtils} from 'common/KeyboardUtils';
-import {QueryAnnotation as Query, QueryList} from 'angular2/angular2';
 
 @Component({ 
     selector: 'ngv-dropdown',
@@ -34,6 +33,7 @@ import {QueryAnnotation as Query, QueryList} from 'angular2/angular2';
                         [options]="options"
                          (change)="onSelectionChanged($event, dropdown, current, input)"
                         [height]="height"
+                        [owner]="getSelectionListOwner()"
                         [width]="width">
                     </ngv-selection-list>
 
@@ -42,14 +42,13 @@ import {QueryAnnotation as Query, QueryList} from 'angular2/angular2';
 })
 export class Dropdown {
 
-    constructor(keyUtils: KeyboardUtils, @Query(SelectionList) selectionList:SelectionList ) {
+    constructor(keyUtils: KeyboardUtils ) {
         this.ACTIVE_CLASS = 'active';
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();
         this.search = "";
         this.keyUtils = keyUtils;
-        this.selectionList = selectionList;
     }
 
     onButtonToggle(dropdown) {
@@ -68,6 +67,10 @@ export class Dropdown {
         this.updateActiveState(dropdown);
         this.change.next(option);
         input.focus();
+    }
+
+    getSelectionListOwner() {
+        return this;
     }
 
     onFocusLost(dropdown, button, input) {
