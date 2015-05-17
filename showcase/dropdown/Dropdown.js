@@ -14,11 +14,11 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
     }
 })
 @View({
-    template: ` <div class="ngv-input select-one dropdown clearfix" #dropdown>
+    template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active" #dropdown>
 
                     <div tabindex="0" class="input"
                         (click)="onButtonToggle(dropdown)"
-                        (blur)="onFocusLost(dropdown, button, input)"
+                        (blur)="onFocusLost()"
                         (keyup)="onKeyUp($event, button)" #input>
                         
                         <span #current (click)="onButtonToggle(dropdown)"></span>
@@ -43,7 +43,6 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
 export class Dropdown {
 
     constructor(keyUtils: KeyboardUtils ) {
-        this.ACTIVE_CLASS = 'active';
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();
@@ -57,14 +56,12 @@ export class Dropdown {
         if (!this.active) {
             this.active = true;
         }
-        this.updateActiveState(dropdown);
     }
 
     onSelectionChanged(option, dropdown, current, input) {
         console.log('onSelectionChanged');
         current.textContent = option.description;
         this.showSelectionList = false;
-        this.updateActiveState(dropdown);
         this.change.next(option);
         input.focus();
     }
@@ -73,10 +70,11 @@ export class Dropdown {
         return this;
     }
 
-    onFocusLost(dropdown, button, input) {
+    onFocusLost() {
         setTimeout(() => {
             console.log('debounced focus lost ...');
             this.showSelectionList = false;
+            this.active = false;
         },200);
     }
 
@@ -110,15 +108,6 @@ export class Dropdown {
             this.search = "";
             this.resetSearchHandle = null;
         },500);
-    }
-
-    updateActiveState(dropdown) {
-        if (!this.active) {
-            dropdown.classList.remove(this.ACTIVE_CLASS);
-        }
-        else {
-            dropdown.classList.add(this.ACTIVE_CLASS);
-        }
     }
 
 }

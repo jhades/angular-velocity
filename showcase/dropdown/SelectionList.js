@@ -2,6 +2,7 @@ import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 
 import {ParentAnnotation as Parent} from 'angular2/annotations';
 import { EventEmitter } from 'angular2/angular2';
 
+
 @Component({
     selector: 'ngv-selection-list',
     properties: {
@@ -15,11 +16,11 @@ import { EventEmitter } from 'angular2/angular2';
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height" [style.width]="width">
-                    <div *for="#option of options;" class="selection-option"  #opt>
+                    <div *for="#option of options;" class="selection-option" [class.selected]="option.selected" #opt>
                         <div class="selection-description"
                             (click)="onOptionClicked(option)"
-                            (mouseover)="onOptionHover(opt)"
-                            (mouseleave)="onOptionLeave(opt)">
+                            (mouseover)="selectOption(option)"
+                            (mouseleave)="unselectOption(option)">
                                 {{option.description}}
                         </div>
                     </div>
@@ -29,19 +30,18 @@ import { EventEmitter } from 'angular2/angular2';
 export class SelectionList {
 
     constructor() {
-        this.SELECTED_OPTION_CLASS = "selected";
         this.change = new EventEmitter();
         setTimeout(() => {
             this.owner.selectionList = this;
         });
     }
 
-    onOptionHover(option) {
-        option.classList.add(this.SELECTED_OPTION_CLASS);
+    selectOption(option) {
+        option.selected = true;
     }
 
-    onOptionLeave(option) {
-        option.classList.remove(this.SELECTED_OPTION_CLASS);
+    unselectOption(option) {
+        option.selected = false;
     }
 
     onOptionClicked(option) {
@@ -50,5 +50,6 @@ export class SelectionList {
 
     selectFirstElement() {
         console.log('selecting first element ...');
+        this.options[0].selected = true;
     }
 }
