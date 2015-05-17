@@ -21,7 +21,7 @@ import {Dropdown} from 'dropdown/Dropdown';
                             <ngv-dropdown
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)"
-                                [height]="'100px'"
+                                [num-visible-options]="7"
                                 [width]="'280px'">
                             </ngv-dropdown>
                         </form>

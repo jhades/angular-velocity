@@ -9,7 +9,7 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
     injectables: [KeyboardUtils],
     properties: { 
        options: 'options',
-       height: 'height',
+       numVisibleOptions: 'numVisibleOptions',
        width: 'width'
     }
 })
@@ -32,7 +32,7 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
                     <ngv-selection-list *if="showSelectionList"
                         [options]="options"
                          (change)="onSelectionChanged($event, dropdown, current, input)"
-                        [height]="height"
+                        [height]="22 * numVisibleOptions + 'px'"
                         [owner]="getSelectionListOwner()"
                         [width]="width">
                     </ngv-selection-list>
