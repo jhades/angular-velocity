@@ -1,6 +1,3 @@
-/// /// <reference path="typings/angular2/angular2" />
-
-
 import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
