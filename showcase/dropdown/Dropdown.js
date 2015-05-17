@@ -74,7 +74,6 @@ export class Dropdown {
         setTimeout(() => {
             console.log('debounced focus lost ...');
             this.showSelectionList = false;
-            this.active = false;
         },200);
     }
 

@@ -57,22 +57,25 @@ export class SelectionList {
     selectIndex(index) {
         this.options.forEach((option) => option.selected = false);
         this.selectedIndex = index;
-        this.options[this.selectedIndex].selected = true;
+        this.options[index].selected = true;
     }
 
     selectNext() {
         if (this.options.length >= this.selectedIndex + 1) {
-            this.options[this.selectedIndex].selected = false;
             this.selectedIndex += 1;
-            this.options[this.selectedIndex].selected = true;
+            this.changeSelectedItem(this.selectedIndex - 1, this.selectedIndex);
         }
     }
 
     selectPrevious() {
         if (this.selectedIndex > 0) {
-            this.options[this.selectedIndex].selected = false;
             this.selectedIndex -= 1;
-            this.options[this.selectedIndex].selected = true;
+            this.changeSelectedItem(this.selectedIndex + 1, this.selectedIndex);
         }
+    }
+
+    changeSelectedItem(previous, next) {
+        this.options[previous].selected = false;
+        this.options[next].selected = true;
     }
 }
