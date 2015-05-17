@@ -79,33 +79,40 @@ export class Dropdown {
 
     onKeyDown(event, button) {
         var key = event.keyCode;
-        console.log(key);
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
         }
         else if (this.keyUtils.isTab(key)) {
-            if (this.showSelectionList) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            else {
-                this.active = false;
-            }
+            this.onTab();
         }
         else if (this.keyUtils.isArrowDown(key)) {
-            if (!this.showSelectionList) {
-                this.showSelectionList = true;
-                this.selectionList.selectFirstElement();
-            }
-            else {
-                this.selectionList.selectNext();
-            }
+            this.onArrowDown();
         }
         else if (this.keyUtils.isArrowUp(key)) {
             this.selectionList.selectPrevious();
         }
         else {
             this.handleTypeFilter(key);
+        }
+    }
+
+    onTab() {
+        if (this.showSelectionList) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        else {
+            this.active = false;
+        }
+    }
+
+    onArrowDown() {
+        if (!this.showSelectionList) {
+            this.showSelectionList = true;
+            this.selectionList.selectFirstElement();
+        }
+        else {
+            this.selectionList.selectNext();
         }
     }
 
