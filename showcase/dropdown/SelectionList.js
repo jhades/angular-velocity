@@ -31,6 +31,7 @@ export class SelectionList {
 
     constructor() {
         this.change = new EventEmitter();
+        this.selectedIndex = 0;
         setTimeout(() => {
             this.owner.selectionList = this;
         });
@@ -49,7 +50,24 @@ export class SelectionList {
     }
 
     selectFirstElement() {
-        console.log('selecting first element ...');
-        this.options[0].selected = true;
+        this.selectIndex(0);
+    }
+
+    selectIndex(index) {
+        this.options.forEach((option) => option.selected = false);
+        this.selectedIndex = index;
+        this.options[this.selectedIndex].selected = true;
+    }
+
+    selectNext() {
+        if (this.options.length >= this.selectedIndex + 1) {
+            this.options[this.selectedIndex].selected = false;
+            this.selectedIndex += 1;
+            this.options[this.selectedIndex].selected = true;
+        }
+    }
+
+    selectPrevious() {
+
     }
 }

@@ -89,6 +89,12 @@ export class Dropdown {
                     this.showSelectionList = true;
                     this.selectionList.selectFirstElement();
                 }
+                else {
+                    this.selectionList.selectNext();
+                }
+            }
+            else if (this.keyUtils.isArrowUp(key)) {
+                this.selectionList.selectPrevious();
             }
         }
         else {
