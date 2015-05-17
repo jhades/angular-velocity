@@ -1,13 +1,17 @@
+/// /// <reference path="typings/angular2/angular2" />
+
+
 import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
 import {KeyboardUtils} from 'common/KeyboardUtils';
+import {QueryAnnotation as Query, QueryList} from 'angular2/angular2';
 
 @Component({ 
     selector: 'ngv-dropdown',
     events: ['change'],
     injectables: [KeyboardUtils],
-    properties: {
+    properties: { 
        options: 'options',
        height: 'height',
        width: 'width'
@@ -41,13 +45,14 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
 })
 export class Dropdown {
 
-    constructor(keyUtils: KeyboardUtils) {
+    constructor(keyUtils: KeyboardUtils, @Query(SelectionList) selectionList:SelectionList ) {
         this.ACTIVE_CLASS = 'active';
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();
         this.search = "";
         this.keyUtils = keyUtils;
+        this.selectionList = selectionList;
     }
 
     onButtonToggle(dropdown) {
@@ -84,6 +89,7 @@ export class Dropdown {
             if (this.keyUtils.isArrowDown(key)) {
                 if (!this.showSelectionList) {
                     this.showSelectionList = true;
+                    this.selectionList.selectFirstElement();
                 }
             }
         }
