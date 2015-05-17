@@ -34,6 +34,7 @@ export class SelectionList {
         this.selectedIndex = 0;
         setTimeout(() => {
             this.owner.selectionList = this;
+            this.selectIndex(0);
         });
     }
 
@@ -68,6 +69,10 @@ export class SelectionList {
     }
 
     selectPrevious() {
-
+        if (this.selectedIndex > 0) {
+            this.options[this.selectedIndex].selected = false;
+            this.selectedIndex -= 1;
+            this.options[this.selectedIndex].selected = true;
+        }
     }
 }

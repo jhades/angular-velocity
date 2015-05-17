@@ -108,7 +108,6 @@ export class Dropdown {
         }
         var keyTyped = String.fromCharCode(key);
         this.search += keyTyped;
-        console.log(this.search);
 
         this.resetSearchHandle = setTimeout(() => {
             this.search = "";
