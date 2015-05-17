@@ -39,6 +39,7 @@ export class SelectionList {
     }
 
     selectOption(option) {
+        this.options.forEach((option) => option.selected = false);
         option.selected = true;
     }
 
@@ -63,19 +64,19 @@ export class SelectionList {
     selectNext() {
         if (this.options.length >= this.selectedIndex + 1) {
             this.selectedIndex += 1;
-            this.changeSelectedItem(this.selectedIndex - 1, this.selectedIndex);
+            this.changeSelectedItem(this.selectedIndex);
         }
     }
 
     selectPrevious() {
         if (this.selectedIndex > 0) {
             this.selectedIndex -= 1;
-            this.changeSelectedItem(this.selectedIndex + 1, this.selectedIndex);
+            this.changeSelectedItem(this.selectedIndex);
         }
     }
 
-    changeSelectedItem(previous, next) {
-        this.options[previous].selected = false;
+    changeSelectedItem(next) {
+        this.options.forEach((option) => option.selected = false);
         this.options[next].selected = true;
     }
 }
