@@ -1,6 +1,7 @@
 import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
-import {ParentAnnotation as Parent} from 'angular2/annotations';
+import {ParentAnnotation as Parent, onChange} from 'angular2/annotations';
 import { EventEmitter } from 'angular2/angular2';
+
 
 
 @Component({
@@ -11,7 +12,8 @@ import { EventEmitter } from 'angular2/angular2';
         width: 'width',
         owner: 'owner'
     },
-    events: ['change']
+    events: ['change'],
+    lifecycle: [onChange]
 })
 @View({
     template: `
@@ -32,11 +34,14 @@ export class SelectionList {
     constructor() {
         this.change = new EventEmitter();
         this.selectedIndex = 0;
-        setTimeout(() => {
-            this.owner.selectionList = this;
-            this.selectIndex(0);
-        });
     }
+
+    // finishes object initialization
+    onChange() {
+        this.owner.selectionList = this;
+        this.selectIndex(0);
+    }
+
 
     selectOption(option) {
         this.options.forEach((option) => option.selected = false);
