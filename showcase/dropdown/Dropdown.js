@@ -1,4 +1,4 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
+import {ComponentAnnotation as Component, ViewAnnotation as View, NgIf} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
 import {KeyboardUtils} from 'common/KeyboardUtils';
@@ -6,8 +6,8 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
 @Component({ 
     selector: 'ngv-dropdown',
     events: ['change'],
-    injectables: [KeyboardUtils],
-    properties: { 
+    appInjector: [KeyboardUtils],
+    properties: {
        options: 'options',
        numVisibleOptions: 'numVisibleOptions',
        width: 'width'
@@ -29,7 +29,7 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
                         
                     </div>
 
-                    <ngv-selection-list *if="showSelectionList"
+                    <ngv-selection-list *ng-if="showSelectionList"
                         [options]="options"
                          (change)="onSelectionChanged($event, dropdown, current, input)"
                         [height]="22 * numVisibleOptions + 'px'"
@@ -38,7 +38,7 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
                     </ngv-selection-list>
 
                 </div>`,
-    directives: [SelectionList, If]
+    directives: [SelectionList, NgIf]
 })
 export class Dropdown {
 
@@ -122,6 +122,7 @@ export class Dropdown {
         }
         var keyTyped = String.fromCharCode(key);
         this.search += keyTyped;
+        console.log('searching for ' + this.search);
 
         this.resetSearchHandle = setTimeout(() => {
             this.search = "";

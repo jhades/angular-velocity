@@ -1,4 +1,4 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, For, If} from 'angular2/angular2';
+import {ComponentAnnotation as Component, ViewAnnotation as View, NgFor} from 'angular2/angular2';
 import {ParentAnnotation as Parent, onChange} from 'angular2/annotations';
 import { EventEmitter } from 'angular2/angular2';
 
@@ -18,7 +18,7 @@ import { EventEmitter } from 'angular2/angular2';
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height" [style.width]="width">
-                    <div *for="#option of options;" class="selection-option" [class.selected]="option.selected" #opt>
+                    <div *ng-for="#option of options;" class="selection-option" [class.selected]="option.selected">
                         <div class="selection-description"
                             (click)="onOptionClicked(option)"
                             (mouseover)="selectOption(option)"
@@ -27,7 +27,7 @@ import { EventEmitter } from 'angular2/angular2';
                         </div>
                     </div>
                 </div>`,
-    directives: [For]
+    directives: [NgFor]
 })
 export class SelectionList {
 
