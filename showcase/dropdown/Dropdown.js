@@ -42,7 +42,7 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
 })
 export class Dropdown {
 
-    constructor(keyUtils: KeyboardUtils ) {
+    constructor(keyUtils: KeyboardUtils) {
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();

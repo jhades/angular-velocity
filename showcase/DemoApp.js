@@ -10,10 +10,6 @@ import {Dropdown} from 'dropdown/Dropdown';
 @View({
     template: `<div class="demos">
 
-                    <!--div class="demo">
-                        <hello-world></hello-world>
-                    </div -->
-
                     <div class="demo">
 
                         <form class="pure-form">
@@ -22,7 +18,7 @@ import {Dropdown} from 'dropdown/Dropdown';
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)"
                                 [num-visible-options]="7"
-                                [width]="'280px'">
+                                [width]="'200px'">
                             </ngv-dropdown>
                         </form>
                     </div>
