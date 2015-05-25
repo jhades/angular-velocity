@@ -1,0 +1,43 @@
+
+.collapsible-title span {
+    display: inline-block;
+    letter-spacing: normal;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.1em;
+    cursor: pointer;
+}
+
+.page-form .collapsible-panel:first-child {
+  margin: 0;
+}
+
+.collapsible-panel {
+    margin-bottom: 0.8em;
+    padding-left: 0.2em;
+    margin-top: 1em;
+
+    .collapsible-section {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+    }
+
+    .collapsible-icon {
+      background-repeat: no-repeat;
+      background-position-x: 0.2em;
+    }
+
+    &.collapsed .collapsible-icon {
+      background-image: url('/modules/nv/images/TODO/arrow-closed.png');
+      background-position-y: 0.75em;
+    }
+
+    &.expanded .collapsible-icon {
+      background-image: url('/modules/nv/images/TODO/arrow-open.png');
+      background-position-y: 0.85em;
+    }
+}
+
+

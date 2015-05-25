@@ -1,0 +1,83 @@
+
+.pure-skin-ngv div.calendar {
+  
+    .calendar-button {
+      display: inline-block;
+      vertical-align: top; 
+      height: 100%;
+      @include border-box;
+      background-image: url('/modules/nv/images/TODO/calendar.png');
+      background-position: center 9px;
+      background-size: 8.5px;
+    }
+  
+  .date-picker {
+      position: absolute;
+      box-sizing: border-box;
+      z-index: 10;
+      background: #ffffff;
+      border-radius: 2px;
+      @include widget-selection-box;
+      width: 15em;
+    
+    table {
+      table-layout: fixed;
+      width: 100%;
+      height: 8em;
+    }
+
+    td {
+        padding: 0.3em;
+        text-align: center;
+        font-size: 82%;
+        cursor: pointer;
+
+        &:hover {
+          background:  $selected-background;
+        }
+      }
+
+      th {
+        padding: 0.3em;
+        text-align: center;
+        font-size: 80%;
+      }
+
+      .calendar-top-buttons {
+        background-color: #c7dff5;
+        text-align: center;
+        height: 1.6em;
+        font-size: 85%;
+
+        .cal-title-button {
+          display: inline-block;
+          cursor: pointer;
+          
+          &:hover {
+            color: #12416d;
+          }
+          
+        }
+        .cal-nav-button {
+          display: inline-block;
+          cursor: pointer;
+          background-repeat: no-repeat;
+        }
+
+        .cal-left-button {
+          float: left;
+          margin-left: 5px;
+        }
+
+        .cal-right-button {
+          float: right;
+          margin-right: 5px;
+        }
+
+      }
+
+
+  }
+
+}
+

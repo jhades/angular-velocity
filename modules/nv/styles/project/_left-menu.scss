@@ -1,0 +1,140 @@
+
+.pure-skin-ngv .left-menu {
+    position: relative;
+    max-width: 200px;
+}
+
+.pure-skin-ngv .left-menu .pure-menu.pure-menu-open {
+    background: #f7f7f7;
+}
+
+.pure-skin-ngv .pure-menu li a.pure-menu-heading:hover {
+    background: inherit;
+}
+
+.ngv-left-menu-layout .top-menu-bar .pure-menu a {
+    line-height: 35px;
+}
+
+@media screen and (max-width: 64em) {
+    .resize-menu {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 64em) {
+
+    .resize-menu-wrapper {
+        float: right;
+    }
+
+    .resize-menu {
+        background: $list-background-color;
+        border-left: solid 1px #d3e6f8;
+        border-right: solid 1px #d3e6f8;
+        width: 5px;
+        z-index: 30;
+        position: absolute;
+        height: 100%;
+        margin-left: -5px;
+    }
+
+    .resizing-inactive {
+        width: 4px;
+        padding-left: 1px;
+    }
+
+    .resizing-active {
+        cursor: col-resize;
+        width: 4px;
+    }
+
+    .resize-menu.resize-menu-drag-bar {
+        z-index: 40;
+        background: #c0c0c0;
+        opacity: 0;
+    }
+
+    .resize-menu.resize-menu-drag-bar.resize-menu-drag-ongoing {
+        opacity: 1;
+        width: 3px;
+        margin-left: -4px;
+    }
+
+    .slider-ticks {
+        margin-top: 15px;
+        margin-left: 0.5px;
+        width: 3px;
+        height: 7px;
+    }
+}
+
+.left-menu-wrapper {
+    margin-top: -1px;
+}
+
+.left-menu {
+    background: #f7f7f7;
+}
+
+@media screen and (min-width: 64em) {
+    .left-menu {
+        min-height: 500px;
+    }
+}
+
+.left-menu .pure-menu-heading {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.left-menu .pure-menu-heading .collapsible-icon {
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    width: 14px;
+    height: 14px;
+    background-size: 13px 13px;
+    background-repeat: no-repeat;
+}
+
+div[ngv-collapsible-section] {
+    overflow-y: hidden;
+    -webkit-transition: 0.4s ease-in-out -webkit-height;
+    -moz-transition: 0.4s ease-in-out -moz-height;
+    -ms-transition: 0.4s ease-in-out height;
+    -o-transition: 0.4s ease-in-out height;
+    transition: 0.4s ease-in-out height;
+    transition-delay: 0s;
+}
+
+.left-menu .collapsed-section .pure-menu-heading .collapsible-icon {
+    background-image: url('/modules/nv/images/TODO/collapsed-arrow.png');
+
+}
+
+.left-menu .expanded-section .pure-menu-heading .collapsible-icon {
+    background-image: url('/modules/nv/images/TODO/expanded-arrow.png');
+}
+
+.left-menu-not-resizable {
+    margin-right: -3px;
+    border-right: solid 1px #d3e6f8;
+}
+
+.left-menu-entry {
+    cursor: pointer;
+}
+
+.left-menu .collapsible-menu-section {
+    overflow: hidden;
+}
+
+.pure-skin-ngv .pure-menu ul li.pure-menu-selected a {
+    color: $selected-color;
+    background: linear-gradient(to bottom, #E1EEFE, $selected-background);
+    border-top-width: 0;
+    border-color: $selected-background transparent $selected-background $selected-background;
+}
+
