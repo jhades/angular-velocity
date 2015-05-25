@@ -1,3 +1,5 @@
+/// <reference path="../../../../typings/angular2/angular2.d.ts" />
+
 
 import {Injectable} from "angular2/di";
 

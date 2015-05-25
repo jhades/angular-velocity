@@ -11,10 +11,38 @@ var http = require('http');
 var connect = require('connect');
 var serveStatic = require('serve-static');
 var openResource = require('open');
+var sass = require('gulp-sass');
+var spritesmith = require('gulp.spritesmith');
+
 
 gulp.task('clean', function (done) {
     del(['dist'], done);
 });
+
+gulp.task('sprite', function () {
+
+    var spriteData = gulp.src('./modules/nv/images/sprite/*.png')
+        .pipe(spritesmith({
+            imgName: 'angular-velocity-sprite.png',
+            cssName: '_angular-velocity-sprite.scss',
+            algorithm: 'top-down',
+            padding: 5
+        }));
+
+    spriteData.css.pipe(gulp.dest('./modules/nv/styles/project'));
+
+    spriteData.img.pipe(gulp.dest('./dist'))
+});
+
+
+gulp.task('build-css', function() {
+    return gulp.src('./modules/nv/**/*.*css')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./dist'));
+});
+
 
 gulp.task('build:angular2', function () {
     var builder = new Builder({
@@ -42,14 +70,14 @@ gulp.task('build:lib', ['build:angular2'], function () {
         './node_modules/systemjs/dist/system.js',
         './node_modules/systemjs/dist/system.js.map'
     ])
-        .pipe(gulp.dest('./dist/lib'));
+        .pipe(gulp.dest('./lib'));
 });
 
 var tsProject = ts.createProject('tsconfig.json', {
     typescript: require('typescript')
 });
 
-gulp.task('build', ['clean'], function () {
+gulp.task('build', ['clean', 'build-css'], function () {
     var result = gulp.src('./modules/**/*.ts')
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -57,14 +85,14 @@ gulp.task('build', ['clean'], function () {
 
     return result.js
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/nv'));
 });
 
 gulp.task('serve', ['build:lib', 'build'], function () {
     var port = 5555;
     var app;
 
-    gulp.watch('./ts/**', ['build']);
+    gulp.watch(['./modules/**/*.html', './modules/**/*.ts', './modules/**/*.scss'], ['build']);
 
     app = connect().use(serveStatic(__dirname));
     http.createServer(app).listen(port, function () {

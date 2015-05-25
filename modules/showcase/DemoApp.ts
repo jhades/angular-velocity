@@ -1,11 +1,11 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, bootstrap} from 'angular2/angular2';
-import {ReferenceData} from "helloworld/referenceData";
-import {HelloWorld} from 'helloworld/HelloWorld';
+/// <reference path="../../typings/angular2/angular2.d.ts" />
+
+import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {ReferenceData} from './common/referenceData';
 import {Dropdown} from '../nv/src/components/dropdown/Dropdown';
 
-
 @Component({
-    selector: 'demo-app'
+    selector: 'sample-app'
 })
 @View({
     template: `<div class="demos">
@@ -24,9 +24,10 @@ import {Dropdown} from '../nv/src/components/dropdown/Dropdown';
                     </div>
 
                 </div>`,
-    directives: [HelloWorld, Dropdown]
+    directives: [Dropdown]
 })
 export class DemoApp {
+    refData: ReferenceData;
 
     constructor() {
         this.refData = new ReferenceData();

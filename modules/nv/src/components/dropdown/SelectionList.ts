@@ -1,7 +1,6 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, NgFor} from 'angular2/angular2';
-import {ParentAnnotation as Parent, onChange} from 'angular2/annotations';
-import { EventEmitter } from 'angular2/angular2';
+/// <reference path="../../../../../typings/angular2/angular2.d.ts" />
 
+import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/angular2';
 
 
 @Component({
@@ -30,6 +29,9 @@ import { EventEmitter } from 'angular2/angular2';
     directives: [NgFor]
 })
 export class SelectionList {
+    change: EventEmitter;
+    selectedIndex: number;
+    options: List<any>;
 
     constructor() {
         this.change = new EventEmitter();
@@ -38,7 +40,6 @@ export class SelectionList {
 
     // finishes object initialization
     onChange() {
-        this.owner.selectionList = this;
         this.selectIndex(0);
     }
 

@@ -1,7 +1,9 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, NgIf} from 'angular2/angular2';
+/// <reference path="../../../../../typings/angular2/angular2.d.ts" />
+
+import {Component, View, NgIf} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from 'dropdown/SelectionList';
-import {KeyboardUtils} from 'common/KeyboardUtils';
+import {KeyboardUtils} from '../../utils/KeyboardUtils';
 
 @Component({ 
     selector: 'ngv-dropdown',
@@ -41,6 +43,13 @@ import {KeyboardUtils} from 'common/KeyboardUtils';
     directives: [SelectionList, NgIf]
 })
 export class Dropdown {
+    active: boolean;
+    showSelectionList: boolean;
+    change: EventEmitter;
+    search: string;
+    keyUtils: KeyboardUtils;
+    selectionList: SelectionList;
+    resetSearchHandle: number;
 
     constructor(keyUtils: KeyboardUtils) {
         this.active = false;
