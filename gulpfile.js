@@ -56,7 +56,7 @@ gulp.task('build:angular2', function () {
             }
         }
     });
-    return builder.build('angular2/angular2', './dist/lib/angular2.js', {});
+    return builder.build('angular2/angular2', './lib/angular2.js', {});
 });
 
 gulp.task('build:lib', ['build:angular2'], function () {
@@ -82,6 +82,9 @@ gulp.task('build', ['clean', 'build-css'], function () {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject));
+
+    gulp.src('./modules/showcase/index.html')
+        .pipe(gulp.dest('dist'));
 
     return result.js
         .pipe(sourcemaps.write())

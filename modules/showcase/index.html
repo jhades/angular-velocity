@@ -13,16 +13,16 @@
 </div>
 
 
-<script src="./lib/traceur-runtime.js"></script>
-<script src="./lib/es6-module-loader-sans-promises.js"></script>
-<script src="./lib/Reflect.js"></script>
-<script src="./lib/system.js"></script>
-<script src="./lib/zone.js"></script>
-<script src="./lib/angular2.js"></script>
+<script src="/lib/traceur-runtime.js"></script>
+<script src="/lib/es6-module-loader-sans-promises.js"></script>
+<script src="/lib/Reflect.js"></script>
+<script src="/lib/system.js"></script>
+<script src="/lib/zone.js"></script>
+<script src="/lib/angular2.js"></script>
 
 <script>
-    System.baseURL += 'dev/';
-    System.import('./DemoApp')
+    System.baseURL += '.';
+    System.import('nv/showcase/DemoApp')
             .catch(function (e) {
                 console.error(e, 'Error bootstrapping app');
             });
