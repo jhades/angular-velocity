@@ -14,15 +14,14 @@ import {Dropdown} from '../nv/src/components/dropdown/Dropdown';
 
                         <form class="pure-form">
                             <h2>Dropdown</h2>
-                            <ngv-dropdown
+                            <nv-dropdown
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)"
                                 [num-visible-options]="7"
                                 [width]="'200px'">
-                            </ngv-dropdown>
+                            </nv-dropdown>
                         </form>
                     </div>
-
                 </div>`,
     directives: [Dropdown]
 })

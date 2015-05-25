@@ -2,11 +2,11 @@
 
 import {Component, View, NgIf} from 'angular2/angular2';
 import { EventEmitter } from 'angular2/angular2';
-import {SelectionList} from 'dropdown/SelectionList';
+import {SelectionList} from './SelectionList';
 import {KeyboardUtils} from '../../utils/KeyboardUtils';
 
 @Component({ 
-    selector: 'ngv-dropdown',
+    selector: 'nv-dropdown',
     events: ['change'],
     appInjector: [KeyboardUtils],
     properties: {
