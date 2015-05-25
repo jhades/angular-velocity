@@ -5,6 +5,35 @@ import { EventEmitter } from 'angular2/angular2';
 import {SelectionList} from './SelectionList';
 import {KeyboardUtils} from '../../utils/KeyboardUtils';
 
+
+@Component({
+    selector: 'nv-dropdown',
+    events: ['change']
+})
+@View({
+    template: `<div>Hello</div>`
+})
+export class Dropdown {
+    active: boolean;
+    showSelectionList: boolean;
+    change: EventEmitter;
+    search: string;
+    keyUtils: KeyboardUtils;
+    selectionList: SelectionList;
+    resetSearchHandle: number;
+
+    constructor() {
+        this.active = false;
+        this.showSelectionList = false;
+        this.change = new EventEmitter();
+        this.search = "";
+    }
+}
+
+// TODO the issue is when injection KeyboardUtls
+
+
+/*
 @Component({ 
     selector: 'nv-dropdown',
     events: ['change'],
@@ -142,3 +171,4 @@ export class Dropdown {
 }
 
 
+*/
