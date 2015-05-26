@@ -45,7 +45,6 @@ export class SelectionList {
     onChange(changes) {
         if (changes['navigationKey'] && this.navigationKey) {
             var key = this.navigationKey;
-            console.log('received nav key=' + this.navigationKey);
             if (this.keyUtils.isArrowDown(key)) {
                 this.onArrowDown();
             }
@@ -58,7 +57,7 @@ export class SelectionList {
 
     onArrowDown() {
         if (!this.selectedIndex) {
-            this.selectFirstElement();
+            this.selectIndex(0);
         }
         else {
             this.selectNext();
@@ -78,9 +77,6 @@ export class SelectionList {
         this.change.next(option);
     }
 
-    selectFirstElement() {
-        this.selectIndex(0);
-    }
 
     selectIndex(index) {
         this.options.forEach((option) => option.selected = false);
