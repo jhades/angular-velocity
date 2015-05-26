@@ -90,7 +90,11 @@ export class Dropdown<T extends SelectionOption> {
             this.onTab();
         }
         else if (this.keyUtils.isArrowKey(key)) {
+            if (this.keyUtils.isArrowDown(key) && !this.showSelectionList) {
+                this.showSelectionList = true;
+            }
             this.navigationKey = key;
+            setTimeout(() => this.navigationKey = null);
         }
         else {
             this.handleTypeFilter(key);

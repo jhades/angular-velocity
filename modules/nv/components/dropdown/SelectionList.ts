@@ -9,7 +9,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
         'options': 'options',
         'height': 'height',
         'width': 'width',
-        'navigationKey': 'navigationKey'
+        'navigationKey': 'navigationKey',
     },
     events: ['change'],
     lifecycle: [onChange]
@@ -29,6 +29,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
     directives: [NgFor]
 })
 export class SelectionList {
+
     change: EventEmitter;
     selectedIndex: number;
     options: List<any>;
@@ -37,27 +38,26 @@ export class SelectionList {
 
     constructor(keyUtils: KeyboardUtils) {
         this.change = new EventEmitter();
-        this.selectedIndex = 0;
+        this.selectedIndex = null;
         this.keyUtils = keyUtils;
     }
 
     onChange(changes) {
-        //TODO this.selectIndex(0);
-        if (changes['navigationKey']) {
+        if (changes['navigationKey'] && this.navigationKey) {
             var key = this.navigationKey;
             console.log('received nav key=' + this.navigationKey);
-         if (this.keyUtils.isArrowDown(key)) {
+            if (this.keyUtils.isArrowDown(key)) {
                 this.onArrowDown();
             }
             else if (this.keyUtils.isArrowUp(key)) {
                 this.selectPrevious();
             }
         }
+
     }
 
     onArrowDown() {
-        if (!this.showSelectionList) {
-            this.showSelectionList = true;
+        if (!this.selectedIndex) {
             this.selectFirstElement();
         }
         else {
