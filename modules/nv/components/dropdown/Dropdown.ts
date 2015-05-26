@@ -43,22 +43,17 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     directives: [SelectionList]
 })
 export class Dropdown<T extends SelectionOption> {
-    active: boolean;
-    showSelectionList: boolean;
-    selected: SelectionOption;
-    change: EventEmitter;
-    search: string;
+    active: boolean = false;
+    showSelectionList: boolean = false;
+    selected: SelectionOption = new BlankOption();
+    change: EventEmitter = new EventEmitter();
+    search: string = "";
     keyUtils: KeyboardUtils;
     resetSearchHandle: number;
     navigationKey: number;
 
     constructor(keyUtils: KeyboardUtils) {
-        this.active = false;
-        this.showSelectionList = false;
-        this.change = new EventEmitter();
-        this.search = "";
         this.keyUtils = keyUtils;
-        this.selected = new BlankOption();
     }
 
     onButtonToggle() {
@@ -90,14 +85,20 @@ export class Dropdown<T extends SelectionOption> {
             this.onTab();
         }
         else if (this.keyUtils.isArrowKey(key)) {
-            if (this.keyUtils.isArrowDown(key) && !this.showSelectionList) {
-                this.showSelectionList = true;
+            if (this.keyUtils.isArrowDown(key)) {
+                this.onArrowDown();
             }
             this.navigationKey = key;
             setTimeout(() => this.navigationKey = null);
         }
         else {
             this.handleTypeFilter(key);
+        }
+    }
+
+    onArrowDown() {
+        if (!this.showSelectionList) {
+            this.showSelectionList = true;
         }
     }
 
