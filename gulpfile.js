@@ -39,13 +39,27 @@ gulp.task('sprite', function () {
 });
 
 
-gulp.task('build-css', function() {
+gulp.task('build-nv-css', function() {
     return gulp.src('./modules/nv/**/*.*css')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('build-showcase-css', function() {
+    return gulp.src('./modules/showcase/**/*.*css')
+        .pipe(sass())
+        .pipe(gulp.dest('./dist'));
+});
+
+
+gulp.task('build-css', function(done) {
+    runSequence(
+        'build-nv-css',
+        'build-showcase-css',
+        done
+    );});
 
 
 gulp.task('build:angular2', function () {
@@ -92,7 +106,7 @@ gulp.task('build-ts', function (done) {
 });
 
 gulp.task('build-html', function (done) {
-    return gulp.src('./modules/showcase/index.html')
+    return gulp.src(['./modules/showcase/index.html','./modules/showcase/test.html'])
         .pipe(gulp.dest('dist'));
 });
 

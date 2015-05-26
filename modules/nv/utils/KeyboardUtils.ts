@@ -2,7 +2,7 @@
 
 import {Injectable} from "angular2/di";
 
-@Injectable
+@Injectable()
 export class KeyboardUtils {
 
     isNumericKey(keyCode) {

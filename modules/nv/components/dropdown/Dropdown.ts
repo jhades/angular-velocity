@@ -5,36 +5,6 @@ import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 
 
-@Component({
-    selector: 'nv-dropdown',
-    appInjector: [KeyboardUtils],
-    events: ['change']
-})
-@View({
-    template: `<div>Hello</div>`,
-    directives: [SelectionList, NgIf]
-})
-export class Dropdown {
-    active: boolean;
-    showSelectionList: boolean;
-    change: EventEmitter;
-    search: string;
-    keyUtils: KeyboardUtils;
-    selectionList: SelectionList;
-    resetSearchHandle: number;
-
-    constructor(keyUtils: KeyboardUtils) {
-        this.active = false;
-        this.showSelectionList = false;
-        this.change = new EventEmitter();
-        this.search = "";
-    }
-}
-
-// TODO the issue is when injection KeyboardUtls
-
-
-/*
 @Component({ 
     selector: 'nv-dropdown',
     events: ['change'],
@@ -170,6 +140,3 @@ export class Dropdown {
     }
 
 }
-
-
-*/

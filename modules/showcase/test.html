@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="pure-skin-ngv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Angular Velocity Showcase</title>
-    <link rel="stylesheet" href="/dist/styles/angular-velocity.css">
-    <link rel="stylesheet" href="/dist/styles/showcase.css">
+    <title>tests</title>
 <body>
 
 
 <div class='container'>
 
-    <sample-app></sample-app>
+    <test></test>
 
 </div>
 
@@ -24,7 +22,7 @@
 
 <script>
     System.baseURL += '.';
-    System.import('./showcase/DemoApp')
+    System.import('showcase/test')
             .catch(function (e) {
                 console.error(e, 'Error bootstrapping app');
             });
