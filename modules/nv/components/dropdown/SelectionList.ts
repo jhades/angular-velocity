@@ -2,6 +2,7 @@
 
 import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
+import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
 @Component({
     selector: 'ngv-selection-list',
@@ -28,17 +29,15 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
                 </div>`,
     directives: [NgFor]
 })
-export class SelectionList {
+export class SelectionList<T extends SelectionOption> {
 
-    change: EventEmitter;
-    selectedIndex: number;
-    options: List<any>;
+    change: EventEmitter = new EventEmitter();
+    selectedIndex: number = null;
+    options: List<T>;
     navigationKey: number;
     keyUtils: KeyboardUtils;
 
     constructor(keyUtils: KeyboardUtils) {
-        this.change = new EventEmitter();
-        this.selectedIndex = null;
         this.keyUtils = keyUtils;
     }
 
@@ -65,7 +64,7 @@ export class SelectionList {
     }
 
     selectOption(option) {
-        this.options.forEach((option) => option.selected = false);
+        this.options.forEach((option: T) => option.selected = false);
         option.selected = true;
     }
 
@@ -79,7 +78,7 @@ export class SelectionList {
 
 
     selectIndex(index) {
-        this.options.forEach((option) => option.selected = false);
+        this.options.forEach((option: T) => option.selected = false);
         this.selectedIndex = index;
         this.options[index].selected = true;
     }
@@ -99,7 +98,7 @@ export class SelectionList {
     }
 
     changeSelectedItem(next) {
-        this.options.forEach((option) => option.selected = false);
+        this.options.forEach((option: T) => option.selected = false);
         this.options[next].selected = true;
     }
 }
