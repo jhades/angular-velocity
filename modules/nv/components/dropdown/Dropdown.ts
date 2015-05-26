@@ -47,7 +47,6 @@ export class Dropdown<T extends SelectionOption> {
     change: EventEmitter;
     search: string;
     keyUtils: KeyboardUtils;
-    selectionList: SelectionList;
     resetSearchHandle: number;
     selected: BlankOption;
 
