@@ -3,7 +3,7 @@
 import {Component, View, NgIf, EventEmitter} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
-
+import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
 @Component({ 
     selector: 'nv-dropdown',
@@ -23,7 +23,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
                         (blur)="onFocusLost()"
                         (keydown)="onKeyDown($event, button)" #input>
                         
-                        <span #current (click)="onButtonToggle()"></span>
+                        <span (click)="onButtonToggle()">{{selected.description}}</span>
                         
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle()" #button>
@@ -33,7 +33,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 
                     <ngv-selection-list *ng-if="showSelectionList"
                         [options]="options"
-                         (change)="onSelectionChanged($event, current, input)"
+                         (change)="onSelectionChanged($event, input)"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="width">
                     </ngv-selection-list>
@@ -41,7 +41,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
                 </div>`,
     directives: [SelectionList, NgIf]
 })
-export class Dropdown {
+export class Dropdown<T extends SelectionOption> {
     active: boolean;
     showSelectionList: boolean;
     change: EventEmitter;
@@ -49,6 +49,7 @@ export class Dropdown {
     keyUtils: KeyboardUtils;
     selectionList: SelectionList;
     resetSearchHandle: number;
+    selected: BlankOption;
 
     constructor(keyUtils: KeyboardUtils) {
         this.active = false;
@@ -56,6 +57,7 @@ export class Dropdown {
         this.change = new EventEmitter();
         this.search = "";
         this.keyUtils = keyUtils;
+        this.selected = new BlankOption();
     }
 
     onButtonToggle() {
@@ -66,9 +68,9 @@ export class Dropdown {
         }
     }
 
-    onSelectionChanged(option, current, input) {
+    onSelectionChanged(option, input) {
         console.log('onSelectionChanged');
-        current.textContent = option.description;
+        this.selected = option;
         this.showSelectionList = false;
         this.change.next(option);
         input.focus();
