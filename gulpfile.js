@@ -88,7 +88,7 @@ gulp.task('build-ts', function (done) {
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject))
         .js.pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/nv'));
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('build-html', function (done) {

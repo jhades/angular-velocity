@@ -1,8 +1,8 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-import {ReferenceData} from './common/referenceData';
-import {Dropdown} from '../nv/src/components/dropdown/Dropdown';
+import {ReferenceData} from 'showcase/common/referenceData';
+import {Dropdown} from 'nv/components/dropdown/Dropdown';
 
 @Component({
     selector: 'sample-app'

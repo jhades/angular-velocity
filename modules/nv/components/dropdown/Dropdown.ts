@@ -1,17 +1,18 @@
-/// <reference path="../../../../../typings/angular2/angular2.d.ts" />
+/// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgIf} from 'angular2/angular2';
-import { EventEmitter } from 'angular2/angular2';
-import {SelectionList} from './SelectionList';
-import {KeyboardUtils} from '../../utils/KeyboardUtils';
+import {Component, View, NgIf, EventEmitter} from 'angular2/angular2';
+import {SelectionList} from 'nv/components/dropdown/SelectionList';
+import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 
 
 @Component({
     selector: 'nv-dropdown',
+    appInjector: [KeyboardUtils],
     events: ['change']
 })
 @View({
-    template: `<div>Hello</div>`
+    template: `<div>Hello</div>`,
+    directives: [SelectionList, NgIf]
 })
 export class Dropdown {
     active: boolean;
@@ -22,7 +23,7 @@ export class Dropdown {
     selectionList: SelectionList;
     resetSearchHandle: number;
 
-    constructor() {
+    constructor(keyUtils: KeyboardUtils) {
         this.active = false;
         this.showSelectionList = false;
         this.change = new EventEmitter();
