@@ -58,10 +58,10 @@ export class SelectionList {
     onArrowDown() {
         if (!this.showSelectionList) {
             this.showSelectionList = true;
-            this.selectionList.selectFirstElement();
+            this.selectFirstElement();
         }
         else {
-            this.selectionList.selectNext();
+            this.selectNext();
         }
     }
 

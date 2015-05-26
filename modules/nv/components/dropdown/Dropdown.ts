@@ -45,7 +45,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 export class Dropdown<T extends SelectionOption> {
     active: boolean;
     showSelectionList: boolean;
-    selected: BlankOption;
+    selected: SelectionOption;
     change: EventEmitter;
     search: string;
     keyUtils: KeyboardUtils;
