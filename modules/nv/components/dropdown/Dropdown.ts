@@ -26,7 +26,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
                         <span #current (click)="onButtonToggle()"></span>
                         
                         <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle(dropdown)" #button>
+                            (click)="onButtonToggle()" #button>
                         </div>
                         
                     </div>
