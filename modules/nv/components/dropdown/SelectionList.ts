@@ -1,14 +1,15 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/angular2';
-
+import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 
 @Component({
     selector: 'ngv-selection-list',
     properties: {
-        options: 'options',
-        height: 'height',
-        width: 'width'
+        'options': 'options',
+        'height': 'height',
+        'width': 'width',
+        'navigationKey': 'navigationKey'
     },
     events: ['change'],
     lifecycle: [onChange]
@@ -31,17 +32,38 @@ export class SelectionList {
     change: EventEmitter;
     selectedIndex: number;
     options: List<any>;
+    navigationKey: number;
+    keyUtils: KeyboardUtils;
 
-    constructor() {
+    constructor(keyUtils: KeyboardUtils) {
         this.change = new EventEmitter();
         this.selectedIndex = 0;
+        this.keyUtils = keyUtils;
     }
 
-    // finishes object initialization
-    onChange() {
-        this.selectIndex(0);
+    onChange(changes) {
+        //TODO this.selectIndex(0);
+        if (changes['navigationKey']) {
+            var key = this.navigationKey;
+            console.log('received nav key=' + this.navigationKey);
+         if (this.keyUtils.isArrowDown(key)) {
+                this.onArrowDown();
+            }
+            else if (this.keyUtils.isArrowUp(key)) {
+                this.selectPrevious();
+            }
+        }
     }
 
+    onArrowDown() {
+        if (!this.showSelectionList) {
+            this.showSelectionList = true;
+            this.selectionList.selectFirstElement();
+        }
+        else {
+            this.selectionList.selectNext();
+        }
+    }
 
     selectOption(option) {
         this.options.forEach((option) => option.selected = false);

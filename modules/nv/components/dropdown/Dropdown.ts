@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgIf, EventEmitter} from 'angular2/angular2';
+import {Component, View, EventEmitter} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
@@ -10,9 +10,9 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     events: ['change'],
     appInjector: [KeyboardUtils],
     properties: {
-       options: 'options',
-       numVisibleOptions: 'numVisibleOptions',
-       width: 'width'
+       'options': 'options',
+       'numVisibleOptions': 'numVisibleOptions',
+       'width': 'width'
     }
 })
 @View({
@@ -31,24 +31,26 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                         
                     </div>
 
-                    <ngv-selection-list *ng-if="showSelectionList"
-                        [options]="options"
+                    <ngv-selection-list [hidden]="!showSelectionList"
+                         [options]="options"
                          (change)="onSelectionChanged($event, input)"
                         [height]="22 * numVisibleOptions + 'px'"
-                        [width]="width">
+                        [width]="width"
+                        [navigation-key]="navigationKey" >
                     </ngv-selection-list>
 
                 </div>`,
-    directives: [SelectionList, NgIf]
+    directives: [SelectionList]
 })
 export class Dropdown<T extends SelectionOption> {
     active: boolean;
     showSelectionList: boolean;
+    selected: BlankOption;
     change: EventEmitter;
     search: string;
     keyUtils: KeyboardUtils;
     resetSearchHandle: number;
-    selected: BlankOption;
+    navigationKey: number;
 
     constructor(keyUtils: KeyboardUtils) {
         this.active = false;
@@ -60,7 +62,6 @@ export class Dropdown<T extends SelectionOption> {
     }
 
     onButtonToggle() {
-        console.log('onButtonToggle');
         this.showSelectionList = !this.showSelectionList;
         if (!this.active) {
             this.active = true;
@@ -68,7 +69,6 @@ export class Dropdown<T extends SelectionOption> {
     }
 
     onSelectionChanged(option, input) {
-        console.log('onSelectionChanged');
         this.selected = option;
         this.showSelectionList = false;
         this.change.next(option);
@@ -77,7 +77,6 @@ export class Dropdown<T extends SelectionOption> {
 
     onFocusLost() {
         setTimeout(() => {
-            console.log('debounced focus lost ...');
             this.showSelectionList = false;
         },200);
     }
@@ -90,11 +89,8 @@ export class Dropdown<T extends SelectionOption> {
         else if (this.keyUtils.isTab(key)) {
             this.onTab();
         }
-        else if (this.keyUtils.isArrowDown(key)) {
-            this.onArrowDown();
-        }
-        else if (this.keyUtils.isArrowUp(key)) {
-            this.selectionList.selectPrevious();
+        else if (this.keyUtils.isArrowKey(key)) {
+            this.navigationKey = key;
         }
         else {
             this.handleTypeFilter(key);
@@ -108,16 +104,6 @@ export class Dropdown<T extends SelectionOption> {
         }
         else {
             this.active = false;
-        }
-    }
-
-    onArrowDown() {
-        if (!this.showSelectionList) {
-            this.showSelectionList = true;
-            this.selectionList.selectFirstElement();
-        }
-        else {
-            this.selectionList.selectNext();
         }
     }
 

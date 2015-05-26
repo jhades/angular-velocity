@@ -1,28 +1,52 @@
-import {Component, View, bootstrap} from "angular2/angular2";
-import {KeyboardUtils} from "nv/utils/KeyboardUtils";
-import {Injectable} from 'angular2/di';
+import {Component, View, bootstrap, onChange} from "angular2/angular2";
 
 
-@Injectable()
-class SomeService {
 
+@Component({
+    selector:"some",
+    properties: {
+        'testprop': 'testprop'
+    },
+    lifecycle: [onChange]
+})
+@View({
+    template: `<h2>{{testprop}}</h2>`
+})
+class SomeComponent {
+    testprop: string;
+
+    constructor() {
+        this.testprop = "initial";
+    }
+
+    onChange() {
+        console.log("onChange");
+    }
 }
 
 
 
 @Component({
-    selector: "test",
-    appInjector: [SomeService]
+    selector: "test"
 })
 @View({
-    template: `<h1>Testing 123</h1>`
+    template: `<div>
+                    <h1>Testing 123</h1>
+                    <input type="text" (keydown)="onKeyDown($event, input.value)" #input>
+                    <some [testprop]="search"></some>
+                </div>`,
+    directives: [SomeComponent]
 })
 export class Test {
-    keyboardUtils: KeyboardUtils;
+    search: string;
 
-    constructor(keyboardUtils : KeyboardUtils) {
-        debugger;
-        this.keyboardUtils = keyboardUtils;
+    constructor() {
+        this.search = "";
+    }
+
+    onKeyDown($event, value) {
+        this.search = value;
+        console.log(this.search);
     }
 
 }

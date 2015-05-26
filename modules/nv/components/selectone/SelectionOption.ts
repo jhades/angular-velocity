@@ -6,5 +6,8 @@ export interface SelectionOption {
 
 
 export class BlankOption implements SelectionOption {
-    description:"";
+    description:string;
+    constructor() {
+        this.description = "";
+    }
 }
