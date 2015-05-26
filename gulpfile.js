@@ -6,7 +6,7 @@ var Builder = require('systemjs-builder');
 var ts = require('gulp-typescript');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
-
+var runSequence = require('run-sequence');
 var http = require('http');
 var connect = require('connect');
 var serveStatic = require('serve-static');
@@ -17,6 +17,10 @@ var spritesmith = require('gulp.spritesmith');
 
 gulp.task('clean', function (done) {
     del(['dist'], done);
+});
+
+gulp.task('clean:lib', function (done) {
+    del(['lib'], done);
 });
 
 gulp.task('sprite', function () {
@@ -77,21 +81,33 @@ var tsProject = ts.createProject('tsconfig.json', {
     typescript: require('typescript')
 });
 
-gulp.task('build', ['clean', 'build-css'], function () {
-    var result = gulp.src('./modules/**/*.ts')
+
+gulp.task('build-ts', function (done) {
+    return  gulp.src('./modules/**/*.ts')
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        .pipe(ts(tsProject));
-
-    gulp.src('./modules/showcase/index.html')
-        .pipe(gulp.dest('dist'));
-
-    return result.js
-        .pipe(sourcemaps.write())
+        .pipe(ts(tsProject))
+        .js.pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/nv'));
 });
 
-gulp.task('serve', ['build:lib', 'build'], function () {
+gulp.task('build-html', function (done) {
+    return gulp.src('./modules/showcase/index.html')
+        .pipe(gulp.dest('dist'));
+});
+
+
+
+gulp.task('build', function (done) {
+    runSequence(
+        'build-css',
+        'build-ts',
+        'build-html',
+        done
+    );
+});
+
+gulp.task('serve', ['build'], function () {
     var port = 5555;
     var app;
 
