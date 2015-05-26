@@ -19,11 +19,11 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
                     <div tabindex="0" class="input"
-                        (click)="onButtonToggle(dropdown)"
+                        (click)="onButtonToggle()"
                         (blur)="onFocusLost()"
                         (keydown)="onKeyDown($event, button)" #input>
                         
-                        <span #current (click)="onButtonToggle(dropdown)"></span>
+                        <span #current (click)="onButtonToggle()"></span>
                         
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle(dropdown)" #button>
