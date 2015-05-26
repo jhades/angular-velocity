@@ -8,8 +8,7 @@ import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/a
     properties: {
         options: 'options',
         height: 'height',
-        width: 'width',
-        owner: 'owner'
+        width: 'width'
     },
     events: ['change'],
     lifecycle: [onChange]

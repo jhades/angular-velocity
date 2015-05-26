@@ -35,7 +35,6 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
                         [options]="options"
                          (change)="onSelectionChanged($event, current, input)"
                         [height]="22 * numVisibleOptions + 'px'"
-                        [owner]="getSelectionListOwner()"
                         [width]="width">
                     </ngv-selection-list>
 
@@ -73,10 +72,6 @@ export class Dropdown {
         this.showSelectionList = false;
         this.change.next(option);
         input.focus();
-    }
-
-    getSelectionListOwner() {
-        return this;
     }
 
     onFocusLost() {
