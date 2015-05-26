@@ -16,7 +16,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
     }
 })
 @View({
-    template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active" #dropdown>
+    template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
                     <div tabindex="0" class="input"
                         (click)="onButtonToggle(dropdown)"
@@ -33,7 +33,7 @@ import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 
                     <ngv-selection-list *ng-if="showSelectionList"
                         [options]="options"
-                         (change)="onSelectionChanged($event, dropdown, current, input)"
+                         (change)="onSelectionChanged($event, current, input)"
                         [height]="22 * numVisibleOptions + 'px'"
                         [owner]="getSelectionListOwner()"
                         [width]="width">
@@ -59,7 +59,7 @@ export class Dropdown {
         this.keyUtils = keyUtils;
     }
 
-    onButtonToggle(dropdown) {
+    onButtonToggle() {
         console.log('onButtonToggle');
         this.showSelectionList = !this.showSelectionList;
         if (!this.active) {
@@ -67,7 +67,7 @@ export class Dropdown {
         }
     }
 
-    onSelectionChanged(option, dropdown, current, input) {
+    onSelectionChanged(option, current, input) {
         console.log('onSelectionChanged');
         current.textContent = option.description;
         this.showSelectionList = false;
@@ -86,7 +86,7 @@ export class Dropdown {
         },200);
     }
 
-    onKeyDown(event, button) {
+    onKeyDown(event) {
         var key = event.keyCode;
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
