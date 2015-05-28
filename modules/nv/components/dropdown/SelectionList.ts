@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/angular2';
+import {Component, View, NgFor, Parent, onChange, EventEmitter, ElementRef} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
@@ -11,6 +11,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
         'height': 'height',
         'width': 'width',
         'navigationKey': 'navigationKey',
+        'hidden': 'hidden'
     },
     events: ['change'],
     lifecycle: [onChange]
@@ -36,15 +37,21 @@ export class SelectionList<T extends SelectionOption> {
     options: List<T>;
     navigationKey: number;
     keyUtils: KeyboardUtils;
+    el: ElementRef;
+    hidden: boolean = true;
 
-    constructor(keyUtils: KeyboardUtils) {
+    constructor(keyUtils: KeyboardUtils, el: ElementRef) {
         this.keyUtils = keyUtils;
+        this.el = el;
     }
 
     onChange(changes) {
         if (changes['navigationKey'] && this.navigationKey) {
             var key = this.navigationKey;
             if (this.keyUtils.isArrowDown(key)) {
+                if (changes['hidden'] && !this.hidden) {
+                    this.resetSelectionList();
+                }
                 this.onArrowDown();
             }
             else if (this.keyUtils.isArrowUp(key)) {
@@ -52,6 +59,15 @@ export class SelectionList<T extends SelectionOption> {
             }
         }
 
+    }
+
+    resetSelectionList() {
+        this.getSelectionList().scrollTop = 0;
+        this.selectedIndex = null;
+    }
+
+    getSelectionList() {
+        return this.el.domElement.querySelector('.selection-list');
     }
 
     onArrowDown() {
