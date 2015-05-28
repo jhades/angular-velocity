@@ -55,7 +55,7 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     onArrowDown() {
-        if (!this.selectedIndex) {
+        if (this.selectedIndex == null) {
             this.selectIndex(0);
         }
         else {
