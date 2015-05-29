@@ -2,7 +2,7 @@
 
 import {Component, View, NgFor, Parent, onChange, EventEmitter, ElementRef} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {RepeateablePrimitiveValue} from 'nv/core/RepeateablePrimitiveValue';
+import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 import {Scrollable, ScrollableElement} from 'nv/decorators/scrollable';
 
@@ -39,7 +39,7 @@ export class SelectionList<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
     hidden: boolean = true;
 
-    lastNavAction: RepeateablePrimitiveValue<number>;
+    lastNavAction: LastNavAction;
     selectedIndex: number = null;
     keyUtils: KeyboardUtils;
     el: ElementRef;

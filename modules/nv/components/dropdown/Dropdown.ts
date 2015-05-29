@@ -3,7 +3,7 @@
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {RepeateablePrimitiveValue} from 'nv/core/RepeateablePrimitiveValue';
+import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
 @Component({ 
@@ -51,7 +51,7 @@ export class Dropdown<T extends SelectionOption> {
     search: string = "";
     keyUtils: KeyboardUtils;
     resetSearchHandle: number;
-    navigationAction: RepeateablePrimitiveValue<number>;
+    navigationAction: LastNavAction;
 
     constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
@@ -89,7 +89,7 @@ export class Dropdown<T extends SelectionOption> {
             if (this.keyUtils.isArrowDown(key)) {
                 this.onArrowDown();
             }
-            this.navigationAction = new RepeateablePrimitiveValue(key);
+            this.navigationAction = new LastNavAction(key);
         }
         else {
             this.handleTypeFilter(key);
