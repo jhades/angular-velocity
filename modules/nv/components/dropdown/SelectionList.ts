@@ -1,7 +1,8 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, NgFor, Parent, onChange, EventEmitter, ElementRef} from 'angular2/angular2';
-import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
+import {KeyboardUtils} from 'nv/services/KeyboardUtils';
+import {RepeateablePrimitiveValue} from 'nv/core/RepeateablePrimitiveValue';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 import {Scrollable, ScrollableElement} from 'nv/decorators/scrollable';
 
@@ -11,7 +12,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators/scrollable';
         'options': 'options',
         'height': 'height',
         'width': 'width',
-        'navigationKey': 'navigationKey',
+        'lastNavAction': 'lastNavAction',
         'hidden': 'hidden'
     },
     events: ['change'],
@@ -20,7 +21,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators/scrollable';
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height" [style.width]="width"
-                    nv-scrollable="selected" [navigationKey]="navigationKey" >
+                    nv-scrollable="selected" [last-nav-action]="lastNavAction" >
                     <div *ng-for="#option of options;" class="selection-option" [class.selected]="option.selected">
                         <div nv-scrollable-element class="selection-description"
                             (click)="onOptionClicked(option)"
@@ -38,7 +39,7 @@ export class SelectionList<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
     hidden: boolean = true;
 
-    navigationKey: number;
+    lastNavAction: RepeateablePrimitiveValue<number>;
     selectedIndex: number = null;
     keyUtils: KeyboardUtils;
     el: ElementRef;
@@ -50,8 +51,8 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     onChange(changes) {
-        if (changes['navigationKey'] && this.navigationKey) {
-            var key = this.navigationKey;
+        if (changes['lastNavAction'] && this.lastNavAction) {
+            var key = this.lastNavAction.value;
             if (this.keyUtils.isArrowDown(key)) {
                 if (changes['hidden'] && !this.hidden) {
                     this.resetSelectionList();

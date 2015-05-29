@@ -2,7 +2,8 @@
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
-import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
+import {KeyboardUtils} from 'nv/services/KeyboardUtils';
+import {RepeateablePrimitiveValue} from 'nv/core/RepeateablePrimitiveValue';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
 @Component({ 
@@ -36,7 +37,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                          (change)="onSelectionChanged($event, input)"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="width"
-                        [navigation-key]="navigationKey" >
+                        [last-nav-action]="navigationAction" >
                     </ngv-selection-list>
 
                 </div>`,
@@ -50,7 +51,7 @@ export class Dropdown<T extends SelectionOption> {
     search: string = "";
     keyUtils: KeyboardUtils;
     resetSearchHandle: number;
-    navigationKey: number;
+    navigationAction: RepeateablePrimitiveValue<number>;
 
     constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
@@ -88,8 +89,7 @@ export class Dropdown<T extends SelectionOption> {
             if (this.keyUtils.isArrowDown(key)) {
                 this.onArrowDown();
             }
-            this.navigationKey = key;
-            setTimeout(() => this.navigationKey = null);
+            this.navigationAction = new RepeateablePrimitiveValue(key);
         }
         else {
             this.handleTypeFilter(key);
