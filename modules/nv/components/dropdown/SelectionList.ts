@@ -24,6 +24,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
                     nv-scrollable="selected" [last-nav-action]="lastNavAction" >
                     <div *ng-for="#option of options;" class="selection-option" [class.selected]="option.selected">
                         <div nv-scrollable-element class="selection-description"
+                            [selectable]="option"
                             (click)="onOptionClicked(option)"
                             (mouseover)="selectOption(option)"
                             (mouseleave)="unselectOption(option)">
@@ -41,9 +42,6 @@ export class SelectionList<T extends SelectionOption> {
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
 
-    selectedIndex: number = null;
-
-
     constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
     }
@@ -55,25 +53,12 @@ export class SelectionList<T extends SelectionOption> {
                 if (changes['hidden'] && !this.hidden) {
                     this.resetSelectionList();
                 }
-                this.onArrowDown();
-            }
-            else if (this.keyUtils.isArrowUp(key)) {
-                this.selectPrevious();
             }
         }
     }
 
     resetSelectionList() {
-        this.selectedIndex = null;
-    }
-
-    onArrowDown() {
-        if (this.selectedIndex == null) {
-            this.selectIndex(0);
-        }
-        else {
-            this.selectNext();
-        }
+        this.lastNavAction = null;
     }
 
     selectOption(option) {
@@ -89,29 +74,4 @@ export class SelectionList<T extends SelectionOption> {
         this.change.next(option);
     }
 
-
-    selectIndex(index) {
-        this.options.forEach((option: T) => option.selected = false);
-        this.selectedIndex = index;
-        this.options[index].selected = true;
-    }
-
-    selectNext() {
-        if (this.options.length >= this.selectedIndex + 1) {
-            this.selectedIndex += 1;
-            this.changeSelectedItem(this.selectedIndex);
-        }
-    }
-
-    selectPrevious() {
-        if (this.selectedIndex > 0) {
-            this.selectedIndex -= 1;
-            this.changeSelectedItem(this.selectedIndex);
-        }
-    }
-
-    changeSelectedItem(next) {
-        this.options.forEach((option: T) => option.selected = false);
-        this.options[next].selected = true;
-    }
 }

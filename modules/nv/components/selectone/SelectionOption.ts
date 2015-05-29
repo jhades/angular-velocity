@@ -1,8 +1,7 @@
+import {Selectable} from 'nv/core/Selecteable';
 
-
-export interface SelectionOption {
+export interface SelectionOption extends Selectable {
     description: string;
-    selected: boolean;
 }
 
 
