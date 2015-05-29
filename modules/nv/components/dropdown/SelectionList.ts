@@ -66,12 +66,7 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     resetSelectionList() {
-        this.getSelectionList().scrollTop = 0;
         this.selectedIndex = null;
-    }
-
-    getSelectionList() {
-        return this.el.domElement.querySelector('.selection-list');
     }
 
     onArrowDown() {
