@@ -1,13 +1,11 @@
 import {Directive, Query, QueryList, ElementRef, Attribute, onChange} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
+import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Directive({
     selector: "[nv-scrollable]",
     properties: {
         'lastNavAction': 'lastNavAction',
-    },
-    hostListeners: {
-        'scroll': 'onKeyDown($event)'
     },
     lifecycle: [onChange]
 
@@ -16,15 +14,23 @@ export class Scrollable {
     selectedClass: string;
     el:ElementRef;
     lastNavAction: LastNavAction;
+    keyUtils: KeyboardUtils;
 
-    constructor(@Attribute("nv-scrollable") selectedClass, el: ElementRef) {
+    constructor(@Attribute("nv-scrollable") selectedClass, el: ElementRef, keyUtils: KeyboardUtils) {
         this.selectedClass = selectedClass;
         this.el = el;
+        this.keyUtils = keyUtils;
     }
 
     onChange(changes) {
-        if (this.lastNavAction) {
-            console.log('ok ' + this.lastNavAction.value);
+        if (changes['lastNavAction'] && this.lastNavAction) {
+            var key = this.lastNavAction.value;
+            if (this.keyUtils.isArrowDown(key)) {
+                this.onArrowDown();
+            }
+            else if (this.keyUtils.isArrowUp(key)) {
+                this.selectPrevious();
+            }
         }
     }
 
@@ -32,8 +38,12 @@ export class Scrollable {
         return this.el.domElement.scrollTop;
     }
 
-    onKeyDown(evt) {
-        //console.log(this.lastNavKey);
+    onArrowDown() {
+        console.log("next " + this.getScrollTop());
+    }
+
+    selectPrevious() {
+        console.log("previous " + this.getScrollTop());
     }
 
 }
