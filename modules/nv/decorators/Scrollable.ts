@@ -12,15 +12,13 @@ import {ScrollableElement} from 'nv/decorators';
 
 })
 export class Scrollable {
-    selectedClass: string;
     el:ElementRef;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
     scrollableElements: Array<ScrollableElement> = [];
     selectedIndex: number = null;
 
-    constructor(@Attribute("nv-scrollable") selectedClass, el: ElementRef, keyUtils: KeyboardUtils) {
-        this.selectedClass = selectedClass;
+    constructor( el: ElementRef, keyUtils: KeyboardUtils) {
         this.el = el;
         this.keyUtils = keyUtils;
     }
@@ -35,7 +33,7 @@ export class Scrollable {
                 this.selectPrevious();
             }
         }
-        else if (this.lastNavAction == null) {
+        else if (this.lastNavAction === null) {
             this.selectedIndex = null;
         }
     }
