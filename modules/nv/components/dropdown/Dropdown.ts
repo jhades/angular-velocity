@@ -18,15 +18,15 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
-                    <div tabindex="0" class="input"
+                    <div class="input" tabindex="0"
                         (click)="onButtonToggle()"
                         (blur)="onFocusLost()"
-                        (keydown)="onKeyDown($event, button)" #input>
+                        (keydown)="onSearch($event, button)" #input>
                         
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
-                        
+
                         <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle()" #button>
+                            (click)="onButtonToggle()">
                         </div>
                         
                     </div>
@@ -76,7 +76,7 @@ export class Dropdown<T extends SelectionOption> {
         },200);
     }
 
-    onKeyDown(event) {
+    onSearch(event) {
         var key = event.keyCode;
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
