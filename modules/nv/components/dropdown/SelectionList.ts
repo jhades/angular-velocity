@@ -20,8 +20,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 })
 @View({
     template: `
-                <div class="selection-list" [style.max-height]="height" [style.width]="width"
-                    nv-scrollable [last-nav-action]="lastNavAction" >
+                <div nv-scrollable class="selection-list" [style.max-height]="height" [style.width]="width" [last-nav-action]="lastNavAction" >
                     <div *ng-for="#option of options;" class="selection-option" [class.selected]="option.selected">
                         <div nv-scrollable-element class="selection-description"
                             [selectable]="option"
