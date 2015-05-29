@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, Parent, onChange, EventEmitter, ElementRef} from 'angular2/angular2';
+import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
@@ -38,16 +38,15 @@ export class SelectionList<T extends SelectionOption> {
     options: List<T>;
     change: EventEmitter = new EventEmitter();
     hidden: boolean = true;
-
     lastNavAction: LastNavAction;
-    selectedIndex: number = null;
     keyUtils: KeyboardUtils;
+
+    selectedIndex: number = null;
     el: ElementRef;
 
 
-    constructor(keyUtils: KeyboardUtils, el: ElementRef) {
+    constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
-        this.el = el;
     }
 
     onChange(changes) {
