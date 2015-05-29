@@ -1,6 +1,7 @@
 import {Directive, Query, QueryList, ElementRef, Attribute, onChange} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
+import {ScrollableElement} from 'nv/decorators';
 
 @Directive({
     selector: "[nv-scrollable]",
@@ -15,6 +16,7 @@ export class Scrollable {
     el:ElementRef;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
+    scrollableElements: Array<ScrollableElement> = [];
 
     constructor(@Attribute("nv-scrollable") selectedClass, el: ElementRef, keyUtils: KeyboardUtils) {
         this.selectedClass = selectedClass;
@@ -44,6 +46,11 @@ export class Scrollable {
 
     selectPrevious() {
         console.log("previous " + this.getScrollTop());
+    }
+
+    addScrollableElement(scrollableElement) {
+        console.log('registered ' + scrollableElement);
+        this.scrollableElements.push(scrollableElement);
     }
 
 }
