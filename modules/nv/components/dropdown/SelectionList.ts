@@ -42,7 +42,6 @@ export class SelectionList<T extends SelectionOption> {
     keyUtils: KeyboardUtils;
 
     selectedIndex: number = null;
-    el: ElementRef;
 
 
     constructor(keyUtils: KeyboardUtils) {
