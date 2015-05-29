@@ -3,6 +3,7 @@
 import {Component, View, NgFor, Parent, onChange, EventEmitter, ElementRef} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/utils/KeyboardUtils';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
+import {Scrollable, ScrollableElement} from 'nv/decorators/scrollable';
 
 @Component({
     selector: 'ngv-selection-list',
@@ -18,9 +19,10 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 })
 @View({
     template: `
-                <div class="selection-list" [style.max-height]="height" [style.width]="width">
+                <div class="selection-list" [style.max-height]="height" [style.width]="width"
+                    nv-scrollable="selected" [navigationKey]="navigationKey" >
                     <div *ng-for="#option of options;" class="selection-option" [class.selected]="option.selected">
-                        <div class="selection-description"
+                        <div nv-scrollable-element class="selection-description"
                             (click)="onOptionClicked(option)"
                             (mouseover)="selectOption(option)"
                             (mouseleave)="unselectOption(option)">
@@ -28,17 +30,19 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                         </div>
                     </div>
                 </div>`,
-    directives: [NgFor]
+    directives: [NgFor, Scrollable, ScrollableElement]
 })
 export class SelectionList<T extends SelectionOption> {
 
-    change: EventEmitter = new EventEmitter();
-    selectedIndex: number = null;
     options: List<T>;
+    change: EventEmitter = new EventEmitter();
+    hidden: boolean = true;
+
     navigationKey: number;
+    selectedIndex: number = null;
     keyUtils: KeyboardUtils;
     el: ElementRef;
-    hidden: boolean = true;
+
 
     constructor(keyUtils: KeyboardUtils, el: ElementRef) {
         this.keyUtils = keyUtils;
@@ -58,7 +62,6 @@ export class SelectionList<T extends SelectionOption> {
                 this.selectPrevious();
             }
         }
-
     }
 
     resetSelectionList() {
