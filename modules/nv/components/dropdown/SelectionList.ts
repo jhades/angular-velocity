@@ -4,7 +4,7 @@ import {Component, View, NgFor, Parent, onChange, EventEmitter, ElementRef} from
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
-import {Scrollable, ScrollableElement} from 'nv/decorators/scrollable';
+import {Scrollable, ScrollableElement} from 'nv/decorators';
 
 @Component({
     selector: 'ngv-selection-list',
