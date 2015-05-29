@@ -18,7 +18,7 @@ export class Scrollable {
     scrollableElements: Array<ScrollableElement> = [];
     selectedIndex: number = null;
 
-    constructor( el: ElementRef, keyUtils: KeyboardUtils) {
+    constructor(el: ElementRef, keyUtils: KeyboardUtils) {
         this.el = el;
         this.keyUtils = keyUtils;
     }
