@@ -65,20 +65,20 @@ export class Scrollable {
     selectNext() {
         if (this.scrollableElements.length >= this.selectedIndex + 1) {
             this.selectedIndex += 1;
-            this.changeSelectedItem(this.selectedIndex);
+            this.selectElement(this.selectedIndex);
         }
     }
 
     selectPrevious() {
         if (this.selectedIndex > 0) {
             this.selectedIndex -= 1;
-            this.changeSelectedItem(this.selectedIndex);
+            this.selectElement(this.selectedIndex);
         }
     }
 
-    changeSelectedItem(next) {
+    selectElement(index) {
         this.scrollableElements.forEach((se: ScrollableElement) => se.selected = false);
-        this.scrollableElements[next].selected = true;
+        this.scrollableElements[index].selected = true;
     }
 
 }
