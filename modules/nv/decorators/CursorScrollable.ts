@@ -1,7 +1,7 @@
 import {Directive, Query, QueryList, ElementRef, Attribute, onChange} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {ScrollableElement} from 'nv/decorators';
+import {CursorScrollableElement} from 'nv/decorators';
 
 @Directive({
     selector: "[nv-cursor-scrollable]",
@@ -15,7 +15,7 @@ export class CursorScrollable {
     el:ElementRef;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
-    scrollableElements: Array<ScrollableElement> = [];
+    scrollableElements: Array<CursorScrollableElement> = [];
     selectedIndex: number = null;
 
     constructor(el: ElementRef, keyUtils: KeyboardUtils) {
@@ -56,7 +56,7 @@ export class CursorScrollable {
     }
 
     highlightIndex(index) {
-        this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
+        this.scrollableElements.forEach((se: CursorScrollableElement) => se.highlight = false);
         this.selectedIndex = index;
         this.scrollableElements[index].highlight = true;
     }
@@ -76,7 +76,7 @@ export class CursorScrollable {
     }
 
     highlightElement(index) {
-        this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
+        this.scrollableElements.forEach((se: CursorScrollableElement) => se.highlight = false);
         this.scrollableElements[index].highlight = true;
     }
 

@@ -4,7 +4,7 @@ import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/a
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
-import {CursorScrollable, ScrollableElement} from 'nv/decorators';
+import {CursorScrollable, CursorScrollableElement} from 'nv/decorators';
 
 @Component({
     selector: 'ngv-selection-list',
@@ -36,7 +36,7 @@ import {CursorScrollable, ScrollableElement} from 'nv/decorators';
                     </div>
 
                 </div>`,
-    directives: [NgFor, CursorScrollable, ScrollableElement]
+    directives: [NgFor, CursorScrollable, CursorScrollableElement]
 })
 export class SelectionList<T extends SelectionOption> {
 

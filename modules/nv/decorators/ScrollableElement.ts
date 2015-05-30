@@ -8,7 +8,7 @@ import {Highlightable} from 'nv/core/Highlightable';
         'highlightable': 'highlightable',
     },
 })
-export class ScrollableElement {
+export class CursorScrollableElement {
     highlightable:Highlightable;
 
     constructor(@Ancestor(CursorScrollable) scrollable: CursorScrollable) {

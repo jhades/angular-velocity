@@ -1,7 +1,7 @@
 import {CursorScrollable} from 'nv/decorators/CursorScrollable';
-import {ScrollableElement} from 'nv/decorators/ScrollableElement';
+import {CursorScrollableElement} from 'nv/decorators/ScrollableElement';
 
 export {
     CursorScrollable,
-    ScrollableElement
+    CursorScrollableElement
 }
