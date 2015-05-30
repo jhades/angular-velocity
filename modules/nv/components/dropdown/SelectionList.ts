@@ -21,7 +21,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 @View({
     template: `
                 <div nv-scrollable class="selection-list" [style.max-height]="height" [style.width]="width" [last-nav-action]="lastNavAction" >
-                    <div *ng-for="#option of options;" class="selection-option" [class.selected]="option.selected">
+                    <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted">
                         <div nv-scrollable-element class="selection-description"
                             [selectable]="option"
                             (click)="onOptionClicked(option)"
@@ -58,16 +58,16 @@ export class SelectionList<T extends SelectionOption> {
         this.lastNavAction = null;
     }
 
-    selectOption(option) {
-        this.options.forEach((option: T) => option.selected = false);
-        option.selected = true;
+    selectOption(option: SelectionOption) {
+        this.options.forEach((option: T) => option.highlighted = false);
+        option.highlighted = true;
     }
 
-    unselectOption(option) {
-        option.selected = false;
+    unselectOption(option: SelectionOption) {
+        option.highlighted = false;
     }
 
-    onOptionClicked(option) {
+    onOptionClicked(option: SelectionOption) {
         this.change.next(option);
     }
 

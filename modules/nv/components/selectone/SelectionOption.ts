@@ -1,15 +1,15 @@
-import {Selectable} from 'nv/core/Selecteable';
+import {Highlightable} from 'nv/core/Selecteable';
 
-export interface SelectionOption extends Selectable {
+export interface SelectionOption extends Highlightable {
     description: string;
 }
 
 
 export class BlankOption implements SelectionOption {
     description:string;
-    selected:boolean;
+    highlighted:boolean;
     constructor() {
         this.description = "";
-        this.selected = false;
+        this.highlighted = false;
     }
 }

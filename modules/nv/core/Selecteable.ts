@@ -1,4 +1,4 @@
 
-export interface Selectable {
-    selected: boolean;
+export interface Highlightable {
+    highlighted: boolean;
 }
