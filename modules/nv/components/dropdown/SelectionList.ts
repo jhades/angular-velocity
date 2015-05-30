@@ -27,9 +27,7 @@ import {CursorScrollable, CursorScrollableElement} from 'nv/decorators';
 
                         <div nv-cursor-scrollable-element [highlightable]="option"
                             class="selection-description"
-                            (click)="onOptionClicked(option)"
-                            (mouseover)="onMouseOverOption(option)"
-                            (mouseleave)="onMouseLeaveOption(option)">
+                            (click)="onOptionClicked(option)">
                                 {{option.description}}
                         </div>
 
@@ -54,15 +52,6 @@ export class SelectionList<T extends SelectionOption> {
         if (changes['hidden'] && this.hidden) {
             //TODO call action to reset list
         }
-    }
-
-    onMouseOverOption(option: SelectionOption) {
-        this.options.forEach((option: T) => option.highlighted = false);
-        option.highlighted = true;
-    }
-
-    onMouseLeaveOption(option: SelectionOption) {
-        option.highlighted = false;
     }
 
     onOptionClicked(option: SelectionOption) {

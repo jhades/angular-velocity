@@ -55,8 +55,12 @@ export class CursorScrollable {
         }
     }
 
-    highlightIndex(index) {
+    clearHighlight() {
         this.scrollableElements.forEach((se: CursorScrollableElement) => se.highlight = false);
+    }
+
+    highlightIndex(index) {
+        this.clearHighlight();
         this.selectedIndex = index;
         this.scrollableElements[index].highlight = true;
     }
@@ -64,20 +68,21 @@ export class CursorScrollable {
     highlightNext() {
         if (this.scrollableElements.length >= this.selectedIndex + 1) {
             this.selectedIndex += 1;
-            this.highlightElement(this.selectedIndex);
+            this.highlightIndex(this.selectedIndex);
         }
     }
 
     highlightPrevious() {
         if (this.selectedIndex > 0) {
             this.selectedIndex -= 1;
-            this.highlightElement(this.selectedIndex);
+            this.highlightIndex(this.selectedIndex);
         }
     }
 
-    highlightElement(index) {
-        this.scrollableElements.forEach((se: CursorScrollableElement) => se.highlight = false);
-        this.scrollableElements[index].highlight = true;
+
+    highlight(highlighted:CursorScrollableElement) {
+        this.clearHighlight();
+        this.highlightIndex(this.scrollableElements.indexOf(highlighted));
     }
 
 }
