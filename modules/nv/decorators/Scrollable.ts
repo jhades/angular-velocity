@@ -1,21 +1,21 @@
 import {Directive, Query, QueryList, ElementRef, Attribute, onChange} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {CursorScrollableElement} from 'nv/decorators';
+import {ScrollableElement} from 'nv/decorators';
 
 @Directive({
-    selector: "[nv-cursor-scrollable]",
+    selector: "[nv-scrollable]",
     properties: {
         'lastNavAction': 'lastNavAction',
     },
     lifecycle: [onChange]
 
 })
-export class CursorScrollable {
+export class Scrollable {
     el:ElementRef;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
-    scrollableElements: Array<CursorScrollableElement> = [];
+    scrollableElements: Array<ScrollableElement> = [];
     selectedIndex: number = null;
 
     constructor(el: ElementRef, keyUtils: KeyboardUtils) {
@@ -56,7 +56,7 @@ export class CursorScrollable {
     }
 
     clearHighlight() {
-        this.scrollableElements.forEach((se: CursorScrollableElement) => se.highlight = false);
+        this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
     }
 
     highlightIndex(index) {
@@ -80,7 +80,7 @@ export class CursorScrollable {
     }
 
 
-    highlight(highlighted:CursorScrollableElement) {
+    highlight(highlighted:ScrollableElement) {
         this.clearHighlight();
         this.highlightIndex(this.scrollableElements.indexOf(highlighted));
     }

@@ -4,7 +4,7 @@ import {Component, View, NgFor, Parent, onChange, EventEmitter} from 'angular2/a
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
-import {CursorScrollable, CursorScrollableElement} from 'nv/decorators';
+import {Scrollable, ScrollableElement} from 'nv/decorators';
 
 @Component({
     selector: 'ngv-selection-list',
@@ -20,12 +20,12 @@ import {CursorScrollable, CursorScrollableElement} from 'nv/decorators';
 })
 @View({
     template: `
-                <div nv-cursor-scrollable [last-nav-action]="lastNavAction"
+                <div nv-scrollable [last-nav-action]="lastNavAction"
                     class="selection-list" [style.max-height]="height" [style.width]="width" >
 
                     <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted">
 
-                        <div nv-cursor-scrollable-element [highlightable]="option"
+                        <div nv-scrollable-element [highlightable]="option"
                             class="selection-description"
                             (click)="onOptionClicked(option)">
                                 {{option.description}}
@@ -34,7 +34,7 @@ import {CursorScrollable, CursorScrollableElement} from 'nv/decorators';
                     </div>
 
                 </div>`,
-    directives: [NgFor, CursorScrollable, CursorScrollableElement]
+    directives: [NgFor, Scrollable, ScrollableElement]
 })
 export class SelectionList<T extends SelectionOption> {
 
