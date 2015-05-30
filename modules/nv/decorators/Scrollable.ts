@@ -59,12 +59,6 @@ export class Scrollable {
         this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
     }
 
-    highlightIndex(index) {
-        this.clearHighlight();
-        this.selectedIndex = index;
-        this.scrollableElements[index].highlight = true;
-    }
-
     highlightNext() {
         if (this.scrollableElements.length >= this.selectedIndex + 1) {
             this.selectedIndex += 1;
@@ -79,10 +73,15 @@ export class Scrollable {
         }
     }
 
-
     highlight(highlighted:ScrollableElement) {
         this.clearHighlight();
         this.highlightIndex(this.scrollableElements.indexOf(highlighted));
+    }
+
+    highlightIndex(index) {
+        this.clearHighlight();
+        this.selectedIndex = index;
+        this.scrollableElements[index].highlight = true;
     }
 
 }
