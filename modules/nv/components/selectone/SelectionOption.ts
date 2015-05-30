@@ -1,4 +1,4 @@
-import {Highlightable} from 'nv/core/Selecteable';
+import {Highlightable} from 'nv/core/Highlightable';
 
 export interface SelectionOption extends Highlightable {
     description: string;
