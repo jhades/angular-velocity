@@ -25,8 +25,8 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
                         <div nv-scrollable-element class="selection-description"
                             [selectable]="option"
                             (click)="onOptionClicked(option)"
-                            (mouseover)="selectOption(option)"
-                            (mouseleave)="unselectOption(option)">
+                            (mouseover)="onMouseOverOption(option)"
+                            (mouseleave)="onMouseLeaveOption(option)">
                                 {{option.description}}
                         </div>
                     </div>
@@ -58,12 +58,12 @@ export class SelectionList<T extends SelectionOption> {
         this.lastNavAction = null;
     }
 
-    selectOption(option: SelectionOption) {
+    onMouseOverOption(option: SelectionOption) {
         this.options.forEach((option: T) => option.highlighted = false);
         option.highlighted = true;
     }
 
-    unselectOption(option: SelectionOption) {
+    onMouseLeaveOption(option: SelectionOption) {
         option.highlighted = false;
     }
 
