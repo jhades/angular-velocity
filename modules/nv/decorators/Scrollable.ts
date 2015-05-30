@@ -1,4 +1,4 @@
-import {Directive, onChange} from 'angular2/angular2';
+import {Directive, onChange, ElementRef} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {ScrollableElement} from 'nv/decorators';
@@ -15,10 +15,12 @@ export class Scrollable {
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
     scrollableElements: Array<ScrollableElement> = [];
-    selectedIndex: number = 0;
+    selectedIndex: number = null;
+    el: ElementRef;
 
-    constructor(keyUtils: KeyboardUtils) {
+    constructor(keyUtils: KeyboardUtils, el: ElementRef) {
         this.keyUtils = keyUtils;
+        this.el = el;
     }
 
     onChange(changes) {
@@ -28,7 +30,7 @@ export class Scrollable {
                 this.onArrowDown();
             }
             else if (this.keyUtils.isArrowUp(key)) {
-                this.highlightPrevious();
+                this.onArrowUp();
             }
         }
         else if (this.lastNavAction === null) {
@@ -44,17 +46,23 @@ export class Scrollable {
         this.highlightNext();
     }
 
+    onArrowUp() {
+        this.highlightPrevious();
+    }
+
     getCurrentHighlighted() : ScrollableElement {
         return  this.scrollableElements[this.selectedIndex];
     }
 
     highlightNext() {
-        if (this.scrollableElements.length >= this.selectedIndex + 1) {
+        if (this.selectedIndex === null) {
+            this.selectedIndex = 0;
+        }
+        else if (this.scrollableElements.length >= this.selectedIndex + 1) {
             this.getCurrentHighlighted().onHighlightOff();
             this.selectedIndex += 1;
-            this.getCurrentHighlighted().onHighlightOn();
-
         }
+        this.getCurrentHighlighted().onHighlightOn();
     }
 
     highlightPrevious() {
