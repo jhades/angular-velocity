@@ -88,7 +88,7 @@ export class Scrollable {
 
     private scrollIntoViewIfNeeded(se: ScrollableElement) {
 
-
+        console.log("scrollable div scrollTop= " +  this.getScrollTop());
 
     }
 
