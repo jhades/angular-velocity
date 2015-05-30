@@ -47,7 +47,7 @@ export class Scrollable {
         var shouldScrollDown = this.getCurrentHighlighted().el.domElement.offsetTop +
             this.getCurrentHighlighted().el.domElement.offsetHeight > this.el.domElement.scrollTop + this.el.domElement.offsetHeight;
         if (shouldScrollDown) {
-            this.getCurrentHighlighted().el.domElement.scrollIntoView(false);
+            this.scrollElementIntoView(false);
         }
 
     }
@@ -56,8 +56,12 @@ export class Scrollable {
         this.highlightPrevious();
         var shouldScrollUp = this.getCurrentHighlighted().el.domElement.offsetTop < this.el.domElement.scrollTop;
         if (shouldScrollUp) {
-            this.getCurrentHighlighted().el.domElement.scrollIntoView(true);
+            this.scrollElementIntoView(true);
         }
+    }
+
+    scrollElementIntoView(adjustToTop) {
+        this.getCurrentHighlighted().el.domElement.scrollIntoView(adjustToTop);
     }
 
     getCurrentHighlighted() : ScrollableElement {
