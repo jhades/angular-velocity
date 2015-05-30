@@ -43,7 +43,6 @@ export class CursorScrollable {
     }
 
     addScrollableElement(scrollableElement) {
-        console.log('registered ' + scrollableElement);
         this.scrollableElements.push(scrollableElement);
     }
 
