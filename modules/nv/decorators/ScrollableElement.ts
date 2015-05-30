@@ -12,9 +12,11 @@ import {Scrollable} from 'nv/decorators';
 export class ScrollableElement {
     scrollable: Scrollable;
     highlight: EventEmitter = new EventEmitter();
+    el: ElementRef;
 
-    constructor(@Ancestor(Scrollable) scrollable: Scrollable) {
+    constructor(@Ancestor(Scrollable) scrollable: Scrollable, el: ElementRef) {
         this.scrollable = scrollable;
+        this.el = el;
         this.scrollable.addScrollableElement(this);
     }
 
@@ -26,6 +28,5 @@ export class ScrollableElement {
     onHighlightOff() {
         this.highlight.next(false);
     }
-
 
 }
