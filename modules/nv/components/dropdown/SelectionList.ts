@@ -50,7 +50,7 @@ export class SelectionList<T extends SelectionOption> {
 
     onChange(changes) {
         if (changes['hidden'] && this.hidden) {
-            //TODO call action to reset list
+            //TODO call action to reset list refactor last-nav-action to use an actual action?
         }
     }
 
