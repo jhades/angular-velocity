@@ -11,7 +11,7 @@ import {ScrollableElement} from 'nv/decorators';
     lifecycle: [onChange]
 
 })
-export class Scrollable {
+export class CursorScrollable {
     el:ElementRef;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;

@@ -1,5 +1,5 @@
 import {Directive, Ancestor} from 'angular2/angular2';
-import {Scrollable} from 'nv/decorators';
+import {CursorScrollable} from 'nv/decorators';
 import {Highlightable} from 'nv/core/Highlightable';
 
 @Directive({
@@ -11,7 +11,7 @@ import {Highlightable} from 'nv/core/Highlightable';
 export class ScrollableElement {
     selectable:Highlightable;
 
-    constructor(@Ancestor(Scrollable) scrollable: Scrollable) {
+    constructor(@Ancestor(CursorScrollable) scrollable: CursorScrollable) {
         scrollable.addScrollableElement(this);
     }
 
