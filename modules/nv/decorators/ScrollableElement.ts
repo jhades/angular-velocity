@@ -1,40 +1,31 @@
-import {Directive, Ancestor, ElementRef} from 'angular2/angular2';
+import {Directive, Ancestor, ElementRef, EventEmitter} from 'angular2/angular2';
 import {Scrollable} from 'nv/decorators';
-import {Highlightable} from 'nv/core/Highlightable';
 
 @Directive({
     selector: "[nv-scrollable-element]",
-    properties: {
-        'highlightable': 'highlightable',
-    },
     hostListeners: {
-      'mouseover': 'onMouseOver()',
-      'mouseleave': 'onMouseLeave()'
+      'mouseover': 'onHighlightOn()',
+      'mouseleave': 'onHighlightOff()'
     },
+    events: ['highlight']
 })
 export class ScrollableElement {
-    highlightable:Highlightable;
     scrollable: Scrollable;
-    el: ElementRef;
+    highlight: EventEmitter = new EventEmitter();
 
-    constructor(@Ancestor(Scrollable) scrollable: Scrollable, el: ElementRef) {
+    constructor(@Ancestor(Scrollable) scrollable: Scrollable) {
         this.scrollable = scrollable;
-        this.el = el;
         this.scrollable.addScrollableElement(this);
     }
 
-    onMouseOver() {
-        this.scrollable.highlight(this);
-        this.highlightable.highlighted = true;
+    onHighlightOn() {
+        this.scrollable.setHighlightedIndex(this);
+        this.highlight.next(true);
     }
 
-    onMouseLeave() {
-        this.highlightable.highlighted = false;
+    onHighlightOff() {
+        this.highlight.next(false);
     }
 
-
-    set highlight(selected: boolean) {
-        this.highlightable.highlighted = selected;
-    }
 
 }

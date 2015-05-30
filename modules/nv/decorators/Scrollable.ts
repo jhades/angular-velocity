@@ -1,4 +1,4 @@
-import {Directive, Query, QueryList, ElementRef, Attribute, onChange} from 'angular2/angular2';
+import {Directive, onChange} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {ScrollableElement} from 'nv/decorators';
@@ -12,14 +12,12 @@ import {ScrollableElement} from 'nv/decorators';
 
 })
 export class Scrollable {
-    el:ElementRef;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
     scrollableElements: Array<ScrollableElement> = [];
-    selectedIndex: number = null;
+    selectedIndex: number = 0;
 
-    constructor(el: ElementRef, keyUtils: KeyboardUtils) {
-        this.el = el;
+    constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
     }
 
@@ -38,58 +36,38 @@ export class Scrollable {
         }
     }
 
-    getScrollTop() {
-        return this.el.domElement.scrollTop;
-    }
-
     addScrollableElement(scrollableElement) {
         this.scrollableElements.push(scrollableElement);
     }
 
     onArrowDown() {
-        if (this.selectedIndex == null) {
-            this.highlightIndex(0);
-        }
-        else {
-            this.highlightNext();
-        }
+        this.highlightNext();
     }
 
-    clearHighlight() {
-        this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
+    getCurrentHighlighted() : ScrollableElement {
+        return  this.scrollableElements[this.selectedIndex];
     }
 
     highlightNext() {
         if (this.scrollableElements.length >= this.selectedIndex + 1) {
+            this.getCurrentHighlighted().onHighlightOff();
             this.selectedIndex += 1;
-            this.highlightIndex(this.selectedIndex);
+            this.getCurrentHighlighted().onHighlightOn();
+
         }
     }
 
     highlightPrevious() {
         if (this.selectedIndex > 0) {
+            this.getCurrentHighlighted().onHighlightOff();
             this.selectedIndex -= 1;
-            this.highlightIndex(this.selectedIndex);
+            this.getCurrentHighlighted().onHighlightOn();
         }
     }
 
-    highlight(highlighted:ScrollableElement) {
-        this.clearHighlight();
-        this.highlightIndex(this.scrollableElements.indexOf(highlighted));
+    setHighlightedIndex(se: ScrollableElement) {
+        this.selectedIndex = this.scrollableElements.indexOf(se);
     }
 
-    highlightIndex(index) {
-        this.clearHighlight();
-        this.selectedIndex = index;
-        var highlighted = this.scrollableElements[index];
-        highlighted.highlight = true;
-        this.scrollIntoViewIfNeeded(highlighted);
-    }
-
-    private scrollIntoViewIfNeeded(se: ScrollableElement) {
-
-        console.log("scrollable div scrollTop= " +  this.getScrollTop());
-
-    }
 
 }

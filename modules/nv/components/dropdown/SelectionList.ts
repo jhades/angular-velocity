@@ -25,7 +25,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 
                     <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted">
 
-                        <div nv-scrollable-element [highlightable]="option"
+                        <div nv-scrollable-element (highlight)="onHighlightChanged($event, option)"
                             class="selection-description"
                             (click)="onOptionClicked(option)">
                                 {{option.description}}
@@ -52,6 +52,10 @@ export class SelectionList<T extends SelectionOption> {
         if (changes['hidden'] && this.hidden) {
             //TODO call action to reset list refactor last-nav-action to use an actual action?
         }
+    }
+
+    onHighlightChanged(highlighted: boolean, option: T) {
+        option.highlighted = highlighted;
     }
 
     onOptionClicked(option: SelectionOption) {
