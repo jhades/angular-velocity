@@ -22,8 +22,8 @@ import {CursorScrollable, ScrollableElement} from 'nv/decorators';
     template: `
                 <div nv-cursor-scrollable class="selection-list" [style.max-height]="height" [style.width]="width" [last-nav-action]="lastNavAction" >
                     <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted">
-                        <div nv-cursor-scrollable-element class="selection-description"
-                            [selectable]="option"
+                        <div nv-cursor-scrollable-element [selectable]="option"
+                            class="selection-description"
                             (click)="onOptionClicked(option)"
                             (mouseover)="onMouseOverOption(option)"
                             (mouseleave)="onMouseLeaveOption(option)">
