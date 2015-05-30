@@ -82,6 +82,13 @@ export class Scrollable {
         this.clearHighlight();
         this.selectedIndex = index;
         this.scrollableElements[index].highlight = true;
+        this.scrollIntoViewIfNeeded(index);
+    }
+
+    private scrollIntoViewIfNeeded(index) {
+
+
+
     }
 
 }
