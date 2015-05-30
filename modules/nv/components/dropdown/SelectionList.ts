@@ -46,16 +46,9 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     onChange(changes) {
-        if (changes['lastNavAction'] && this.lastNavAction) {
-            var key = this.lastNavAction.value;
-            if (this.keyUtils.isArrowDown(key) && changes['hidden'] && !this.hidden) {
-                this.resetSelectionList();
-            }
+        if (changes['hidden'] && this.hidden) {
+            //TODO call action to reset list
         }
-    }
-
-    resetSelectionList() {
-        this.lastNavAction = null;
     }
 
     onMouseOverOption(option: SelectionOption) {
