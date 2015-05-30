@@ -56,9 +56,9 @@ export class CursorScrollable {
     }
 
     selectIndex(index) {
-        this.scrollableElements.forEach((se: ScrollableElement) => se.selected = false);
+        this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
         this.selectedIndex = index;
-        this.scrollableElements[index].selected = true;
+        this.scrollableElements[index].highlight = true;
     }
 
     selectNext() {
@@ -76,8 +76,8 @@ export class CursorScrollable {
     }
 
     selectElement(index) {
-        this.scrollableElements.forEach((se: ScrollableElement) => se.selected = false);
-        this.scrollableElements[index].selected = true;
+        this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
+        this.scrollableElements[index].highlight = true;
     }
 
 }

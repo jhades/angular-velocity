@@ -20,16 +20,21 @@ import {CursorScrollable, ScrollableElement} from 'nv/decorators';
 })
 @View({
     template: `
-                <div nv-cursor-scrollable class="selection-list" [style.max-height]="height" [style.width]="width" [last-nav-action]="lastNavAction" >
+                <div nv-cursor-scrollable [last-nav-action]="lastNavAction"
+                    class="selection-list" [style.max-height]="height" [style.width]="width" >
+
                     <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted">
-                        <div nv-cursor-scrollable-element [selectable]="option"
+
+                        <div nv-cursor-scrollable-element [highlightable]="option"
                             class="selection-description"
                             (click)="onOptionClicked(option)"
                             (mouseover)="onMouseOverOption(option)"
                             (mouseleave)="onMouseLeaveOption(option)">
                                 {{option.description}}
                         </div>
+
                     </div>
+
                 </div>`,
     directives: [NgFor, CursorScrollable, ScrollableElement]
 })

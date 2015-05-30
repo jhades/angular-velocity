@@ -5,19 +5,19 @@ import {Highlightable} from 'nv/core/Highlightable';
 @Directive({
     selector: "[nv-cursor-scrollable-element]",
     properties: {
-        'selectable': 'selectable',
+        'highlightable': 'highlightable',
     },
 })
 export class ScrollableElement {
-    selectable:Highlightable;
+    highlightable:Highlightable;
 
     constructor(@Ancestor(CursorScrollable) scrollable: CursorScrollable) {
         scrollable.addScrollableElement(this);
     }
 
 
-    set selected(selected: boolean) {
-        this.selectable.highlighted = selected;
+    set highlight(selected: boolean) {
+        this.highlightable.highlighted = selected;
     }
 
 }
