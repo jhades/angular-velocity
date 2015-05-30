@@ -30,7 +30,7 @@ export class CursorScrollable {
                 this.onArrowDown();
             }
             else if (this.keyUtils.isArrowUp(key)) {
-                this.selectPrevious();
+                this.highlightPrevious();
             }
         }
         else if (this.lastNavAction === null) {
@@ -48,34 +48,34 @@ export class CursorScrollable {
 
     onArrowDown() {
         if (this.selectedIndex == null) {
-            this.selectIndex(0);
+            this.highlightIndex(0);
         }
         else {
-            this.selectNext();
+            this.highlightNext();
         }
     }
 
-    selectIndex(index) {
+    highlightIndex(index) {
         this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
         this.selectedIndex = index;
         this.scrollableElements[index].highlight = true;
     }
 
-    selectNext() {
+    highlightNext() {
         if (this.scrollableElements.length >= this.selectedIndex + 1) {
             this.selectedIndex += 1;
-            this.selectElement(this.selectedIndex);
+            this.highlightElement(this.selectedIndex);
         }
     }
 
-    selectPrevious() {
+    highlightPrevious() {
         if (this.selectedIndex > 0) {
             this.selectedIndex -= 1;
-            this.selectElement(this.selectedIndex);
+            this.highlightElement(this.selectedIndex);
         }
     }
 
-    selectElement(index) {
+    highlightElement(index) {
         this.scrollableElements.forEach((se: ScrollableElement) => se.highlight = false);
         this.scrollableElements[index].highlight = true;
     }
