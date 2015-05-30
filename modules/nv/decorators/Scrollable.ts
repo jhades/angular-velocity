@@ -84,6 +84,9 @@ export class Scrollable {
     }
 
     setHighlightedIndex(se: ScrollableElement) {
+        if (this.getCurrentHighlighted() !== se) {
+            this.getCurrentHighlighted().onHighlightOff();
+        }
         this.selectedIndex = this.scrollableElements.indexOf(se);
     }
 
