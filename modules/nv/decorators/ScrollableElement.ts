@@ -4,8 +4,8 @@ import {Scrollable} from 'nv/decorators';
 @Directive({
     selector: "[nv-scrollable-element]",
     hostListeners: {
-      'mouseover': 'onHighlightOn()',
-      'mouseleave': 'onHighlightOff()'
+      'mouseover': 'onMouseOver()',
+      'mouseleave': 'onMouseOut()'
     },
     events: ['highlight']
 })
@@ -20,12 +20,24 @@ export class ScrollableElement {
         this.scrollable.addScrollableElement(this);
     }
 
-    onHighlightOn() {
+    onMouseOver() {
+        if (!this.scrollable.scrollOngoing) {
+            this.highlightOn();
+        }
+    }
+
+    onMouseOut() {
+        if (!this.scrollable.scrollOngoing) {
+            this.highlightOff();
+        }
+    }
+
+    highlightOn() {
         this.scrollable.setHighlightedIndex(this);
         this.highlight.next(true);
     }
 
-    onHighlightOff() {
+    highlightOff() {
         this.highlight.next(false);
     }
 

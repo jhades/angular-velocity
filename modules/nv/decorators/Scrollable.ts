@@ -17,6 +17,7 @@ export class Scrollable {
     scrollableElements: Array<ScrollableElement> = [];
     selectedIndex: number = null;
     el: ElementRef;
+    scrollOngoing: boolean = false;
 
     constructor(keyUtils: KeyboardUtils, el: ElementRef) {
         this.keyUtils = keyUtils;
@@ -49,7 +50,6 @@ export class Scrollable {
         if (shouldScrollDown) {
             this.scrollElementIntoView(false);
         }
-
     }
 
     onArrowUp() {
@@ -61,6 +61,13 @@ export class Scrollable {
     }
 
     scrollElementIntoView(adjustToTop) {
+        // report scroll ongoing up to one second after the scroll ended
+        var scrollHandler = (evt) => {
+            this.el.domElement.removeEventListener('scroll', scrollHandler);
+            setTimeout(() => this.scrollOngoing = false, 1000);
+        };
+        this.scrollOngoing = true;
+        this.el.domElement.addEventListener('scroll', scrollHandler);
         this.getCurrentHighlighted().el.domElement.scrollIntoView(adjustToTop);
     }
 
@@ -73,23 +80,23 @@ export class Scrollable {
             this.selectedIndex = 0;
         }
         else if (this.scrollableElements.length >= this.selectedIndex + 1) {
-            this.getCurrentHighlighted().onHighlightOff();
+            this.getCurrentHighlighted().highlightOff();
             this.selectedIndex += 1;
         }
-        this.getCurrentHighlighted().onHighlightOn();
+        this.getCurrentHighlighted().highlightOn();
     }
 
     highlightPrevious() {
         if (this.selectedIndex > 0) {
-            this.getCurrentHighlighted().onHighlightOff();
+            this.getCurrentHighlighted().highlightOff();
             this.selectedIndex -= 1;
-            this.getCurrentHighlighted().onHighlightOn();
+            this.getCurrentHighlighted().highlightOn();
         }
     }
 
     setHighlightedIndex(se: ScrollableElement) {
         if (this.getCurrentHighlighted() && this.getCurrentHighlighted() !== se) {
-            this.getCurrentHighlighted().onHighlightOff();
+            this.getCurrentHighlighted().highlightOff();
         }
         this.selectedIndex = this.scrollableElements.indexOf(se);
     }
