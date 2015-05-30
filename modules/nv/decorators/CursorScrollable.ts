@@ -4,7 +4,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {ScrollableElement} from 'nv/decorators';
 
 @Directive({
-    selector: "[nv-scrollable]",
+    selector: "[nv-cursor-scrollable]",
     properties: {
         'lastNavAction': 'lastNavAction',
     },

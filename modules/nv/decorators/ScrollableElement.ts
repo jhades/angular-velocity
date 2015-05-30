@@ -3,7 +3,7 @@ import {CursorScrollable} from 'nv/decorators';
 import {Highlightable} from 'nv/core/Highlightable';
 
 @Directive({
-    selector: "[nv-scrollable-element]",
+    selector: "[nv-cursor-scrollable-element]",
     properties: {
         'selectable': 'selectable',
     },
