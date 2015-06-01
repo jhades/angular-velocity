@@ -102,6 +102,9 @@ export class Dropdown<T extends SelectionOption> {
             }
             this.navigationAction = new LastNavAction(key);
         }
+        else if (this.keyUtils.isEnter(key)) {
+            //TODO call selectCurrent or getHighlighted
+        }
     }
 
     onArrowDown() {
@@ -134,7 +137,7 @@ export class Dropdown<T extends SelectionOption> {
             }
             else {
                 this.selected = match; //TODO remove this
-                //TODO call @select(latch)
+                //TODO call @select(match)
             }
         }
 
