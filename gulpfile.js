@@ -129,6 +129,6 @@ gulp.task('serve', ['build'], function () {
 
     app = connect().use(serveStatic(__dirname));
     http.createServer(app).listen(port, function () {
-        openResource('http://localhost:' + port);
+        openResource('http://localhost:' + port + '/dist');
     });
 });
