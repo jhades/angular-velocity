@@ -4,8 +4,10 @@
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction} from 'nv/core/LastNavAction';
+import {LastNavAction} from 'nv/core';
+import {TypeSearch} from 'nv/decorators';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
+
 
 @Component({ 
     selector: 'nv-dropdown',
@@ -20,10 +22,10 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
-                    <div class="input" tabindex="0"
+                    <div nv-type-search (search)="onSearch($event)"
+                        class="input" tabindex="0"
                         (click)="onButtonToggle()"
-                        (blur)="onFocusLost()"
-                        (keydown)="onKeyDown($event, button)" #input>
+                        (blur)="onFocusLost()" (keydown)="onKeyDown($event)" #input>
                         
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
 
@@ -42,7 +44,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                     </ngv-selection-list>
 
                 </div>`,
-    directives: [SelectionList]
+    directives: [SelectionList, TypeSearch]
 })
 export class Dropdown<T extends SelectionOption> {
     options: Array<T>;
@@ -50,9 +52,7 @@ export class Dropdown<T extends SelectionOption> {
     showSelectionList: boolean = false;
     selected: SelectionOption = new BlankOption();
     change: EventEmitter = new EventEmitter();
-    search: string = "";
     keyUtils: KeyboardUtils;
-    resetSearchHandle: number;
     navigationAction: LastNavAction;
 
     constructor(keyUtils: KeyboardUtils) {
@@ -95,9 +95,6 @@ export class Dropdown<T extends SelectionOption> {
             }
             this.navigationAction = new LastNavAction(key);
         }
-        else {
-            this.handleTypeFilter(key);
-        }
     }
 
     onArrowDown() {
@@ -116,27 +113,18 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
-    handleTypeFilter(key) {
-        if (this.resetSearchHandle) {
-            clearTimeout(this.resetSearchHandle);
-        }
-        var keyTyped = String.fromCharCode(key);
-        this.search += keyTyped;
-        console.log('searching for ' + this.search);
+    onSearch(search) {
+        console.log('searching for ' + search);
 
-        var regex = new RegExp('^' + this.search);
+        var regex = new RegExp('^' + search);
         var match = _.find(this.options, (option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
         });
-        
+
         if (match) {
             this.displayMatchingSearch(match);
-        } 
+        }
 
-        this.resetSearchHandle = setTimeout(() => {
-            this.search = "";
-            this.resetSearchHandle = null;
-        },500);
     }
 
     displayMatchingSearch(match) {
