@@ -59,9 +59,7 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     onOptionClicked(option: SelectionOption) {
-        if (!option.disabled) {
-            this.change.next(option);
-        }
+        this.change.next(option);
     }
 
 }

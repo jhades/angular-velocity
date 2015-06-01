@@ -23,7 +23,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                     <div class="input" tabindex="0"
                         (click)="onButtonToggle()"
                         (blur)="onFocusLost()"
-                        (keydown)="onSearch($event, button)" #input>
+                        (keydown)="onKeyDown($event, button)" #input>
                         
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
 
@@ -66,11 +66,13 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
-    onSelectionChanged(option, input) {
-        this.selected = option;
-        this.showSelectionList = false;
-        this.change.next(option);
-        input.focus();
+    onSelectionChanged(option: SelectionOption, input) {
+        if (!option.disabled) {
+            this.selected = option;
+            this.showSelectionList = false;
+            this.change.next(option);
+            input.focus();
+        }
     }
 
     onFocusLost() {
@@ -79,7 +81,7 @@ export class Dropdown<T extends SelectionOption> {
         },200);
     }
 
-    onSearch(event) {
+    onKeyDown(event) {
         var key = event.keyCode;
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
