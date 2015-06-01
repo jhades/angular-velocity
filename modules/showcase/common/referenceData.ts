@@ -5,7 +5,7 @@ export class ReferenceData {
         {description: 'Albania', id: 'AL', disabled: true},
         {description: 'Algeria', id: 'DZ'},
         {description: 'American Samoa', id: 'AS'},
-        {description: 'AndorrA', id: 'AD'},
+        {description: 'AndorrA', id: 'AD',disabled:true},
         {description: 'Angola', id: 'AO'},
         {description: 'Anguilla', id: 'AI'},
         {description: 'Antarctica', id: 'AQ'},
@@ -242,6 +242,6 @@ export class ReferenceData {
         {description: 'Western Sahara', id: 'EH'},
         {description: 'Yemen', id: 'YE'},
         {description: 'Zambia', id: 'ZM'},
-        {description: 'Zimbabwe', id: 'ZW'}
+        {description: 'Zimbabwe', id: 'ZW', disabled: true}
     ];
 }
