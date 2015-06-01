@@ -119,11 +119,32 @@ export class Dropdown<T extends SelectionOption> {
         var keyTyped = String.fromCharCode(key);
         this.search += keyTyped;
         console.log('searching for ' + this.search);
+        
+        var match = this.findFirstMatch(this.search);
+        
+        if (match) {
+            this.displayMatchingSearch(match);
+        } 
 
         this.resetSearchHandle = setTimeout(() => {
             this.search = "";
             this.resetSearchHandle = null;
         },500);
+    }
+    
+    findFirstMatch(search) :SelectionOption {
+        var match: SelectionOption = null;
+        
+        return match;    
+    }
+    
+    displayMatchingSearch(match) {
+        if (this.showSelectionList) {
+            //TODO call action in selection list to display a certain action    
+        }
+        else {
+            this.selected = match;
+        }        
     }
 
 }
