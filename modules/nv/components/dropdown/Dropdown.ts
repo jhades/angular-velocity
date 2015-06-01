@@ -123,7 +123,9 @@ export class Dropdown<T extends SelectionOption> {
         console.log('searching for ' + this.search);
 
         var regex = new RegExp('^' + this.search);
-        var match = _.find(this.options, (option:T) => option.description === null ? false : option.description.toUpperCase().match(regex));
+        var match = _.find(this.options, (option:T) => {
+            return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
+        });
         
         if (match) {
             this.displayMatchingSearch(match);

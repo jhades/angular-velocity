@@ -52,6 +52,14 @@
         z-index: 100;
         @include widget-selection-box;
 
+        @mixin disabled-item {
+          &.disabled {
+            background-image: none;
+            color: #cad2d3;
+            cursor: not-allowed;
+          }
+        }
+
         .selection-option {
             cursor: pointer;
             padding-top: 3px;
@@ -61,7 +69,10 @@
             &.highlighted {
                 background-image: linear-gradient(to right bottom, #3c71f7, #0078e7);
                 color: #ffffff;
+                @include disabled-item;
           }
+
+          @include disabled-item;
         }
     }
 

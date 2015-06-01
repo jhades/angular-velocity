@@ -23,7 +23,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
                 <div nv-scrollable [last-nav-action]="lastNavAction"
                     class="selection-list" [style.max-height]="height" [style.width]="width" >
 
-                    <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted">
+                    <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
                         <div nv-scrollable-element (highlight)="onHighlightChanged($event, option)"
                             class="selection-description"
@@ -59,7 +59,9 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     onOptionClicked(option: SelectionOption) {
-        this.change.next(option);
+        if (!option.disabled) {
+            this.change.next(option);
+        }
     }
 
 }
