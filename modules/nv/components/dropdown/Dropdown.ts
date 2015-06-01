@@ -122,19 +122,15 @@ export class Dropdown<T extends SelectionOption> {
         });
 
         if (match) {
-            this.displayMatchingSearch(match);
+            if (this.showSelectionList) {
+                //TODO call @highlight(match)
+            }
+            else {
+                this.selected = match; //TODO remove this
+                //TODO call @select(latch)
+            }
         }
 
-    }
-
-    displayMatchingSearch(match) {
-        if (this.showSelectionList) {
-            //TODO call @highlight(match)
-        }
-        else {
-            this.selected = match; //TODO remove this
-            //TODO call @select(latch)
-        }        
     }
 
 }
