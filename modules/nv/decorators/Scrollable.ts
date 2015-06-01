@@ -50,6 +50,9 @@ export class Scrollable {
         if (shouldScrollDown) {
             this.scrollElementIntoView(false);
         }
+        if(this.getCurrentHighlighted().skipElement) {
+            this.onArrowDown();
+        }
     }
 
     onArrowUp() {
@@ -57,6 +60,9 @@ export class Scrollable {
         var shouldScrollUp = this.getCurrentHighlighted().el.domElement.offsetTop < this.el.domElement.scrollTop;
         if (shouldScrollUp) {
             this.scrollElementIntoView(true);
+        }
+        if(this.getCurrentHighlighted().skipElement) {
+            this.onArrowUp();
         }
     }
 

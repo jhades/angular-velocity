@@ -3,6 +3,9 @@ import {Scrollable} from 'nv/decorators';
 
 @Directive({
     selector: "[nv-scrollable-element]",
+    properties: {
+      'skipElement': 'skipElement'
+    },
     hostListeners: {
       'mouseover': 'onMouseOver()',
       'mouseleave': 'onMouseOut()'
@@ -13,6 +16,7 @@ export class ScrollableElement {
     scrollable: Scrollable;
     highlight: EventEmitter = new EventEmitter();
     el: ElementRef;
+    skipElement: boolean = false;
 
     constructor(@Ancestor(Scrollable) scrollable: Scrollable, el: ElementRef) {
         this.scrollable = scrollable;
