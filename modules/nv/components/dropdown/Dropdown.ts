@@ -1,4 +1,5 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
+/// <reference path="../../../../typings/lodash/lodash.d.ts" />
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
@@ -44,6 +45,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     directives: [SelectionList]
 })
 export class Dropdown<T extends SelectionOption> {
+    options: Array<T>;
     active: boolean = false;
     showSelectionList: boolean = false;
     selected: SelectionOption = new BlankOption();
@@ -119,8 +121,9 @@ export class Dropdown<T extends SelectionOption> {
         var keyTyped = String.fromCharCode(key);
         this.search += keyTyped;
         console.log('searching for ' + this.search);
-        
-        var match = this.findFirstMatch(this.search);
+
+        var regex = new RegExp('^' + this.search);
+        var match = _.find(this.options, (option:T) => option.description === null ? false : option.description.toUpperCase().match(regex));
         
         if (match) {
             this.displayMatchingSearch(match);
@@ -131,19 +134,14 @@ export class Dropdown<T extends SelectionOption> {
             this.resetSearchHandle = null;
         },500);
     }
-    
-    findFirstMatch(search) :SelectionOption {
-        var match: SelectionOption = null;
-        
-        return match;    
-    }
-    
+
     displayMatchingSearch(match) {
         if (this.showSelectionList) {
-            //TODO call action in selection list to display a certain action    
+            //TODO call @highlight(match)
         }
         else {
-            this.selected = match;
+            this.selected = match; //TODO remove this
+            //TODO call @select(latch)
         }        
     }
 
