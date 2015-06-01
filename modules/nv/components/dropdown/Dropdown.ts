@@ -54,6 +54,7 @@ export class Dropdown<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
     keyUtils: KeyboardUtils;
     navigationAction: LastNavAction;
+    cancelFocusLost: boolean = false;
 
     constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
@@ -73,11 +74,17 @@ export class Dropdown<T extends SelectionOption> {
             this.change.next(option);
             input.focus();
         }
+        else {
+            this.cancelFocusLost = true;
+        }
     }
 
     onFocusLost() {
         setTimeout(() => {
-            this.showSelectionList = false;
+            if (!this.cancelFocusLost) {
+                this.showSelectionList = false;
+            }
+            this.cancelFocusLost = false;
         },200);
     }
 

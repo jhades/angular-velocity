@@ -57,6 +57,7 @@
             background-image: none;
             color: #cad2d3;
             cursor: not-allowed;
+            @include user-select(none);
           }
         }
 
