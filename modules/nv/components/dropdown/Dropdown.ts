@@ -72,11 +72,11 @@ export class Dropdown<T extends SelectionOption> {
             this.selected = option;
             this.showSelectionList = false;
             this.change.next(option);
-            input.focus();
         }
         else {
             this.cancelFocusLost = true;
         }
+        input.focus();
     }
 
     onFocusLost() {
