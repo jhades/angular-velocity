@@ -8,13 +8,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 
 @Component({
     selector: 'ngv-selection-list',
-    properties: {
-        'options': 'options',
-        'height': 'height',
-        'width': 'width',
-        'lastNavAction': 'lastNavAction',
-        'hidden': 'hidden'
-    },
+    properties: ['options', 'height', 'width', 'lastNavAction', 'hidden'],
     events: ['change'],
     lifecycle: [onChange]
 })

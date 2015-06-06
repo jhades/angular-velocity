@@ -13,11 +13,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     selector: 'nv-dropdown',
     events: ['change'],
     appInjector: [KeyboardUtils],
-    properties: {
-       'options': 'options',
-       'numVisibleOptions': 'numVisibleOptions',
-       'width': 'width'
-    }
+    properties: ['options', 'numVisibleOptions', 'width']
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">

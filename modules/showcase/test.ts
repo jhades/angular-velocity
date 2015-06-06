@@ -4,9 +4,7 @@ import {Component, View, bootstrap, onChange} from "angular2/angular2";
 
 @Component({
     selector:"some",
-    properties: {
-        'testprop': 'testprop'
-    },
+    properties: ['testprop'],
     lifecycle: [onChange]
 })
 @View({
