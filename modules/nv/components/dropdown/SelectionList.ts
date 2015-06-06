@@ -37,11 +37,9 @@ export class SelectionList<T extends SelectionOption> {
     hidden: boolean = true;
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
-    height: string;
 
-    constructor(keyUtils: KeyboardUtils, @Attribute("height") height) {
+    constructor(keyUtils: KeyboardUtils) {
         this.keyUtils = keyUtils;
-        this.height = height;
     }
 
     onChange(changes) {
