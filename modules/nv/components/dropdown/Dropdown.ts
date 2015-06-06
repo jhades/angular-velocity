@@ -43,14 +43,17 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     directives: [SelectionList, TypeSearch]
 })
 export class Dropdown<T extends SelectionOption> {
+    keyUtils: KeyboardUtils;
+    change: EventEmitter = new EventEmitter();
+
     options: Array<T>;
     numVisibleOptions: number;
     dropdownWidth: string;
+
     active: boolean = false;
     showSelectionList: boolean = false;
     selected: SelectionOption = new BlankOption();
-    change: EventEmitter = new EventEmitter();
-    keyUtils: KeyboardUtils;
+
     navigationAction: LastNavAction;
     cancelFocusLost: boolean = false;
 
@@ -125,7 +128,6 @@ export class Dropdown<T extends SelectionOption> {
 
     onSearch(search) {
         console.log('searching for ' + search);
-
         var regex = new RegExp('^' + search);
         var match = _.find(this.options, (option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
