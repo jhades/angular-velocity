@@ -1,7 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 /// <reference path="../../../../typings/lodash/lodash.d.ts" />
 
-import {Component, View, EventEmitter} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction} from 'nv/core';
@@ -13,7 +13,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     selector: 'nv-dropdown',
     events: ['change'],
     appInjector: [KeyboardUtils],
-    properties: ['options', 'numVisibleOptions', 'width']
+    properties: ['options']
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
@@ -35,7 +35,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                          [options]="options"
                          (change)="onSelectionChanged($event, input)"
                         [height]="22 * numVisibleOptions + 'px'"
-                        [width]="width"
+                        [width]="dropdownWidth"
                         [last-nav-action]="navigationAction" >
                     </ngv-selection-list>
 
@@ -44,6 +44,8 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 })
 export class Dropdown<T extends SelectionOption> {
     options: Array<T>;
+    numVisibleOptions: number;
+    dropdownWidth: string;
     active: boolean = false;
     showSelectionList: boolean = false;
     selected: SelectionOption = new BlankOption();
@@ -52,8 +54,10 @@ export class Dropdown<T extends SelectionOption> {
     navigationAction: LastNavAction;
     cancelFocusLost: boolean = false;
 
-    constructor(keyUtils: KeyboardUtils) {
+    constructor(keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
         this.keyUtils = keyUtils;
+        this.numVisibleOptions = numVisibleOptions;
+        this.dropdownWidth = dropdownWidth;
     }
 
     onButtonToggle() {
