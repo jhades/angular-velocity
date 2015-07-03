@@ -1,6 +1,6 @@
 export class ReferenceData {
     COUNTRIES  = [
-        {description: 'Afghanistan', id: 'AF'},
+        {description: 'Afghanistan', id: 'AF', disabled:true},
         {description: 'Åland Islands', id: 'AX'},
         {description: 'Albania', id: 'AL', disabled: true},
         {description: 'Algeria', id: 'DZ'},

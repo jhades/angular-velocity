@@ -68,14 +68,20 @@ export class Scrollable {
     }
 
     onArrowUp() {
-        this.highlightPrevious();
-        var shouldScrollUp = this.getCurrentHighlighted().el.domElement.offsetTop < this.el.domElement.scrollTop;
-        if (shouldScrollUp) {
-            this.scrollElementIntoView(true);
+        if (this.existsPreviousEnabledElement()) {
+            this.highlightPrevious();
+            var shouldScrollUp = this.getCurrentHighlighted().el.domElement.offsetTop < this.el.domElement.scrollTop;
+            if (shouldScrollUp) {
+                this.scrollElementIntoView(true);
+            }
+            if(this.getCurrentHighlighted().skipElement) {
+                this.onArrowUp();
+            }
         }
-        if(this.getCurrentHighlighted().skipElement) {
-            this.onArrowUp();
-        }
+    }
+
+    existsPreviousEnabledElement() {
+        return _.some(this.scrollableElements.slice(0, this.selectedIndex), (el: ScrollableElement) => !el.skipElement);
     }
 
     scrollElementIntoView(adjustToTop) {

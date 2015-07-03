@@ -106,7 +106,6 @@ export class Dropdown<T extends SelectionOption> {
 
     onOptionHighlighted(option) {
         this.highlighted = option;
-        console.log(option.description);
     }
 
     onFocusLost() {
