@@ -3,6 +3,20 @@ import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {ScrollableElement} from 'nv/decorators';
 
+/**
+ *
+ * @ngdoc Decorator
+ *
+ * @description
+ * Decorates a list of elements for adding common scrolling features:
+ *
+ * - scrolling via the up and down keyboard arrows
+ * - allow the mouse to take over the scrolling from the keyboard and vice-versa
+ *
+ * @see ScrollableElement
+ *
+ */
+
 @Directive({
     selector: "[nv-scrollable]",
     properties: ['lastNavAction'],

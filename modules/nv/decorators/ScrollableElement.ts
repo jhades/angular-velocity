@@ -1,6 +1,15 @@
 import {Directive, Ancestor, ElementRef, EventEmitter} from 'angular2/angular2';
 import {Scrollable} from 'nv/decorators';
 
+/**
+ *
+ * @ngdoc Decorator
+ *
+ * @description
+ * Identifies a scrollable element inside a @see Scrollable.
+ *
+ */
+
 @Directive({
     selector: "[nv-scrollable-element]",
     properties: ['skipElement'],
@@ -13,12 +22,10 @@ import {Scrollable} from 'nv/decorators';
 export class ScrollableElement {
     scrollable: Scrollable;
     highlight: EventEmitter = new EventEmitter();
-    el: ElementRef;
     skipElement: boolean = false;
 
-    constructor(@Ancestor(Scrollable) scrollable: Scrollable, el: ElementRef) {
+    constructor(@Ancestor(Scrollable) scrollable: Scrollable, public el: ElementRef) {
         this.scrollable = scrollable;
-        this.el = el;
         this.scrollable.addScrollableElement(this);
     }
 

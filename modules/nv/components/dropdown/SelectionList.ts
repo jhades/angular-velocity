@@ -49,7 +49,6 @@ export class SelectionList<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
     hidden: boolean = true;
     lastNavAction: LastNavAction;
-    keyUtils: KeyboardUtils;
 
     constructor(private keyUtils: KeyboardUtils) {
 

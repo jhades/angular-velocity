@@ -63,7 +63,6 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
     directives: [SelectionList, TypeSearch]
 })
 export class Dropdown<T extends SelectionOption> {
-    keyUtils: KeyboardUtils;
     change: EventEmitter = new EventEmitter();
 
     options: Array<T>;
