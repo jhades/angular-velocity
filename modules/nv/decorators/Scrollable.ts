@@ -56,15 +56,21 @@ export class Scrollable {
     }
 
     onArrowDown() {
-        this.highlightNext();
-        var shouldScrollDown = this.getCurrentHighlighted().el.domElement.offsetTop +
-            this.getCurrentHighlighted().el.domElement.offsetHeight > this.el.domElement.scrollTop + this.el.domElement.offsetHeight;
-        if (shouldScrollDown) {
-            this.scrollElementIntoView(false);
+        if (this.existsNextEnabledElement()) {
+            this.highlightNext();
+            var shouldScrollDown = this.getCurrentHighlighted().el.domElement.offsetTop +
+                this.getCurrentHighlighted().el.domElement.offsetHeight > this.el.domElement.scrollTop + this.el.domElement.offsetHeight;
+            if (shouldScrollDown) {
+                this.scrollElementIntoView(false);
+            }
+            if(this.getCurrentHighlighted().skipElement) {
+                this.onArrowDown();
+            }
         }
-        if(this.getCurrentHighlighted().skipElement) {
-            this.onArrowDown();
-        }
+    }
+
+    existsNextEnabledElement() {
+        return _.some(this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length), (el: ScrollableElement) => !el.skipElement);
     }
 
     onArrowUp() {
