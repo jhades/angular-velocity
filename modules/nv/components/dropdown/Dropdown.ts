@@ -164,8 +164,7 @@ export class Dropdown<T extends SelectionOption> {
                 //TODO call @highlight(match)
             }
             else {
-                this.selected = match; //TODO remove this
-                //TODO call @select(match)
+                this.selected = match;
             }
         }
 
