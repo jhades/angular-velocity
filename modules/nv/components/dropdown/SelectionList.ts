@@ -22,8 +22,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 @Component({
     selector: 'ngv-selection-list',
     properties: ['options', 'height', 'width', 'lastNavAction', 'hidden'],
-    events: ['change','highlight'],
-    lifecycle: [onChange]
+    events: ['change','highlight']
 })
 @View({
     template: `
@@ -48,17 +47,9 @@ export class SelectionList<T extends SelectionOption> {
     options: List<T>;
     change: EventEmitter = new EventEmitter();
     highlight: EventEmitter = new EventEmitter();
-    hidden: boolean = true;
-    lastNavAction: LastNavAction;
 
     constructor(private keyUtils: KeyboardUtils) {
 
-    }
-
-    onChange(changes) {
-        if (changes['hidden'] && this.hidden) {
-            //TODO call action to reset list refactor last-nav-action to use an actual action?
-        }
     }
 
     onHighlightChanged(highlighted: boolean, option: T) {
