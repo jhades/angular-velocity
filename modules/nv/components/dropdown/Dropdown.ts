@@ -14,13 +14,15 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
  * @ngdoc Component
  *
  * @description
- * A dropdown component similar to a native <select> (but fully stylable).
+ * A dropdown component, similar to a native browser <select>
  *
  * Visually it consists of an input box, a dropdown button and and option selection list. Features:
  *
+ *  - fully stylable
  *  - The user can scroll through the available options using the mouse or the keyboard
- *  - there is support for disabled elements in the list
- *  - if the user starts typing and stops for more than 0.5 seconds, a search is made @see TypeSearch
+ *  - scrolling via mouse can take over scrolling via keyboard and vice-versa
+ *  - support for disabled elements
+ *  - if the user types, the closest matching element is displayed (@see TypeSearch)
  *
  * When the user choses an option, a change event is triggered.
  *
@@ -41,7 +43,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                         (search)="onSearch($event)"
                         (click)="onButtonToggle()"
                         (blur)="onFocusLost()"
-                        (keydown)="onKeyDown($event)">
+                        (keydown)="onKeyDown($event, input)">
                         
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
 
@@ -54,6 +56,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                     <ngv-selection-list [hidden]="!showSelectionList"
                          [options]="options"
                          (change)="onSelectionChanged($event, input)"
+                         (highlight)="onOptionHighlighted($event)"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="dropdownWidth"
                         [last-nav-action]="navigationAction" >
@@ -72,6 +75,7 @@ export class Dropdown<T extends SelectionOption> {
     active: boolean = false;
     showSelectionList: boolean = false;
     selected: SelectionOption = new BlankOption();
+    highlighted: SelectionOption;
 
     navigationAction: LastNavAction;
     cancelFocusLost: boolean = false;
@@ -100,6 +104,11 @@ export class Dropdown<T extends SelectionOption> {
         input.focus();
     }
 
+    onOptionHighlighted(option) {
+        this.highlighted = option;
+        console.log(option.description);
+    }
+
     onFocusLost() {
         setTimeout(() => {
             if (!this.cancelFocusLost) {
@@ -109,7 +118,7 @@ export class Dropdown<T extends SelectionOption> {
         },200);
     }
 
-    onKeyDown(event) {
+    onKeyDown(event, input) {
         var key = event.keyCode;
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
@@ -124,7 +133,7 @@ export class Dropdown<T extends SelectionOption> {
             this.navigationAction = new LastNavAction(key);
         }
         else if (this.keyUtils.isEnter(key)) {
-            //TODO call selectCurrent or getHighlighted
+            this.onSelectionChanged(this.highlighted, input);
         }
     }
 

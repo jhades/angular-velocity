@@ -22,7 +22,7 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 @Component({
     selector: 'ngv-selection-list',
     properties: ['options', 'height', 'width', 'lastNavAction', 'hidden'],
-    events: ['change'],
+    events: ['change','highlight'],
     lifecycle: [onChange]
 })
 @View({
@@ -47,6 +47,7 @@ export class SelectionList<T extends SelectionOption> {
 
     options: List<T>;
     change: EventEmitter = new EventEmitter();
+    highlight: EventEmitter = new EventEmitter();
     hidden: boolean = true;
     lastNavAction: LastNavAction;
 
@@ -62,6 +63,7 @@ export class SelectionList<T extends SelectionOption> {
 
     onHighlightChanged(highlighted: boolean, option: T) {
         option.highlighted = highlighted;
+        this.highlight.next(option);
     }
 
     onOptionClicked(option: SelectionOption) {
