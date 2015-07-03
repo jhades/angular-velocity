@@ -22,7 +22,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
  *  - The user can scroll through the available options using the mouse or the keyboard
  *  - scrolling via mouse can take over scrolling via keyboard and vice-versa
  *  - support for disabled elements
- *  - if the user types, the closest matching element is displayed (@see TypeSearch)
+ *  - if the user starts typing, the closest matching element is displayed (@see TypeSearch)
  *
  * When the user choses an option, a change event is triggered.
  *
@@ -56,7 +56,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                     <ngv-selection-list [hidden]="!showSelectionList"
                          [options]="options"
                          (change)="onSelectionChanged($event, input)"
-                         (highlight)="onOptionHighlighted($event)"
+                         [(highlight)]="highlighted"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="dropdownWidth"
                         [last-nav-action]="navigationAction" >
@@ -104,10 +104,6 @@ export class Dropdown<T extends SelectionOption> {
         input.focus();
     }
 
-    onOptionHighlighted(option) {
-        this.highlighted = option;
-    }
-
     onFocusLost() {
         setTimeout(() => {
             if (!this.cancelFocusLost) {
@@ -153,7 +149,6 @@ export class Dropdown<T extends SelectionOption> {
     }
 
     onSearch(search) {
-        console.log('searching for ' + search);
         var regex = new RegExp('^' + search);
         var match = _.find(this.options, (option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
@@ -161,7 +156,7 @@ export class Dropdown<T extends SelectionOption> {
 
         if (match) {
             if (this.showSelectionList) {
-                //TODO call @highlight(match)
+                this.highlighted = match;
             }
             else {
                 this.selected = match;
