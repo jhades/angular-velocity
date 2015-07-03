@@ -38,8 +38,8 @@ export class SelectionList<T extends SelectionOption> {
     lastNavAction: LastNavAction;
     keyUtils: KeyboardUtils;
 
-    constructor(keyUtils: KeyboardUtils) {
-        this.keyUtils = keyUtils;
+    constructor(private keyUtils: KeyboardUtils) {
+
     }
 
     onChange(changes) {
