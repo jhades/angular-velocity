@@ -18,10 +18,13 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
-                    <div nv-type-search (search)="onSearch($event)"
-                        class="input" tabindex="0"
+                    <div #input class="input"
+                        tabindex="0"
+                        nv-type-search
+                        (search)="onSearch($event)"
                         (click)="onButtonToggle()"
-                        (blur)="onFocusLost()" (keydown)="onKeyDown($event)" #input>
+                        (blur)="onFocusLost()"
+                        (keydown)="onKeyDown($event)">
                         
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
 
