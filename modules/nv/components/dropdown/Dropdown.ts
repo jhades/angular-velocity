@@ -60,8 +60,7 @@ export class Dropdown<T extends SelectionOption> {
     navigationAction: LastNavAction;
     cancelFocusLost: boolean = false;
 
-    constructor(keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
-        this.keyUtils = keyUtils;
+    constructor(private keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
         this.numVisibleOptions = numVisibleOptions;
         this.dropdownWidth = dropdownWidth;
     }
