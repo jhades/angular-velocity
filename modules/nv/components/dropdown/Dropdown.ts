@@ -9,6 +9,23 @@ import {TypeSearch} from 'nv/decorators';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
 
+/**
+ *
+ * @ngdoc Component
+ *
+ * @description
+ * A dropdown component similar to a native <select> (but fully stylable).
+ *
+ * Visually it consists of an input box, a dropdown button and and option selection list. Features:
+ *
+ *  - The user can scroll through the available options using the mouse or the keyboard
+ *  - there is support for disabled elements in the list
+ *  - if the user starts typing and stops for more than 0.5 seconds, a search is made @see TypeSearch
+ *
+ * When the user choses an option, a change event is triggered.
+ *
+ */
+
 @Component({ 
     selector: 'nv-dropdown',
     events: ['change'],

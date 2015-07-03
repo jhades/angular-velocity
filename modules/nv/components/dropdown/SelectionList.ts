@@ -6,6 +6,19 @@ import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 import {Scrollable, ScrollableElement} from 'nv/decorators';
 
+/**
+ *
+ * @ngdoc Component
+ *
+ * @description
+ * A selection list for dropdown/autocomplete single-selection components.
+ *
+ * Features:
+ *
+ * - the list is keyboard scrollable
+ * - there is support for disabled elements
+ *
+ */
 @Component({
     selector: 'ngv-selection-list',
     properties: ['options', 'height', 'width', 'lastNavAction', 'hidden'],
