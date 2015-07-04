@@ -19,7 +19,7 @@ import {ScrollableList} from 'nv/decorators';
     },
     events: ['highlight']
 })
-export class ScrollableElement {
+export class ScrollableListElement {
     scrollable: ScrollableList;
     highlight: EventEmitter = new EventEmitter();
     skipElement: boolean = false;

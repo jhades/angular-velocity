@@ -1,7 +1,7 @@
 import {Directive, onChange, ElementRef} from 'angular2/angular2';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {ScrollableElement} from 'nv/decorators';
+import {ScrollableListElement} from 'nv/decorators';
 
 /**
  *
@@ -13,7 +13,7 @@ import {ScrollableElement} from 'nv/decorators';
  * - scrolling via the up and down keyboard arrows
  * - allow the mouse to take over the scrolling from the keyboard and vice-versa
  *
- * @see ScrollableElement
+ * @see ScrollableListElement
  *
  */
 
@@ -25,7 +25,7 @@ import {ScrollableElement} from 'nv/decorators';
 })
 export class ScrollableList {
     lastNavAction: LastNavAction;
-    scrollableElements: Array<ScrollableElement> = [];
+    scrollableElements: Array<ScrollableListElement> = [];
     selectedIndex: number = null;
     scrollOngoing: boolean = false;
 
@@ -67,7 +67,7 @@ export class ScrollableList {
     }
 
     existsNextEnabledElement() {
-        return _.some(this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length), (el: ScrollableElement) => !el.skipElement);
+        return _.some(this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length), (el: ScrollableListElement) => !el.skipElement);
     }
 
     onArrowUp() {
@@ -84,7 +84,7 @@ export class ScrollableList {
     }
 
     existsPreviousEnabledElement() {
-        return _.some(this.scrollableElements.slice(0, this.selectedIndex), (el: ScrollableElement) => !el.skipElement);
+        return _.some(this.scrollableElements.slice(0, this.selectedIndex), (el: ScrollableListElement) => !el.skipElement);
     }
 
     scrollElementIntoView(adjustToTop) {
@@ -98,7 +98,7 @@ export class ScrollableList {
         this.getCurrentHighlighted().el.domElement.scrollIntoView(adjustToTop);
     }
 
-    getCurrentHighlighted() : ScrollableElement {
+    getCurrentHighlighted() : ScrollableListElement {
         return  this.scrollableElements[this.selectedIndex];
     }
 
@@ -121,7 +121,7 @@ export class ScrollableList {
         }
     }
 
-    setHighlightedIndex(se: ScrollableElement) {
+    setHighlightedIndex(se: ScrollableListElement) {
         if (this.getCurrentHighlighted() && this.getCurrentHighlighted() !== se) {
             this.getCurrentHighlighted().highlightOff();
         }

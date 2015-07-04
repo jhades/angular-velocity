@@ -4,7 +4,7 @@ import {Component, View, NgFor, Parent, onChange, EventEmitter, Attribute} from 
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction} from 'nv/core/LastNavAction';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
-import {ScrollableList, ScrollableElement} from 'nv/decorators';
+import {ScrollableList, ScrollableListElement} from 'nv/decorators';
 
 /**
  *
@@ -41,7 +41,7 @@ import {ScrollableList, ScrollableElement} from 'nv/decorators';
                     </div>
 
                 </div>`,
-    directives: [NgFor, ScrollableList, ScrollableElement]
+    directives: [NgFor, ScrollableList, ScrollableListElement]
 })
 export class SelectionList<T extends SelectionOption> {
 

@@ -1,9 +1,9 @@
 import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
-import {ScrollableElement} from 'nv/decorators/scrollablelist/ScrollableElement';
+import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableListElement';
 import {TypeSearch} from 'nv/decorators/TypeSearch';
 
 export {
     ScrollableList,
-    ScrollableElement,
+    ScrollableListElement,
     TypeSearch
 }
