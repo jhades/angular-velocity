@@ -18,7 +18,7 @@ import {ScrollableElement} from 'nv/decorators';
  */
 
 @Directive({
-    selector: "[nv-scrollable]",
+    selector: "[nv-scrollable-list]",
     properties: ['lastNavAction'],
     lifecycle: [onChange]
 

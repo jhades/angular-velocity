@@ -27,12 +27,12 @@ import {Scrollable, ScrollableElement} from 'nv/decorators';
 })
 @View({
     template: `
-                <div nv-scrollable [last-nav-action]="lastNavAction"
+                <div nv-scrollable-list [last-nav-action]="lastNavAction"
                     class="selection-list" [style.max-height]="height" [style.width]="width" >
 
                     <div *ng-for="#option of options;" class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
-                        <div nv-scrollable-element (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
+                        <div nv-scrollable-list-element (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
                             class="selection-description"
                             (click)="onOptionClicked(option)">
                                 {{option.description}}

@@ -11,7 +11,7 @@ import {Scrollable} from 'nv/decorators';
  */
 
 @Directive({
-    selector: "[nv-scrollable-element]",
+    selector: "[nv-scrollable-list-element]",
     properties: ['skipElement'],
     hostListeners: {
       'mouseover': 'onMouseOver()',
