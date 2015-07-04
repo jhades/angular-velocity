@@ -14,7 +14,7 @@ import {Dropdown} from 'nv/components/dropdown/Dropdown';
 
                         <form class="pure-form">
                             <h2>Dropdown</h2>
-                            <nv-dropdown num-visible-options="7" dropdown-width="'200px'"
+                            <nv-dropdown num-visible-options="7" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)">
                             </nv-dropdown>
