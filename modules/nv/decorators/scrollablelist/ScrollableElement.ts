@@ -1,5 +1,5 @@
 import {Directive, Ancestor, ElementRef, EventEmitter} from 'angular2/angular2';
-import {Scrollable} from 'nv/decorators';
+import {ScrollableList} from 'nv/decorators';
 
 /**
  *
@@ -20,11 +20,11 @@ import {Scrollable} from 'nv/decorators';
     events: ['highlight']
 })
 export class ScrollableElement {
-    scrollable: Scrollable;
+    scrollable: ScrollableList;
     highlight: EventEmitter = new EventEmitter();
     skipElement: boolean = false;
 
-    constructor(@Ancestor(Scrollable) scrollable: Scrollable, public el: ElementRef) {
+    constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
     }

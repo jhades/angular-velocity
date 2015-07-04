@@ -23,7 +23,7 @@ import {ScrollableElement} from 'nv/decorators';
     lifecycle: [onChange]
 
 })
-export class Scrollable {
+export class ScrollableList {
     lastNavAction: LastNavAction;
     scrollableElements: Array<ScrollableElement> = [];
     selectedIndex: number = null;
