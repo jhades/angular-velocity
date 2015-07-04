@@ -19,14 +19,12 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
  * Visually it consists of an input box, a dropdown button and and option selection list. Features:
  *
  *  - fully stylable (dropdown width, height ,etc.)
- *  - scroll using mouse or the keyboard
- *  - scrolling via mouse can take over the ongoing scrolling via keyboard and vice-versa
+ *  - scrolling using mouse or keyboard
  *  - support for disabled elements
  *  - if the user starts typing, the closest matching element is displayed (@see TypeSearch)
- *  - support for wrapping long text items in multiple lines
- *  - displays long selected items with ellipsis (...)
+ *  - wraps long text items in multiple lines
  *
- * When the user choses an option, a change event is triggered.
+ * When the user chooses an option, a change event is triggered.
  *
  */
 
