@@ -25,15 +25,12 @@ import {ScrollableElement} from 'nv/decorators';
 })
 export class Scrollable {
     lastNavAction: LastNavAction;
-    keyUtils: KeyboardUtils;
     scrollableElements: Array<ScrollableElement> = [];
     selectedIndex: number = null;
-    el: ElementRef;
     scrollOngoing: boolean = false;
 
-    constructor(keyUtils: KeyboardUtils, el: ElementRef) {
-        this.keyUtils = keyUtils;
-        this.el = el;
+    constructor(private keyUtils: KeyboardUtils, private el: ElementRef) {
+
     }
 
     onChange(changes) {
