@@ -37,7 +37,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
-                    <div #input class="input" 
+                    <div #input class="input"
                         tabindex="0"
                         nv-type-search
                         (search)="onSearch($event)"
@@ -159,7 +159,6 @@ export class Dropdown<T extends SelectionOption> {
         });
 
         if (match) {
-            console.log("changing highlighted on dropdown to " + match.description);
             this.highlighted = match;
             if (!this.showSelectionList) {
                 this.selected = match;

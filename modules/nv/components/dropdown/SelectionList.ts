@@ -65,8 +65,8 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     onChange(changes) {
-        console.log('changes on selection list ' + _.keys(changes));
         if (changes['highlightedOption'] && this.highlightedOption) {
+            console.log('changes on highlightedOption ' + this.highlightedOption.description);
             this.options.forEach((option) => option.highlighted = false);
             this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
         }
