@@ -1,7 +1,6 @@
 import {Directive, onChange, ElementRef} from 'angular2/angular2';
-import {LastNavAction} from 'angular-velocity';
+import {LastNavAction,ScrollableListElement} from 'angular-velocity';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {ScrollableListElement} from 'nv/decorators';
 
 /**
  *
