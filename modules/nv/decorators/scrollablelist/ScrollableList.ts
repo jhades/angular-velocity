@@ -55,8 +55,8 @@ export class ScrollableList {
     onArrowDown() {
         if (this.existsNextEnabledElement()) {
             this.highlightNext();
-            var shouldScrollDown = this.getCurrentHighlighted().el.domElement.offsetTop +
-                this.getCurrentHighlighted().el.domElement.offsetHeight > this.el.domElement.scrollTop + this.el.domElement.offsetHeight;
+            var shouldScrollDown = this.getCurrentHighlighted().el.nativeElement.offsetTop +
+                this.getCurrentHighlighted().el.nativeElement.offsetHeight > this.el.nativeElement.scrollTop + this.el.nativeElement.offsetHeight;
             if (shouldScrollDown) {
                 this.scrollElementIntoView(false);
             }
@@ -73,7 +73,7 @@ export class ScrollableList {
     onArrowUp() {
         if (this.existsPreviousEnabledElement()) {
             this.highlightPrevious();
-            var shouldScrollUp = this.getCurrentHighlighted().el.domElement.offsetTop < this.el.domElement.scrollTop;
+            var shouldScrollUp = this.getCurrentHighlighted().el.nativeElement.offsetTop < this.el.nativeElement.scrollTop;
             if (shouldScrollUp) {
                 this.scrollElementIntoView(true);
             }
@@ -90,12 +90,12 @@ export class ScrollableList {
     scrollElementIntoView(adjustToTop) {
         // report scroll ongoing up to one second after the scroll ended
         var scrollHandler = (evt) => {
-            this.el.domElement.removeEventListener('scroll', scrollHandler);
+            this.el.nativeElement.removeEventListener('scroll', scrollHandler);
             setTimeout(() => this.scrollOngoing = false, 1000);
         };
         this.scrollOngoing = true;
-        this.el.domElement.addEventListener('scroll', scrollHandler);
-        this.getCurrentHighlighted().el.domElement.scrollIntoView(adjustToTop);
+        this.el.nativeElement.addEventListener('scroll', scrollHandler);
+        this.getCurrentHighlighted().el.nativeElement.scrollIntoView(adjustToTop);
     }
 
     getCurrentHighlighted() : ScrollableListElement {
