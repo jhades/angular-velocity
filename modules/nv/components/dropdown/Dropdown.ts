@@ -37,7 +37,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
-                    <div #input class="input" (keyup)
+                    <div #input class="input" 
                         tabindex="0"
                         nv-type-search
                         (search)="onSearch($event)"

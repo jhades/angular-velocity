@@ -5,11 +5,12 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
  * @ngdoc Decorator
  *
  * @description
- * When the user starts typing on a element, this decorator keeps track of the ongoing search,
- * and if the user stops typing for more the 0.5 second a search event is triggered, and the tracking starts again.
+ * When the user starts typing on a element, this decorator keeps track of the ongoing search, firing
+ * a search event with the current search.
  *
- * This woks for any element where the user can set the focus, its not only for input boxes. This decorator works for
- * example in a searcheable list.
+ * If the user stops typing for more the 0.5 second the search is resetted.
+ *
+ * This woks for any element where the user can set the focus.
  *
  */
 @Directive({
