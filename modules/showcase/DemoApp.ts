@@ -2,7 +2,7 @@
 
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
-import {Dropdown} from 'nv/components/dropdown/Dropdown';
+import {Dropdown} from 'angular-velocity';
 
 @Component({
     selector: 'sample-app'

@@ -7,7 +7,7 @@ import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-
+import {Dropdown} from 'nv/components/dropdown/Dropdown';
 
 export {
     Highlightable,
@@ -19,5 +19,6 @@ export {
     SelectionList,
     SelectionOption,
     BlankOption,
-    KeyboardUtils
+    KeyboardUtils,
+    Dropdown
 }
