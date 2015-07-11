@@ -15,8 +15,8 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
  */
 @Directive({
     selector: '[nv-type-search]',
-    hostListeners: {
-        'keydown': 'onKeyDown($event)'
+    host: {
+        '(keydown)': 'onKeyDown($event)'
     },
     events: ['search'],
     hostInjector: [KeyboardUtils]

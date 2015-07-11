@@ -13,9 +13,9 @@ import {ScrollableList} from 'nv/decorators';
 @Directive({
     selector: "[nv-scrollable-list-element]",
     properties: ['skipElement'],
-    hostListeners: {
-      'mouseover': 'onMouseOver()',
-      'mouseleave': 'onMouseOut()'
+    host: {
+      '(mouseover)': 'onMouseOver()',
+      '(mouseleave)': 'onMouseOut()'
     },
     events: ['highlight']
 })
