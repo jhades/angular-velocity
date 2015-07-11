@@ -56,7 +56,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                     <ngv-selection-list [hidden]="!showSelectionList"
                          [options]="options"
                          (change)="onSelectionChanged($event, input)"
-                         [(highlight)]="highlighted"
+                         [highlightedOption]="highlighted" (highlight)="onHighlightedChanged($event)"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="dropdownWidth"
                         [last-nav-action]="navigationAction" >
@@ -90,6 +90,10 @@ export class Dropdown<T extends SelectionOption> {
         if (!this.active) {
             this.active = true;
         }
+    }
+
+    onHighlightedChanged(option) {
+        this.highlighted = option;
     }
 
     onSelectionChanged(option: SelectionOption, input) {
