@@ -9,17 +9,20 @@ import {Dropdown} from 'angular-velocity';
 })
 @View({
     template: `<div class="demos">
-
-                    <div class="demo">
-
-                        <form class="pure-form">
-                            <h2>Dropdown</h2>
+                    <form class="pure-form">
+                        <div class="demo">
+                        <h3>nv-dropdown:</h3>
                             <nv-dropdown num-visible-options="7" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)">
                             </nv-dropdown>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="demo">
+                            <h3>nv-select:</h3>
+                        </div>
+
+
+                    </form>
                 </div>`,
     directives: [Dropdown]
 })
