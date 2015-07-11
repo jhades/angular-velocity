@@ -86,7 +86,7 @@ gulp.task('build:lib', ['build:angular2'], function () {
         './node_modules/reflect-metadata/Reflect.js',
         './node_modules/reflect-metadata/Reflect.js.map',
         './node_modules/systemjs/dist/system.src.js',
-        './node_modules/lodash/index.js'
+        './node_modules/'
     ])
         .pipe(gulp.dest('./lib'));
 });

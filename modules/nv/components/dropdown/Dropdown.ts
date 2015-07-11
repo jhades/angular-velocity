@@ -1,5 +1,4 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
-/// <reference path="../../../../typings/lodash/lodash.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
@@ -159,7 +158,7 @@ export class Dropdown<T extends SelectionOption> {
 
     onSearch(search) {
         var regex = new RegExp('^' + search);
-        var match = _.find(this.options, (option:T) => {
+        var match = this.options.find((option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
         });
 

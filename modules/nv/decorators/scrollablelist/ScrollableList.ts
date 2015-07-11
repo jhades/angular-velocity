@@ -63,7 +63,7 @@ export class ScrollableList {
     }
 
     existsNextEnabledElement() {
-        return _.some(this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length), (el: ScrollableListElement) => !el.skipElement);
+        return this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length).some((el: ScrollableListElement) => !el.skipElement);
     }
 
     onArrowUp() {
@@ -77,7 +77,7 @@ export class ScrollableList {
     }
 
     existsPreviousEnabledElement() {
-        return _.some(this.scrollableElements.slice(0, this.selectedIndex), (el: ScrollableListElement) => !el.skipElement);
+        return this.scrollableElements.slice(0, this.selectedIndex).some((el: ScrollableListElement) => !el.skipElement);
     }
 
     scrollElementIntoViewIfNeeded() {
