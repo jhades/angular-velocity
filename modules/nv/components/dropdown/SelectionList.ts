@@ -33,7 +33,7 @@ import {ScrollableList, ScrollableListElement} from 'nv/decorators';
                     <div *ng-for="#option of options;"
                         class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
-                        <div nv-scrollable-list-element (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
+                        <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
                             class="selection-description"
                             (click)="onOptionClicked(option)">
                                 {{option.description}}

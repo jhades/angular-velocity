@@ -1,4 +1,4 @@
-import {Directive, Ancestor, ElementRef, EventEmitter} from 'angular2/angular2';
+import {Directive, Ancestor, ElementRef, EventEmitter, onChange} from 'angular2/angular2';
 import {ScrollableList} from 'nv/decorators';
 
 /**
@@ -12,21 +12,29 @@ import {ScrollableList} from 'nv/decorators';
 
 @Directive({
     selector: "[nv-scrollable-list-element]",
-    properties: ['skipElement'],
+    properties: ['skipElement', 'highlighted'],
     host: {
       '(mouseover)': 'onMouseOver()',
       '(mouseleave)': 'onMouseOut()'
     },
-    events: ['highlight']
+    events: ['highlight'],
+    lifecycle: [onChange]
 })
 export class ScrollableListElement {
     scrollable: ScrollableList;
     highlight: EventEmitter = new EventEmitter();
+    highlighted:boolean;
     skipElement: boolean = false;
 
     constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
+    }
+
+    onChange(changes) {
+        if (changes['highlighted'] && this.highlighted) {
+            //TODO
+        }
     }
 
     onMouseOver() {
