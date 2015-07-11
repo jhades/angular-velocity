@@ -155,10 +155,8 @@ export class Dropdown<T extends SelectionOption> {
         });
 
         if (match) {
-            if (this.showSelectionList) {
-                this.highlighted = match;
-            }
-            else {
+            this.highlighted = match;
+            if (!this.showSelectionList) {
                 this.selected = match;
             }
         }
