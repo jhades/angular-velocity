@@ -33,7 +33,8 @@ export class ScrollableListElement {
 
     onChange(changes) {
         if (changes['highlighted'] && this.highlighted) {
-            //TODO
+            //this.scrollable.setHighlightedIndex(this);
+            this.scrollable.scrollElementIntoViewIfNeeded();
         }
     }
 

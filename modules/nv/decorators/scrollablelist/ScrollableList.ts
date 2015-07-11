@@ -55,11 +55,7 @@ export class ScrollableList {
     onArrowDown() {
         if (this.existsNextEnabledElement()) {
             this.highlightNext();
-            var shouldScrollDown = this.getCurrentHighlighted().el.nativeElement.offsetTop +
-                this.getCurrentHighlighted().el.nativeElement.offsetHeight > this.el.nativeElement.scrollTop + this.el.nativeElement.offsetHeight;
-            if (shouldScrollDown) {
-                this.scrollElementIntoView(false);
-            }
+            this.scrollElementIntoViewIfNeeded();
             if(this.getCurrentHighlighted().skipElement) {
                 this.onArrowDown();
             }
@@ -73,10 +69,7 @@ export class ScrollableList {
     onArrowUp() {
         if (this.existsPreviousEnabledElement()) {
             this.highlightPrevious();
-            var shouldScrollUp = this.getCurrentHighlighted().el.nativeElement.offsetTop < this.el.nativeElement.scrollTop;
-            if (shouldScrollUp) {
-                this.scrollElementIntoView(true);
-            }
+            this.scrollElementIntoViewIfNeeded();
             if(this.getCurrentHighlighted().skipElement) {
                 this.onArrowUp();
             }
@@ -87,7 +80,23 @@ export class ScrollableList {
         return _.some(this.scrollableElements.slice(0, this.selectedIndex), (el: ScrollableListElement) => !el.skipElement);
     }
 
-    scrollElementIntoView(adjustToTop) {
+    scrollElementIntoViewIfNeeded() {
+        if (this.getCurrentHighlighted()) {
+            var shouldScrollDown = this.getCurrentHighlighted().el.nativeElement.offsetTop +
+                this.getCurrentHighlighted().el.nativeElement.offsetHeight > this.el.nativeElement.scrollTop + this.el.nativeElement.offsetHeight;
+            if (shouldScrollDown) {
+                this.scrollElementIntoView(false);
+            }
+            else {
+                var shouldScrollUp = this.getCurrentHighlighted().el.nativeElement.offsetTop < this.el.nativeElement.scrollTop;
+                if (shouldScrollUp) {
+                    this.scrollElementIntoView(true);
+                }
+            }
+        }
+    }
+
+    protected scrollElementIntoView(adjustToTop) {
         // report scroll ongoing up to one second after the scroll ended
         var scrollHandler = (evt) => {
             this.el.nativeElement.removeEventListener('scroll', scrollHandler);
