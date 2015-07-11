@@ -3,7 +3,7 @@
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction} from 'nv/core';
+import {LastNavAction} from 'angular-velocity';
 import {TypeSearch} from 'nv/decorators';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 

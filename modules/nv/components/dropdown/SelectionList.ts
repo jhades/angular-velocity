@@ -2,7 +2,7 @@
 
 import {Component, View, NgFor, Parent, onChange, EventEmitter, Attribute} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction} from 'nv/core/LastNavAction';
+import {LastNavAction} from 'angular-velocity';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 import {ScrollableList, ScrollableListElement} from 'nv/decorators';
 
