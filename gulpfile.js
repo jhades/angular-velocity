@@ -137,7 +137,7 @@ gulp.task('serve', ['build-dev'], function () {
     var port = 5555;
     var app;
 
-    gulp.watch(['./modules/**/*.html', './modules/**/*.ts', './modules/**/*.scss'], ['build-dev']);
+    gulp.watch(['./modules/**/*.html', './modules/*.ts','./modules/**/*.ts', './modules/**/*.scss'], ['build-dev']);
 
     app = connect().use(serveStatic(__dirname));
     http.createServer(app).listen(port, function () {

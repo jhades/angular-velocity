@@ -1,4 +1,4 @@
-import {Highlightable} from 'nv/core/Highlightable';
+import {Highlightable} from 'angular-velocity';
 
 export interface SelectionOption extends Highlightable {
     description: string;
