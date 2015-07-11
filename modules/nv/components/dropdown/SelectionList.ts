@@ -2,9 +2,9 @@
 
 import {Component, View, NgFor, Parent, onChange, EventEmitter, Attribute} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction} from 'angular-velocity';
+import {LastNavAction, ScrollableList} from 'angular-velocity';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
-import {ScrollableList, ScrollableListElement} from 'nv/decorators';
+import {ScrollableListElement} from 'nv/decorators';
 
 /**
  *
@@ -66,7 +66,6 @@ export class SelectionList<T extends SelectionOption> {
 
     onChange(changes) {
         if (changes['highlightedOption'] && this.highlightedOption) {
-            console.log('changes on highlightedOption ' + this.highlightedOption.description);
             this.options.forEach((option) => option.highlighted = false);
             this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
         }
