@@ -65,7 +65,7 @@ gulp.task('build-css', function(done) {
 gulp.task('build:angular2', function () {
     var builder = new Builder({
         paths: {
-            'angular2/*': 'node_modules/angular2/es6/dev/*.es6',
+            'angular2/*': 'node_modules/angular2/es6/dev/*.js',
             rx: 'node_modules/angular2/node_modules/rx/dist/rx.js'
         },
         meta: {
@@ -112,7 +112,19 @@ gulp.task('build-html', function (done) {
 
 
 
-gulp.task('build', function (done) {
+gulp.task('default', function (done) {
+    runSequence(
+        'clean',
+        'clean:lib',
+        'build:lib',
+        'build-css',
+        'build-ts',
+        'build-html',
+        done
+    );
+});
+
+gulp.task('build-dev', function (done) {
     runSequence(
         'build-css',
         'build-ts',
@@ -121,11 +133,11 @@ gulp.task('build', function (done) {
     );
 });
 
-gulp.task('serve', ['build'], function () {
+gulp.task('serve', ['build-dev'], function () {
     var port = 5555;
     var app;
 
-    gulp.watch(['./modules/**/*.html', './modules/**/*.ts', './modules/**/*.scss'], ['build']);
+    gulp.watch(['./modules/**/*.html', './modules/**/*.ts', './modules/**/*.scss'], ['build-dev']);
 
     app = connect().use(serveStatic(__dirname));
     http.createServer(app).listen(port, function () {

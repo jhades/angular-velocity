@@ -31,7 +31,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
 @Component({ 
     selector: 'nv-dropdown',
     events: ['change'],
-    appInjector: [KeyboardUtils],
+    viewInjector: [KeyboardUtils],
     properties: ['options']
 })
 @View({
@@ -56,7 +56,7 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
                     <ngv-selection-list [hidden]="!showSelectionList"
                          [options]="options"
                          (change)="onSelectionChanged($event, input)"
-                         [highlightedOption]="highlighted" (highlight)="onHighlightedChanged($event)"
+                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="dropdownWidth"
                         [last-nav-action]="navigationAction" >
