@@ -4,6 +4,8 @@ import {LastNavAction} from 'nv/core/LastNavAction';
 import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
 import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableListElement';
 import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
+import {SelectionList} from 'nv/components/dropdown/SelectionList';
+
 
 export {
     Highlightable,
@@ -11,5 +13,6 @@ export {
     LastNavAction,
     ScrollableList,
     ScrollableListElement,
-    TypeSearch
+    TypeSearch,
+    SelectionList
 }
