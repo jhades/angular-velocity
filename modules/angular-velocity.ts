@@ -5,6 +5,7 @@ import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
 import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableListElement';
 import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
+import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
 
 
 export {
@@ -14,5 +15,7 @@ export {
     ScrollableList,
     ScrollableListElement,
     TypeSearch,
-    SelectionList
+    SelectionList,
+    SelectionOption,
+    BlankOption
 }
