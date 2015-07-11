@@ -6,6 +6,7 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
 import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
 import {SelectionList} from 'nv/components/dropdown/SelectionList';
 import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOption';
+import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 
 export {
@@ -17,5 +18,6 @@ export {
     TypeSearch,
     SelectionList,
     SelectionOption,
-    BlankOption
+    BlankOption,
+    KeyboardUtils
 }

@@ -1,8 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
-import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption} from 'angular-velocity';
+import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils} from 'angular-velocity';
 
 
 /**
