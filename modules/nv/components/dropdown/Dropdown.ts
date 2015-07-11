@@ -14,15 +14,20 @@ import {SelectionOption, BlankOption} from 'nv/components/selectone/SelectionOpt
  * @ngdoc Component
  *
  * @description
- * A dropdown component, similar to a native browser <select>
+ * A dropdown component, similar to a native browser <select> element
  *
  * Visually it consists of an input box, a dropdown button and and option selection list. Features:
  *
  *  - fully stylable (dropdown width, height ,etc.)
  *  - scrolling using mouse or keyboard
+ *  - scrolling via keyboard takes over scrolling via mouse seamlessly and vice-versa
  *  - support for disabled elements
- *  - if the user starts typing, the closest matching element is displayed (@see TypeSearch)
- *  - wraps long text items in multiple lines
+ *  - if the user starts typing, the closest matching element is highlighted if the dropdown is opened (@see TypeSearch)
+ *  - if the dropdown is closed and the user starts typing, the closest match is automatically selected
+ *  - wraps long text options in multiple lines
+ *  - displays "..." if text too long
+ *  - the dropdown is always correctly positioned, even if the user resizes the browser window
+ *    or if the dropdown is used inside scrolling dialogs
  *
  * When the user chooses an option, a change event is triggered.
  *
