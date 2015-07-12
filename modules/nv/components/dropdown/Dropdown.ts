@@ -53,12 +53,13 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
                         
                     </div>
 
-                    <ngv-selection-list [hidden]="!showSelectionList"
+                    <ngv-selection-list
+                        [hidden]="!showSelectionList"
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="dropdownWidth"
-                        [last-nav-action]="navigationAction"
                         [options]="options"
                         (change)="onSelectionChanged($event, input)"
+                        [last-nav-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
                     </ngv-selection-list>
 
