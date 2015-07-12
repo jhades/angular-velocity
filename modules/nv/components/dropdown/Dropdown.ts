@@ -1,7 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
-import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils} from 'angular-velocity';
+import {Component, View, EventEmitter, Attribute, onChange} from 'angular2/angular2';
+import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup} from 'angular-velocity';
 
 
 /**
@@ -32,7 +32,8 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
     selector: 'nv-dropdown',
     events: ['change'],
     viewInjector: [KeyboardUtils],
-    properties: ['options', 'optionGroups']
+    properties: ['options', 'optionGroups'],
+    lifecycle: [onChange]
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
@@ -70,6 +71,7 @@ export class Dropdown<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
 
     options: Array<T>;
+    optionGroups: Array<SelectionGroup<T>>;
     numVisibleOptions: number;
     dropdownWidth: string;
 
@@ -84,6 +86,12 @@ export class Dropdown<T extends SelectionOption> {
     constructor(private keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
         this.numVisibleOptions = numVisibleOptions;
         this.dropdownWidth = dropdownWidth;
+    }
+
+    onChange(changes) {
+        if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
+            throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
+        }
     }
 
     onButtonToggle() {
