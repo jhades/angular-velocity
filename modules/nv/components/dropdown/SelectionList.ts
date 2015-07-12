@@ -59,12 +59,12 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     private onChange(changes) {
+        if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
+            throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
+        }
         if (changes['highlightedOption'] && this.highlightedOption) {
             this.options.forEach((option) => option.highlighted = false);
             this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
-        }
-        if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
-            throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
     }
 
