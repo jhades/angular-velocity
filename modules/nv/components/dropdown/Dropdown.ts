@@ -163,7 +163,7 @@ export class Dropdown<T extends SelectionOption> {
 
     onSearch(search) {
         var regex = new RegExp('^' + search);
-        var match = this.options.find((option:T) => {
+        var match = this.findAllOptions().find((option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
         });
 
@@ -173,7 +173,21 @@ export class Dropdown<T extends SelectionOption> {
                 this.selected = match;
             }
         }
+    }
 
+    protected findAllOptions() {
+        if (this.options) {
+            return this.options;
+        }
+        else if (this.optionGroups) {
+            return this.optionGroups
+                    .map((optionGroup) => optionGroup.options)
+                    .reduce((all, optionGroup) => all.concat(optionGroup), []);
+
+        }
+        else {
+            throw new Error("A nv-dropdown must either have an [options] or an [option-groups] property defined.");
+        }
     }
 
 }
