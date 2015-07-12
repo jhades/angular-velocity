@@ -48,7 +48,7 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
 })
 export class SelectionList<T extends SelectionOption> {
 
-    options: List<T>;
+    options: Array<T>;
     optionGroups: Array<SelectionGroup<T>>;
     change: EventEmitter = new EventEmitter();
     highlightedOption: T;
