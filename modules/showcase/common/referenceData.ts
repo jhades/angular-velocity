@@ -249,7 +249,7 @@ export class ReferenceData {
         {
             label: 'Pacific Division',
             options: [
-                {description: 'LA Lakers'},
+                {description: 'LA Lakers', disabled:true},
                 {description: 'LA Clippers'},
                 {description: 'Golden State Warriors'}
                 ]
