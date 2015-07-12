@@ -174,9 +174,7 @@ export class Dropdown<T extends SelectionOption> {
             return this.options;
         }
         else if (this.optionGroups) {
-            return this.optionGroups
-                    .map((optionGroup) => optionGroup.options)
-                    .reduce((all, optionGroup) => all.concat(optionGroup), []);
+            return SelectionGroup.findAllOptions(this.optionGroups);
 
         }
         else {

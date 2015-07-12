@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, Parent, onChange, EventEmitter, Attribute, onChange} from 'angular2/angular2';
+import {Component, View, NgFor, Parent, EventEmitter, Attribute, onChange} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 

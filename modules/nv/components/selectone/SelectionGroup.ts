@@ -6,4 +6,13 @@ export class SelectionGroup<T extends SelectionOption> {
 
     }
 
+    static findAllOptions(optionGroups: Array<SelectionGroup>) {
+        if (!optionGroups) {
+            throw new Error("optionsGroups must be defined");
+        }
+        return optionGroups
+            .map((optionGroup) => optionGroup.options)
+            .reduce((all, optionGroup) => all.concat(optionGroup), []);
+    }
+
 }
