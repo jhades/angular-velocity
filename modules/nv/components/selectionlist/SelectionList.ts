@@ -9,12 +9,14 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
  * @ngdoc Component
  *
  * @description
- * A selection list for dropdown/autocomplete single-selection components.
+ * A selection list for single or multiple selection components. The list will take as main input either a list of options
+ * or a list of option groups.
  *
  * Features:
  *
- * - the list is keyboard scrollable
- * - there is support for disabled elements
+ * - scrollable via keyboard
+ * - support for disabled elements
+ * - support for option groups
  *
  */
 @Component({

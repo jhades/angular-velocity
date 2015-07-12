@@ -17,6 +17,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
  *  - scrolling using mouse or keyboard
  *  - scrolling via keyboard takes over scrolling via mouse seamlessly and vice-versa
  *  - support for disabled elements
+ *  - support for option groups
  *  - if the user starts typing, the closest matching element is highlighted if the dropdown is opened (@see TypeSearch)
  *  - if the dropdown is closed and the user starts typing, the closest match is automatically selected
  *  - wraps long text options in multiple lines
