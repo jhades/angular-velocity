@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, Parent, EventEmitter, Attribute, onChange} from 'angular2/angular2';
+import {Component, View, NgFor, Parent, EventEmitter, Attribute, onChange, NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
@@ -28,8 +28,22 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
                 <div class="selection-list" [style.max-height]="height"  [style.width]="width"
                      nv-scrollable-list [last-nav-action]="lastNavAction">
 
-                    <div ng-switch="option.length">
-                        <div ng-switch-when="10">
+                    <div [ng-switch]="isGroupMode()">
+                        <template [ng-switch-when]="true">
+                            <div *ng-for="#group of optionGroups;">
+                                <div class="option-group">{{group.label}}</div>
+                                <div *ng-for="#option of group.options;"
+                                    class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
+
+                                    <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
+                                        class="selection-description"
+                                        (click)="onOptionClicked(option)">
+                                            {{option.description}}
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template [ng-switch-when]="false">
                             <div *ng-for="#option of options;"
                                 class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
@@ -39,12 +53,12 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
                                         {{option.description}}
                                 </div>
                             </div>
-                        </div>
+                        </template>
                     </div>
 
 
                 </div>`,
-    directives: [NgFor, ScrollableList, ScrollableListElement]
+    directives: [NgFor, ScrollableList, ScrollableListElement, NgSwitch, NgSwitchWhen, NgSwitchDefault]
 })
 export class SelectionList<T extends SelectionOption> {
 
@@ -63,8 +77,12 @@ export class SelectionList<T extends SelectionOption> {
             throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
         if (changes['highlightedOption'] && this.highlightedOption) {
-            this.options.forEach((option) => option.highlighted = false);
-            this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
+            if (this.options) {
+                this.highlightOption(this.options);
+            }
+            else if (this.optionGroups) {
+                this.highlightOption(this.optionGroups.reduce( (all: Array<T>, optionGroup) => all.concat(optionGroup.options) ,[]));
+            }
         }
     }
 
@@ -80,7 +98,13 @@ export class SelectionList<T extends SelectionOption> {
     }
 
     protected isGroupMode() {
-        return this.optionGroups !== undefined;
+        return (typeof this.optionGroups !== "undefined");
+    }
+
+    protected highlightOption(options: Array<T>) {
+        options.forEach((option) => option.highlighted = false);
+        options[options.indexOf(this.highlightedOption)].highlighted = true;
+
     }
 
 }

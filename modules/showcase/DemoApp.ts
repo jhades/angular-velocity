@@ -11,7 +11,7 @@ import {Dropdown} from 'angular-velocity';
     template: `<div class="demos">
                     <form class="pure-form">
                         <div class="demo">
-                        <h3>nv-dropdown:</h3>
+                            <h3>nv-dropdown:</h3>
                             <nv-dropdown num-visible-options="7" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)">
