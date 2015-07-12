@@ -28,16 +28,20 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
                 <div class="selection-list" [style.max-height]="height"  [style.width]="width"
                      nv-scrollable-list [last-nav-action]="lastNavAction">
 
-                    <div *ng-for="#option of options;"
-                        class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
+                    <div ng-switch="option.length">
+                        <div ng-switch-when="10">
+                            <div *ng-for="#option of options;"
+                                class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
-                        <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
-                            class="selection-description"
-                            (click)="onOptionClicked(option)">
-                                {{option.description}}
+                                <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [skip-element]="option.disabled"
+                                    class="selection-description"
+                                    (click)="onOptionClicked(option)">
+                                        {{option.description}}
+                                </div>
+                            </div>
                         </div>
-
                     </div>
+
 
                 </div>`,
     directives: [NgFor, ScrollableList, ScrollableListElement]
@@ -54,7 +58,7 @@ export class SelectionList<T extends SelectionOption> {
 
     }
 
-    onChange(changes) {
+    private onChange(changes) {
         if (changes['highlightedOption'] && this.highlightedOption) {
             this.options.forEach((option) => option.highlighted = false);
             this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
@@ -64,15 +68,19 @@ export class SelectionList<T extends SelectionOption> {
         }
     }
 
-    onHighlightChanged(highlighted: boolean, option: T) {
+    protected onHighlightChanged(highlighted: boolean, option: T) {
         option.highlighted = highlighted;
         if (highlighted) {
             this.highlight.next(option);
         }
     }
 
-    onOptionClicked(option: SelectionOption) {
+    protected onOptionClicked(option: SelectionOption) {
         this.change.next(option);
+    }
+
+    protected isGroupMode() {
+        return this.optionGroups !== undefined;
     }
 
 }
