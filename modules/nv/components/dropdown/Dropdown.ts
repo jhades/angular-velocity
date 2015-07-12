@@ -100,7 +100,7 @@ export class Dropdown<T extends SelectionOption> {
     }
 
     onSelectionChanged(option: SelectionOption, input) {
-        if (!option.disabled) {
+        if (option && !option.disabled) {
             this.selected = option;
             this.showSelectionList = false;
             this.change.next(option);

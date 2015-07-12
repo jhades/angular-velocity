@@ -31,7 +31,7 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
                     <div [ng-switch]="isGroupMode()">
                         <template [ng-switch-when]="true">
                             <div *ng-for="#group of optionGroups;">
-                                <div class="option-group">{{group.label}}</div>
+                                <div class="option-group" (click)="onOptionClicked(null)">{{group.label}}</div>
                                 <div *ng-for="#option of group.options;"
                                     class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
