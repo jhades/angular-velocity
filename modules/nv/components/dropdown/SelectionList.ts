@@ -1,8 +1,8 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, Parent, onChange, EventEmitter, Attribute} from 'angular2/angular2';
+import {Component, View, NgFor, Parent, onChange, EventEmitter, Attribute, onChange} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption} from 'angular-velocity';
+import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
 /**
  *
@@ -19,7 +19,7 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
  */
 @Component({
     selector: 'ngv-selection-list',
-    properties: ['options','highlightedOption', 'height', 'width', 'lastNavAction', 'hidden'],
+    properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'lastNavAction', 'hidden'],
     events: ['change','highlight'],
     lifecycle: [onChange]
 })
@@ -45,12 +45,23 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
 export class SelectionList<T extends SelectionOption> {
 
     options: List<T>;
+    optionGroups: Array<SelectionGroup<T>>;
     change: EventEmitter = new EventEmitter();
     highlightedOption: T;
     highlight: EventEmitter = new EventEmitter();
 
     constructor(private keyUtils: KeyboardUtils) {
 
+    }
+
+    onChange(changes) {
+        if (changes['highlightedOption'] && this.highlightedOption) {
+            this.options.forEach((option) => option.highlighted = false);
+            this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
+        }
+        if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
+            throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
+        }
     }
 
     onHighlightChanged(highlighted: boolean, option: T) {
@@ -62,13 +73,6 @@ export class SelectionList<T extends SelectionOption> {
 
     onOptionClicked(option: SelectionOption) {
         this.change.next(option);
-    }
-
-    onChange(changes) {
-        if (changes['highlightedOption'] && this.highlightedOption) {
-            this.options.forEach((option) => option.highlighted = false);
-            this.options[this.options.indexOf(this.highlightedOption)].highlighted = true;
-        }
     }
 
 }

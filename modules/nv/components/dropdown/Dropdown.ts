@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, EventEmitter, Attribute, onChange} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup} from 'angular-velocity';
 
 
@@ -32,8 +32,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
     selector: 'nv-dropdown',
     events: ['change'],
     viewInjector: [KeyboardUtils],
-    properties: ['options', 'optionGroups'],
-    lifecycle: [onChange]
+    properties: ['options', 'optionGroups']
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
@@ -41,7 +40,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
                     <div #input class="input"
                         tabindex="0"
                         nv-type-search
-                        (search)="onSearch($event)"
+                        (search)="onTypeSearch($event)"
                         (click)="onButtonToggle()"
                         (blur)="onFocusLost()"
                         (keydown)="onKeyDown($event, input)">
@@ -59,6 +58,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
                         [height]="22 * numVisibleOptions + 'px'"
                         [width]="dropdownWidth"
                         [options]="options"
+                        [option-groups]="optionGroups"
                         (change)="onSelectionChanged($event, input)"
                         [last-nav-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
@@ -86,12 +86,6 @@ export class Dropdown<T extends SelectionOption> {
     constructor(private keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
         this.numVisibleOptions = numVisibleOptions;
         this.dropdownWidth = dropdownWidth;
-    }
-
-    onChange(changes) {
-        if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
-            throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
-        }
     }
 
     onButtonToggle() {
@@ -161,7 +155,7 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
-    onSearch(search) {
+    onTypeSearch(search) {
         var regex = new RegExp('^' + search);
         var match = this.findAllOptions().find((option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
