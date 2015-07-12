@@ -24,7 +24,9 @@ import {Dropdown} from 'angular-velocity';
                                 (change)="onSelection($event)">
                             </nv-dropdown>
                         </div>
-
+                        <div class="demo">
+                            <h3>nv-select:</h3>
+                        </div>
 
                     </form>
                 </div>`,
