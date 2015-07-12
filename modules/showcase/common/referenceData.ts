@@ -244,4 +244,23 @@ export class ReferenceData {
         {description: 'Zambia', id: 'ZM'},
         {description: 'Zimbabwe', id: 'ZW', disabled: true}
     ];
+
+    NBA_DIVISIONS = [
+        {
+            label: 'Pacific Division',
+            options: [
+                {description: 'LA Lakers'},
+                {description: 'LA Clippers'},
+                {description: 'Golden State Warriors'}
+                ]
+        },
+        {
+            label: 'Atlantic Division',
+            options: [
+                {description: 'New York Knicks'},
+                {description: 'Brooklyn Nets'}
+                ]
+        }
+        ];
+
 }

@@ -18,7 +18,11 @@ import {Dropdown} from 'angular-velocity';
                             </nv-dropdown>
                         </div>
                         <div class="demo">
-                            <h3>nv-select:</h3>
+                            <h3>nv-dropdown with groups:</h3>
+                            <nv-dropdown num-visible-options="7" dropdown-width="200px"
+                                [option-groups]="refData.NBA_DIVISIONS"
+                                (change)="onSelection($event)">
+                            </nv-dropdown>
                         </div>
 
 
