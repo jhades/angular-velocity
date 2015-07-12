@@ -63,8 +63,8 @@
 
         .selection-option {
             cursor: pointer;
-            padding-top: 3px;
-            padding-bottom: 1px;
+            padding-top: 0;
+            padding-bottom: 0;
             padding-left: 5px;
             
             &.highlighted {
@@ -79,7 +79,7 @@
 
     .selection-description {
       height: 100%;
-      line-height:19px;
+      line-height:23px;
     }
 
 }

@@ -26,7 +26,7 @@ export class ScrollableList {
     lastNavAction: LastNavAction;
     scrollableElements: Array<ScrollableListElement> = [];
     selectedIndex: number = null;
-    scrollOngoing: boolean = false;
+    scrollIntoViewOngoing: boolean = false;
 
     constructor(private keyUtils: KeyboardUtils, private el: ElementRef) {
 
@@ -96,12 +96,11 @@ export class ScrollableList {
     }
 
     protected scrollElementIntoView(adjustToTop) {
-        // report scroll ongoing up to one second after the scroll ended
         var scrollHandler = (evt) => {
             this.el.nativeElement.removeEventListener('scroll', scrollHandler);
-            setTimeout(() => this.scrollOngoing = false, 1000);
+            setTimeout(() => this.scrollIntoViewOngoing = false, 400);
         };
-        this.scrollOngoing = true;
+        this.scrollIntoViewOngoing = true;
         this.el.nativeElement.addEventListener('scroll', scrollHandler);
         this.getCurrentHighlighted().el.nativeElement.scrollIntoView(adjustToTop);
     }

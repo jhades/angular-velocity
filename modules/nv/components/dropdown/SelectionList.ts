@@ -55,7 +55,9 @@ export class SelectionList<T extends SelectionOption> {
 
     onHighlightChanged(highlighted: boolean, option: T) {
         option.highlighted = highlighted;
-        this.highlight.next(option);
+        if (highlighted) {
+            this.highlight.next(option);
+        }
     }
 
     onOptionClicked(option: SelectionOption) {

@@ -39,13 +39,13 @@ export class ScrollableListElement {
     }
 
     onMouseOver() {
-        if (!this.scrollable.scrollOngoing) {
+        if (!this.scrollable.scrollIntoViewOngoing) {
             this.highlightOn();
         }
     }
 
     onMouseOut() {
-        if (!this.scrollable.scrollOngoing) {
+        if (!this.scrollable.scrollIntoViewOngoing) {
             this.highlightOff();
         }
     }
