@@ -55,28 +55,28 @@ export class ScrollableList {
         if (this.existsNextEnabledElement()) {
             this.highlightNext();
             this.scrollElementIntoViewIfNeeded();
-            if(this.getCurrentHighlighted().skipElement) {
+            if(this.getCurrentHighlighted().disabled) {
                 this.onArrowDown();
             }
         }
     }
 
     existsNextEnabledElement() {
-        return this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length).some((el: ScrollableListElement) => !el.skipElement);
+        return this.scrollableElements.slice(this.selectedIndex + 1, this.scrollableElements.length).some((el: ScrollableListElement) => !el.disabled);
     }
 
     onArrowUp() {
         if (this.existsPreviousEnabledElement()) {
             this.highlightPrevious();
             this.scrollElementIntoViewIfNeeded();
-            if(this.getCurrentHighlighted().skipElement) {
+            if(this.getCurrentHighlighted().disabled) {
                 this.onArrowUp();
             }
         }
     }
 
     existsPreviousEnabledElement() {
-        return this.scrollableElements.slice(0, this.selectedIndex).some((el: ScrollableListElement) => !el.skipElement);
+        return this.scrollableElements.slice(0, this.selectedIndex).some((el: ScrollableListElement) => !el.disabled);
     }
 
     scrollElementIntoViewIfNeeded() {

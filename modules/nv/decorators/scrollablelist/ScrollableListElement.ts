@@ -12,7 +12,7 @@ import {ScrollableList} from 'angular-velocity';
 
 @Directive({
     selector: "[nv-scrollable-list-element]",
-    properties: ['skipElement', 'highlighted'],
+    properties: ['disabled', 'highlighted'],
     host: {
       '(mouseover)': 'onMouseOver()',
       '(mouseleave)': 'onMouseOut()'
@@ -24,7 +24,7 @@ export class ScrollableListElement {
     scrollable: ScrollableList;
     highlight: EventEmitter = new EventEmitter();
     highlighted:boolean;
-    skipElement: boolean = false;
+    disabled: boolean = false;
 
     constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef) {
         this.scrollable = scrollable;
