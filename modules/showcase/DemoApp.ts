@@ -27,13 +27,13 @@ import {Dropdown} from 'angular-velocity';
                         <div class="demo">
                             <h3>nv-select:</h3>
                             <nv-select num-visible-options="7" dropdown-width="200px" (change)="onSelection($event)">
-                                <option></option>
+                                <option *ng-for="#team of refData.NBA_TEAMS">{{team.description}}</option>
                             </nv-select>
                         </div>
 
                     </form>
                 </div>`,
-    directives: [Dropdown]
+    directives: [Dropdown,NgFor]
 })
 export class DemoApp {
     refData: ReferenceData;
