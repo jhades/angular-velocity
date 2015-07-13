@@ -9,6 +9,6 @@ import {SelectionList} from 'angular-velocity';
     template: `<div>nv-select</div>`,
     directives: [SelectionList]
 })
-export class Select {
+export class NvSelect {
 
 }
