@@ -2,7 +2,7 @@
 
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
-import {Dropdown} from 'angular-velocity';
+import {Dropdown,Select} from 'angular-velocity';
 
 @Component({
     selector: 'sample-app'
@@ -33,7 +33,7 @@ import {Dropdown} from 'angular-velocity';
 
                     </form>
                 </div>`,
-    directives: [Dropdown,NgFor]
+    directives: [Dropdown,NgFor,Select]
 })
 export class DemoApp {
     refData: ReferenceData;
