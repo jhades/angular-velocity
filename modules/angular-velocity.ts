@@ -10,6 +10,8 @@ import {SelectionGroup} from 'nv/components/selectone/SelectionGroup';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {Dropdown} from 'nv/components/dropdown/Dropdown';
 import {NvSelect} from 'nv/components/select/NvSelect';
+import {NvSelectOption} from 'nv/components/select/NvSelectOption';
+
 
 export {
     Highlightable,
@@ -24,5 +26,6 @@ export {
     BlankOption,
     KeyboardUtils,
     Dropdown,
-    NvSelect
+    NvSelect,
+    NvSelectOption
 }
