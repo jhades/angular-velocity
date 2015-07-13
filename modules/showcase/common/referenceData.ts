@@ -245,11 +245,6 @@ export class ReferenceData {
         {description: 'Zimbabwe', id: 'ZW', disabled: true}
     ];
 
-    NBA_TEAMS = [
-        {description: "Boston Celtics"},
-        {description: "Brooklyn Nets"}
-    ];
-
     NBA_DIVISIONS = [
         {
             label: 'Pacific Division',
@@ -312,5 +307,7 @@ export class ReferenceData {
             ]
         }
         ];
+
+    NBA_TEAMS = this.NBA_DIVISIONS.reduce((all: Array, division: any) => all.concat(division.teams), []);
 
 }
