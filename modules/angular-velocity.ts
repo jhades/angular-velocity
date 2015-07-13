@@ -11,7 +11,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {Dropdown} from 'nv/components/dropdown/Dropdown';
 import {NvSelect} from 'nv/components/select/NvSelect';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
-
+import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 
 export {
     Highlightable,
@@ -27,5 +27,6 @@ export {
     KeyboardUtils,
     Dropdown,
     NvSelect,
-    NvSelectOption
+    NvSelectOption,
+    NvOptGroup
 }
