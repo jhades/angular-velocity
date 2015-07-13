@@ -245,21 +245,71 @@ export class ReferenceData {
         {description: 'Zimbabwe', id: 'ZW', disabled: true}
     ];
 
+    NBA_TEAMS = [
+        {description: "Boston Celtics"},
+        {description: "Brooklyn Nets"}
+    ];
+
     NBA_DIVISIONS = [
         {
             label: 'Pacific Division',
             options: [
                 {description: 'LA Lakers', disabled:true},
                 {description: 'LA Clippers'},
-                {description: 'Golden State Warriors'}
-                ]
+                {description: 'Golden State Warriors'},
+                {description: "Phoenix Suns"},
+                {description: "Sacramento Kings"}
+            ]
         },
         {
             label: 'Atlantic Division',
             options: [
+                {description: "Boston Celtics"},
+                {description: 'Brooklyn Nets'},
                 {description: 'New York Knicks'},
-                {description: 'Brooklyn Nets'}
+                {description: 'Philadelphia 76ers'},
+                {description: 'Toronto Raptors'}
                 ]
+        },
+        {
+            label: 'Southwest Division',
+            options: [
+                {description: 'Dallas Mavericks'},
+                {description: 'Houston Rockets'},
+                {description: 'Memphis Grizzlies'},
+                {description: "New Orleans Pelicans"},
+                {description: "San Antonio Spurs"}
+            ]
+        },
+        {
+            label: 'Central Division',
+            options: [
+                {description: 'Chicago Bulls'},
+                {description: 'Cleveland Cavaliers'},
+                {description: 'Detroit Pistons'},
+                {description: "Indiana Pacers"},
+                {description: "Milwaukee Bucks"}
+            ]
+        },
+        {
+            label: 'Nortwest Division',
+            options: [
+                {description: 'Denver Nuggets'},
+                {description: 'Minnesota Timberwolves'},
+                {description: 'Oklahoma City Thunder'},
+                {description: "Portland Trail Blazers"},
+                {description: "Utah Jazz"}
+            ]
+        },
+        {
+            label: 'Southeast Division',
+            options: [
+                {description: 'Atlanta Hawks'},
+                {description: 'Charlotte Hornets'},
+                {description: 'Miami Heat'},
+                {description: "Orlando Magic"},
+                {description: "Washington Wizards" }
+            ]
         }
         ];
 
