@@ -1,20 +1,28 @@
 
-import {Component, View, Query, QueryList, coreDirectives} from 'angular2/angular2';
+import {Component, View, Query, QueryList, NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/angular2';
 import {SelectionList} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
-import {CONST_EXPR} from 'angular2/src/facade/lang';
 
 @Component({
     selector:"nv-select"
 })
 @View({
     template: `
-                <div class="nv-select" ng-switch>
-
+                <div class="nv-select" [ng-switch]="isGroupMode">
+                    <template [ng-switch-when]="true">
+                        <div>
+                            simple mode
+                        </div>
+                    </template>
+                    <template [ng-switch-when]="false">
+                        <div>
+                            group mode
+                        </div>
+                    </template>
                 </div>
                 `,
-    directives: [SelectionList, NvSelectOption, NvOptGroup, coreDirectives]
+    directives: [SelectionList, NvSelectOption, NvOptGroup, NgSwitch, NgSwitchWhen, NgSwitchDefault]
 })
 export class NvSelect {
 
