@@ -112,8 +112,4 @@ export class SelectionList<T extends SelectionOption> {
 
     }
 
-    protected onScroll() {
-        console.log("scroll ...");
-    }
-
 }
