@@ -1,9 +1,9 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, Parent, EventEmitter, Attribute, onChange, NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/angular2';
+import {Component, View, Parent, EventEmitter, Attribute, onChange, coreDirectives} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
-
+import {BlockScrollPropagation} from 'nv/decorators/blockscrollpropagation/BlockScrollPropagation';
 /**
  *
  * @ngdoc Component
@@ -60,7 +60,7 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
 
 
                 </div>`,
-    directives: [NgFor, ScrollableList, ScrollableListElement, NgSwitch, NgSwitchWhen, NgSwitchDefault]
+    directives: [ScrollableList, ScrollableListElement, coreDirectives, BlockScrollPropagation]
 })
 export class SelectionList<T extends SelectionOption> {
 
