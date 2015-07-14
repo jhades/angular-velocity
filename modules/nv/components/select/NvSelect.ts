@@ -28,20 +28,20 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 export class NvSelect {
 
     isGroupMode: boolean = false;
-    optionElements: QueryList<NvSelectOption>;
-    optionGroups: QueryList<NvOptGroup>;
+    optionElementsQuery: QueryList<NvSelectOption>;
+    optionGroupsQuery: QueryList<NvOptGroup>;
 
     constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>) {
 
-        this.optionElements = optionElements;
-        this.optionGroups = optionGroups;
+        this.optionElementsQuery = optionElements;
+        this.optionGroupsQuery = optionGroups;
         optionGroups.onChange(() => this.onOptGroupsChanged());
 
     }
 
     onOptGroupsChanged() {
-        this.isGroupMode =  (this.optionGroups._results.length > 0);
+        this.isGroupMode =  (this.optionGroupsQuery._results.length > 0);
     }
 
 }
