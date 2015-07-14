@@ -138,6 +138,8 @@ export class Dropdown<T extends SelectionOption> {
         else if (this.keyUtils.isEnter(key)) {
             this.onSelectionChanged(this.highlighted, input);
         }
+        event.preventDefault();
+        event.stopPropagation();
     }
 
     onArrowDown() {
