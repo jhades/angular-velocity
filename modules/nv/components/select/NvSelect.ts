@@ -1,5 +1,5 @@
 
-import {Component, View, Query, QueryList} from 'angular2/angular2';
+import {Component, View, Query, QueryList, coreDirectives} from 'angular2/angular2';
 import {SelectionList} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
@@ -9,14 +9,16 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 })
 @View({
     template: `<div>nv-select</div>`,
-    directives: [SelectionList, NvSelectOption, NvOptGroup]
+    directives: [SelectionList, NvSelectOption, NvOptGroup, coreDirectives]
 })
 export class NvSelect {
 
+    isGroupMode: boolean = false;
+
     constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>) {
-        console.log(optionElements);
-        console.log(optionGroups);
+
+        this.isGroupMode = (optionGroups.length > 0);
     }
 
 }
