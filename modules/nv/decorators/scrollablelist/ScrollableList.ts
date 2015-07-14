@@ -135,7 +135,7 @@ export class ScrollableList {
 
 
     scrollStep(scrollSteps:number) {
-        //TODO
+        //TODO can this scroll step stay hardcoded?
         this.el.nativeElement.scrollTop += scrollSteps * 22;
     }
 }
