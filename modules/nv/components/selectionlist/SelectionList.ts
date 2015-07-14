@@ -23,6 +23,9 @@ import {BlockScrollPropagation} from 'nv/decorators/blockscrollpropagation/Block
     selector: 'ngv-selection-list',
     properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'lastNavAction', 'hidden'],
     events: ['change','highlight'],
+    host: {
+        '(scroll)': 'onScroll()'
+    },
     lifecycle: [onChange]
 })
 @View({
@@ -107,6 +110,10 @@ export class SelectionList<T extends SelectionOption> {
         options.forEach((option) => option.highlighted = false);
         options[options.indexOf(this.highlightedOption)].highlighted = true;
 
+    }
+
+    protected onScroll() {
+        console.log("scroll ...");
     }
 
 }

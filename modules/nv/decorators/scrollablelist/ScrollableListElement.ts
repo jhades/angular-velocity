@@ -15,7 +15,9 @@ import {ScrollableList} from 'angular-velocity';
     properties: ['disabled', 'highlighted'],
     host: {
       '(mouseover)': 'onMouseOver()',
-      '(mouseleave)': 'onMouseOut()'
+      '(mouseleave)': 'onMouseOut()',
+      '(mousewheel)': 'onMouseWheel($event)',
+      '(DOMMouseScroll)': 'onMouseWheel($event)'
     },
     events: ['highlight'],
     lifecycle: [onChange]
@@ -58,5 +60,12 @@ export class ScrollableListElement {
     highlightOff() {
         this.highlight.next(false);
     }
+
+    protected onMouseWheel($event) {
+        var delta = $event.wheelDelta || -$event.detail;
+        this.scrollable.scrollStep(delta < 0 ? 1 : -1);
+        $event.preventDefault();
+    }
+
 
 }
