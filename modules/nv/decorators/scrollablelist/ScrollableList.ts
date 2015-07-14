@@ -102,6 +102,7 @@ export class ScrollableList {
         };
         this.scrollIntoViewOngoing = true;
         this.el.nativeElement.addEventListener('scroll', scrollHandler);
+        //TODO
         this.getCurrentHighlighted().el.nativeElement.scrollIntoView(adjustToTop);
     }
 
@@ -134,6 +135,7 @@ export class ScrollableList {
 
 
     scrollStep(scrollSteps:number) {
+        //TODO
         this.el.nativeElement.scrollTop += scrollSteps * 22;
     }
 }
