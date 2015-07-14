@@ -13,7 +13,7 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 })
 export class NvSelect {
 
-    constructor(@Query(NvSelectOption) optionElements: QueryList<NvSelectOption>,
+    constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>) {
         console.log(optionElements);
         console.log(optionGroups);
