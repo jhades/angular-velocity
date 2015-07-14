@@ -9,6 +9,7 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 })
 @View({
     template: `
+                <h1>{{isGroupMode}}</h1>
                 <div class="nv-select" [ng-switch]="isGroupMode">
                     <template [ng-switch-when]="true">
                         <div>
@@ -27,11 +28,20 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 export class NvSelect {
 
     isGroupMode: boolean = false;
+    optionElements: QueryList<NvSelectOption>;
+    optionGroups: QueryList<NvOptGroup>;
 
     constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>) {
 
-        this.isGroupMode = (optionGroups.length && optionGroups.length > 0);
+        this.optionElements = optionElements;
+        this.optionGroups = optionGroups;
+        optionGroups.onChange(() => this.onOptGroupsChanged());
+
+    }
+
+    onOptGroupsChanged() {
+        this.isGroupMode =  (this.optionGroups._results.length > 0);
     }
 
 }
