@@ -65,6 +65,7 @@ export class ScrollableListElement {
         var delta = $event.wheelDelta || -$event.detail;
         this.scrollable.scrollStep(delta < 0 ? 1 : -1);
         $event.preventDefault();
+        $event.stopPropagation();
     }
 
 
