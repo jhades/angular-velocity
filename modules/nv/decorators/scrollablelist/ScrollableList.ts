@@ -53,12 +53,7 @@ export class ScrollableList {
     onArrowDown() {
         if (this.existsNextEnabledElement()) {
             this.highlightNext();
-            var delta = (this.getCurrentHighlighted().el.nativeElement.offsetTop + this.getCurrentHighlighted().el.nativeElement.offsetHeight  - this.el.nativeElement.scrollTop - this.el.nativeElement.offsetHeight);
-            console.log('delta = ' + delta);
-
-            if (delta > 0) {
-                this.el.nativeElement.scrollTop += delta;
-            }
+            this.scrollHighlightedIntoViewIfNeeded();
             if(this.getCurrentHighlighted().disabled) {
                 this.onArrowDown();
             }
@@ -72,13 +67,21 @@ export class ScrollableList {
     onArrowUp() {
         if (this.existsPreviousEnabledElement()) {
             this.highlightPrevious();
-            var delta = (this.el.nativeElement.scrollTop - this.getCurrentHighlighted().el.nativeElement.offsetTop);
-            if (delta > 0) {
-                this.el.nativeElement.scrollTop -= delta;
-            }
+            this.scrollHighlightedIntoViewIfNeeded();
             if(this.getCurrentHighlighted().disabled) {
                 this.onArrowUp();
             }
+        }
+    }
+
+    scrollHighlightedIntoViewIfNeeded() {
+        var deltaScrollDown = (this.getCurrentHighlighted().el.nativeElement.offsetTop + this.getCurrentHighlighted().el.nativeElement.offsetHeight  - this.el.nativeElement.scrollTop - this.el.nativeElement.offsetHeight);
+        if (deltaScrollDown > 0) {
+            this.el.nativeElement.scrollTop += deltaScrollDown;
+        }
+        var deltaScrollUp = (this.el.nativeElement.scrollTop - this.getCurrentHighlighted().el.nativeElement.offsetTop);
+        if (deltaScrollUp > 0) {
+            this.el.nativeElement.scrollTop -= deltaScrollUp;
         }
     }
 
