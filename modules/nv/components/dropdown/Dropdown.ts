@@ -214,7 +214,7 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
-    private findAllOptions(): Array<T> {
+    protected findAllOptions(): Array<T> {
         if (this.options) {
             return this.options;
         }

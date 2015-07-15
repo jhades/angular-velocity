@@ -11,6 +11,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
  *
  * - scrolling via the up and down keyboard arrows
  * - allow the mouse to take over the scrolling from the keyboard and vice-versa
+ * - support for disabled elements
  *
  * @see ScrollableListElement
  *
@@ -26,6 +27,7 @@ export class ScrollableList {
     lastNavAction: LastNavAction;
     scrollableElements: Array<ScrollableListElement> = [];
     selectedIndex: number = null;
+    scrollIntoViewOngoing: boolean = false;
 
     constructor(private keyUtils: KeyboardUtils, private el: ElementRef) {
 
@@ -77,12 +79,22 @@ export class ScrollableList {
     scrollHighlightedIntoViewIfNeeded() {
         var deltaScrollDown = (this.getCurrentHighlighted().el.nativeElement.offsetTop + this.getCurrentHighlighted().el.nativeElement.offsetHeight  - this.el.nativeElement.scrollTop - this.el.nativeElement.offsetHeight);
         if (deltaScrollDown > 0) {
-            this.el.nativeElement.scrollTop += deltaScrollDown;
+            this.launchScroll(deltaScrollDown);
         }
-        var deltaScrollUp = (this.el.nativeElement.scrollTop - this.getCurrentHighlighted().el.nativeElement.offsetTop);
-        if (deltaScrollUp > 0) {
-            this.el.nativeElement.scrollTop -= deltaScrollUp;
+        var deltaScrollUp = (this.getCurrentHighlighted().el.nativeElement.offsetTop - this.el.nativeElement.scrollTop);
+        if (deltaScrollUp < 0) {
+            this.launchScroll(deltaScrollUp);
         }
+    }
+
+    private launchScroll(scrollOffset) {
+        var scrollHandler = (evt) => {
+            this.el.nativeElement.removeEventListener('scroll', scrollHandler);
+            setTimeout(() => this.scrollIntoViewOngoing = false, 700);
+        };
+        this.scrollIntoViewOngoing = true;
+        this.el.nativeElement.addEventListener('scroll', scrollHandler);
+        this.el.nativeElement.scrollTop += scrollOffset;
     }
 
     existsPreviousEnabledElement() {
