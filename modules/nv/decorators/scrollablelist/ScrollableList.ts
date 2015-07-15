@@ -53,7 +53,12 @@ export class ScrollableList {
     onArrowDown() {
         if (this.existsNextEnabledElement()) {
             this.highlightNext();
-            this.scrollCurrentElementIntoViewIfNeeded();
+            var delta = (this.getCurrentHighlighted().el.nativeElement.offsetTop + this.getCurrentHighlighted().el.nativeElement.offsetHeight  - this.el.nativeElement.scrollTop - this.el.nativeElement.offsetHeight);
+            console.log('delta = ' + delta);
+
+            if (delta > 0) {
+                this.el.nativeElement.scrollTop += delta;
+            }
             if(this.getCurrentHighlighted().disabled) {
                 this.onArrowDown();
             }
@@ -67,7 +72,10 @@ export class ScrollableList {
     onArrowUp() {
         if (this.existsPreviousEnabledElement()) {
             this.highlightPrevious();
-            this.scrollCurrentElementIntoViewIfNeeded();
+            var delta = (this.el.nativeElement.scrollTop - this.getCurrentHighlighted().el.nativeElement.offsetTop);
+            if (delta > 0) {
+                this.el.nativeElement.scrollTop -= delta;
+            }
             if(this.getCurrentHighlighted().disabled) {
                 this.onArrowUp();
             }
@@ -76,27 +84,6 @@ export class ScrollableList {
 
     existsPreviousEnabledElement() {
         return this.scrollableElements.slice(0, this.selectedIndex).some((el: ScrollableListElement) => !el.disabled);
-    }
-
-    scrollCurrentElementIntoViewIfNeeded() {
-        if (this.getCurrentHighlighted()) {
-            var shouldScrollDown = this.getCurrentHighlighted().el.nativeElement.offsetTop +
-                this.getCurrentHighlighted().el.nativeElement.offsetHeight > this.el.nativeElement.scrollTop + this.el.nativeElement.offsetHeight;
-            if (shouldScrollDown) {
-                this.scrollElementIntoView(false);
-            }
-            else {
-                var shouldScrollUp = this.getCurrentHighlighted().el.nativeElement.offsetTop < this.el.nativeElement.scrollTop;
-                if (shouldScrollUp) {
-                    this.scrollElementIntoView(true);
-                }
-            }
-        }
-    }
-
-    protected scrollElementIntoView(adjustToTop) {
-        //TODO
-        //this.getCurrentHighlighted().el.nativeElement.scrollIntoView(adjustToTop);
     }
 
     getCurrentHighlighted() : ScrollableListElement {
