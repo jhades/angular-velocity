@@ -1,10 +1,12 @@
-import {Directive} from 'angular2/angular2';
-
+import {Directive, ElementRef} from 'angular2/angular2';
+import {SelectionOption} from 'angular-velocity';
 
 @Directive({
-    selector:"nv-select option"
+    selector:"nv-select option",
+    properties: ['value', 'text']
 })
 export class NvSelectOption {
+
 
 
 

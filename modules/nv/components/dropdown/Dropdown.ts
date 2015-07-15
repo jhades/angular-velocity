@@ -34,7 +34,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
     selector: 'nv-dropdown',
     events: ['change'],
     viewInjector: [KeyboardUtils],
-    properties: ['options', 'optionGroups']
+    properties: ['options', 'optionGroups', 'numVisibleOptions', 'dropdownWidth']
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">

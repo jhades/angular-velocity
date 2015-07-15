@@ -55,14 +55,14 @@ import {Dropdown,NvSelect, NvSelectOption, NvOptGroup} from 'angular-velocity';
                         <div class="demo">
                             <h3>nv-select:</h3>
                             <nv-select num-visible-options="7" dropdown-width="200px" (change)="onSelection($event)">
-                                <option *ng-for="#team of refData.NBA_TEAMS">{{team.description}}</option>
+                                <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
                             </nv-select>
                         </div>
                         <div class="demo">
                             <h3>nv-select with groups:</h3>
                             <nv-select num-visible-options="7" dropdown-width="200px" (change)="onSelection($event)">
                                 <optgroup *ng-for="#division of refData.NBA_DIVISIONS;" label="division.label">
-                                    <option *ng-for="#team of division.options">{{team.description}}</option>
+                                    <option *ng-for="#team of division.options" [value]="team" [text]="team.description"></option>
                                 </optgroup>
                             </nv-select>
                         </div>
