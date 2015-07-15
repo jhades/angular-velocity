@@ -24,6 +24,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
  *  - displays "..." if text too long
  *  - the dropdown is always correctly positioned, even if the user resizes the browser window
  *    or if the dropdown is used inside scrolling dialogs
+ *  - the scrolling of the selection list does not cause the whole page to scroll or "bump"
  *
  * When the user chooses an option, a change event is triggered.
  *
@@ -89,18 +90,33 @@ export class Dropdown<T extends SelectionOption> {
         this.dropdownWidth = dropdownWidth;
     }
 
-    onButtonToggle() {
+    /**
+     * open/close the selection list when dropdown button is clicked. set focus if first clicked.
+     *
+     */
+    protected onButtonToggle() {
         this.showSelectionList = !this.showSelectionList;
         if (!this.active) {
             this.active = true;
         }
     }
 
-    onHighlightedChanged(option) {
+    /**
+     * track which element is highlighted, so if the user presses Enter we know which item was selected
+     *
+     */
+    protected onHighlightedChanged(option) {
         this.highlighted = option;
     }
 
-    onSelectionChanged(option: SelectionOption, input) {
+    /**
+     *
+     * if the option clicked is enabled, select it and close the dropdown.
+     * Otherwise cancel the loss of focus to keep the dropdown opened, and set the focus back to the input,
+     * this way we can keep track of the user keyboard input.
+     *
+     */
+    protected onSelectionChanged(option: SelectionOption, input) {
         if (option && !option.disabled) {
             this.selected = option;
             this.showSelectionList = false;
@@ -112,7 +128,12 @@ export class Dropdown<T extends SelectionOption> {
         input.focus();
     }
 
-    onFocusLost() {
+    /**
+     * if the focus is lost from the input 'field' (its a div), wait a small amount of time to see if the focus is really lost.
+     * For example in the case of clicks on disabled elements, we want to put the focus back on the input.
+     *
+     */
+    protected onFocusLost() {
         setTimeout(() => {
             if (!this.cancelFocusLost) {
                 this.showSelectionList = false;
@@ -121,7 +142,13 @@ export class Dropdown<T extends SelectionOption> {
         },200);
     }
 
-    onKeyDown(event, input) {
+    /**
+     *
+     * track the up and down arrow for keyboard navigation, selection via enter, etc.
+     * we cancel the keyboard event preventing it's propagation: otherwise the whole page would scroll up and down!!
+     *
+     */
+    protected onKeyDown(event, input) {
         var key = event.keyCode;
         if (this.keyUtils.isEsc(key)) {
             this.showSelectionList = false;
@@ -142,13 +169,22 @@ export class Dropdown<T extends SelectionOption> {
         event.stopPropagation();
     }
 
-    onArrowDown() {
+    /**
+     * show the selection list if hidden; the scrolling behaviour itself is implemented inside the selection list component.
+     *
+     */
+    protected onArrowDown() {
         if (!this.showSelectionList) {
             this.showSelectionList = true;
         }
     }
 
-    onTab() {
+    /**
+     * if the selection list is visible, block the tab, just like the native select element.
+     * Otherwise remove focus from the dropdown.
+     *
+     */
+    protected onTab() {
         if (this.showSelectionList) {
             event.preventDefault();
             event.stopPropagation();
@@ -158,7 +194,13 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
-    onTypeSearch(search) {
+    /**
+     * search for closest match for the current ongoing type search, and highlight the element. The element will be scrolled into view if needed.
+     * If the dropdown is closed then the element is imediatelly selected.
+     *
+     * @param search - the current type search
+     */
+    protected onTypeSearch(search) {
         var regex = new RegExp('^' + search);
         var match = this.findAllOptions().find((option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
@@ -172,7 +214,7 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
-    protected findAllOptions() {
+    private findAllOptions(): Array<T> {
         if (this.options) {
             return this.options;
         }
