@@ -53,7 +53,7 @@ export class ScrollableList {
     onArrowDown() {
         if (this.existsNextEnabledElement()) {
             this.highlightNext();
-            this.scrollElementIntoViewIfNeeded();
+            this.scrollCurrentElementIntoViewIfNeeded();
             if(this.getCurrentHighlighted().disabled) {
                 this.onArrowDown();
             }
@@ -67,7 +67,7 @@ export class ScrollableList {
     onArrowUp() {
         if (this.existsPreviousEnabledElement()) {
             this.highlightPrevious();
-            this.scrollElementIntoViewIfNeeded();
+            this.scrollCurrentElementIntoViewIfNeeded();
             if(this.getCurrentHighlighted().disabled) {
                 this.onArrowUp();
             }
@@ -78,7 +78,7 @@ export class ScrollableList {
         return this.scrollableElements.slice(0, this.selectedIndex).some((el: ScrollableListElement) => !el.disabled);
     }
 
-    scrollElementIntoViewIfNeeded() {
+    scrollCurrentElementIntoViewIfNeeded() {
         if (this.getCurrentHighlighted()) {
             var shouldScrollDown = this.getCurrentHighlighted().el.nativeElement.offsetTop +
                 this.getCurrentHighlighted().el.nativeElement.offsetHeight > this.el.nativeElement.scrollTop + this.el.nativeElement.offsetHeight;
@@ -128,7 +128,6 @@ export class ScrollableList {
 
 
     scrollStep(scrollSteps:number) {
-        //TODO can this scroll step stay hardcoded?
         this.el.nativeElement.scrollTop += scrollSteps * 22;
     }
 }
