@@ -214,6 +214,11 @@ export class Dropdown<T extends SelectionOption> {
         }
     }
 
+    /**
+     *
+     * returns all the options, independently if they are grouped or not - useful to apply an operation to all options without checking if the dropdown is in group mode
+     *
+     */
     protected findAllOptions(): Array<T> {
         if (this.options) {
             return this.options;
