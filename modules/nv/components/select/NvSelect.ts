@@ -10,18 +10,11 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 })
 @View({
     template: `
-                <div class="nv-select" [ng-switch]="isGroupMode">
-                    <template [ng-switch-when]="true">
-                        <div>
-                            group mode
-                        </div>
-                    </template>
-                    <template [ng-switch-when]="false">
-                        <nv-dropdown [num-visible-options]="numVisibleOptions" [dropdown-width]="dropdownWidth"
-                            [options]="options"
-                            (change)="onSelection($event)">
-                        </nv-dropdown>
-                    </template>
+                <div class="nv-select">
+                    <nv-dropdown [num-visible-options]="numVisibleOptions" [dropdown-width]="dropdownWidth"
+                        [options]="options" [option-groups]="optionGroups"
+                        (change)="onSelection($event)">
+                    </nv-dropdown>
                 </div>
                 `,
     directives: [SelectionList, NvSelectOption, NvOptGroup,coreDirectives, Dropdown]
@@ -31,10 +24,10 @@ export class NvSelect {
     optionElementsQuery: QueryList<NvSelectOption>;
     optionGroupsQuery: QueryList<NvOptGroup>;
     options: Array;
+    optionGroups: Array;
     numVisibleOptions: number;
     dropdownWidth: string;
     change: EventEmitter = new EventEmitter();
-    isGroupMode: boolean = false;
 
     constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>,
@@ -62,10 +55,9 @@ export class NvSelect {
     }
 
     onOptGroupsChanged() {
-        this.isGroupMode =  (this.optionGroupsQuery._results.length > 0);
-        this.options = [];
+        this.optionGroups = [];
         for (let optionGroupEl of this.optionGroupsQuery._results) {
-            this.options.concat(optionGroupEl.options);
+            this.optionGroups.concat(optionGroupEl.optionGroup);
         }
     }
 
