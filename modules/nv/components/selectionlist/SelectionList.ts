@@ -3,7 +3,7 @@
 import {Component, View, Parent, EventEmitter, Attribute, onChange, coreDirectives} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
-import {BlockScrollPropagation} from 'nv/decorators/blockscrollpropagation/BlockScrollPropagation';
+
 /**
  *
  * @ngdoc Component
@@ -63,7 +63,7 @@ import {BlockScrollPropagation} from 'nv/decorators/blockscrollpropagation/Block
 
 
                 </div>`,
-    directives: [ScrollableList, ScrollableListElement, coreDirectives, BlockScrollPropagation]
+    directives: [ScrollableList, ScrollableListElement, coreDirectives]
 })
 export class SelectionList<T extends SelectionOption> {
 
