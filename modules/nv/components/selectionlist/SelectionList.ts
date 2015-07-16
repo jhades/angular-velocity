@@ -30,7 +30,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height"  [style.width]="width"
-                     nv-scrollable-list [navigation-action]="navigationAction">
+                     nv-scrollable-list [navigation-action]="navigationAction" [hidden]="hidden">
 
                     <div [ng-switch]="isGroupMode()">
                         <template [ng-switch-when]="true">

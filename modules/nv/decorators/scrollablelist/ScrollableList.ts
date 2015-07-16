@@ -18,12 +18,13 @@ import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-vel
 
 @Directive({
     selector: "[nv-scrollable-list]",
-    properties: ['navigationAction'],
+    properties: ['navigationAction','hidden'],
     lifecycle: [onChange]
 
 })
 export class ScrollableList {
     navigationAction: NavigationAction;
+    hidden: boolean;
     scrollableElements: Array<ScrollableListElement> = [];
     selectedIndex: number = null;
     scrollIntoViewOngoing: boolean = false;
@@ -34,18 +35,31 @@ export class ScrollableList {
 
     onChange(changes) {
         if (changes['navigationAction'] && this.navigationAction) {
-            var action = this.navigationAction.actionType;
-            switch(action) {
-                case NavActionEnum.DOWN:
-                    this.onArrowDown();
-                    break;
-                case NavActionEnum.UP:
-                    this.onArrowUp();
-                    break;
-            }
+            this.onNavigationAction();
         }
         else if (this.navigationAction === null) {
             this.selectedIndex = null;
+        }
+        if (changes['hidden'] && !this.hidden) {
+            this.onShow();
+        }
+    }
+
+    onNavigationAction() {
+        var action = this.navigationAction.actionType;
+        switch(action) {
+            case NavActionEnum.DOWN:
+                this.onArrowDown();
+                break;
+            case NavActionEnum.UP:
+                this.onArrowUp();
+                break;
+        }
+    }
+
+    onShow() {
+        if (this.getCurrentHighlighted()) {
+            this.scrollHighlightedIntoViewIfNeeded();
         }
     }
 
