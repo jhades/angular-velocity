@@ -17,10 +17,7 @@ export class NvOptGroup {
 
     onOptionsChanged() {
         this.options = [];
-        debugger;
-        for (let optionEl of this.optionElementsQuery._results) {
-            this.options.push(optionEl.option);
-        }
+        this.optionElementsQuery._results.forEach((optionEl) => this.options.push(optionEl.option));
     }
 
 
