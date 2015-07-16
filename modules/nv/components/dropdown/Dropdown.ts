@@ -180,7 +180,9 @@ export class Dropdown<T extends SelectionOption> {
         if (!this.showSelectionList) {
             this.showSelectionList = true;
         }
-        this.navigationAction = new NavigationAction(NavActionEnum.DOWN);
+        else {
+            this.navigationAction = new NavigationAction(NavActionEnum.DOWN);
+        }
     }
 
     /**
