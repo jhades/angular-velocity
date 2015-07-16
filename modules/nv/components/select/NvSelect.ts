@@ -41,23 +41,25 @@ export class NvSelect {
 
         optionElements.onChange(() => this.onOptionsChanged());
         optionGroups.onChange(() => this.onOptGroupsChanged());
-
     }
 
     onOptionsChanged() {
         this.options = [];
         for (let optionEl of this.optionElementsQuery._results) {
-            this.options.push({
-                description: optionEl.text,
-                value: optionEl.value
-            });
+            this.options.push(optionEl.option);
         }
     }
 
     onOptGroupsChanged() {
         this.optionGroups = [];
         for (let optionGroupEl of this.optionGroupsQuery._results) {
-            this.optionGroups.concat(optionGroupEl.optionGroup);
+            var optionGroup = <SelectionGroup> {
+                label: optionGroupEl.label,
+            };
+            for (let optionEl of optionGroupEl.optionElementsQuery._results) {
+                optionGroup.options.push(optionEl.option);
+            }
+            this.optionGroups.push(optionGroup);
         }
     }
 

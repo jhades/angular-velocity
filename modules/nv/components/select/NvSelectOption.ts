@@ -7,7 +7,15 @@ import {SelectionOption} from 'angular-velocity';
 })
 export class NvSelectOption {
 
+    text: string;
+    value: any;
 
+    get option(): SelectionOption {
+        return <SelectionOption> {
+            description: this.text,
+            value: this.value
+        }
+    }
 
 
 }
