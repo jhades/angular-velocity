@@ -1,7 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
-import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup, KeyCodes} from 'angular-velocity';
+import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes} from 'angular-velocity';
 
 
 /**
@@ -33,7 +33,6 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 @Component({ 
     selector: 'nv-dropdown',
     events: ['change'],
-    viewInjector: [KeyboardUtils],
     properties: ['options', 'optionGroups', 'numVisibleOptions', 'dropdownWidth']
 })
 @View({
@@ -85,7 +84,7 @@ export class Dropdown<T extends SelectionOption> {
     navigationAction: NavigationAction;
     cancelFocusLost: boolean = false;
 
-    constructor(private keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
+    constructor(@Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
         this.numVisibleOptions = numVisibleOptions;
         this.dropdownWidth = dropdownWidth;
     }

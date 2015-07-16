@@ -1,7 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, Parent, EventEmitter, Attribute, onChange, coreDirectives} from 'angular2/angular2';
-import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
 /**
@@ -72,10 +71,6 @@ export class SelectionList<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
     highlightedOption: T;
     highlight: EventEmitter = new EventEmitter();
-
-    constructor(private keyUtils: KeyboardUtils) {
-
-    }
 
     private onChange(changes) {
         if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
