@@ -161,7 +161,7 @@ export class Dropdown<T extends SelectionOption> {
                 this.onArrowDown();
                 break;
             case KeyCodes.UP:
-                this.navigationAction = new NavigationAction(NavActionEnum.UP);
+                this.onArrowUp();
                 break;
             case KeyCodes.ENTER:
                 this.onSelectionChanged(this.highlighted, input);
@@ -182,6 +182,16 @@ export class Dropdown<T extends SelectionOption> {
         }
         else {
             this.navigationAction = new NavigationAction(NavActionEnum.DOWN);
+        }
+    }
+
+    /**
+     * navigate up the list only if its visible, otherwise stay at the currently selected option.
+     *
+     */
+    onArrowUp() {
+        if (this.showSelectionList) {
+            this.navigationAction = new NavigationAction(NavActionEnum.UP);
         }
     }
 
