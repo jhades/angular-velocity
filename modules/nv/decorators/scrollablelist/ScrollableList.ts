@@ -1,6 +1,5 @@
 import {Directive, onChange, ElementRef} from 'angular2/angular2';
-import {LastNavAction,ScrollableListElement} from 'angular-velocity';
-import {KeyboardUtils} from 'nv/services/KeyboardUtils';
+import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-velocity';
 
 /**
  *
@@ -19,31 +18,33 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Directive({
     selector: "[nv-scrollable-list]",
-    properties: ['lastNavAction'],
+    properties: ['navigationAction'],
     lifecycle: [onChange]
 
 })
 export class ScrollableList {
-    lastNavAction: LastNavAction;
+    navigationAction: NavigationAction;
     scrollableElements: Array<ScrollableListElement> = [];
     selectedIndex: number = null;
     scrollIntoViewOngoing: boolean = false;
 
-    constructor(private keyUtils: KeyboardUtils, private el: ElementRef) {
+    constructor(private el: ElementRef) {
 
     }
 
     onChange(changes) {
-        if (changes['lastNavAction'] && this.lastNavAction) {
-            var key = this.lastNavAction.value;
-            if (this.keyUtils.isArrowDown(key)) {
-                this.onArrowDown();
-            }
-            else if (this.keyUtils.isArrowUp(key)) {
-                this.onArrowUp();
+        if (changes['navigationAction'] && this.navigationAction) {
+            var action = this.navigationAction.actionType;
+            switch(action) {
+                case NavActionEnum.DOWN:
+                    this.onArrowDown();
+                    break;
+                case NavActionEnum.UP:
+                    this.onArrowUp();
+                    break;
             }
         }
-        else if (this.lastNavAction === null) {
+        else if (this.navigationAction === null) {
             this.selectedIndex = null;
         }
     }

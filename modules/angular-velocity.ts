@@ -1,6 +1,7 @@
 import {Highlightable} from 'nv/core/Highlightable';
 import {RepeateablePrimitiveValue} from 'nv/core/RepeateablePrimitiveValue';
-import {LastNavAction} from 'nv/core/LastNavAction';
+import {NavActionEnum} from 'nv/core/navigation/NavActionEnum';
+import {NavigationAction} from 'nv/core/navigation/NavigationAction';
 import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
 import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableListElement';
 import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
@@ -16,7 +17,8 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 export {
     Highlightable,
     RepeateablePrimitiveValue,
-    LastNavAction,
+    NavActionEnum,
+    NavigationAction,
     ScrollableList,
     ScrollableListElement,
     TypeSearch,

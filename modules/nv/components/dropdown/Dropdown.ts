@@ -1,7 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
-import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup} from 'angular-velocity';
+import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup} from 'angular-velocity';
 
 
 /**
@@ -52,7 +52,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle()">
                         </div>
-                        
+
                     </div>
 
                     <ngv-selection-list
@@ -62,7 +62,7 @@ import {LastNavAction,TypeSearch,SelectionList, SelectionOption, BlankOption, Ke
                         [options]="options"
                         [option-groups]="optionGroups"
                         (change)="onSelectionChanged($event, input)"
-                        [last-nav-action]="navigationAction"
+                        [navigation-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
                     </ngv-selection-list>
 
@@ -82,7 +82,7 @@ export class Dropdown<T extends SelectionOption> {
     selected: SelectionOption = new BlankOption();
     highlighted: SelectionOption;
 
-    navigationAction: LastNavAction;
+    navigationAction: NavigationAction;
     cancelFocusLost: boolean = false;
 
     constructor(private keyUtils: KeyboardUtils, @Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
@@ -156,11 +156,11 @@ export class Dropdown<T extends SelectionOption> {
         else if (this.keyUtils.isTab(key)) {
             this.onTab();
         }
-        else if (this.keyUtils.isArrowKey(key)) {
-            if (this.keyUtils.isArrowDown(key)) {
-                this.onArrowDown();
-            }
-            this.navigationAction = new LastNavAction(key);
+        else if (this.keyUtils.isArrowDown(key)) {
+            this.onArrowDown();
+        }
+        else if (this.keyUtils.isArrowUp(key)) {
+            this.navigationAction = new NavigationAction(NavActionEnum.UP);
         }
         else if (this.keyUtils.isEnter(key)) {
             this.onSelectionChanged(this.highlighted, input);
@@ -177,6 +177,7 @@ export class Dropdown<T extends SelectionOption> {
         if (!this.showSelectionList) {
             this.showSelectionList = true;
         }
+        this.navigationAction = new NavigationAction(NavActionEnum.DOWN);
     }
 
     /**

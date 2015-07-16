@@ -2,7 +2,7 @@
 
 import {Component, View, Parent, EventEmitter, Attribute, onChange, coreDirectives} from 'angular2/angular2';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
-import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
+import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
 /**
  *
@@ -21,7 +21,7 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
  */
 @Component({
     selector: 'ngv-selection-list',
-    properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'lastNavAction', 'hidden'],
+    properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
     events: ['change','highlight'],
     host: {
         '(scroll)': 'onScroll()'
@@ -31,7 +31,7 @@ import {LastNavAction, ScrollableList, ScrollableListElement, SelectionOption, B
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height"  [style.width]="width"
-                     nv-scrollable-list [last-nav-action]="lastNavAction">
+                     nv-scrollable-list [navigation-action]="navigationAction">
 
                     <div [ng-switch]="isGroupMode()">
                         <template [ng-switch-when]="true">
