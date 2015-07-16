@@ -25,34 +25,6 @@ import {Dropdown,NvSelect, NvSelectOption, NvOptGroup} from 'angular-velocity';
                             </nv-dropdown>
                         </div>
                         <div class="demo">
-                            <h3>nv-dropdown:</h3>
-                            <nv-dropdown num-visible-options="7" dropdown-width="200px"
-                                [options]="refData.COUNTRIES"
-                                (change)="onSelection($event)">
-                            </nv-dropdown>
-                        </div>
-                        <div class="demo">
-                            <h3>nv-dropdown with groups:</h3>
-                            <nv-dropdown num-visible-options="7" dropdown-width="200px"
-                                [option-groups]="refData.NBA_DIVISIONS"
-                                (change)="onSelection($event)">
-                            </nv-dropdown>
-                        </div>
-                        <div class="demo">
-                            <h3>nv-dropdown:</h3>
-                            <nv-dropdown num-visible-options="7" dropdown-width="200px"
-                                [options]="refData.COUNTRIES"
-                                (change)="onSelection($event)">
-                            </nv-dropdown>
-                        </div>
-                        <div class="demo">
-                            <h3>nv-dropdown with groups:</h3>
-                            <nv-dropdown num-visible-options="7" dropdown-width="200px"
-                                [option-groups]="refData.NBA_DIVISIONS"
-                                (change)="onSelection($event)">
-                            </nv-dropdown>
-                        </div>
-                        <div class="demo">
                             <h3>nv-select:</h3>
                             <nv-select num-visible-options="7" dropdown-width="200px" (change)="onSelection($event)">
                                 <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
