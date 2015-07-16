@@ -45,9 +45,7 @@ export class NvSelect {
 
     onOptionsChanged() {
         this.options = [];
-        for (let optionEl of this.optionElementsQuery._results) {
-            this.options.push(optionEl.option);
-        }
+        this.optionElementsQuery._results.forEach((optionEl) => this.options.push(optionEl.option));
     }
 
     onOptGroupsChanged() {
@@ -55,10 +53,8 @@ export class NvSelect {
         for (let optionGroupEl of this.optionGroupsQuery._results) {
             var optionGroup = <SelectionGroup> {
                 label: optionGroupEl.label,
+                options: optionGroupEl.options
             };
-            for (let optionEl of optionGroupEl.optionElementsQuery._results) {
-                optionGroup.options.push(optionEl.option);
-            }
             this.optionGroups.push(optionGroup);
         }
     }
