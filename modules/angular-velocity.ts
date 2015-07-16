@@ -13,6 +13,7 @@ import {Dropdown} from 'nv/components/dropdown/Dropdown';
 import {NvSelect} from 'nv/components/select/NvSelect';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
+import {KeyCodes} from 'nv/core/KeyCodes';
 
 export {
     Highlightable,
@@ -30,5 +31,6 @@ export {
     Dropdown,
     NvSelect,
     NvSelectOption,
-    NvOptGroup
+    NvOptGroup,
+    KeyCodes
 }

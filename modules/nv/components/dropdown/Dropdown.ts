@@ -1,7 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
-import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup} from 'angular-velocity';
+import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, KeyboardUtils, SelectionGroup, KeyCodes} from 'angular-velocity';
 
 
 /**
@@ -150,21 +150,25 @@ export class Dropdown<T extends SelectionOption> {
      */
     protected onKeyDown(event, input) {
         var key = event.keyCode;
-        if (this.keyUtils.isEsc(key)) {
-            this.showSelectionList = false;
+
+        switch (key) {
+            case KeyCodes.ESC:
+                this.showSelectionList = false;
+                break;
+            case KeyCodes.TAB:
+                this.onTab();
+                break;
+            case KeyCodes.DOWN:
+                this.onArrowDown();
+                break;
+            case KeyCodes.UP:
+                this.navigationAction = new NavigationAction(NavActionEnum.UP);
+                break;
+            case KeyCodes.ENTER:
+                this.onSelectionChanged(this.highlighted, input);
+                break;
         }
-        else if (this.keyUtils.isTab(key)) {
-            this.onTab();
-        }
-        else if (this.keyUtils.isArrowDown(key)) {
-            this.onArrowDown();
-        }
-        else if (this.keyUtils.isArrowUp(key)) {
-            this.navigationAction = new NavigationAction(NavActionEnum.UP);
-        }
-        else if (this.keyUtils.isEnter(key)) {
-            this.onSelectionChanged(this.highlighted, input);
-        }
+
         event.preventDefault();
         event.stopPropagation();
     }
