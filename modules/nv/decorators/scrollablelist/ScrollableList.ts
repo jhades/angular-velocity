@@ -91,7 +91,7 @@ export class ScrollableList {
     launchScroll(scrollOffset) {
         var scrollHandler = (evt) => {
             this.el.nativeElement.removeEventListener('scroll', scrollHandler);
-            setTimeout(() => this.scrollIntoViewOngoing = false, 100);
+            setTimeout(() => this.scrollIntoViewOngoing = false, 200);
         };
         this.scrollIntoViewOngoing = true;
         this.el.nativeElement.addEventListener('scroll', scrollHandler);
