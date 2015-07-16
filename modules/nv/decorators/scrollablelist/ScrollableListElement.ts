@@ -61,7 +61,7 @@ export class ScrollableListElement {
         this.highlight.next(false);
     }
 
-    protected onMouseWheel($event) {
+    onMouseWheel($event) {
         var delta = $event.wheelDelta || -$event.detail;
         if (!this.scrollable.scrollIntoViewOngoing) {
             this.scrollable.scrollStep(delta < 0 ? 1 : -1);

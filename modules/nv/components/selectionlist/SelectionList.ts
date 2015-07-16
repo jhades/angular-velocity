@@ -72,7 +72,7 @@ export class SelectionList<T extends SelectionOption> {
     highlightedOption: T;
     highlight: EventEmitter = new EventEmitter();
 
-    private onChange(changes) {
+    onChange(changes) {
         if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
             throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
@@ -86,22 +86,22 @@ export class SelectionList<T extends SelectionOption> {
         }
     }
 
-    protected onHighlightChanged(highlighted: boolean, option: T) {
+    onHighlightChanged(highlighted: boolean, option: T) {
         option.highlighted = highlighted;
         if (highlighted) {
             this.highlight.next(option);
         }
     }
 
-    protected onOptionClicked(option: SelectionOption) {
+    onOptionClicked(option: SelectionOption) {
         this.change.next(option);
     }
 
-    protected isGroupMode() {
+    isGroupMode() {
         return (typeof this.optionGroups !== "undefined");
     }
 
-    protected highlightOption(options: Array<T>) {
+    highlightOption(options: Array<T>) {
         options.forEach((option) => option.highlighted = false);
         options[options.indexOf(this.highlightedOption)].highlighted = true;
 

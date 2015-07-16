@@ -93,7 +93,7 @@ export class Dropdown<T extends SelectionOption> {
      * open/close the selection list when dropdown button is clicked. set focus if first clicked.
      *
      */
-    protected onButtonToggle() {
+    onButtonToggle() {
         this.showSelectionList = !this.showSelectionList;
         if (!this.active) {
             this.active = true;
@@ -104,7 +104,7 @@ export class Dropdown<T extends SelectionOption> {
      * track which element is highlighted, so if the user presses Enter we know which item was selected
      *
      */
-    protected onHighlightedChanged(option) {
+    onHighlightedChanged(option) {
         this.highlighted = option;
     }
 
@@ -115,7 +115,7 @@ export class Dropdown<T extends SelectionOption> {
      * this way we can keep track of the user keyboard input.
      *
      */
-    protected onSelectionChanged(option: SelectionOption, input) {
+    onSelectionChanged(option: SelectionOption, input) {
         if (option && !option.disabled) {
             this.selected = option;
             this.showSelectionList = false;
@@ -132,7 +132,7 @@ export class Dropdown<T extends SelectionOption> {
      * For example in the case of clicks on disabled elements, we want to put the focus back on the input.
      *
      */
-    protected onFocusLost() {
+    onFocusLost() {
         setTimeout(() => {
             if (!this.cancelFocusLost) {
                 this.showSelectionList = false;
@@ -147,7 +147,7 @@ export class Dropdown<T extends SelectionOption> {
      * we cancel the keyboard event preventing it's propagation: otherwise the whole page would scroll up and down!!
      *
      */
-    protected onKeyDown(event, input) {
+    onKeyDown(event, input) {
         var key = event.keyCode;
 
         switch (key) {
@@ -176,7 +176,7 @@ export class Dropdown<T extends SelectionOption> {
      * show the selection list if hidden; the scrolling behaviour itself is implemented inside the selection list component.
      *
      */
-    protected onArrowDown() {
+    onArrowDown() {
         if (!this.showSelectionList) {
             this.showSelectionList = true;
         }
@@ -190,7 +190,7 @@ export class Dropdown<T extends SelectionOption> {
      * Otherwise remove focus from the dropdown.
      *
      */
-    protected onTab() {
+    onTab() {
         if (this.showSelectionList) {
             event.preventDefault();
             event.stopPropagation();
@@ -206,7 +206,7 @@ export class Dropdown<T extends SelectionOption> {
      *
      * @param search - the current type search
      */
-    protected onTypeSearch(search) {
+    onTypeSearch(search) {
         var regex = new RegExp('^' + search);
         var match = this.findAllOptions().find((option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
@@ -225,7 +225,7 @@ export class Dropdown<T extends SelectionOption> {
      * returns all the options, independently if they are grouped or not - useful to apply an operation to all options without checking if the dropdown is in group mode
      *
      */
-    protected findAllOptions(): Array<T> {
+    findAllOptions(): Array<T> {
         if (this.options) {
             return this.options;
         }
