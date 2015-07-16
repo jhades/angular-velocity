@@ -50,6 +50,7 @@ export class NvSelect {
 
     onOptGroupsChanged() {
         this.optionGroups = [];
+        //TODO pending https://github.com/angular/angular/issues/1792
         for (let optionGroupEl of this.optionGroupsQuery._results) {
             var optionGroup = <SelectionGroup> {
                 label: optionGroupEl.label,
