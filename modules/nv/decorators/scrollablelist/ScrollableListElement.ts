@@ -63,7 +63,9 @@ export class ScrollableListElement {
 
     protected onMouseWheel($event) {
         var delta = $event.wheelDelta || -$event.detail;
-        this.scrollable.scrollStep(delta < 0 ? 1 : -1);
+        if (!this.scrollable.scrollIntoViewOngoing) {
+            this.scrollable.scrollStep(delta < 0 ? 1 : -1);
+        }
         $event.preventDefault();
         $event.stopPropagation();
     }
