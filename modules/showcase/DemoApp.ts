@@ -25,6 +25,13 @@ import {Dropdown,NvSelect, NvSelectOption, NvOptGroup} from 'angular-velocity';
                             </nv-dropdown>
                         </div>
                         <div class="demo">
+                            <h3>nv-autocomplete (in-memory):</h3>
+                            <nv-autocomplete num-visible-options="7" dropdown-width="200px"
+                                [options]="refData.COUNTRIES"
+                                (change)="onSelection($event)">
+                            </nv-autocomplete>
+                        </div>
+                        <div class="demo">
                             <h3>nv-select:</h3>
                             <nv-select num-visible-options="7" dropdown-width="200px" (change)="onSelection($event)">
                                 <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
