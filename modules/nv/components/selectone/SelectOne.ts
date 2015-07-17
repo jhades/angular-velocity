@@ -80,7 +80,6 @@ export class SelectOne<T extends SelectionOption> {
     /**
      *
      * track the up and down arrow for keyboard navigation, selection via enter, etc.
-     * we cancel the keyboard event preventing it's propagation: otherwise the whole page would scroll up and down!!
      *
      */
     onKeyDown(event, input) {
@@ -103,9 +102,6 @@ export class SelectOne<T extends SelectionOption> {
                 this.onSelectionChanged(this.highlighted, input);
                 break;
         }
-
-        event.preventDefault();
-        event.stopPropagation();
     }
 
     /**

@@ -10,14 +10,14 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth']
 })
 @View({
-    template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
+    template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
 
-                        <input (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" #input>
-                        
-                        <span (click)="onButtonToggle()">{{selected.description}}</span>
+                        <div class="input">
+                            <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" #input>
 
-                        <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle()">
+                            <div class="widget-button dropdown-button"
+                                (click)="onButtonToggle()">
+                            </div>
                         </div>
 
                     </div>
