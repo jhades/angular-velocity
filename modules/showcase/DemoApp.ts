@@ -2,7 +2,7 @@
 
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
-import {Dropdown,NvSelect, NvSelectOption, NvOptGroup} from 'angular-velocity';
+import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
 
 @Component({
     selector: 'sample-app'
@@ -48,7 +48,7 @@ import {Dropdown,NvSelect, NvSelectOption, NvOptGroup} from 'angular-velocity';
 
                     </form>
                 </div>`,
-    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup]
+    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete]
 })
 export class DemoApp {
     refData: ReferenceData;

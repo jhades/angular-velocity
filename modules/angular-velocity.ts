@@ -14,6 +14,7 @@ import {NvSelect} from 'nv/components/select/NvSelect';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 import {KeyCodes} from 'nv/core/KeyCodes';
+import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
 
 export {
     Highlightable,
@@ -32,5 +33,6 @@ export {
     NvSelect,
     NvSelectOption,
     NvOptGroup,
-    KeyCodes
+    KeyCodes,
+    Autocomplete
 }

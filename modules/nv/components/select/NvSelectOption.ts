@@ -10,8 +10,8 @@ export class NvSelectOption {
     text: string;
     value: any;
 
-    get option(): SelectionOption {
-        return <SelectionOption> {
+    get option() {
+        return {
             description: this.text,
             value: this.value
         }
