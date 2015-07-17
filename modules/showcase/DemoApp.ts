@@ -12,34 +12,34 @@ import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angul
                     <form class="pure-form">
                         <div class="demo">
                             <h3>nv-dropdown:</h3>
-                            <nv-dropdown height="250px" dropdown-width="200px"
+                            <nv-dropdown dropdown-height="250px" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)">
                             </nv-dropdown>
                         </div>
                         <div class="demo">
                             <h3>nv-dropdown with groups:</h3>
-                            <nv-dropdown height="250px" dropdown-width="200px"
+                            <nv-dropdown dropdown-height="250px" dropdown-width="200px"
                                 [option-groups]="refData.NBA_DIVISIONS"
                                 (change)="onSelection($event)">
                             </nv-dropdown>
                         </div>
                         <div class="demo">
                             <h3>nv-autocomplete (in-memory):</h3>
-                            <nv-autocomplete height="250px" dropdown-width="200px"
+                            <nv-autocomplete dropdown-height="250px" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)">
                             </nv-autocomplete>
                         </div>
                         <div class="demo">
                             <h3>nv-select:</h3>
-                            <nv-select height="250px" dropdown-width="200px" (change)="onSelection($event)">
+                            <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
                                 <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
                             </nv-select>
                         </div>
                         <div class="demo">
                             <h3>nv-select with groups:</h3>
-                            <nv-select height="250px" dropdown-width="200px" (change)="onSelection($event)">
+                            <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
                                 <optgroup *ng-for="#division of refData.NBA_DIVISIONS;" [label]="division.label">
                                     <option *ng-for="#team of division.options" [value]="team" [text]="team.description"></option>
                                 </optgroup>
