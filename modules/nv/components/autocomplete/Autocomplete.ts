@@ -12,7 +12,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
 
-                        <input (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)">
+                        <input (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" #input>
                         
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
 

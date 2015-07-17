@@ -77,4 +77,42 @@ export class Dropdown<T extends SelectionOption> extends SelectOne<T> {
     }
 
 
+    /**
+     * search for closest match for the current ongoing type search, and highlight the element. The element will be scrolled into view if needed.
+     * If the dropdown is closed then the element is imediatelly selected.
+     *
+     * @param search - the current type search
+     */
+    onTypeSearch(search) {
+        var regex = new RegExp('^' + search);
+        var match = this.findAllOptions().find((option:T) => {
+            return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
+        });
+
+        if (match) {
+            this.highlighted = match;
+            if (!this.showSelectionList) {
+                this.selected = match;
+            }
+        }
+    }
+
+    /**
+     *
+     * returns all the options, independently if they are grouped or not - useful to apply an operation to all options without checking if the dropdown is in group mode
+     *
+     */
+    findAllOptions(): Array<T> {
+        if (this.options) {
+            return this.options;
+        }
+        else if (this.optionGroups) {
+            return SelectionGroup.findAllOptions(this.optionGroups);
+
+        }
+        else {
+            throw new Error("A nv-dropdown must either have an [options] or an [option-groups] property defined.");
+        }
+    }
+
 }
