@@ -9,7 +9,7 @@ export class SelectOne<T extends SelectionOption> {
 
     options: Array<T>;
     optionGroups: Array<SelectionGroup<T>>;
-    numVisibleOptions: number;
+    height: number;
     dropdownWidth: string;
 
     active: boolean = false;
@@ -20,8 +20,8 @@ export class SelectOne<T extends SelectionOption> {
     navigationAction: NavigationAction;
     cancelFocusLost: boolean = false;
 
-    constructor(@Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
-        this.numVisibleOptions = numVisibleOptions;
+    constructor(height, dropdownWidth) {
+        this.height = height;
         this.dropdownWidth = dropdownWidth;
     }
 

@@ -11,7 +11,7 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 @View({
     template: `
                 <div class="nv-select">
-                    <nv-dropdown [num-visible-options]="numVisibleOptions" [dropdown-width]="dropdownWidth"
+                    <nv-dropdown [height]="height" [dropdown-width]="dropdownWidth"
                         [options]="options" [option-groups]="optionGroups"
                         (change)="onSelection($event)">
                     </nv-dropdown>
@@ -25,18 +25,18 @@ export class NvSelect {
     optionGroupsQuery: QueryList<NvOptGroup>;
     options: Array;
     optionGroups: Array;
-    numVisibleOptions: number;
+    height: number;
     dropdownWidth: string;
     change: EventEmitter = new EventEmitter();
 
     constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>,
-                @Attribute("num-visible-options") numVisibleOptions,
+                @Attribute("height") height,
                 @Attribute("dropdown-width") dropdownWidth) {
 
         this.optionElementsQuery = optionElements;
         this.optionGroupsQuery = optionGroups;
-        this.numVisibleOptions = numVisibleOptions;
+        this.height = height;
         this.dropdownWidth = dropdownWidth;
 
         optionElements.onChange(() => this.onOptionsChanged());

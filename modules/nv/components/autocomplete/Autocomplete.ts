@@ -7,7 +7,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 @Component({ 
     selector: 'nv-autocomplete',
     events: ['change'],
-    properties: ['options', 'optionGroups', 'numVisibleOptions', 'dropdownWidth']
+    properties: ['options', 'optionGroups', 'height', 'dropdownWidth']
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
@@ -24,7 +24,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 
                     <ngv-selection-list
                         [hidden]="!showSelectionList"
-                        [height]="22 * numVisibleOptions + 'px'"
+                        [height]="height"
                         [width]="dropdownWidth"
                         [options]="options"
                         [option-groups]="optionGroups"
@@ -38,8 +38,8 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 })
 export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
 
-    constructor(@Attribute("num-visible-options") numVisibleOptions, @Attribute("dropdown-width") dropdownWidth) {
-        super(numVisibleOptions, dropdownWidth);
+    constructor(@Attribute("height") height, @Attribute("dropdown-width") dropdownWidth) {
+        super(height, dropdownWidth);
     }
 
 
