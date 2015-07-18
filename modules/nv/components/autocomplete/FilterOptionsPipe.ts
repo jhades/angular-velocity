@@ -5,7 +5,7 @@ import {SelectionOption} from 'angular-velocity';
 export class FilterOptionsPipe implements Pipe {
 
     transform(value:SelectionOption, args:List<any>):any {
-        console.log('filtering ' + value.description);
+        console.log('filtering ' + args);
         return value;
     }
 

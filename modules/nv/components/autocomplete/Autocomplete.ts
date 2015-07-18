@@ -20,7 +20,7 @@ import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
     template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
-                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" #input>
+                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp(input)" #input>
 
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle()">
@@ -54,18 +54,8 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         input.value = option.description;
     }
 
-
-    onKeyDown(event, input) {
-        super.onKeyDown(event, input);
+    onKeyUp(input) {
         this.search = input.value;
     }
-
-    /*
-     export const angularVelocityPipes  = [
-     Pipes.append({
-     'filterOptions': filterOptions
-     })
-     ];*/
-
 
 }
