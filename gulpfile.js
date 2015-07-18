@@ -85,8 +85,7 @@ gulp.task('build:lib', ['build:angular2'], function () {
         './node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.js.map',
         './node_modules/reflect-metadata/Reflect.js',
         './node_modules/reflect-metadata/Reflect.js.map',
-        './node_modules/systemjs/dist/system.src.js',
-        './node_modules/'
+        './node_modules/systemjs/dist/system.src.js'
     ])
         .pipe(gulp.dest('./lib'));
 });

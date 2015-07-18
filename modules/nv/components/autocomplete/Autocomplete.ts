@@ -3,6 +3,8 @@
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
+import {Pipes} from 'angular2/change_detection';
+import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
 
 @Component({
     selector: 'nv-autocomplete',
@@ -53,6 +55,13 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         super.onKeyDown(event, input);
         this.search = input.value;
     }
+
+    /*
+     export const angularVelocityPipes  = [
+     Pipes.append({
+     'filterOptions': filterOptions
+     })
+     ];*/
 
 
 }
