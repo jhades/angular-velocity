@@ -9,7 +9,12 @@ import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
 @Component({
     selector: 'nv-autocomplete',
     events: ['change'],
-    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth']
+    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
+    viewInjector: [
+        Pipes.append({
+            'filterOptions': filterOptions
+        })
+    ]
 })
 @View({
     template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
@@ -26,8 +31,7 @@ import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
                         [hidden]="!showSelectionList"
                         [height]="dropdownHeight"
                         [width]="dropdownWidth"
-                        [options]="options"
-                        [option-groups]="optionGroups"
+                        [options]="options | filterOptions: search"
                         (change)="onSelectionChanged($event, input)"
                         [navigation-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
