@@ -15,7 +15,8 @@ import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 import {KeyCodes} from 'nv/core/KeyCodes';
 import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
-
+import {FilterOptionsPipeFactory} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {NullPipeFactory} from 'angular2/change_detection';
 export {
     Highlightable,
     RepeateablePrimitiveValue,
@@ -36,3 +37,5 @@ export {
     KeyCodes,
     Autocomplete
 }
+
+

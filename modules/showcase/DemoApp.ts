@@ -3,7 +3,11 @@
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
-import {FilterOptionsPipe} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {Pipes} from 'angular2/change_detection';
+import {} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {FilterOptionsPipeFactory} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {NullPipeFactory} from 'angular2/change_detection';
+
 
 @Component({
     selector: 'sample-app'
@@ -91,5 +95,14 @@ export class DemoApp {
     }
 
 }
+
+var filterOptions = [ new FilterOptionsPipeFactory(), new NullPipeFactory() ];
+
+//TODO
+/*export const angularVelocityPipes  = [
+    Pipes.append({
+        'filterOptions': filterOptions
+    })
+];*/
 
 bootstrap(DemoApp);

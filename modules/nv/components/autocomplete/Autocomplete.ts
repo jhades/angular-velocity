@@ -4,7 +4,7 @@ import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 
-@Component({ 
+@Component({
     selector: 'nv-autocomplete',
     events: ['change'],
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth']

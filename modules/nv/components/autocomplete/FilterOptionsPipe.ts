@@ -1,8 +1,8 @@
 
-import {BasePipe} from 'angular2/angular2';
+import {Pipe, PipeFactory} from 'angular2/change_detection';
 import {SelectionOption} from 'angular-velocity';
 
-export class FilterOptionsPipe extends BasePipe {
+export class FilterOptionsPipe implements Pipe {
 
     transform(value:SelectionOption, args:List<any>):any {
         console.log('filtering ' + value.description);
@@ -16,5 +16,16 @@ export class FilterOptionsPipe extends BasePipe {
     onDestroy():void {
     }
 
-
 }
+
+export class FilterOptionsPipeFactory implements PipeFactory {
+    supports(txt): boolean {
+        return true;
+    }
+    create(cdRef): Pipe {
+        return new FilterOptionsPipe();
+    }
+}
+
+
+
