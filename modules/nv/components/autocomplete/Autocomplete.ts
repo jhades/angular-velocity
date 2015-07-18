@@ -48,7 +48,6 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         super(dropdownHeight, dropdownWidth);
     }
 
-
     onSelectionChanged(option: T, input) {
         super.onSelectionChanged(option, input);
         input.value = option.description;
