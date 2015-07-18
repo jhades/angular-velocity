@@ -19,12 +19,12 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
                 `,
     directives: [SelectionList, NvSelectOption, NvOptGroup,coreDirectives, Dropdown]
 })
-export class NvSelect {
+export class NvSelect<T extends SelectionOption> {
 
     optionElementsQuery: QueryList<NvSelectOption>;
     optionGroupsQuery: QueryList<NvOptGroup>;
-    options: Array;
-    optionGroups: Array;
+    options: Array<T>;
+    optionGroups: Array<SelectionGroup<T>>;
     dropdownHeight: number;
     dropdownWidth: string;
     change: EventEmitter = new EventEmitter();
@@ -52,7 +52,7 @@ export class NvSelect {
         this.optionGroups = [];
         //TODO pending https://github.com/angular/angular/issues/1792
         for (let optionGroupEl of this.optionGroupsQuery._results) {
-            var optionGroup = <SelectionGroup> {
+            var optionGroup = <SelectionGroup<T>> {
                 label: optionGroupEl.label,
                 options: optionGroupEl.options
             };

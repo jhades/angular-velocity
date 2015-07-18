@@ -1,5 +1,5 @@
 import {Directive, Query, QueryList} from 'angular2/angular2';
-import {NvSelectOption} from 'angular-velocity';
+import {NvSelectOption, SelectionOption} from 'angular-velocity';
 
 @Directive({
     selector:"nv-select optgroup",
@@ -7,7 +7,7 @@ import {NvSelectOption} from 'angular-velocity';
 })
 export class NvOptGroup {
 
-    options: Array;
+    options: Array<SelectionOption>;
     optionElementsQuery: QueryList<NvSelectOption>;
 
     constructor(@Query(NvSelectOption) optionElements: QueryList<NvSelectOption>) {
