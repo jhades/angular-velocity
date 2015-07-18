@@ -41,4 +41,11 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     }
 
 
+    onSelectionChanged(option: T, input) {
+        super.onSelectionChanged(option, input);
+        input.value = option.description;
+    }
+
+
+
 }
