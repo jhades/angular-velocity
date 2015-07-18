@@ -36,6 +36,8 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 })
 export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
 
+    search: string;
+
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth) {
         super(dropdownHeight, dropdownWidth);
     }
@@ -46,6 +48,11 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         input.value = option.description;
     }
 
+
+    onKeyDown(event, input) {
+        super.onKeyDown(event, input);
+        this.search = input.value;
+    }
 
 
 }
