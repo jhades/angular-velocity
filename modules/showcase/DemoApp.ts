@@ -1,8 +1,9 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {Component, View, bootstrap, NgFor, PipeFactory, BasePipe, defaultPipes, NullPipeFactory} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
+import {FilterOptionsPipe} from 'nv/components/autocomplete/FilterOptionsPipe';
 
 @Component({
     selector: 'sample-app'
@@ -90,5 +91,29 @@ export class DemoApp {
     }
 
 }
+
+
+
+
+class FilterOptionsFactory implements PipeFactory {
+    constructor() { super(); }
+    supports(obj) { return true; }
+    create() { return new FilterOptionsPipe(); }
+}
+
+
+
+export var pipeFactories = [new FilterOptionsFactory(), new NullPipeFactory];
+
+export var doublePipes = Object.assign({}, defaultPipes, {
+    'filterOptions': pipeFactories
+});
+
+
+export var customPipeRegistry = [
+    bind(PipeRegistry).toValue(new PipeRegistry(doublePipes))
+];
+
+
 
 bootstrap(DemoApp);
