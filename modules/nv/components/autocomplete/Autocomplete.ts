@@ -12,14 +12,12 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 @View({
     template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
 
-                        <div class="input">
-                            <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" #input>
+                    <div class="input">
+                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" #input>
 
-                            <div class="widget-button dropdown-button"
-                                (click)="onButtonToggle()">
-                            </div>
+                        <div class="widget-button dropdown-button"
+                            (click)="onButtonToggle()">
                         </div>
-
                     </div>
 
                     <ngv-selection-list
