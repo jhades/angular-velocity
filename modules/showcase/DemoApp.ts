@@ -1,12 +1,10 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {Component, View, bootstrap, NgFor, NullPipeFactory} from 'angular2/angular2';
+
 import {ReferenceData} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
-import {Pipes} from 'angular2/change_detection';
-import {} from 'nv/components/autocomplete/FilterOptionsPipe';
 import {FilterOptionsPipeFactory} from 'nv/components/autocomplete/FilterOptionsPipe';
-import {NullPipeFactory} from 'angular2/change_detection';
 
 
 @Component({
@@ -98,8 +96,8 @@ export class DemoApp {
 
 var filterOptions = [ new FilterOptionsPipeFactory(), new NullPipeFactory() ];
 
-//TODO
-/*export const angularVelocityPipes  = [
+/* TODO
+export const angularVelocityPipes  = [
     Pipes.append({
         'filterOptions': filterOptions
     })

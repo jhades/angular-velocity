@@ -1,5 +1,5 @@
 
-import {Pipe, PipeFactory} from 'angular2/change_detection';
+import {Pipe, PipeFactory} from 'angular2/angular2';
 import {SelectionOption} from 'angular-velocity';
 
 export class FilterOptionsPipe implements Pipe {
