@@ -20,7 +20,7 @@ import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
     template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
-                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp(input)" #input>
+                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp(input)" (focus)="onInputFocus(input)" #input>
 
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle(input)">
@@ -48,6 +48,10 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         super(dropdownHeight, dropdownWidth);
     }
 
+    onInputFocus(input) {
+        //input.select();
+    }
+
     onSelectionChanged(option: T, input) {
         super.onSelectionChanged(option, input);
         input.value = option.description;
@@ -58,6 +62,11 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         if (!this.showSelectionList) {
             this.showSelectionList = true;
         }
+        var match = this.findClosestMatch(this.search.toUpperCase());
+        if (match) {
+            this.highlighted = match;
+        }
+
     }
 
     onButtonToggle(input) {
