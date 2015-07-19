@@ -141,4 +141,29 @@ export class SelectOne<T extends SelectionOption> {
         }
     }
 
+    findClosestMatch(search: string) {
+        var regex = new RegExp('^' + search);
+        return this.findAllOptions().find((option:T) => {
+            return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
+        });
+    }
+
+    /**
+     *
+     * returns all the options, independently if they are grouped or not - useful to apply an operation to all options without checking if the dropdown is in group mode
+     *
+     */
+    findAllOptions(): Array<T> {
+        if (this.options) {
+            return this.options;
+        }
+        else if (this.optionGroups) {
+            return SelectionGroup.findAllOptions(this.optionGroups);
+
+        }
+        else {
+            throw new Error("A nv-dropdown must either have an [options] or an [option-groups] property defined.");
+        }
+    }
+
 }
