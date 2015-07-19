@@ -6,6 +6,7 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 
 @Component({
     selector:"nv-select",
+    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     events: ['change']
 })
 @View({

@@ -61,12 +61,12 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     onKeyDown(event, input) {
         super.onKeyDown(event, input);
         var key = event.keyCode;
-        if (!this.showSelectionList && key !== KeyCodes.ESC && key !== KeyCodes.ENTER) {
+        if (!this.showSelectionList && key !== KeyCodes.ESC && key !== KeyCodes.ENTER && key !== KeyCodes.LEFT && key !== KeyCodes.RIGHT) {
             this.showSelectionList = true;
         }
     }
 
-    onKeyUp($vent, input) {
+    onKeyUp(event, input) {
         var key = event.keyCode;
         if (key !== KeyCodes.UP && key != KeyCodes.DOWN) {
             this.search = input.value;
