@@ -1,5 +1,7 @@
 import {Directive, Ancestor, ElementRef, EventEmitter, onChange} from 'angular2/angular2';
 import {ScrollableList} from 'angular-velocity';
+import {FunctionalUtils} from 'nv/services/FunctionalUtils';
+
 
 /**
  *
@@ -20,17 +22,21 @@ import {ScrollableList} from 'angular-velocity';
       '(DOMMouseScroll)': 'onMouseWheel($event)'
     },
     events: ['highlight'],
-    lifecycle: [onChange]
+    lifecycle: [onChange],
+    hostInjector: [FunctionalUtils]
 })
 export class ScrollableListElement {
     scrollable: ScrollableList;
     highlight: EventEmitter = new EventEmitter();
     highlighted:boolean;
     disabled: boolean = false;
+    onMouseWheel: Function;
 
-    constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef) {
+
+    constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef, private fUtils: FunctionalUtils) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
+        this.onMouseWheel = fUtils.debounce(this.onDebouncedMouseWheel,100);
     }
 
     onChange(changes) {
@@ -61,7 +67,7 @@ export class ScrollableListElement {
         this.highlight.next(false);
     }
 
-    onMouseWheel($event) {
+    onDebouncedMouseWheel($event) {
         var delta = $event.wheelDelta || -$event.detail;
         if (!this.scrollable.scrollIntoViewOngoing) {
             this.scrollable.scrollStep(delta < 0 ? 1 : -1);
