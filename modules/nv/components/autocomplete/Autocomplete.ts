@@ -55,6 +55,9 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
 
     onKeyUp(input) {
         this.search = input.value;
+        if (!this.showSelectionList) {
+            this.showSelectionList = true;
+        }
     }
 
     onButtonToggle(input) {
