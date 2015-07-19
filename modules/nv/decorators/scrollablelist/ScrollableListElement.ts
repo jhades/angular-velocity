@@ -36,7 +36,7 @@ export class ScrollableListElement {
     constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef, private fUtils: FunctionalUtils) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
-        this.onMouseWheel = fUtils.debounce(this.onDebouncedMouseWheel,100);
+        this.onMouseWheel = fUtils.debounce(this.onDebouncedMouseWheel,5);
     }
 
     onChange(changes) {
