@@ -57,14 +57,12 @@ export class SelectOne<T extends SelectionOption> {
             this.showSelectionList = false;
             this.change.next(option);
         }
-        else {
-            this.cancelFocusLost = true;
-        }
+        this.cancelFocusLost = true;
         input.focus();
     }
 
     /**
-     * if the focus is lost from the input 'field' (its a div), wait a small amount of time to see if the focus is really lost.
+     * if the focus is lost from the input 'field' (its actually a div), wait a small amount of time to see if the focus is really lost.
      * For example in the case of clicks on disabled elements, we want to put the focus back on the input.
      *
      */
@@ -72,6 +70,7 @@ export class SelectOne<T extends SelectionOption> {
         setTimeout(() => {
             if (!this.cancelFocusLost) {
                 this.showSelectionList = false;
+                this.active = false;
             }
             this.cancelFocusLost = false;
         },200);
