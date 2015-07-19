@@ -30,7 +30,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height"  [style.width]="width"
-                     nv-scrollable-list [navigation-action]="navigationAction" [hidden]="hidden">
+                     nv-scrollable-list [navigation-action]="navigationAction" [hidden]="hidden || isEmptyOptions()">
 
                     <div [ng-switch]="isGroupMode()">
                         <template [ng-switch-when]="true">
@@ -105,6 +105,15 @@ export class SelectionList<T extends SelectionOption> {
         options.forEach((option) => option.highlighted = false);
         options[options.indexOf(this.highlightedOption)].highlighted = true;
 
+    }
+
+    isEmptyOptions() {
+        if (this.isGroupMode()) {
+            return this.optionGroups.length === 0;
+        }
+        else {
+            return this.options && this.options.length === 0;
+        }
     }
 
 }
