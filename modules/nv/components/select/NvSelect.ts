@@ -12,7 +12,7 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 @View({
     template: `
                 <div class="nv-select">
-                    <nv-dropdown [dropdown-height]="height" [dropdown-width]="dropdownWidth"
+                    <nv-dropdown [dropdown-height]="dropdownHeight" [dropdown-width]="dropdownWidth"
                         [options]="options" [option-groups]="optionGroups"
                         (change)="onSelection($event)">
                     </nv-dropdown>
