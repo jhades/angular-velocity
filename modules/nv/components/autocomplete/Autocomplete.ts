@@ -79,6 +79,9 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     }
 
     onButtonToggle(input) {
+        if (this.active) {
+            this.cancelFocusLost = true;
+        }
         super.onButtonToggle(input);
         input.focus();
     }
