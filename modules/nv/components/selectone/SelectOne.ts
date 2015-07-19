@@ -29,7 +29,7 @@ export class SelectOne<T extends SelectionOption> {
      * open/close the selection list when dropdown button is clicked. set focus if first clicked.
      *
      */
-    onButtonToggle() {
+    onButtonToggle(input) {
         this.showSelectionList = !this.showSelectionList;
         if (!this.active) {
             this.active = true;

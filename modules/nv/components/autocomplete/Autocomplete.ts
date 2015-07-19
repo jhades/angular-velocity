@@ -23,7 +23,7 @@ import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
                         <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp(input)" #input>
 
                         <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle()">
+                            (click)="onButtonToggle(input)">
                         </div>
                     </div>
 
@@ -55,6 +55,11 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
 
     onKeyUp(input) {
         this.search = input.value;
+    }
+
+    onButtonToggle(input) {
+        super.onButtonToggle(input);
+        input.focus();
     }
 
 }

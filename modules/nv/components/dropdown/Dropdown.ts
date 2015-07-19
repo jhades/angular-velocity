@@ -50,7 +50,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
                         <span (click)="onButtonToggle()">{{selected.description}}</span>
 
                         <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle()">
+                            (click)="onButtonToggle(input)">
                         </div>
 
                     </div>
