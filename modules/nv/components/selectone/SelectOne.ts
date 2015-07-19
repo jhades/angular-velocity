@@ -3,7 +3,15 @@
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes} from 'angular-velocity';
 
-
+/**
+ *
+ * @ngdoc Component
+ *
+ * @description
+ * Base class with common functionality for all single-selection controls.
+ *
+ *
+ */
 export class SelectOne<T extends SelectionOption> {
     change: EventEmitter = new EventEmitter();
 
@@ -37,7 +45,7 @@ export class SelectOne<T extends SelectionOption> {
     }
 
     /**
-     * track which element is highlighted, so if the user presses Enter we know which item was selected
+     * track which element is highlighted, so if for example the user presses Enter we know which item was selected
      *
      */
     onHighlightedChanged(option) {
@@ -47,8 +55,8 @@ export class SelectOne<T extends SelectionOption> {
     /**
      *
      * if the option clicked is enabled, select it and close the dropdown.
-     * Otherwise cancel the loss of focus to keep the dropdown opened, and set the focus back to the input,
-     * this way we can keep track of the user keyboard input.
+     * Otherwise cancel the loss of focus to keep the dropdown opened, and set the focus back to the input.
+     * This way we can continue to keep track of the user's keyboard input.
      *
      */
     onSelectionChanged(option: SelectionOption, input) {
@@ -62,8 +70,8 @@ export class SelectOne<T extends SelectionOption> {
     }
 
     /**
-     * if the focus is lost from the input 'field' (its actually a div), wait a small amount of time to see if the focus is really lost.
-     * For example in the case of clicks on disabled elements, we want to put the focus back on the input.
+     * if the focus is lost from the input component, wait a small amount of time to see if the focus is really lost,
+     * as there are occasions where we would want to cancel the focus loss.
      *
      */
     onFocusLost() {

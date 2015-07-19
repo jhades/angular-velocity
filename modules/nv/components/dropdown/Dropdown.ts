@@ -78,9 +78,9 @@ export class Dropdown<T extends SelectionOption> extends SelectOne<T> {
 
     /**
      * search for closest match for the current ongoing type search, and highlight the element. The element will be scrolled into view if needed.
-     * If the dropdown is closed then the element is imediatelly selected.
+     * If the dropdown is closed then the element is immediately selected.
      *
-     * @param search - the current type search
+     * @param search - the current search the user is typing
      */
     onTypeSearch(search) {
         var match = this.findClosestMatch(search);
