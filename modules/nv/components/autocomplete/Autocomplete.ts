@@ -57,11 +57,16 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         input.value = option.description;
     }
 
-    onKeyUp(input) {
-        this.search = input.value;
-        if (!this.showSelectionList) {
+    onKeyDown(event, input) {
+        super.onKeyDown(event, input);
+        var key = event.keyCode;
+        if (!this.showSelectionList && key !== KeyCodes.ESC && key !== KeyCodes.ENTER) {
             this.showSelectionList = true;
         }
+    }
+
+    onKeyUp(input) {
+        this.search = input.value;
         var match = this.findClosestMatch(this.search.toUpperCase());
         if (match) {
             this.highlighted = match;
