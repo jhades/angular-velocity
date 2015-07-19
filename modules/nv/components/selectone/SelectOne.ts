@@ -26,8 +26,7 @@ export class SelectOne<T extends SelectionOption> {
     }
 
     /**
-     * open/close the selection list when dropdown button is clicked. set focus if first clicked.
-     * keep the dropdown opened, by cancelling the input focus loss
+     * open/close the selection list when dropdown button is clicked. set focus if first clicked
      *
      */
     onButtonToggle(input) {
@@ -35,7 +34,6 @@ export class SelectOne<T extends SelectionOption> {
         if (!this.active) {
             this.active = true;
         }
-        this.cancelFocusLost = true;
     }
 
     /**
