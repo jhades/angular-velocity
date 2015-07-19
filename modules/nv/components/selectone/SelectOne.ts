@@ -95,12 +95,18 @@ export class SelectOne<T extends SelectionOption> {
                 break;
             case KeyCodes.DOWN:
                 this.onArrowDown();
+                event.preventDefault();
+                event.stopPropagation();
                 break;
             case KeyCodes.UP:
                 this.onArrowUp();
+                event.preventDefault();
+                event.stopPropagation();
                 break;
             case KeyCodes.ENTER:
                 this.onSelectionChanged(this.highlighted, input);
+                event.preventDefault();
+                event.stopPropagation();
                 break;
         }
     }

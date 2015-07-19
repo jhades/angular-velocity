@@ -49,7 +49,7 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     }
 
     onInputFocus(input) {
-        //input.select();
+        input.select();
     }
 
     onSelectionChanged(option: T, input) {

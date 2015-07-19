@@ -77,19 +77,6 @@ export class Dropdown<T extends SelectionOption> extends SelectOne<T> {
     }
 
     /**
-     *
-     * apply the common keyboard behaviour, but cancel the keyboard event preventing it's propagation:
-     * otherwise the whole page would scroll up and down!!
-     *
-     */
-    onKeyDown(event, input) {
-        super.onKeyDown(event,input);
-        event.preventDefault();
-        event.stopPropagation();
-    }
-
-
-    /**
      * search for closest match for the current ongoing type search, and highlight the element. The element will be scrolled into view if needed.
      * If the dropdown is closed then the element is imediatelly selected.
      *
