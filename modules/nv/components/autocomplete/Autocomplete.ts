@@ -5,6 +5,7 @@ import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {Pipes} from 'angular2/change_detection';
 import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Component({
     selector: 'nv-autocomplete',
@@ -13,7 +14,8 @@ import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
     viewInjector: [
         Pipes.append({
             'filterOptions': filterOptions
-        })
+        }),
+        KeyboardUtils
     ]
 })
 @View({
@@ -44,7 +46,8 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
 
     search: string;
 
-    constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth) {
+    constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
+                private keyUtils: KeyboardUtils) {
         super(dropdownHeight, dropdownWidth);
     }
 
@@ -61,7 +64,7 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     onKeyDown(event, input) {
         super.onKeyDown(event, input);
         var key = event.keyCode;
-        if (!this.showSelectionList && key !== KeyCodes.ESC && key !== KeyCodes.ENTER && key !== KeyCodes.LEFT && key !== KeyCodes.RIGHT) {
+        if (!this.keyUtils.isMeta(key) && !this.showSelectionList && key !== KeyCodes.ESC && key !== KeyCodes.ENTER && key !== KeyCodes.LEFT && key !== KeyCodes.RIGHT) {
             this.showSelectionList = true;
         }
     }

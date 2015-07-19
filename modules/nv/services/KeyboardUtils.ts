@@ -19,7 +19,7 @@ export class KeyboardUtils {
     }
 
     isMeta(keyCode) {
-        return keyCode == KeyCodes.ALT || KeyCodes.CTRL || keyCode == 91;
+        return keyCode == KeyCodes.ALT || keyCode == KeyCodes.CTRL || keyCode == 91;
     }
 
 }
