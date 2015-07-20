@@ -1,6 +1,6 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
 import {formDirectives, Validators, NgFormModel, FormBuilder, formInjectables, NgControl} from 'angular2/forms';
@@ -53,7 +53,7 @@ import {Inject} from 'angular2/di';
                             <form [ng-form-model]="form">
                                 <p>
                                     <label>Username:</label>
-                                    <input type="text" [ng-form-control]="form.controls.username">
+                                    <input type="text" [ng-form-control]="form.controls.username" [(ng-model)]="user.username">
                                 </p>
                                 <p>
                                     <label>Password:</label>
@@ -68,22 +68,27 @@ import {Inject} from 'angular2/di';
 
                     </form>
                 </div>`,
-    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete,formDirectives],
+    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete,formDirectives, NgModel],
     viewInjector: [FormBuilder]
 })
 export class DemoApp {
     refData: ReferenceData;
     form;
+    user: Object = {};
 
     constructor(@Inject(FormBuilder) fb: FormBuilder) { //TODO remove @Inject https://github.com/angular/angular/issues/2788
         this.refData = new ReferenceData();
+
 
         this.form = fb.group({
             "username": ["", Validators.required],
             "password": ["", Validators.required]
         });
 
-        this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => console.log(value));
+        this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => {
+            console.log(value);
+            console.log(this.user);
+        });
 
     }
 
