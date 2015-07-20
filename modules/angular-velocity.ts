@@ -14,8 +14,8 @@ import {NvSelect} from 'nv/components/select/NvSelect';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 import {KeyCodes} from 'nv/core/KeyCodes';
-import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
-import {FilterOptionsPipeFactory} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {TypeAhead} from 'nv/components/typeahead/TypeAhead';
+import {FilterOptionsPipeFactory} from 'nv/components/typeahead/FilterOptionsPipe';
 export {
     Highlightable,
     RepeateablePrimitiveValue,
@@ -34,7 +34,7 @@ export {
     NvSelectOption,
     NvOptGroup,
     KeyCodes,
-    Autocomplete
+    TypeAhead
 }
 
 

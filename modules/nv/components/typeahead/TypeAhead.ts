@@ -4,11 +4,11 @@ import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {Pipes} from 'angular2/change_detection';
-import {filterOptions} from 'nv/components/autocomplete/FilterOptionsPipe';
+import {filterOptions} from 'nv/components/typeahead/FilterOptionsPipe';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Component({
-    selector: 'nv-autocomplete',
+    selector: 'nv-typeahead',
     events: ['change'],
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     viewInjector: [
@@ -19,7 +19,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     ]
 })
 @View({
-    template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
+    template: ` <div class="ngv-input select-one typeahead clearfix" [class.active]="active">
 
                     <div class="input">
                         <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
@@ -43,7 +43,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
                 </div>`,
     directives: [SelectionList, TypeSearch]
 })
-export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
+export class TypeAhead<T extends SelectionOption> extends SelectOne<T> {
 
     search: string;
 

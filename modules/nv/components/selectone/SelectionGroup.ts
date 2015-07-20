@@ -7,7 +7,7 @@ export class SelectionGroup<T extends SelectionOption> {
 
     }
 
-    static findAllOptions(optionGroups: Array<SelectionGroup<T>>) {
+    static findAllOptions(optionGroups: Array<SelectionGroup>) {
         if (!optionGroups) {
             throw new Error("optionsGroups must be defined");
         }
