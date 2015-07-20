@@ -14,6 +14,27 @@ import {Inject} from 'angular2/di';
     template: `<div class="demos">
                     <form class="pure-form">
                         <div class="demo">
+                            <h3>simple form:</h3>
+                            <form [ng-form-model]="form">
+                                <p>
+                                    <label>Username:</label>
+                                    <input type="text" [ng-form-control]="form.controls.username" [(ng-model)]="user.username">
+                                </p>
+                                <p>
+                                    <label>Password:</label>
+                                    <input type="password" [ng-form-control]="form.controls.password">
+                                </p>
+                                <p>
+                                    <label>Country:</label>
+                                    <nv-dropdown dropdown-height="250px" dropdown-width="200px"
+                                        [options]="refData.COUNTRIES"
+                                        (change)="onSelection($event)">
+                                    </nv-dropdown>
+                                </p>
+                                 <button [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
+                            </form>
+                        </div>
+                        <div class="demo">
                             <h3>nv-dropdown:</h3>
                             <nv-dropdown dropdown-height="250px" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
@@ -48,24 +69,6 @@ import {Inject} from 'angular2/di';
                                 </optgroup>
                             </nv-select>
                         </div>
-                        <div class="demo">
-                            <h3>simple form:</h3>
-                            <form [ng-form-model]="form">
-                                <p>
-                                    <label>Username:</label>
-                                    <input type="text" [ng-form-control]="form.controls.username" [(ng-model)]="user.username">
-                                </p>
-                                <p>
-                                    <label>Password:</label>
-                                    <input type="password" [ng-form-control]="form.controls.password">
-                                </p>
-                                 <button [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
-                            </form>
-                        </div>
-                        <div class="demo">
-                            <h3>form for nv controls:</h3>
-                        </div>
-
                     </form>
                 </div>`,
     directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete,formDirectives, NgModel],
