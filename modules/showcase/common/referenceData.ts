@@ -1,3 +1,5 @@
+import {Injectable} from "angular2/di";
+
 export class ReferenceData {
     COUNTRIES  = [
         {description: 'Afghanistan', id: 'AF', disabled:true},
@@ -309,5 +311,19 @@ export class ReferenceData {
         ];
 
     NBA_TEAMS = this.NBA_DIVISIONS.reduce((all: Array<any>, division: any) => all.concat(division.options), []);
+
+}
+
+
+export class ReferenceDataService {
+    referenceData: ReferenceData;
+
+    constructor() {
+        this.referenceData = new ReferenceData;
+    }
+
+    getCountries() {
+
+    }
 
 }

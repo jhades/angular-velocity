@@ -1,7 +1,7 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
-import {ReferenceData} from 'showcase/common/referenceData';
+import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
 import {formDirectives, Validators, NgFormModel, FormBuilder, formInjectables, NgControl} from 'angular2/forms';
 import {Inject} from 'angular2/di';
@@ -58,6 +58,13 @@ import {Inject} from 'angular2/di';
                             </nv-autocomplete>
                         </div>
                         <div class="demo">
+                            <h3>nv-autocomplete (server data):</h3>
+                            <nv-autocomplete dropdown-height="250px" dropdown-width="200px"
+                                [options]="refDataService.getCountries()"
+                                (change)="onSelection($event)"
+                            </nv-autocomplete>
+                        </div>
+                        <div class="demo">
                             <h3>nv-select:</h3>
                             <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
                                 <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
@@ -74,15 +81,17 @@ import {Inject} from 'angular2/di';
                     </form>
                 </div>`,
     directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete,formDirectives, NgModel],
-    viewInjector: [FormBuilder]
+    viewInjector: [FormBuilder, ReferenceDataService]
 })
 export class DemoApp {
     refData: ReferenceData;
+    refDataService: ReferenceDataService;
     form;
     user: Object = {};
 
-    constructor(@Inject(FormBuilder) fb: FormBuilder) { //TODO remove @Inject https://github.com/angular/angular/issues/2788
+    constructor(@Inject(FormBuilder) fb: FormBuilder, @Inject(ReferenceDataService) refDataService: ReferenceDataService) { //TODO remove @Inject https://github.com/angular/angular/issues/2788
         this.refData = new ReferenceData();
+        this.refDataService = refDataService;
 
         this.form = fb.group({
             "username": ["", Validators.required],
@@ -107,4 +116,4 @@ export class DemoApp {
 
 }
 
-bootstrap(DemoApp, [formInjectables]);
+bootstrap(DemoApp, [formInjectables, ReferenceDataService]);
