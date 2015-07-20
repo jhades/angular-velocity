@@ -83,6 +83,8 @@ export class DemoApp {
             "password": ["", Validators.required]
         });
 
+        this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => console.log(value));
+
     }
 
     onSelection(option) {
@@ -90,7 +92,6 @@ export class DemoApp {
     }
 
     onSubmit() {
-        console.log(this.form.value);
         console.log("username valid " + this.form.controls.username.valid);
     }
 
