@@ -84,7 +84,6 @@ export class DemoApp {
     constructor(@Inject(FormBuilder) fb: FormBuilder) { //TODO remove @Inject https://github.com/angular/angular/issues/2788
         this.refData = new ReferenceData();
 
-
         this.form = fb.group({
             "username": ["", Validators.required],
             "password": ["", Validators.required]
