@@ -25,6 +25,13 @@ import {Inject} from 'angular2/di';
                                         <label>Password:</label>
                                         <input type="password" ng-control="password">
                                     </p>
+                                    <p>
+                                        <label>Country:</label>
+                                        <nv-dropdown dropdown-height="250px" dropdown-width="200px"
+                                            [options]="refData.COUNTRIES"
+                                            (change)="onSelection($event)"
+                                        </nv-dropdown>
+                                    </p>
                                      <button [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
                                 </div>
                             </form>
@@ -33,21 +40,21 @@ import {Inject} from 'angular2/di';
                             <h3>nv-dropdown:</h3>
                             <nv-dropdown dropdown-height="250px" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
-                                (change)="onSelection($event)">
+                                (change)="onSelection($event)"
                             </nv-dropdown>
                         </div>
                         <div class="demo">
                             <h3>nv-dropdown with groups:</h3>
                             <nv-dropdown dropdown-height="250px" dropdown-width="200px"
                                 [option-groups]="refData.NBA_DIVISIONS"
-                                (change)="onSelection($event)">
+                                (change)="onSelection($event)"
                             </nv-dropdown>
                         </div>
                         <div class="demo">
                             <h3>nv-autocomplete (in-memory):</h3>
                             <nv-autocomplete dropdown-height="250px" dropdown-width="200px"
                                 [options]="refData.COUNTRIES"
-                                (change)="onSelection($event)">
+                                (change)="onSelection($event)"
                             </nv-autocomplete>
                         </div>
                         <div class="demo">
@@ -80,7 +87,7 @@ export class DemoApp {
 
         this.form = fb.group({
             "username": ["", Validators.required],
-            "password": ["", Validators.required
+            "password": ["", Validators.required]
             //"country": ["", Validators.required]
         });
 
