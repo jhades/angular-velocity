@@ -90,7 +90,7 @@ export class DemoApp {
     }
 
     onSubmit() {
-        console.log(this.form);
+        console.log(this.form.value);
         console.log("username valid " + this.form.controls.username.valid);
     }
 
