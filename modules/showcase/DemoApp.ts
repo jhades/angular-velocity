@@ -3,8 +3,9 @@
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
-import {formDirectives, NgControl, Validators, NgFormModel, FormBuilder, formInjectables} from 'angular2/forms';
+import {formDirectives, Validators, NgFormModel, FormBuilder, formInjectables, NgControl} from 'angular2/forms';
 import {Inject} from 'angular2/di';
+
 
 @Component({
     selector: 'sample-app'
@@ -49,14 +50,14 @@ import {Inject} from 'angular2/di';
                         </div>
                         <div class="demo">
                             <h3>simple form:</h3>
-                            <form [ng-form-model]="form">
+                            <form (submit)="onSubmit()" [ng-form-model]="form">
                                 <p>
                                     <label>Username:</label>
-                                    <input type="text" ng-control="username">
+                                    <input type="text" (keyup)="onFormChanged()" [ng-form-control]="form.controls.username">
                                 </p>
                                 <p>
                                     <label>Password:</label>
-                                    <input type="password" ng-control="password">
+                                    <input type="password" (keyup)="onFormChanged()" [ng-form-control]="form.controls.password">
                                 </p>
                                  <button type="submit" [disabled]="!form.valid">Submit</button>
                             </form>
@@ -88,7 +89,15 @@ export class DemoApp {
         console.log("clicked option, event received in app: " + option.description);
     }
 
-}
+    onFormChanged() {
+        console.log(this.form);
+        console.log("username valid " + this.form.controls.username.valid);
+    }
 
+    onSubmit() {
+        console.log("submitted form .. ");
+    }
+
+}
 
 bootstrap(DemoApp, [formInjectables]);
