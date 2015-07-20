@@ -34,7 +34,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 @Component({ 
     selector: 'nv-dropdown',
     events: ['change'],
-    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth']
+    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth','ngFormControl']
 })
 @View({
     template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
