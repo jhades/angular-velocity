@@ -3,6 +3,8 @@
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 import {ReferenceData} from 'showcase/common/referenceData';
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angular-velocity';
+import {formDirectives, NgControl, Validators, NgFormModel, FormBuilder, formInjectables} from 'angular2/forms';
+import {Inject} from 'angular2/di';
 
 @Component({
     selector: 'sample-app'
@@ -48,12 +50,13 @@ import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, Autocomplete} from 'angul
 
                     </form>
                 </div>`,
-    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete]
+    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, Autocomplete,formDirectives],
+    viewInjector: [FormBuilder]
 })
 export class DemoApp {
     refData: ReferenceData;
 
-    constructor() {
+    constructor(@Inject(FormBuilder) fb: FormBuilder) { //TODO remove @Inject https://github.com/angular/angular/issues/2788
         this.refData = new ReferenceData();
     }
 
@@ -63,4 +66,5 @@ export class DemoApp {
 
 }
 
-bootstrap(DemoApp);
+
+bootstrap(DemoApp, [formInjectables]);
