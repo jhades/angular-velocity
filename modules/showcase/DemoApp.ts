@@ -47,6 +47,23 @@ import {Inject} from 'angular2/di';
                                 </optgroup>
                             </nv-select>
                         </div>
+                        <div class="demo">
+                            <h3>simple form:</h3>
+                            <form [ng-form-model]="form">
+                                <p>
+                                    <label>Username:</label>
+                                    <input type="text" ng-control="username">
+                                </p>
+                                <p>
+                                    <label>Password:</label>
+                                    <input type="password" ng-control="password">
+                                </p>
+                                 <button type="submit" [disabled]="!form.valid">Submit</button>
+                            </form>
+                        </div>
+                        <div class="demo">
+                            <h3>form for nv controls:</h3>
+                        </div>
 
                     </form>
                 </div>`,
@@ -55,9 +72,16 @@ import {Inject} from 'angular2/di';
 })
 export class DemoApp {
     refData: ReferenceData;
+    form;
 
     constructor(@Inject(FormBuilder) fb: FormBuilder) { //TODO remove @Inject https://github.com/angular/angular/issues/2788
         this.refData = new ReferenceData();
+
+        this.form = fb.group({
+            "username": ["", Validators.required],
+            "password": ["", Validators.required]
+        });
+
     }
 
     onSelection(option) {
