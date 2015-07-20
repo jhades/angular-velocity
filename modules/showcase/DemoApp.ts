@@ -50,16 +50,16 @@ import {Inject} from 'angular2/di';
                         </div>
                         <div class="demo">
                             <h3>simple form:</h3>
-                            <form (submit)="onSubmit()" [ng-form-model]="form">
+                            <form [ng-form-model]="form">
                                 <p>
                                     <label>Username:</label>
-                                    <input type="text" (keyup)="onFormChanged()" [ng-form-control]="form.controls.username">
+                                    <input type="text" [ng-form-control]="form.controls.username">
                                 </p>
                                 <p>
                                     <label>Password:</label>
-                                    <input type="password" (keyup)="onFormChanged()" [ng-form-control]="form.controls.password">
+                                    <input type="password" [ng-form-control]="form.controls.password">
                                 </p>
-                                 <button type="submit" [disabled]="!form.valid">Submit</button>
+                                 <button [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
                             </form>
                         </div>
                         <div class="demo">
@@ -89,13 +89,9 @@ export class DemoApp {
         console.log("clicked option, event received in app: " + option.description);
     }
 
-    onFormChanged() {
+    onSubmit() {
         console.log(this.form);
         console.log("username valid " + this.form.controls.username.valid);
-    }
-
-    onSubmit() {
-        console.log("submitted form .. ");
     }
 
 }
