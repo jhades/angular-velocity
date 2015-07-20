@@ -3,49 +3,39 @@
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
-import {Pipes} from 'angular2/change_detection';
-import {filterOptions} from 'nv/components/typeahead/FilterOptionsPipe';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Component({
-    selector: 'nv-typeahead',
-    events: ['change'],
-    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
-    viewInjector: [
-        Pipes.append({
-            'filterOptions': filterOptions
-        }),
-        KeyboardUtils
-    ]
+    selector: 'nv-autocomplete',
+    events: ['change','search'],
+    properties: ['options', 'dropdownHeight', 'dropdownWidth'],
+    viewInjector: [KeyboardUtils]
 })
 @View({
-    template: ` <div class="ngv-input select-one typeahead clearfix" [class.active]="active">
+    template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
                         <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
                         focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
 
-                        <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle(input)">
-                        </div>
                     </div>
 
                     <ngv-selection-list
                         [hidden]="!showSelectionList"
                         [height]="dropdownHeight"
                         [width]="dropdownWidth"
-                        [options]="options | filterOptions: search"
+                        [options]="options"
                         (change)="onSelectionChanged($event, input)"
                         [navigation-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
                     </ngv-selection-list>
 
                 </div>`,
-    directives: [SelectionList, TypeSearch]
+    directives: [SelectionList]
 })
 export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
 
-    search: string;
+    search: EventEmitter = new EventEmitter();
 
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
                 private keyUtils: KeyboardUtils) {
@@ -80,21 +70,10 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     onKeyUp(event, input) {
         var key = event.keyCode;
         if (key !== KeyCodes.UP && key != KeyCodes.DOWN) {
-            this.search = input.value;
-            var match = this.findClosestMatch(this.search.toUpperCase());
-            if (match) {
-                this.highlighted = match;
-            }
+            this.search.next(input.value);
+
         }
 
-    }
-
-    onButtonToggle(input) {
-        if (this.active) {
-            this.cancelFocusLost = true;
-        }
-        super.onButtonToggle(input);
-        input.focus();
     }
 
 }
