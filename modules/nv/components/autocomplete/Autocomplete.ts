@@ -22,7 +22,8 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
-                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (focus)="onInputFocus(input)" #input>
+                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
+                        focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
 
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle(input)">
@@ -51,14 +52,20 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
         super(dropdownHeight, dropdownWidth);
     }
 
-    onInputFocus(input) {
+    onInputFocus($event, input) {
         input.select();
         this.active = true;
+    }
+
+    onInputClicked($event, input) {
+        this.onInputFocus($event, input);
+        $event.preventDefault();
     }
 
     onSelectionChanged(option: T, input) {
         super.onSelectionChanged(option, input);
         input.value = option.description;
+        input.select();
     }
 
     onKeyDown(event, input) {
