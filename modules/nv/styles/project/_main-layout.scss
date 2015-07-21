@@ -20,7 +20,14 @@
       vertical-align: middle;
       margin-bottom: 5px;
     }
+  }
 
+  .layout-top-menu {
+    background-color: $darker;
+    li {
+      display: inline-block;
+      list-style-type: none;
+    }
   }
 
 
