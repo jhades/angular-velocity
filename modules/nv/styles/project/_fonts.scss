@@ -91,9 +91,8 @@
 }
 
 $Roboto-Light: 'Roboto-Light','Helvetica','Arial',sans-serif;
+$Roboto-Regular: 'Roboto-Regular','Helvetica','Arial',sans-serif;
+$Roboto-Bold: 'Roboto-Bold','Helvetica','Arial',sans-serif;
+$Roboto-Thin: 'Roboto-Thin','Helvetica','Arial',sans-serif;
+$Roboto-Medium: 'Roboto-Medium','Helvetica','Arial',sans-serif;
 
-@mixin font-RobotoLight($color, $font-size: 12px) {
-  font-family: $Roboto-Light;
-  font-size: $font-size;
-  color: $color;
-}

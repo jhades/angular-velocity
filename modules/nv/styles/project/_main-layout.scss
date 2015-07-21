@@ -10,9 +10,10 @@
     padding:10px;
 
     .layout-title {
-      @include font-RobotoLight(white, 27px);
+      font-family: $Roboto-Regular;
+      font-size:27px;
+      color: white;
       margin-left: 15px;
-      text-shadow: 1px 1px black;
     }
 
     .layout-logo {
