@@ -17,6 +17,7 @@ import {KeyCodes} from 'nv/core/KeyCodes';
 import {TypeAhead} from 'nv/components/typeahead/TypeAhead';
 import {FilterOptionsPipeFactory} from 'nv/components/typeahead/FilterOptionsPipe';
 import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
+import {NvValidators} from 'nv/core/validators/NvValidators';
 
 
 export {
@@ -38,7 +39,8 @@ export {
     NvOptGroup,
     KeyCodes,
     TypeAhead,
-    Autocomplete
+    Autocomplete,
+    NvValidators
 }
 
 

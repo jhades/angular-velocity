@@ -2,18 +2,10 @@
 
 import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
 import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
-import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete} from 'angular-velocity';
+import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete, NvValidators} from 'angular-velocity';
 import {formDirectives, Validators, NgFormModel, FormBuilder, formInjectables, NgControl} from 'angular2/forms';
 import {Inject} from 'angular2/di';
 import * as Rx from 'rx';
-
-
-
-function integer(control) {
-    if (!control.value.match(/^[0-9]*$/)){
-        return {integer: true};
-    }
-}
 
 @Component({
     selector: 'sample-app'
@@ -109,7 +101,7 @@ export class DemoApp {
             "username": ["", Validators.required],
             "password": ["", Validators.required],
             //"country": ["", Validators.required]
-            "numbersOnly": ["",integer]
+            "numbersOnly": ["",NvValidators.integer]
         });
 
         this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => {
