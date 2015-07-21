@@ -109,6 +109,11 @@ gulp.task('build-html', function (done) {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('build-fonts', function (done) {
+    return gulp.src(['./modules/nv/styles/fonts/*'])
+        .pipe(gulp.dest('dist/fonts'));
+});
+
 gulp.task('build-copy', function (done) {
     return gulp.src(['./modules/nv/images/*.gif'])
         .pipe(gulp.dest('dist/images'));
@@ -124,6 +129,7 @@ gulp.task('default', function (done) {
         'build-css',
         'build-ts',
         'build-html',
+        'build-fonts',
         'build-copy',
         done
     );

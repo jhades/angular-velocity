@@ -59,9 +59,10 @@
     font-size: 14px;
     ul {
       list-style-type: none;
-      padding-left: 30px;
+      padding-left: 0px;
       li {
         $menu-padding: 6px;
+        padding-left: 30px;
         padding-top: $menu-padding;
         padding-bottom: $menu-padding;
         cursor: pointer;
