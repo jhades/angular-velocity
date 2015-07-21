@@ -120,4 +120,6 @@ export class DemoApp {
 
 }
 
+//TODO default pipes not on by default https://github.com/angular/angular/issues/3173
+
 bootstrap(DemoApp, [formInjectables, ReferenceDataService]);
