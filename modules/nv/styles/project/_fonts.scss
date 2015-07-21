@@ -55,6 +55,40 @@
   src: url(../fonts/Roboto-Thin.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto-ThinItalic";
+  src: url(../fonts/Roboto-ThinItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Bold";
+  src: url(../fonts/RobotoCondensed-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-BoldItalic";
+  src: url(../fonts/RobotoCondensed-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Italic";
+  src: url(../fonts/RobotoCondensed-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Light";
+  src: url(../fonts/RobotoCondensed-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-LightItalic";
+  src: url(../fonts/RobotoCondensed-LightItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Regular";
+  src: url(../fonts/RobotoCondensed-Regular.ttf) format("truetype");
+}
 
 $Roboto-Light: 'Roboto-Light','Helvetica','Arial',sans-serif;
 
