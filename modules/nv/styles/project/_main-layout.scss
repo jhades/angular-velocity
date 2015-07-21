@@ -3,7 +3,13 @@
 
   header.layout-header {
     background: $primary-color;
-    height: 120px;
+    $height: 120px;
+
+    @include vertical-align-middle(120px);
+
+    .layout-title {
+      @include font-Roboto(white, 25px);
+    }
   }
 
 }

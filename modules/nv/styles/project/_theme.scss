@@ -1,9 +1,10 @@
 
 $Roboto: 'Roboto','Helvetica','Arial',sans-serif;
 
-@mixin font-Roboto($font-size: 12px) {
+@mixin font-Roboto($color, $font-size: 12px) {
   font-family: $Roboto;
   font-size: $font-size;
+  color: $color;
 }
 
 

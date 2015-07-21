@@ -1,15 +1,12 @@
 
 @include sprites($spritesheet-sprites);
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
-}
 
-.horizontally-centered {
+.center-horizontally-inside-container {
     margin: 0 auto;
 }
 
-.vertically-centered {
+.center-vertically-inside-container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -21,26 +18,6 @@
 
 .visible {
   visibility: visible !important;
-}
-
-.click-blocking-barrier {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    display: none;
-    left: 0;
-    top: 0;
-    z-index: -10000;
-
-    &.active {
-      display: block;
-      z-index: 10000;
-    }
-
-    &.active.wait-ongoing {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
 }
 
 .clearfix:after {
@@ -101,6 +78,8 @@
     }
 }
 
+
+
 @mixin widget-selection-box {
   border: 1px solid darkgrey;
   box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15), -3px 5px 15px rgba(0, 0, 0, 0.15);
@@ -115,3 +94,10 @@
     -ms-user-select: $select;
     user-select: $select;
 }
+
+@mixin vertical-align-middle($height) {
+    height: $height;
+    line-height: $height;
+    vertical-align: middle;
+}
+
