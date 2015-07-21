@@ -67,6 +67,18 @@
         padding-top: $menu-padding;
         padding-bottom: $menu-padding;
         cursor: pointer;
+
+        &:hover {
+          a {
+            color: white;
+          }
+          background: $primary-color;
+        }
+
+        &.selected {
+          font-family: $Roboto-Bold;
+        }
+
       }
     }
     a {
