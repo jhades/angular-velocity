@@ -19,7 +19,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     ]
 })
 @View({
-    template: ` <div class="nv-input select-one typeahead clearfix" [class.active]="active">
+    template: ` <div class="select-one typeahead clearfix" [class.active]="active">
 
                     <div class="input">
                         <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (

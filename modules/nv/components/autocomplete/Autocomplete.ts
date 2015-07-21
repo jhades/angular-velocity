@@ -12,7 +12,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     viewInjector: [KeyboardUtils]
 })
 @View({
-    template: ` <div class="nv-input select-one autocomplete clearfix" [class.active]="active">
+    template: ` <div class="select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
                         <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
