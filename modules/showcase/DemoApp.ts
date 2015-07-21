@@ -5,6 +5,8 @@ import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData
 import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete} from 'angular-velocity';
 import {formDirectives, Validators, NgFormModel, FormBuilder, formInjectables, NgControl} from 'angular2/forms';
 import {Inject} from 'angular2/di';
+import * as Rx from 'rx';
+
 
 
 @Component({
@@ -60,7 +62,7 @@ import {Inject} from 'angular2/di';
                         <div class="demo">
                             <h3>nv-autocomplete (server):</h3>
                             <nv-autocomplete (search)="onCountrySearch($event)"
-                                [options]="refDataService.getCountries()"
+                                [options]="refData.Countries"
                                 (change)="onSelection($event)"
                             </nv-autocomplete>
                         </div>
@@ -104,6 +106,18 @@ export class DemoApp {
             console.log(this.user);
         });
 
+        //TODO default pipes not on by default https://github.com/angular/angular/issues/3173
+        // TODO passing an observable to autocomplete should just work, but iterableDiff Pipe is not on to make ng-for use the observable out of the box
+        this.countriesObs = Rx.Observable.create((observer: Rx.Observer) => {
+
+            observer.onNext([
+                {
+                    description: 'Finland'
+                }
+            ]);
+
+        });
+
     }
 
     onSelection(option) {
@@ -120,6 +134,5 @@ export class DemoApp {
 
 }
 
-//TODO default pipes not on by default https://github.com/angular/angular/issues/3173
 
 bootstrap(DemoApp, [formInjectables, ReferenceDataService]);
