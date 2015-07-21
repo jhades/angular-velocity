@@ -76,7 +76,17 @@
         }
 
         &.selected {
+          a {
+            color: $primary-color;
+          }
           font-family: $Roboto-Bold;
+          font-size: 15px;
+        }
+
+        &.selected:hover {
+          a {
+            color: white;
+          }
         }
 
       }
