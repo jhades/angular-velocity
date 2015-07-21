@@ -1,8 +1,13 @@
 
-$Roboto: 'Roboto','Helvetica','Arial',sans-serif;
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(../fonts/Roboto-Light.ttf) format("truetype");
+}
+
+$Roboto-Light: 'Roboto-Light','Helvetica','Arial',sans-serif;
 
 @mixin font-Roboto($color, $font-size: 12px) {
-  font-family: $Roboto;
+  font-family: $Roboto-Light;
   font-size: $font-size;
   color: $color;
 }

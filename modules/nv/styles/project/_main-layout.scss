@@ -34,7 +34,7 @@
         margin-left: 10px;
         margin-right: 10px;
 
-        font-family: $Roboto;
+        font-family: $Roboto-Light;
         font-size: 14px;
         text-transform: uppercase;
         a {
@@ -55,7 +55,7 @@
     background: $light;
     width: 200px;
     @include paper-element;
-    font-family: $Roboto;
+    font-family: $Roboto-Light;
     font-size: 14px;
     ul {
       list-style-type: none;
