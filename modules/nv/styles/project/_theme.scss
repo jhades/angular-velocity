@@ -1,14 +1,4 @@
 
-$Roboto: 'Roboto','Helvetica','Arial',sans-serif;
-
-@mixin font-Roboto($color, $font-size: 12px) {
-  font-family: $Roboto;
-  font-size: $font-size;
-  color: $color;
-}
-
-
-
 $primary-color: rgb(63,81,181);
 $darker: #3243A1;
 $darkest: #2035A7;
