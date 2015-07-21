@@ -1,6 +1,5 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
-import {LayoutContent,LayoutLeftMenu,LayoutMain} from 'angular-velocity';
 import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
 
 import {formInjectables} from 'angular2/forms';
@@ -17,7 +16,7 @@ import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData
 ])
 @View({
     templateUrl: 'demo-app.html',
-    directives: [RouterOutlet, RouterLink, LayoutContent, LayoutLeftMenu, LayoutMain]
+    directives: [RouterOutlet, RouterLink]
 })
 class DemoApp {}
 
