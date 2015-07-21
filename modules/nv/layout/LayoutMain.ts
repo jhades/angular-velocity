@@ -3,7 +3,10 @@ import {Directive,Ancestor} from 'angular2/angular2';
 import {LayoutContent} from './LayoutContent';
 
 @Directive({
-    selector:"[nv-layout-main]"
+    selector:"[nv-layout-main]",
+    host: {
+
+    }
 })
 export class LayoutMain {
 
