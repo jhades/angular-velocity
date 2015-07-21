@@ -1,6 +1,6 @@
-import {Component, View, NgFor, NgModel} from 'angular2/angular2';
+import {Component, View, NgFor, NgModel, coreDirectives} from 'angular2/angular2';
 import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
-import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete, NvValidators} from 'angular-velocity';
+import {Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete, NvValidators,LayoutContent,LayoutLeftMenu,LayoutMain} from 'angular-velocity';
 import {formDirectives, Validators, NgFormModel, FormBuilder, NgControl} from 'angular2/forms';
 import {Inject} from 'angular2/di';
 import * as Rx from 'rx';
@@ -86,7 +86,7 @@ import * as Rx from 'rx';
                         </div>
                     </form>
                 </div>`,
-    directives: [Dropdown,NgFor,NvSelect, NvSelectOption, NvOptGroup, TypeAhead,formDirectives, NgModel,Autocomplete],
+    directives: [Dropdown,coreDirectives,NvSelect, NvSelectOption, NvOptGroup, TypeAhead,formDirectives, NgModel,Autocomplete],
     viewInjector: [FormBuilder, ReferenceDataService]
 })
 export class Main {

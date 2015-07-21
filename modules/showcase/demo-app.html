@@ -16,25 +16,28 @@
         </ul>
     </nav>
 
-    <aside class="layout-left-menu">
-        <ul>
-            <li><a [router-link]="['/home']">Single Selection</a></li>
-            <li><a [router-link]="['/home']">Forms</a></li>
-            <li><a [router-link]="['/home']">Ui Patterns</a></li>
-            <li><a [router-link]="['/home']">Validations & Messages</a></li>
-            <li><a [router-link]="['/home']">Examples & FAQ</a></li>
-            <li><a [router-link]="['/home']">Contact</a></li>
-            <li><a href="#">Github</a></li>
-        </ul>
-    </aside>
+    <div nv-layout-content>
 
-    <main class="layout-main">
+        <aside class="layout-left-menu" nv-layout-left-menu>
+            <ul>
+                <li><a [router-link]="['/home']">Single Selection</a></li>
+                <li><a [router-link]="['/home']">Forms</a></li>
+                <li><a [router-link]="['/home']">Ui Patterns</a></li>
+                <li><a [router-link]="['/home']">Validations & Messages</a></li>
+                <li><a [router-link]="['/home']">Examples & FAQ</a></li>
+                <li><a [router-link]="['/home']">Contact</a></li>
+                <li><a href="#">Github</a></li>
+            </ul>
+        </aside>
 
-        <section>
-            <router-outlet></router-outlet>
-        </section>
+        <main class="layout-main" nv-layout-main>
 
-    </main>
+            <section>
+                <router-outlet></router-outlet>
+            </section>
+
+        </main>
+    </div>
 
     <footer></footer>
 

@@ -18,7 +18,9 @@ import {TypeAhead} from 'nv/components/typeahead/TypeAhead';
 import {FilterOptionsPipeFactory} from 'nv/components/typeahead/FilterOptionsPipe';
 import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
 import {NvValidators} from 'nv/core/validators/NvValidators';
-
+import {LayoutContent} from 'nv/layout/LayoutContent';
+import {LayoutLeftMenu} from 'nv/layout/LayoutLeftMenu';
+import {LayoutMain} from 'nv/layout/LayoutMain';
 
 export {
     Highlightable,
@@ -40,7 +42,10 @@ export {
     KeyCodes,
     TypeAhead,
     Autocomplete,
-    NvValidators
+    NvValidators,
+    LayoutContent,
+    LayoutLeftMenu,
+    LayoutMain
 }
 
 
