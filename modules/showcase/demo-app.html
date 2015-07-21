@@ -1,31 +1,33 @@
-<header class="layout-header">
-    <a [router-link]="['/home']"><img class="layout-logo" src="images/angular-velocity-logo.gif"></a>
-    <span class="layout-title">Angular Velocity Showcase</span>
-</header>
+<div>
+    <header class="layout-header">
+        <a [router-link]="['/home']"><img class="layout-logo" src="images/angular-velocity-logo.gif"></a>
+        <span class="layout-title">Angular Velocity Showcase</span>
+    </header>
 
-<nav class="layout-top-menu">
-    <ul>
-        <li><a [router-link]="['/home']">Components</a></li>
-        <li><a [router-link]="['/home']">Forms</a></li>
-        <li><a [router-link]="['/home']">Ui Patterns</a></li>
-        <li><a [router-link]="['/home']">Validations & Messages</a></li>
-        <li><a [router-link]="['/home']">Examples & FAQ</a></li>
-        <li><a [router-link]="['/home']">Contact</a></li>
-        <li><a href="#">Github</a></li>
-    </ul>
-</nav>
+    <nav class="layout-top-menu">
+        <ul>
+            <li><a [router-link]="['/home']">Components</a></li>
+            <li><a [router-link]="['/home']">Forms</a></li>
+            <li><a [router-link]="['/home']">Ui Patterns</a></li>
+            <li><a [router-link]="['/home']">Validations & Messages</a></li>
+            <li><a [router-link]="['/home']">Examples & FAQ</a></li>
+            <li><a [router-link]="['/home']">Contact</a></li>
+            <li><a href="#">Github</a></li>
+        </ul>
+    </nav>
 
-<aside class="layout-left-menu">
+    <aside class="layout-left-menu">
 
-</aside>
+    </aside>
 
-<main>
+    <main class="layout-main">
 
-    <section>
-        <router-outlet></router-outlet>
-    </section>
+        <section>
+            <router-outlet></router-outlet>
+        </section>
 
+    </main>
 
-</main>
+    <footer></footer>
 
-<footer></footer>
+</div>

@@ -45,8 +45,18 @@
   }
 
   .layout-left-menu {
-
+    display: inline-block;
+    width: 200px;
+    background: white;
+    @include paper-element();
+    border: 1px solid black;
   }
+
+  .layout-main {
+    display: inline-block;
+  }
+
+
 
 
 }
