@@ -19,7 +19,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
  *
  */
 @Component({
-    selector: 'ngv-selection-list',
+    selector: 'nv-selection-list',
     properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
     events: ['change','highlight'],
     host: {

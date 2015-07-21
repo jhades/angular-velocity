@@ -37,7 +37,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth','ngFormControl']
 })
 @View({
-    template: ` <div class="ngv-input select-one dropdown clearfix" [class.active]="active">
+    template: ` <div class="nv-input select-one dropdown clearfix" [class.active]="active">
 
                     <div #input class="input"
                         tabindex="0"
@@ -55,7 +55,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 
                     </div>
 
-                    <ngv-selection-list
+                    <nv-selection-list
                         [hidden]="!showSelectionList"
                         [height]="dropdownHeight"
                         [width]="dropdownWidth"
@@ -64,7 +64,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
                         (change)="onSelectionChanged($event, input)"
                         [navigation-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
-                    </ngv-selection-list>
+                    </nv-selection-list>
 
                 </div>`,
     directives: [SelectionList, TypeSearch]

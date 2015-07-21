@@ -12,7 +12,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     viewInjector: [KeyboardUtils]
 })
 @View({
-    template: ` <div class="ngv-input select-one autocomplete clearfix" [class.active]="active">
+    template: ` <div class="nv-input select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
                         <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
@@ -20,7 +20,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
                     </div>
 
-                    <ngv-selection-list
+                    <nv-selection-list
                         [hidden]="!showSelectionList"
                         [height]="dropdownHeight"
                         [width]="dropdownWidth"
@@ -28,7 +28,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
                         (change)="onSelectionChanged($event, input)"
                         [navigation-action]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
-                    </ngv-selection-list>
+                    </nv-selection-list>
 
                 </div>`,
     directives: [SelectionList]

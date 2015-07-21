@@ -1,26 +1,11 @@
 
-@import "vendors/base";
-@import "vendors/grids";
-@import "vendors/grids-responsive";
+@import "vendors/_material.indigo-pink.min-1.0.0";
 @import "project/theme-definitions";
-@import "project/ngv-pure-skin";
 @import "project/angular-velocity-sprite";
 @import "project/commons";
-@import "project/calendar";
-@import "project/collapsible";
-@import "project/demo-site";
-@import "project/form-messages";
-@import "project/left-layout";
-@import "project/left-menu";
-@import "project/page-actions";
-@import "project/please-wait-dialog";
 @import "../components/selectone/select-one";
 @import "../components/dropdown/dropdown";
 @import "../components/selectionlist/selection-list";
 @import "../components/select/select";
 @import "../components/typeahead/typeahead";
 @import "../components/autocomplete/autocomplete";
-@import "project/block-panel";
-@import "project/tab-container";
-@import "project/top-menu";
-@import "project/tables";
