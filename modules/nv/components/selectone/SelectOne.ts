@@ -29,8 +29,8 @@ export class SelectOne<T extends SelectionOption> {
     cancelFocusLost: boolean = false;
 
     constructor(dropdownHeight, dropdownWidth) {
-        this.dropdownHeight = dropdownHeight;
-        this.dropdownWidth = dropdownWidth;
+        this.dropdownHeight = dropdownHeight || '250px';
+        this.dropdownWidth = dropdownWidth || '200px';
     }
 
     /**

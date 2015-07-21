@@ -52,15 +52,15 @@ import {Inject} from 'angular2/di';
                         </div>
                         <div class="demo">
                             <h3>nv-typeahead (in-memory):</h3>
-                            <nv-typeahead dropdown-height="250px" dropdown-width="200px"
+                            <nv-typeahead
                                 [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)"
                             </nv-typeahead>
                         </div>
                         <div class="demo">
                             <h3>nv-autocomplete (server):</h3>
-                            <nv-autocomplete dropdown-height="250px" dropdown-width="200px"
-                                (search)="onCountrySearch($event)" [options]="refDataService.getCountries()"
+                            <nv-autocomplete (search)="onCountrySearch($event)"
+                                [options]="refDataService.getCountries()"
                                 (change)="onSelection($event)"
                             </nv-autocomplete>
                         </div>
