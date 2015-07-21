@@ -105,7 +105,7 @@ gulp.task('build-ts', function (done) {
 });
 
 gulp.task('build-html', function (done) {
-    return gulp.src(['./modules/showcase/index.html','./modules/showcase/test.html'])
+    return gulp.src(['./modules/showcase/index.html','./modules/showcase/**/*.html','./modules/nv/**/*.html'])
         .pipe(gulp.dest('dist'));
 });
 
