@@ -30,6 +30,10 @@ import * as Rx from 'rx';
                                         <input type="text" ng-control="numbersOnly">
                                     </p>
                                     <p>
+                                        <label>SSN:</label>
+                                        <input type="text" nv-mask="ZZ-99-999999-99-9" ng-control="ssn">
+                                    </p>
+                                    <p>
                                         <label>Country:</label>
                                         <nv-dropdown dropdown-height="250px" dropdown-width="200px"
                                             [options]="refData.COUNTRIES"
@@ -101,7 +105,9 @@ export class DemoApp {
             "username": ["", Validators.required],
             "password": ["", Validators.required],
             //"country": ["", Validators.required]
-            "numbersOnly": ["",NvValidators.integer]
+            "numbersOnly": ["",NvValidators.integer],
+            "ssn": [""]
+
         });
 
         this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => {
