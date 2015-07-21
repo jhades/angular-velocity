@@ -24,9 +24,23 @@
 
   .layout-top-menu {
     background-color: $darker;
-    li {
-      display: inline-block;
-      list-style-type: none;
+    @include vertical-align-middle(50px);
+    ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      li {
+        display: inline-block;
+        list-style-type: none;
+        font-family: $Roboto;
+        font-size: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-transform: uppercase;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
     }
   }
 
