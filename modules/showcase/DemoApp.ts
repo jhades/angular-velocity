@@ -9,16 +9,18 @@ import * as Rx from 'rx';
 
 
 
+function integer(control) {
+    if (!control.value.match(/^[0-9]*$/)){
+        return {integer: true};
+    }
+}
+
 @Component({
     selector: 'sample-app'
 })
 @View({
     template: `<div class="demos">
                     <form class="pure-form">
-                        <div class="demo">
-                            <h3>Integer input</h3>
-                            <input nv-integer>
-                        </div>
                         <div class="demo">
                             <h3>simple form:</h3>
                             <form>
@@ -30,6 +32,10 @@ import * as Rx from 'rx';
                                     <p>
                                         <label>Password:</label>
                                         <input type="password" ng-control="password">
+                                    </p>
+                                    <p>
+                                        <label>Integer only:</label>
+                                        <input type="text" ng-control="numbersOnly">
                                     </p>
                                     <p>
                                         <label>Country:</label>
@@ -101,8 +107,9 @@ export class DemoApp {
 
         this.form = fb.group({
             "username": ["", Validators.required],
-            "password": ["", Validators.required]
+            "password": ["", Validators.required],
             //"country": ["", Validators.required]
+            "numbersOnly": ["",integer]
         });
 
         this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => {
