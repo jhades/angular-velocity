@@ -62,7 +62,7 @@ import * as Rx from 'rx';
                         <div class="demo">
                             <h3>nv-autocomplete (server):</h3>
                             <nv-autocomplete (search)="onCountrySearch($event)"
-                                [options]="refData.Countries"
+                                [options]="refData.COUNTRIES"
                                 (change)="onSelection($event)"
                             </nv-autocomplete>
                         </div>
