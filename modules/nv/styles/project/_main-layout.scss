@@ -1,15 +1,24 @@
 
 .nv-app {
 
-  header.layout-header {
+  .layout-header {
     background: $primary-color;
-    $height: 120px;
 
-    @include vertical-align-middle(120px);
+    @include vertical-align-middle(90px);
+    padding:10px;
 
     .layout-title {
       @include font-Roboto(white, 25px);
+      margin-left: 10px;
     }
+
+    .layout-logo {
+      height: 65px;
+      vertical-align: middle;
+      margin-bottom: 5px;
+    }
+
   }
+
 
 }

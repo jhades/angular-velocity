@@ -109,6 +109,11 @@ gulp.task('build-html', function (done) {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('build-copy', function (done) {
+    return gulp.src(['./modules/nv/images/*.gif'])
+        .pipe(gulp.dest('dist/images'));
+});
+
 
 
 gulp.task('default', function (done) {
@@ -119,6 +124,7 @@ gulp.task('default', function (done) {
         'build-css',
         'build-ts',
         'build-html',
+        'build-copy',
         done
     );
 });
@@ -128,6 +134,7 @@ gulp.task('build-dev', function (done) {
         'build-css',
         'build-ts',
         'build-html',
+        'build-copy',
         done
     );
 });
