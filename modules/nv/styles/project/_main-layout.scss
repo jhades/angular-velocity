@@ -31,10 +31,11 @@
       li {
         display: inline-block;
         list-style-type: none;
-        font-family: $Roboto;
-        font-size: 14px;
         margin-left: 10px;
         margin-right: 10px;
+
+        font-family: $Roboto;
+        font-size: 14px;
         text-transform: uppercase;
         a {
           color: $light;
@@ -54,6 +55,20 @@
     background: $light;
     width: 200px;
     @include paper-element;
+    font-family: $Roboto;
+    font-size: 16px;
+    ul {
+      list-style-type: none;
+      li {
+        $menu-padding: 5px;
+        padding-top: $menu-padding;
+        padding-bottom: $menu-padding;
+        cursor: pointer;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
   }
 
   .layout-main {
