@@ -1,4 +1,11 @@
 
+$Roboto: 'Roboto','Helvetica','Arial',sans-serif;
+
+@mixin font-Roboto($font-size: 12px) {
+  font-family: $Roboto;
+  font-size: $font-size;
+}
+
 $selected-background: #C2E0FF;
 $selected-color: #05101a;
 $selected-background-gradient: linear-gradient(to bottom, #E1EEFE, #C2E0FF);
