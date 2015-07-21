@@ -10,7 +10,7 @@
     padding:10px;
 
     .layout-title {
-      @include font-Roboto(white, 25px);
+      @include font-Roboto(white, 27px);
       margin-left: 15px;
       text-shadow: 1px 1px black;
     }
@@ -24,7 +24,7 @@
 
   .layout-top-menu {
     background-color: $darker;
-    @include vertical-align-middle(50px);
+    @include vertical-align-middle(40px);
     ul {
       margin-top: 0;
       margin-bottom: 0;
@@ -32,12 +32,12 @@
         display: inline-block;
         list-style-type: none;
         font-family: $Roboto;
-        font-size: 15px;
+        font-size: 14px;
         margin-left: 10px;
         margin-right: 10px;
         text-transform: uppercase;
         a {
-          color: white;
+          color: rgb(238, 237, 233);
           text-decoration: none;
         }
       }
