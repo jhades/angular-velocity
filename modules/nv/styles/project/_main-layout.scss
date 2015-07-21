@@ -10,7 +10,7 @@
     padding:10px;
 
     .layout-title {
-      @include font-Roboto(white, 27px);
+      @include font-RobotoLight(white, 27px);
       margin-left: 15px;
       text-shadow: 1px 1px black;
     }
