@@ -16,6 +16,10 @@ import * as Rx from 'rx';
     template: `<div class="demos">
                     <form class="pure-form">
                         <div class="demo">
+                            <h3>Integer input</h3>
+                            <input nv-integer>
+                        </div>
+                        <div class="demo">
                             <h3>simple form:</h3>
                             <form>
                                 <div [ng-form-model]="form">
