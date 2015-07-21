@@ -60,7 +60,7 @@ import {Inject} from 'angular2/di';
                         <div class="demo">
                             <h3>nv-autocomplete (server):</h3>
                             <nv-autocomplete dropdown-height="250px" dropdown-width="200px"
-                                [options]="refDataService.getCountries()"
+                                (search)="onCountrySearch($event)" [options]="refDataService.getCountries()"
                                 (change)="onSelection($event)"
                             </nv-autocomplete>
                         </div>
@@ -112,6 +112,10 @@ export class DemoApp {
 
     onSubmit() {
         console.log("username valid " + this.form.controls.username.valid);
+    }
+
+    onCountrySearch(search) {
+        console.log("looking for country " + search);
     }
 
 }
