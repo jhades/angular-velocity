@@ -9,7 +9,6 @@
     ul {
       padding-left:0;
       li {
-        @include vertical-align-middle(30px);
         font-size: 13px;
         display: block;
         text-transform: none;
@@ -22,13 +21,23 @@
             color: $lightest-text;
             opacity: 1;
           }
+          i {
+            color: $lightest-text;
+          }
           background: $primary-color;
+        }
+
+        i {
+          vertical-align: middle;
+          font-size: 20px;
         }
 
       }
     }
     a {
       color: $darkest-text;
+      @include vertical-align-middle(30px);
+      display: inline-block;
     }
   }
 }
