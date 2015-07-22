@@ -5,7 +5,7 @@
       padding-left: 0;
       margin-bottom: 0;
       li {
-        background: $light;
+        background: $secondary-light;
         @include selected-tab;
 
         &:hover {
