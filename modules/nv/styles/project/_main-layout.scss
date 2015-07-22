@@ -58,6 +58,8 @@
           vertical-align: middle;
           color:$lightest-text;
           margin-bottom: 1px;
+          margin-left: -2px;
+          margin-right: -10px;
         }
       }
     }
@@ -73,7 +75,7 @@
     background: $lightest;
     $menu-width: 200px;
     $item-height: 32px;
-    width: $menu-width;
+    min-width: $menu-width;
     @include paper-element;
     @include dropdown-menu(150px);
     font-family: $Light;
