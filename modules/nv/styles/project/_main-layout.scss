@@ -75,7 +75,7 @@
     background: $light;
     width: 200px;
     @include paper-element;
-    @include dropdown-menu;
+    @include dropdown-menu(200px);
     font-family: $Roboto-Light;
     font-size: 14px;
     ul {

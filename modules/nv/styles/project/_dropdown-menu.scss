@@ -1,13 +1,12 @@
-@mixin dropdown-menu {
+@mixin dropdown-menu($dropdown-width: 150px) {
 
   $item-height: 30px;
-  $dropdown-width: 150px;
 
   .layout-dropdown-menu {
     position: relative;
     @include paper-element;
     z-index: 10;
-    width: 150px;
+    width: $dropdown-width;
     background: $light;
     font-family: $Roboto-Light;
     position: absolute;
