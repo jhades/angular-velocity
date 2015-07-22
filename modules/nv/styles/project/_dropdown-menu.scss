@@ -1,0 +1,20 @@
+@mixin dropdown-menu {
+  .layout-dropdown-menu {
+    @include paper-element;
+    z-index: 10;
+    width: 150px;
+    background: $light;
+    font-family: $Roboto-Light;
+    position: absolute;
+    ul {
+      padding-left:0;
+      li {
+        display: block;
+        text-transform: none;
+        padding-left:10px;
+        padding-right: 10px;
+        margin: 0;
+      }
+    }
+  }
+}
