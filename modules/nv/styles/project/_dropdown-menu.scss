@@ -1,4 +1,7 @@
 @mixin dropdown-menu {
+
+  $item-height: 30px;
+
   .layout-dropdown-menu {
     @include paper-element;
     z-index: 10;
@@ -13,8 +16,9 @@
         display: block;
         text-transform: none;
         padding-left:10px;
-        padding-right: 10px;
+        padding-right: 5px;
         margin: 0;
+        @include vertical-align-middle($item-height);
 
         &:hover {
           a {
@@ -29,14 +33,15 @@
 
         i {
           vertical-align: middle;
-          font-size: 20px;
+          float: right;
+          line-height: $item-height;
+          font-size: 18px;
         }
 
       }
     }
     a {
       color: $darkest-text;
-      @include vertical-align-middle(30px);
       display: inline-block;
     }
   }
