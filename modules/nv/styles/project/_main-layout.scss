@@ -25,7 +25,9 @@
 
   .layout-top-menu {
     background-color: $darker;
-    @include vertical-align-middle(35px);
+    height: 39px;
+    line-height: 35px;
+    vertical-align: middle;
     ul {
       margin-top: 0;
       margin-bottom: 0;
@@ -41,6 +43,10 @@
         a {
           color: $light;
           text-decoration: none;
+        }
+
+        &.selected {
+          border-bottom: 4px solid #18FFFF;
         }
       }
     }
