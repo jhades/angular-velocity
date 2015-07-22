@@ -4,8 +4,10 @@
   margin-bottom: 30px;
 
   .collapsible-panel-title {
-    @include vertical-align-middle(25px);
+    @include vertical-align-middle(22px);
     font-family: $Regular;
+    font-size: 18px;
+    color: $dark-text;
     cursor: pointer;
     i {
       vertical-align: middle;
