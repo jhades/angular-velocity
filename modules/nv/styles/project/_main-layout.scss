@@ -76,7 +76,7 @@
     $menu-width: 200px;
     width: $menu-width;
     @include paper-element;
-    @include dropdown-menu;
+    @include dropdown-menu(150px, 32px);
     font-family: $Roboto-Light;
     font-size: 14px;
     ul {
@@ -117,8 +117,18 @@
       text-decoration: none;
     }
 
-    .layout-dropdown-menu.first-slide-menu.slided {
-      left: 200px;
+    .layout-dropdown-menu{
+      ul {
+        li {
+          padding-top: 0;
+          padding-bottom: 0;
+
+        }
+      }
+      &.first-slide-menu.slided {
+        left: 200px;
+      }
+
     }
 
   }
