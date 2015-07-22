@@ -74,20 +74,21 @@
     vertical-align: top;
     background: $light;
     $menu-width: 200px;
+    $item-height: 32px;
     width: $menu-width;
     @include paper-element;
-    @include dropdown-menu(150px, 32px);
+    @include dropdown-menu(150px);
     font-family: $Roboto-Light;
     font-size: 14px;
     ul {
       list-style-type: none;
       padding-left: 0px;
       li {
-        $menu-padding: 6px;
+        line-height: $item-height;
         padding-left: 30px;
-        padding-top: $menu-padding;
-        padding-bottom: $menu-padding;
+        padding-right: 5px;
         cursor: pointer;
+        @include dropdown-icon($item-height);
 
         &:hover {
           a {
@@ -122,7 +123,6 @@
         li {
           padding-top: 0;
           padding-bottom: 0;
-
         }
       }
       &.first-slide-menu.slided {

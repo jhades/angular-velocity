@@ -1,3 +1,15 @@
+
+@mixin dropdown-icon($item-height) {
+  i {
+    vertical-align: middle;
+    float: right;
+    line-height: $item-height;
+    font-size: 18px;
+  }
+}
+
+
+
 @mixin dropdown-menu($dropdown-width: 150px, $item-height: 30px) {
 
   .layout-dropdown-menu {
@@ -29,14 +41,7 @@
           }
           background: $primary-color;
         }
-
-        i {
-          vertical-align: middle;
-          float: right;
-          line-height: $item-height;
-          font-size: 18px;
-        }
-
+        @include dropdown-icon($item-height);
       }
     }
     a {
