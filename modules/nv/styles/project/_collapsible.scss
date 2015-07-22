@@ -1,12 +1,22 @@
 
 .nv-app .collapsible-panel {
 
+  margin-bottom: 20px;
+
   .collapsible-panel-title {
+    @include vertical-align-middle(30px);
     font-family: $Light;
+    cursor: pointer;
+    i {
+      vertical-align: middle;
+      margin-bottom: 4px;
+      margin-right: -2px;
+    }
+
   }
 
   .collapsible-panel-body {
-      padding: 20px;
+      padding: 10px 35px 10px 35px;
   }
 
 }
