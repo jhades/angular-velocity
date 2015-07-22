@@ -32,21 +32,32 @@
       margin-top: 0;
       margin-bottom: 0;
       li {
+        cursor: pointer;
         display: inline-block;
         list-style-type: none;
         margin-left: 10px;
         margin-right: 10px;
-
         font-family: $Roboto-Light;
         font-size: 14px;
         text-transform: uppercase;
+
         a {
-          color: $light;
+          color: white;
+          opacity: .75;
           text-decoration: none;
+
+          &:hover {
+            opacity: 1;
+            font-weight: bold;
+          }
+
         }
 
         &.selected {
           border-bottom: 4px solid #18FFFF;
+          a {
+            opacity: 1;
+          }
         }
       }
     }
