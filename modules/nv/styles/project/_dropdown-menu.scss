@@ -1,8 +1,10 @@
 @mixin dropdown-menu {
 
   $item-height: 30px;
+  $dropdown-width: 150px;
 
   .layout-dropdown-menu {
+    position: relative;
     @include paper-element;
     z-index: 10;
     width: 150px;
@@ -44,5 +46,12 @@
       color: $darkest-text;
       display: inline-block;
     }
+
+    &.slided {
+      position: absolute;
+      left: $dropdown-width;
+      margin-top: -1 * $item-height;
+    }
+
   }
 }
