@@ -12,7 +12,7 @@
     .layout-title {
       font-family: $Roboto-Regular;
       font-size:26px;
-      color: white;
+      color: $lightest-text;
       margin-left: 15px;
     }
 
@@ -44,7 +44,7 @@
         text-transform: uppercase;
 
         a {
-          color: white;
+          color: $lightest-text;
           opacity: .75;
           text-decoration: none;
 
@@ -90,7 +90,7 @@
 
         &:hover {
           a {
-            color: white;
+            color: $lightest-text;
           }
           background: $primary-color;
         }
@@ -105,7 +105,7 @@
 
         &.selected:hover {
           a {
-            color: white;
+            color: $lightest-text;
           }
         }
 
