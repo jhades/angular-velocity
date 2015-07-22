@@ -1,0 +1,77 @@
+<div class="demos">
+    <form class="pure-form">
+        <div class="demo">
+            <h3>simple form:</h3>
+            <form>
+                <div [ng-form-model]="form">
+                    <p>
+                        <label>Username:</label>
+                        <input type="text" ng-control="username" [(ng-model)]="user.username">
+                    </p>
+                    <p>
+                        <label>Password:</label>
+                        <input type="password" ng-control="password">
+                    </p>
+                    <p>
+                        <label>Integer only:</label>
+                        <input type="text" ng-control="numbersOnly">
+                    </p>
+                    <p>
+                        <label>SSN:</label>
+                        <input type="text" nv-mask="ZZ-99-999999-99-9" ng-control="ssn">
+                    </p>
+                    <p>
+                        <label>Country:</label>
+                        <nv-dropdown dropdown-height="250px" dropdown-width="200px"
+                                     [options]="refData.COUNTRIES"
+                                     (change)="onSelection($event)"
+                        </nv-dropdown>
+                    </p>
+                    <button [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="demo">
+            <h3>nv-dropdown:</h3>
+            <nv-dropdown dropdown-height="250px" dropdown-width="200px"
+                         [options]="refData.COUNTRIES"
+                         (change)="onSelection($event)"
+            </nv-dropdown>
+        </div>
+        <div class="demo">
+            <h3>nv-dropdown with groups:</h3>
+            <nv-dropdown dropdown-height="250px" dropdown-width="200px"
+                         [option-groups]="refData.NBA_DIVISIONS"
+                         (change)="onSelection($event)"
+            </nv-dropdown>
+        </div>
+        <div class="demo">
+            <h3>nv-typeahead (in-memory):</h3>
+            <nv-typeahead
+                    [options]="refData.COUNTRIES"
+                    (change)="onSelection($event)"
+            </nv-typeahead>
+        </div>
+        <div class="demo">
+            <h3>nv-autocomplete (server):</h3>
+            <nv-autocomplete (search)="onCountrySearch($event)"
+                             [options]="refData.COUNTRIES"
+                             (change)="onSelection($event)"
+            </nv-autocomplete>
+        </div>
+        <div class="demo">
+            <h3>nv-select:</h3>
+            <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
+                <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
+            </nv-select>
+        </div>
+        <div class="demo">
+            <h3>nv-select with groups:</h3>
+            <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
+                <optgroup *ng-for="#division of refData.NBA_DIVISIONS;" [label]="division.label">
+                    <option *ng-for="#team of division.options" [value]="team" [text]="team.description"></option>
+                </optgroup>
+            </nv-select>
+        </div>
+    </form>
+</div>
