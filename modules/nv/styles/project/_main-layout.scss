@@ -1,7 +1,7 @@
 
 .nv-app {
 
-  background: $screen-background-color;
+  background: $light;
 
   .layout-header {
     background: $primary-color;
@@ -72,7 +72,7 @@
   .layout-left-menu {
     display: inline-block;
     vertical-align: top;
-    background: $light;
+    background: $lightest;
     $menu-width: 200px;
     $item-height: 32px;
     width: $menu-width;
@@ -139,7 +139,7 @@
   .layout-main {
     margin-left: 5px;
     display: inline-block;
-    background: $screen-background-color;
+    background: $light;
   }
 
 }
