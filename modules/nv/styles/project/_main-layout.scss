@@ -86,12 +86,9 @@
 
         &:hover {
           a {
-            color: $lightest-text;
+            color: $darkest-text;
           }
-          background: $primary-color;
-          i {
-            color: $lightest-text;
-          }
+          background: $light;
         }
 
         &.selected {
