@@ -1,17 +1,20 @@
 .nv-app .tab-container {
 
   .tab-container-buttons {
-      @include vertical-align-middle(35px);
+      @include vertical-align-middle(30px);
       padding-left: 0;
       margin-bottom: 0;
       li {
+        @include selected-tab;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
         font-size: 12px;
         font-family: $Light;
         text-transform: uppercase;
         display: inline-block;
         list-style-type: none;
         cursor: pointer;
-        margin-right: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
   }
 
@@ -19,6 +22,7 @@
     @include paper-element;
     display: inline-block;
     width: 100%;
+    margin-top: 5px;
 
   }
 
