@@ -95,6 +95,9 @@
             color: $lightest-text;
           }
           background: $primary-color;
+          i {
+            color: $lightest-text;
+          }
         }
 
         &.selected {
