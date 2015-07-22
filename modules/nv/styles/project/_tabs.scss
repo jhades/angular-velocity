@@ -8,6 +8,10 @@
         background: $light;
         @include selected-tab;
 
+        &:hover {
+          font-weight: bold;
+        }
+
         &.selected {
           background: $primary-color;
           color: $lightest-text;
