@@ -123,31 +123,17 @@
 
                     </div>
 
-                    <div class="demos">
-                        <form class="pure-form">
-                            <div class="demo">
-                                <h3>simple form:</h3>
-                                <form>
-                                    <div>
-                                        <button [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </form>
-                    </div>
-
                 </div>
 
             </div>
 
+            <div class="form-actions">
+                <button>Validate</button>
+                <button [disabled]="!form.valid" (click)="onSubmit()">Save</button>
+                <button>Cancel</button>
+            </div>
+
         </form>
-
-
-        <div class="page-actions">
-            <button>Validate</button>
-            <button>Save</button>
-            <button>Cancel</button>
-        </div>
 
     </div>
 
