@@ -1,0 +1,25 @@
+.nv-app .btn {
+
+  @include paper-element;
+  border:none;
+  font-family: $Regular;
+  border-radius: 4px;
+
+  &.btn-primary {
+    color: $lightest-text;
+    background: $primary-color;
+
+  }
+
+  &.btn-secondary {
+    color: $darkest-text;
+    background: $primary-lightest;
+  }
+
+  &.btn-tertiary {
+    color: $darkest-text;
+    background: $lightest-text;
+  }
+
+
+}
