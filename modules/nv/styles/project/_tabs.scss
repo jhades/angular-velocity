@@ -2,6 +2,7 @@
 
   .tab-container-buttons {
       padding-left: 0;
+      margin-bottom: 0;
       li {
         font-size: 12px;
         font-family: $Light;
@@ -14,6 +15,8 @@
 
   .tab-container-body {
     @include paper-element;
+    display: inline-block;
+    width: 100%;
 
   }
 
