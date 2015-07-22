@@ -2,8 +2,9 @@
 
   @include paper-element;
   border:none;
-  font-family: $Regular;
+  font-family: $Light;
   border-radius: 4px;
+  outline: none;
 
   &.btn-primary {
     color: $lightest-text;
