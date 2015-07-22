@@ -1,6 +1,4 @@
-@mixin dropdown-menu($dropdown-width: 150px) {
-
-  $item-height: 30px;
+@mixin dropdown-menu($dropdown-width: 150px, $item-height: 30px) {
 
   .layout-dropdown-menu {
     position: relative;
