@@ -9,6 +9,7 @@
     ul {
       padding-left:0;
       li {
+        @include vertical-align-middle(30px);
         font-size: 13px;
         display: block;
         text-transform: none;
