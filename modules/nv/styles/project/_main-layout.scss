@@ -141,10 +141,10 @@
     display: inline-block;
     background: $light;
     width:100%;
+    padding-left: 20px;
+    padding-right: 20px;
     .page-title {
       font-family: $Light;
-      padding-left: 20px;
-      padding-right: 20px;
       .page-title-text {
         margin-bottom: 0;
       }

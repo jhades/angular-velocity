@@ -1,7 +1,11 @@
 .nv-app .tab-container {
 
   .tab-container-buttons {
+      padding-left: 0;
       li {
+        font-size: 12px;
+        font-family: $Light;
+        text-transform: uppercase;
         display: inline-block;
         list-style-type: none;
         cursor: pointer;
@@ -9,7 +13,7 @@
   }
 
   .tab-container-body {
-
+    @include paper-element;
 
   }
 
