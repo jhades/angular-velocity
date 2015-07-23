@@ -11,15 +11,21 @@
 
             <div class="data-table">
 
-                <div class="data-table-title">
-                    <i class="nv-icon">stop</i>
+                <div class="data-table-header">
                     <span>Data Table</span>
+                    <div class="data-table-buttons">
+                        <button class="btn btn-secondary">Add</button>
+                        <button class="btn btn-secondary" (click)="onSubmit()">Open Selection</button>
+                        <button class="btn btn-secondary">Delete</button>
+                    </div>
                 </div>
+
 
                 <div class="data-table-body">
 
                     <table class="nv-1">
                         <thead>
+                        <th><div class="checkbox"></div></th>
                         <th>Number</th>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -27,24 +33,28 @@
                         </thead>
                         <tbody>
                         <tr>
+                            <td><div class="checkbox"></div></td>
                             <td>1</td>
                             <td>Eve</td>
                             <td>Jackson</td>
                             <td>94</td>
                         </tr>
                         <tr>
+                            <td><div class="checkbox"></div></td>
                             <td>2</td>
                             <td>John</td>
                             <td>Doe</td>
                             <td>80</td>
                         </tr>
                         <tr>
+                            <td><div class="checkbox"></div></td>
                             <td>3</td>
                             <td>Adam</td>
                             <td>Johnson</td>
                             <td>67</td>
                         </tr>
                         <tr>
+                            <td><div class="checkbox"></div></td>
                             <td>4</td>
                             <td>Jill</td>
                             <td>Smith</td>
@@ -54,7 +64,6 @@
                     </table>
 
                 </div>
-
 
             </div>
 
