@@ -13,8 +13,8 @@ import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData
     viewInjector: [ReferenceDataService]
 })
 @RouteConfig([
-    { path: '/', component: Main, as: 'home' },
-    { path: '/data-table-example', component: DataTableExample, as: 'data-table-example' }
+    { path: '/data-table-example', component: Main, as: 'home' },
+    { path: '/', component: DataTableExample, as: 'data-table-example' }
 
 ])
 @View({
