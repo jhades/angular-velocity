@@ -1,0 +1,16 @@
+.nv-app .pager {
+
+  margin-top: 10px;
+
+  .pager-btn {
+    @include vertical-align-middle(30px);
+
+    display: inline-block;
+
+    i {
+      @include vertical-align-middle(30px);
+    }
+
+  }
+
+}
