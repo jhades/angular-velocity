@@ -1,0 +1,14 @@
+
+.nv-app .overlay {
+
+    $dialog-size:400px;
+    border-radius: 4px;
+    height: $dialog-size;
+    width: $dialog-size;
+    position: absolute;
+    @include paper-element;
+    background: $secondary-lighter;
+    z-index: 20;
+
+
+}
