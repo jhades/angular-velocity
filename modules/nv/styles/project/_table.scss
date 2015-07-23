@@ -7,14 +7,16 @@
 
   .data-table-header {
     @include vertical-align-middle(25px);
-    margin-bottom: 9px;
+    margin-bottom: 11px;
     letter-spacing: normal;
     font-family: $Regular;
     font-size: 18px;
+    span {
+      vertical-align: bottom;
+    }
     i {
       font-size: 13px;
     }
-    border-bottom: 5px;
 
     .data-table-buttons {
       margin-left: 15px;
@@ -22,7 +24,7 @@
       font-family: $Light;
       font-size: 14px;
       .btn {
-        height: 25px;
+        height: 27px;
         padding-left: 10px;
         padding-right: 10px;
         margin-right: 5px;
