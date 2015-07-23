@@ -3,12 +3,32 @@
   margin-top: 10px;
 
   .pager-btn {
-    @include vertical-align-middle(30px);
+    border-radius: 4px;
+
+
+    @include vertical-align-middle(25px);
 
     display: inline-block;
 
     i {
-      @include vertical-align-middle(30px);
+
+      @include vertical-align-middle(25px);
+    }
+
+    &.pager-btn-nav {
+      background: $primary-lightest;
+    }
+
+    &.pager-btn-first {
+      i:last-child {
+        margin-left: -20px;
+      }
+    }
+
+    &.pager-btn-nbr {
+      color: $secondary-darkest;
+      padding-left: 5px;
+      padding-right: 5px;
     }
 
   }
