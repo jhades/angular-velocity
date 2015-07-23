@@ -25,16 +25,17 @@
   }
 
   .overlay.please-wait-dialog {
-
-      @include set-size-and-center(250px, 150px);
+      background-color: white;
+      @include set-size-and-center(320px, 170px);
   }
 
   .loading-indicator {
       position: absolute;
-      @include set-size-and-center(30px, 30px);
-      border: 1px solid black;
-      animation: loading-indicator-rotate 1568.23529412ms linear infinite;
-
+      @include set-size-and-center(59px, 59px);
+      background-image: url("../images/loading-indicator.gif");
+      background-size: 400px;
+      background-repeat: no-repeat;
+      background-position: -250px -98px;
   }
 
 }
