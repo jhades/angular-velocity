@@ -21,14 +21,15 @@
   }
 
   .overlay.please-wait-dialog {
-    $height: 150px;
-    $width: 250px;
-    height: $height;
-    width: $width;
-    top: 50%;
-    left: 50%;
-    margin-left: -1 * $width / 2;
-    margin-top: -1 * $height / 2;
+
+      @include set-size-and-center(250px, 150px);
+  }
+
+  .loading-indicator {
+      @include set-size-and-center(10px, 10px);
+      border: 1px solid black;
+      animation: loading-rotate 1568.23529412ms linear infinite;
+
   }
 
 }

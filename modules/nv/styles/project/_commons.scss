@@ -6,6 +6,28 @@
     margin: 0 auto;
 }
 
+@mixin center-horizontal-known-width($width) {
+  left: 50%;
+  margin-left: -1 * $width / 2;
+}
+
+@mixin center-vertical-known-height($height) {
+  top: 50%;
+  margin-top: -1 * $height / 2;
+}
+
+@mixin center-known-size($width, $height) {
+  @include center-horizontal-known-width($width);
+  @include center-vertical-known-height($height);
+}
+
+@mixin set-size-and-center($width, $height) {
+  width: $width;
+  height: $height;
+  @include center-horizontal-known-width($width);
+  @include center-vertical-known-height($height);
+}
+
 .positioned {
     position: relative;
 }
