@@ -1,6 +1,7 @@
 
 .nv-app .data-table {
 
+  margin-bottom: 30px;
 
   .data-table-title {
     letter-spacing: normal;
@@ -12,44 +13,46 @@
     border-bottom: 10px;
   }
 
-  & > table {
-    background: $lightest-text;
-    border-radius: 2px;
-    font-family: $Light;
-    table-layout: fixed;
-    display: table;
-    margin-top: 5px;
-    $vertical-cell-padding: 10px;
-    $horizontal-cell-padding: 16px;
+  .data-table-body {
+    padding-left: 4px;
+    padding-right: 10px;
+    & > table {
+      background: $lightest-text;
+      border-radius: 2px;
+      font-family: $Light;
+      table-layout: fixed;
+      display: table;
+      margin-top: 5px;
+      $vertical-cell-padding: 8px;
+      $horizontal-cell-padding: 14px;
 
 
-    @include paper-element;
+      @include paper-element;
 
 
 
-    & > thead {
-      background: $secondary-light;
-      text-align: left;
-      border-bottom: 1px solid $secondary-dark;
-      th {
-        padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
-      }
-    }
-
-    & > tbody {
-
-      & > tr {
+      & > thead {
+        background: $secondary-light;
+        text-align: left;
         border-bottom: 1px solid $secondary-dark;
-
-        td {
+        th {
           padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
         }
       }
 
+      & > tbody {
+
+        & > tr {
+          border-bottom: 1px solid $secondary-dark;
+
+          td {
+            padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
+          }
+        }
+
+      }
+
     }
-
   }
-
-
 
 }
