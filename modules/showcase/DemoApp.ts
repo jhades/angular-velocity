@@ -3,7 +3,7 @@ import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
 
 import {formInjectables} from 'angular2/forms';
-import {Main} from './screens/Main';
+import {Main} from './screens/main/Main';
 import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
 
 
