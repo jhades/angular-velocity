@@ -6,7 +6,7 @@
   .layout-header {
     background: $primary-color;
 
-    @include vertical-align-middle(70px);
+    @include vertical-align-middle(65px);
     padding:10px;
 
     .layout-title {
@@ -17,9 +17,9 @@
     }
 
     .layout-logo {
-      height: 48px;
+      height: 45px;
       vertical-align: middle;
-      margin-left: 15px;
+      margin-left: 20px;
       margin-bottom: 10px;
     }
   }
