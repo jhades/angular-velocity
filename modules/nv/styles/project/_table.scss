@@ -14,11 +14,15 @@
   & > table {
     background: $lightest-text;
     border-radius: 2px;
-    font-family: $Regular;
+    font-family: $Light;
+    table-layout: fixed;
+    display: table;
+
 
     @include paper-element;
 
     & > thead {
+      text-align: left;
       border-bottom: 1px solid rgba(0, 0, 0, 0.117647);
     }
 
