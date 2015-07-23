@@ -28,15 +28,17 @@
       $vertical-cell-padding: 8px;
       $horizontal-cell-padding: 14px;
       @include paper-element;
+      $first-child-padding-left: 25px;
 
 
       & > thead {
         text-align: left;
         border-bottom: 1px solid $secondary-dark;
         th {
-          padding: 7px $horizontal-cell-padding 7px $horizontal-cell-padding;
+          padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
 
           &:first-child {
+            padding-left: $first-child-padding-left;
             border-top-left-radius: $border-radius;
           }
           &:last-child {
@@ -53,6 +55,9 @@
 
           td {
             padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
+            &:first-child {
+              padding-left: $first-child-padding-left;
+            }
           }
 
           &:last-child {
