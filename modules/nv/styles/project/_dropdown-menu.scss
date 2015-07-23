@@ -20,9 +20,9 @@
     width: $dropdown-width;
     font-family: $Light;
     position: absolute;
-    ul {
+    & > ul {
       padding-left:0;
-      li {
+      & > li {
         font-size: 13px;
         display: block;
         text-transform: none;
@@ -35,9 +35,6 @@
           a {
             color: $darkest-text;
             opacity: 1;
-          }
-          i {
-            color: $lightest-text;
           }
           background: $secondary-light;
         }
