@@ -9,7 +9,7 @@ import * as Rx from 'rx';
     selector: 'sample-app'
 })
 @View({
-    templateUrl: "screens/main.html",
+    templateUrl: "screens/main/main.html",
     directives: [Dropdown,coreDirectives,NvSelect, NvSelectOption, NvOptGroup, TypeAhead,formDirectives, NgModel,Autocomplete],
     viewInjector: [FormBuilder, ReferenceDataService]
 })
