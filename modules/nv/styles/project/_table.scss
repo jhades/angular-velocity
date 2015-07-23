@@ -19,13 +19,32 @@
     table-layout: fixed;
     display: table;
     margin-top: 5px;
+    $vertical-cell-padding: 12px;
+    $horizontal-cell-padding: 18px;
 
 
     @include paper-element;
 
+
+
     & > thead {
       text-align: left;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.117647);
+      border-bottom: 1px solid $secondary-dark;
+      th {
+        padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
+      }
+    }
+
+    & > tbody {
+
+      & > tr {
+        border-bottom: 1px solid $secondary-dark;
+
+        td {
+          padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
+        }
+      }
+
     }
 
   }
