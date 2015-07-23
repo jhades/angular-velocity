@@ -1,5 +1,6 @@
 .nv-app .btn {
 
+  color: $secondary-darkest;
   @include paper-element;
   border:none;
   font-family: $Light;
