@@ -4,6 +4,7 @@ import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2
 
 import {formInjectables} from 'angular2/forms';
 import {Main} from './screens/main/Main';
+import {DataTableExample} from './screens/datatable/DataTableExample';
 import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
 
 
@@ -12,7 +13,9 @@ import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData
     viewInjector: [ReferenceDataService]
 })
 @RouteConfig([
-    { path: '/', component: Main, as: 'home' }
+    { path: '/', component: Main, as: 'home' },
+    { path: '/data-table-example', component: DataTableExample, as: 'data-table-example' }
+
 ])
 @View({
     templateUrl: 'demo-app.html',
