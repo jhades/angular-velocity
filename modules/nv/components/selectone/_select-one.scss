@@ -61,6 +61,7 @@
     }
 
     .selection-list {
+      font-family: $Condensed-Light;
         background-color: #ffffff;
         position: absolute;
         overflow-x: auto;
@@ -85,7 +86,7 @@
             padding-left: 5px;
             
             &.highlighted {
-                background-image: linear-gradient(to right bottom, #3c71f7, #0078e7);
+                background-image: linear-gradient(to right bottom, $primary-light, $primary-lighter);
                 color: #ffffff;
                 @include disabled-item;
           }
