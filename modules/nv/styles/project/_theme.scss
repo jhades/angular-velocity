@@ -21,9 +21,9 @@ $secondary-lighter: #FAFAFA;
 $secondary-lightest: white;
 
 
-//TODO remove when menus become directives
-.layout-dropdown-menu {
-  display: none;
+//TODO remove this
+.layout-dropdown-menu,.please-wait-dialog, .click-blocking-barrier {
+  display: none !important;
 }
 
 
