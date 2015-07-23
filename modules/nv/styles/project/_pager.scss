@@ -4,26 +4,37 @@
 
   .pager-btn {
     border-radius: 4px;
+    cursor: pointer;
+    $button-height: 21px;
+    $button-padding: 2px;
+    padding: $button-padding;
 
-
-    @include vertical-align-middle(25px);
+    @include vertical-align-middle($button-height);
 
     display: inline-block;
 
     i {
-
-      @include vertical-align-middle(25px);
+      line-height: $button-height;
     }
 
     &.pager-btn-nav {
+      i {
+        font-size: 20px;
+      }
       background: $primary-lightest;
     }
 
     &.pager-btn-first {
       i:last-child {
-        margin-left: -20px;
+        margin-left: -18px;
       }
     }
+
+    &.pager-btn-last {
+      i:last-child {
+        margin-left: -18px;
+      }
+  }
 
     &.pager-btn-nbr {
       color: $secondary-darkest;
