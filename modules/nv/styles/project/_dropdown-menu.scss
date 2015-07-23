@@ -33,13 +33,13 @@
 
         &:hover {
           a {
-            color: $lightest-text;
+            color: $darkest-text;
             opacity: 1;
           }
           i {
             color: $lightest-text;
           }
-          background: $primary-color;
+          background: $secondary-light;
         }
         @include dropdown-icon($item-height);
       }
