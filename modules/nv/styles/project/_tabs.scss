@@ -1,12 +1,13 @@
 .nv-app .tab-container {
 
   .tab-container-buttons {
-      @include vertical-align-middle(25px);
+      position: relative;
+      z-index: 20;
+      @include vertical-align-middle(30px);
       padding-left: 0;
       margin-bottom: 0;
       li {
         background: $secondary-light;
-        @include selected-tab;
 
         &:hover {
           font-weight: bold;
@@ -14,8 +15,9 @@
         }
 
         &.selected {
-          background: $primary-color;
-          color: $lightest-text;
+          background: $secondary-lighter;
+          color: $primary-color;
+          font-family: $Regular;
         }
 
         border: 1px solid rgba(0,0,0,.14);
@@ -36,10 +38,11 @@
   }
 
   .tab-container-body {
+    margin-top: 1px;
+    position: relative;
     @include paper-element;
     display: inline-block;
     width: 100%;
-    margin-top: 5px;
     padding: 20px 30px 30px 30px;
     box-sizing: border-box;
 

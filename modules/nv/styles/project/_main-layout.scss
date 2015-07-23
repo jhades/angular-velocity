@@ -43,7 +43,12 @@
         font-family: $Light;
         font-size: 14px;
         text-transform: uppercase;
-        @include selected-tab;
+        &.selected {
+          border-bottom: 4px solid #18FFFF;
+          a {
+            opacity: 1;
+          }
+        }
 
        & > a {
           color: $lightest-text;
