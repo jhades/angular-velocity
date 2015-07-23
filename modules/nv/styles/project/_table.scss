@@ -2,6 +2,7 @@
 .nv-app .data-table {
 
   margin-bottom: 30px;
+  padding-left: 10px;
 
   .data-table-title {
     letter-spacing: normal;
@@ -14,8 +15,7 @@
   }
 
   .data-table-body {
-    padding-left: 4px;
-    padding-right: 10px;
+    padding-right: 20px;
     & > table {
       $border-radius: 4px;
       background: $lightest-text;
@@ -26,14 +26,10 @@
       margin-top: 5px;
       $vertical-cell-padding: 8px;
       $horizontal-cell-padding: 14px;
-
-
-      //@include paper-element;
-      box-shadow: 0 2px 4px -1px rgba(0,0,0,.2);
+      @include paper-element;
 
 
       & > thead {
-        background: $secondary-light;
         text-align: left;
         border-bottom: 1px solid $secondary-dark;
         th {
