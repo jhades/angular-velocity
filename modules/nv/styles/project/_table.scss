@@ -19,8 +19,8 @@
     table-layout: fixed;
     display: table;
     margin-top: 5px;
-    $vertical-cell-padding: 12px;
-    $horizontal-cell-padding: 18px;
+    $vertical-cell-padding: 10px;
+    $horizontal-cell-padding: 16px;
 
 
     @include paper-element;
@@ -28,6 +28,7 @@
 
 
     & > thead {
+      background: $secondary-light;
       text-align: left;
       border-bottom: 1px solid $secondary-dark;
       th {
