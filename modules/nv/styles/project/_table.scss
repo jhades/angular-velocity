@@ -1,7 +1,14 @@
 
 .nv-app .data-table {
 
+  background: $lightest-text;
+  border-radius: 2px;
   font-family: $Regular;
+  @include paper-element;
+
+  & > thead {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.117647);
+  }
 
 
 }
