@@ -6,12 +6,11 @@
   padding-right: 10px;
 
   .data-table-header {
+    @include vertical-align-middle(25px);
+    margin-bottom: 9px;
     letter-spacing: normal;
     font-family: $Regular;
     font-size: 18px;
-    span {
-      vertical-align: bottom;
-    }
     i {
       font-size: 13px;
     }
@@ -20,7 +19,6 @@
     .data-table-buttons {
       margin-left: 15px;
       display: inline-block;
-      margin-bottom: 5px;
       font-family: $Light;
       font-size: 14px;
       .btn {
@@ -28,7 +26,8 @@
         padding-left: 10px;
         padding-right: 10px;
         margin-right: 5px;
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+        @include light-paper-element;
+        @include active-button;
       }
     }
 

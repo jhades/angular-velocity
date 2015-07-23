@@ -11,9 +11,7 @@
     background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.05));
   }
 
-  &:active {
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset
-  }
+  @include active-button;
 
   &.btn-primary {
     color: $lightest-text;
