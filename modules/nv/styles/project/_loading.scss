@@ -1,3 +1,7 @@
+@keyframes loading-indicator-rotate {
+  to { transform: rotate(360deg) }
+}
+
 .nv-app {
 
   .click-blocking-barrier {
@@ -29,8 +33,9 @@
       position: absolute;
       @include set-size-and-center(30px, 30px);
       border: 1px solid black;
-      animation: loading-rotate 1568.23529412ms linear infinite;
+      animation: loading-indicator-rotate 1568.23529412ms linear infinite;
 
   }
 
 }
+
