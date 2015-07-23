@@ -26,7 +26,8 @@
   }
 
   .loading-indicator {
-      @include set-size-and-center(10px, 10px);
+      position: absolute;
+      @include set-size-and-center(30px, 30px);
       border: 1px solid black;
       animation: loading-rotate 1568.23529412ms linear infinite;
 
