@@ -11,7 +11,7 @@
     font-family: $Light;
 
     .overlay-content {
-        $width: 700px;
+        $width: 750px;
         width: $width;
         @include center-horizontal-known-width($width);
         border-radius: $border-radius;
@@ -46,7 +46,8 @@
         }
 
         .form-actions {
-            text-align: left;
+            margin-left: 0;
+            text-align: center;
             .btn {
                 width: 120px;
                 margin-right: 10px;
