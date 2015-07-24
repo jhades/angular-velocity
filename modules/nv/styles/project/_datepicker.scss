@@ -2,10 +2,17 @@
 .nv-app .datepicker {
 
   .calendar-button {
-    display: inline-block;
-    height: 22px;
-    width: 22px;
+    svg {
+      fill: $icon-dark-color;
+      height: 13px;
+      vertical-align: middle;
+      margin-left: 2px;
+      margin-bottom: 2px;
+    }
   }
 
+  .calendar-panel {
+
+  }
 
 }
