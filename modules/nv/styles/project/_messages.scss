@@ -29,12 +29,11 @@
     font-size: 32px;
   }
 
-
   .messages-error {
-    color: #a94442;
-    background: #f2dede;
+    color: $error-text;
+    background: $error-background;
     i {
-      color: #a94442;
+      color: $error-text;
     }
   }
 
