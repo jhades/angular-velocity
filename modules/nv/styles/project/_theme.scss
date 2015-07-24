@@ -22,7 +22,17 @@ $secondary-lightest: white;
 
 
 //TODO remove this
-.layout-dropdown-menu,.please-wait-dialog, .click-blocking-barrier {
+.layout-dropdown-menu {
+  display: none !important;
+}
+
+//TODO
+.please-wait-dialog {
+  display: none !important;
+}
+
+//TODO
+.click-blocking-barrier {
   display: none !important;
 }
 
