@@ -1,5 +1,6 @@
 .nv-app .nv-form {
 
+  $labels-font-size: 15px;
   input {
     border-radius: 4px;
     border: 1px solid #BDB9B9;
@@ -9,7 +10,7 @@
   &.nv-form-labels-on-top {
     label {
       font-family: $Condensed-Light;
-      font-size: 15px;
+      font-size: $labels-font-size;
       color: $secondary-darkest;
       display: inline-block;
       margin-bottom: 2px;
@@ -23,6 +24,7 @@
   &.nv-form-labels-left {
     text-align: right;
     label {
+      font-size: $labels-font-size;
       display: inline-block;
       margin-right: 5px;
       margin-bottom: 20px;
