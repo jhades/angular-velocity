@@ -11,9 +11,13 @@
     font-family: $Light;
 
     .overlay-content {
-        @include set-size-and-center(700px, 650px);
+        $width: 700px;
+        width: $width;
+        @include center-horizontal-known-width($width);
         border-radius: $border-radius;
         position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         @include paper-element;
         background: $secondary-lighter;
         padding: 20px;
@@ -32,6 +36,10 @@
 
     .overlay-body {
         padding: 30px 20px 20px 20px;
+
+        .data-table, .form-actions {
+            text-align: left;
+        }
     }
 
 }
