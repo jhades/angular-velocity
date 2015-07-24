@@ -25,10 +25,13 @@
         border-top-right-radius: $border-radius;
         @include vertical-align-middle(30px);
         font-size: 20px;
+        hr {
+            margin-top: 0;
+        }
     }
 
     .overlay-body {
-
+        padding-top: 20px;
     }
 
 }

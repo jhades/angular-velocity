@@ -20,6 +20,15 @@
     }
   }
 
+  &.nv-form-labels-left {
+    text-align: right;
+    label {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 20px;
+    }
+  }
+
   .form-actions {
     padding-top: 15px;
     padding-bottom: 15px;
