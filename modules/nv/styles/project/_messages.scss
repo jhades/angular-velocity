@@ -2,7 +2,24 @@
 .nv-app .messages {
 
   .messages-panel {
+    border-radius: 4px;
+    padding: 5px 10px 10px 5px;
+    @include light-paper-element;
+    border-top: 1px solid $secondary-lightest;
+    border-left: 1px solid $secondary-lightest;
 
+  }
+
+  .messages-panel-icons {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .messages-list {
+    display: inline-block;
+    font-family: $Condensed-Light;
+    color: $secondary-darkest;
+    font-size: 15px;
   }
 
   .messages-error {
