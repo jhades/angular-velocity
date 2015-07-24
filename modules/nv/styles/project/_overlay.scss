@@ -16,16 +16,14 @@
         position: absolute;
         @include paper-element;
         background: $secondary-lighter;
-
+        padding: 20px;
     }
 
     .overlay-header {
-        padding-left: 20px;
-        padding-right: 20px;
         color: $secondary-darkest;
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
-        @include vertical-align-middle(50px);
+        @include vertical-align-middle(30px);
         font-size: 20px;
     }
 
