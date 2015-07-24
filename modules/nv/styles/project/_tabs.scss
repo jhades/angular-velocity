@@ -3,7 +3,7 @@
   .tab-container-buttons {
       position: relative;
       z-index: 20;
-      @include vertical-align-middle(30px);
+      @include vertical-align-middle(25px);
       padding-left: 0;
       margin-bottom: 0;
       li {
