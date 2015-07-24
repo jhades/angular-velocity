@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <base href="/dist/">
     <title>Angular Velocity Showcase</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/dist/styles/angular-velocity.css">
     <link rel="stylesheet" href="/dist/styles/showcase.css">
+    <script>
+        // TODO
+        baseElement = document.querySelector('base');
+        baseElement.attr = baseElement.getAttribute;
+    </script>
 
 <body class="nv-app">
 
@@ -26,7 +32,7 @@
 <script src="https://code.angularjs.org/2.0.0-alpha.31/router.dev.js"></script>
 
 <script>
-    System.baseURL += '.';
+    //System.baseURL += './';
     System.import('./showcase/DemoApp')
             .catch(function (e) {
                 console.error(e, 'Error bootstrapping app');

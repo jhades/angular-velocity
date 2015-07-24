@@ -12,7 +12,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     events: ['change'],
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     viewInjector: [
-        Pipes.append({
+        Pipes.extend({
             'filterOptions': filterOptions
         }),
         KeyboardUtils

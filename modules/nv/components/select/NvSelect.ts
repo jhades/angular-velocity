@@ -5,7 +5,7 @@ import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 
 @Component({
-    selector:"nv-select",
+    selector:"nv-select-TODO",
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     events: ['change']
 })

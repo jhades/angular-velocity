@@ -9,7 +9,8 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
-    "listFiles": true
+    "listFiles": true,
+    "experimentalDecorators": true
   },
   "files": []
 }
