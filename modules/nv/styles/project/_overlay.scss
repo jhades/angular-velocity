@@ -1,12 +1,21 @@
 
 .nv-app .overlay {
 
-    @include set-size-and-center(400px, 400px);
-    border-radius: 4px;
-    position: absolute;
-    @include paper-element;
-    background: $secondary-lighter;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 20;
+    position: absolute;
+    left: 0;
+    top: 0;
 
+    .overlay-content {
+        @include set-size-and-center(700px, 650px);
+        border-radius: 4px;
+        position: absolute;
+        @include paper-element;
+        background: $secondary-lighter;
+
+    }
 
 }
