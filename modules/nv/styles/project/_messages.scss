@@ -47,7 +47,11 @@
   }
 
   .messages-info {
-
+    color: $info-text;
+    background: $info-background;
+    i {
+      color: $info-text;
+    }
   }
 
 }
