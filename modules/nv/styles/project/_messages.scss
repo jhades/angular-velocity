@@ -2,6 +2,7 @@
 .nv-app .messages {
 
   .messages-panel {
+    margin-bottom: 10px;
     border-radius: 6px;
     padding: 5px 5px 5px 10px;
     @include light-paper-element;
@@ -38,7 +39,11 @@
   }
 
   .messages-warning {
-
+    color: $warning-text;
+    background: $warning-background;
+    i {
+      color: $warning-text;
+    }
   }
 
   .messages-info {
