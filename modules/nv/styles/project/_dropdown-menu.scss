@@ -36,7 +36,7 @@
             color: $darkest-text;
             opacity: 1;
           }
-          background: $secondary-light;
+          background: $secondary-lighter;
         }
         @include dropdown-icon($item-height);
       }

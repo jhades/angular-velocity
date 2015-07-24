@@ -1,7 +1,7 @@
 
 .nv-app {
 
-  background: $secondary-lighter;
+  background: $secondary-even-lighter;
 
   .layout-header {
     background: $primary-color;
@@ -100,7 +100,7 @@
           a {
             color: $darkest-text;
           }
-          background: $secondary-light;
+          background: $secondary-lighter;
         }
 
         &.selected {
@@ -143,7 +143,7 @@
   .layout-main {
     margin-left: 5px;
     display: inline-block;
-    background: $secondary-lighter;
+    background: $secondary-even-lighter;
     width:100%;
     padding-left: 35px;
     padding-right: 30px;
