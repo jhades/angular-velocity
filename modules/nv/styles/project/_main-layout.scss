@@ -6,18 +6,18 @@
   .layout-header {
     background: $primary-color;
 
-    @include vertical-align-middle(65px);
+    @include vertical-align-middle(55px);
     padding:10px;
 
     .layout-title {
       font-family: $Regular;
-      font-size:26px;
+      font-size:23px;
       color: $lightest-text;
-      margin-left: 10px;
+      margin-left: 15px;
     }
 
     .layout-logo {
-      height: 45px;
+      height: 35px;
       vertical-align: middle;
       margin-left: 20px;
       margin-bottom: 10px;
@@ -41,7 +41,7 @@
         margin-left: 10px;
         margin-right: 10px;
         font-family: $Light;
-        font-size: 14px;
+        font-size: 13px;
         text-transform: uppercase;
         &.selected {
           border-bottom: 4px solid #18FFFF;
