@@ -1,4 +1,4 @@
-import {Directive, onChange, ElementRef} from 'angular2/angular2';
+import {Directive, ElementRef, LifecycleEvent} from 'angular2/angular2';
 import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-velocity';
 
 /**
@@ -19,7 +19,7 @@ import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-vel
 @Directive({
     selector: "[nv-scrollable-list]",
     properties: ['navigationAction','hidden'],
-    lifecycle: [onChange]
+    lifecycle: [LifecycleEvent.onChange]
 
 })
 export class ScrollableList {

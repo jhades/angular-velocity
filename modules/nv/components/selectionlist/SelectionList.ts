@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, Parent, EventEmitter, Attribute, onChange, coreDirectives} from 'angular2/angular2';
+import {Component, View, Parent, EventEmitter, Attribute, coreDirectives, LifecycleEvent} from 'angular2/angular2';
 import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
 /**
@@ -22,7 +22,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
     selector: 'nv-selection-list',
     properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
     events: ['change','highlight'],
-    lifecycle: [onChange]
+    lifecycle: [LifecycleEvent.onChange]
 })
 @View({
     template: `

@@ -1,4 +1,4 @@
-import {Directive, Ancestor, ElementRef, EventEmitter, onChange} from 'angular2/angular2';
+import {Directive, Ancestor, ElementRef, EventEmitter, LifecycleEvent} from 'angular2/angular2';
 import {ScrollableList} from 'angular-velocity';
 import {FunctionalUtils} from 'nv/services/FunctionalUtils';
 
@@ -22,7 +22,7 @@ import {FunctionalUtils} from 'nv/services/FunctionalUtils';
       '(DOMMouseScroll)': 'onMouseWheel($event)'
     },
     events: ['highlight'],
-    lifecycle: [onChange],
+    lifecycle: [LifecycleEvent.onChange],
     hostInjector: [FunctionalUtils]
 })
 export class ScrollableListElement {
