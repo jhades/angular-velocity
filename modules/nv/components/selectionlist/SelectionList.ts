@@ -22,9 +22,6 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
     selector: 'nv-selection-list',
     properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
     events: ['change','highlight'],
-    host: {
-        '(scroll)': 'onScroll()'
-    },
     lifecycle: [onChange]
 })
 @View({
