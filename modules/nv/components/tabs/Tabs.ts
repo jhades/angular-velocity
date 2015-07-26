@@ -6,17 +6,8 @@ import {Tab} from './Tab';
     selector: 'nv-tabs'
 })
 @View({
-    directives: [coreDirectives, Tab],
-    template: `<div class="tabcontainer">
-                <ul class="tabcontainer-buttons">
-                    <li *ng-for="#tab of tabs" class="selected">{{tab.label}}</li>
-                </ul>
-
-                <div class="tabcontainer-body">
-
-                    <content></content>
-
-                </div>`
+    directives: [coreDirectives],
+    templateUrl: 'nv/components/tabs/tabs.html'
 })
 export class Tabs {
 
@@ -32,6 +23,9 @@ export class Tabs {
         this.tabs= [];
         for (let tab of this.tabsQuery._results) { //TODO refactor once Query list is an observable
             this.tabs.push(tab);
+        }
+        if (this.tabs.length > 0) {
+            this.tabs[0].selected = true;
         }
     }
 

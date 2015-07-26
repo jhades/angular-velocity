@@ -9,7 +9,7 @@ import * as Rx from 'rx';
     selector: 'sample-app'
 })
 @View({
-    templateUrl: "screens/main/main.html",
+    templateUrl: "showcase/screens/main/main.html",
     directives: [coreDirectives,formDirectives, NgModel,angularVelocityDirectives],
     viewInjector: [FormBuilder, ReferenceDataService]
 })

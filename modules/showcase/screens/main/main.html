@@ -44,45 +44,7 @@
     <form [ng-form-model]="form" class="nv-form nv-form-labels-on-top">
 
             <nv-tabs>
-
-                <nv-tab label="First Tab">
-
-                </nv-tab>
-
-                <nv-tab label="Second Tab">
-
-                </nv-tab>
-
-                <nv-tab label="Third Tab">
-
-                </nv-tab>
-
-                <nv-tab label="Fourth Tab">
-
-                </nv-tab>
-
-                <nv-tab label="Fifth Tab">
-
-                </nv-tab>
-
-                <nv-tab label="Sixth Tab">
-
-                </nv-tab>
-
-            </nv-tabs>
-
-            <div class="tabcontainer">
-                <ul class="tabcontainer-buttons">
-                    <li>First Tab</li>
-                    <li class="selected">Second Tab</li>
-                    <li>Third Tab</li>
-                    <li>Fourth Tab</li>
-                    <li>Fifth Tab</li>
-                    <li>Sixth Tab</li>
-                </ul>
-
-                <div class="tabcontainer-body">
-
+               <nv-tab title="First Tab">
                     <div class="collapsible-panel">
 
                         <div class="collapsible-panel-title expanded">
@@ -202,161 +164,184 @@
                                             </div>
                                         </div>
                                     </div>
-                                <div class="col-1-3">
-                                    <label>Select Option:</label>
-                                    <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
-                                        <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
-                                    </nv-select>
+                                    <div class="col-1-3">
+                                        <label>Select Option:</label>
+                                        <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
+                                            <option *ng-for="#team of refData.NBA_TEAMS" [value]="team" [text]="team.description"></option>
+                                        </nv-select>
+                                    </div>
+                                    <div class="col-1-3">
+                                        <label>Select With Groups:</label>
+                                        <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
+                                            <optgroup *ng-for="#division of refData.NBA_DIVISIONS;" [label]="division.label">
+                                                <option *ng-for="#team of division.options" [value]="team" [text]="team.description"></option>
+                                            </optgroup>
+                                        </nv-select>
+                                    </div>
                                 </div>
-                                <div class="col-1-3">
-                                    <label>Select With Groups:</label>
-                                    <nv-select dropdown-height="250px" dropdown-width="200px" (change)="onSelection($event)">
-                                        <optgroup *ng-for="#division of refData.NBA_DIVISIONS;" [label]="division.label">
-                                            <option *ng-for="#team of division.options" [value]="team" [text]="team.description"></option>
-                                        </optgroup>
-                                    </nv-select>
-                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
+                        <div class="data-table">
 
-                    <div class="data-table">
-
-                        <div class="data-table-header">
-                            <span>Data Table</span>
-                            <div class="data-table-actions">
-                                <button class="btn btn-secondary btn-medium">Add</button>
-                                <button class="btn btn-secondary btn-medium" (click)="onSubmit()">Open Selection</button>
-                                <button class="btn btn-secondary btn-medium">Delete</button>
+                            <div class="data-table-header">
+                                <span>Data Table</span>
+                                <div class="data-table-actions">
+                                    <button class="btn btn-secondary btn-medium">Add</button>
+                                    <button class="btn btn-secondary btn-medium" (click)="onSubmit()">Open Selection</button>
+                                    <button class="btn btn-secondary btn-medium">Delete</button>
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div class="data-table-body">
+                            <div class="data-table-body">
 
-                            <table class="col-1">
-                                <thead>
+                                <table class="col-1">
+                                    <thead>
                                     <th><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></th>
                                     <th>Number</th>
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Points</th>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
-                                    <td>1</td>
-                                    <td>Eve</td>
-                                    <td>Jackson</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
-                                    <td>2</td>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>80</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
-                                    <td>3</td>
-                                    <td>Adam</td>
-                                    <td>Johnson</td>
-                                    <td>67</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="checkbox"><i class="nv-icon">check_box</i></div></td>
-                                    <td>3</td>
-                                    <td>Adam</td>
-                                    <td>Johnson</td>
-                                    <td>67</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
-                                    <td>4</td>
-                                    <td>Jill</td>
-                                    <td>Smith</td>
-                                    <td>50</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
+                                        <td>1</td>
+                                        <td>Eve</td>
+                                        <td>Jackson</td>
+                                        <td>94</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
+                                        <td>2</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>80</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
+                                        <td>3</td>
+                                        <td>Adam</td>
+                                        <td>Johnson</td>
+                                        <td>67</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="checkbox"><i class="nv-icon">check_box</i></div></td>
+                                        <td>3</td>
+                                        <td>Adam</td>
+                                        <td>Johnson</td>
+                                        <td>67</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div></td>
+                                        <td>4</td>
+                                        <td>Jill</td>
+                                        <td>Smith</td>
+                                        <td>50</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
-                        </div>
-
-                        <div class="data-table-footer">
-                            <div class="pager">
-                                <div class="pager-btn pager-btn-nav pager-btn-first">
-                                    <i class="nv-icon">chevron_left</i>
-                                    <i class="nv-icon">chevron_left</i>
-                                </div>
-                                <div class="pager-btn pager-btn-nav">
-                                    <i class="nv-icon">chevron_left</i>
-                                </div>
-                                <div class="pager-btn pager-btn-nbr">1</div>
-                                <div class="pager-btn pager-btn-nbr">2</div>
-                                <div class="pager-btn pager-btn-nbr">3</div>
-                                <div class="pager-btn pager-btn-nbr">4</div>
-                                <div class="pager-btn pager-btn-nav">
-                                    <i class="nv-icon">chevron_right</i>
-                                </div>
-                                <div class="pager-btn pager-btn-nav pager-btn-last">
-                                    <i class="nv-icon">chevron_right</i>
-                                    <i class="nv-icon">chevron_right</i>
-                                </div>
-                                <div class="pager-btn pager-btn-first"></div>
                             </div>
+
+                            <div class="data-table-footer">
+                                <div class="pager">
+                                    <div class="pager-btn pager-btn-nav pager-btn-first">
+                                        <i class="nv-icon">chevron_left</i>
+                                        <i class="nv-icon">chevron_left</i>
+                                    </div>
+                                    <div class="pager-btn pager-btn-nav">
+                                        <i class="nv-icon">chevron_left</i>
+                                    </div>
+                                    <div class="pager-btn pager-btn-nbr">1</div>
+                                    <div class="pager-btn pager-btn-nbr">2</div>
+                                    <div class="pager-btn pager-btn-nbr">3</div>
+                                    <div class="pager-btn pager-btn-nbr">4</div>
+                                    <div class="pager-btn pager-btn-nav">
+                                        <i class="nv-icon">chevron_right</i>
+                                    </div>
+                                    <div class="pager-btn pager-btn-nav pager-btn-last">
+                                        <i class="nv-icon">chevron_right</i>
+                                        <i class="nv-icon">chevron_right</i>
+                                    </div>
+                                    <div class="pager-btn pager-btn-first"></div>
+                                </div>
+                            </div>
+
                         </div>
+
+<!--                                            <div class="collapsible-panel">
+
+                                                <div class="collapsible-panel-title expanded">
+                                                    <i class="nv-icon">arrow_drop_down</i>
+                                                    <span>Simple Input Controls</span>
+                                                </div>
+
+                                                <div class="collapsible-panel-body">
+
+                                                    <div class="nv-form-grid col-1">
+                                                        <div class="ng-grid-row">
+                                                            <div class="col-1-3">
+                                                                <label>Username:</label>
+                                                                <input type="text" ng-control="username" [(ng-model)]="user.username">
+                                                            </div>
+                                                            <div class="col-1-3">
+                                                                <label>Password:</label>
+                                                                <input type="password" ng-control="password">
+                                                            </div>
+                                                            <div class="col-1-3">
+                                                                <label>Integer only:</label>
+                                                                <input type="text" ng-control="numbersOnly">
+                                                            </div>
+                                                        </div>
+                                                        <div class="nv-grid-row">
+                                                            <div class="col-1-3">
+                                                                <label>SSN:</label>
+                                                                <input type="text" nv-mask="ZZ-99-999999-99-9" ng-control="ssn">
+                                                            </div>
+                                                            <div class="col-1-3">
+                                                                <label>Country:</label>
+                                                                <nv-dropdown dropdown-height="250px" dropdown-width="200px"
+                                                                             [options]="refData.COUNTRIES"
+                                                                             (change)="onSelection($event)"
+                                                                </nv-dropdown>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>-->
 
                     </div>
+                </nv-tab>
 
-<!--                    <div class="collapsible-panel">
+                <nv-tab title="Second Tab">
 
-                        <div class="collapsible-panel-title expanded">
-                            <i class="nv-icon">arrow_drop_down</i>
-                            <span>Simple Input Controls</span>
-                        </div>
+                </nv-tab>
 
-                        <div class="collapsible-panel-body">
+                <nv-tab title="Third Tab">
 
-                            <div class="nv-form-grid col-1">
-                                <div class="ng-grid-row">
-                                    <div class="col-1-3">
-                                        <label>Username:</label>
-                                        <input type="text" ng-control="username" [(ng-model)]="user.username">
-                                    </div>
-                                    <div class="col-1-3">
-                                        <label>Password:</label>
-                                        <input type="password" ng-control="password">
-                                    </div>
-                                    <div class="col-1-3">
-                                        <label>Integer only:</label>
-                                        <input type="text" ng-control="numbersOnly">
-                                    </div>
-                                </div>
-                                <div class="nv-grid-row">
-                                    <div class="col-1-3">
-                                        <label>SSN:</label>
-                                        <input type="text" nv-mask="ZZ-99-999999-99-9" ng-control="ssn">
-                                    </div>
-                                    <div class="col-1-3">
-                                        <label>Country:</label>
-                                        <nv-dropdown dropdown-height="250px" dropdown-width="200px"
-                                                     [options]="refData.COUNTRIES"
-                                                     (change)="onSelection($event)"
-                                        </nv-dropdown>
-                                    </div>
-                                </div>
-                            </div>
+                </nv-tab>
 
-                        </div>
+                <nv-tab title="Fourth Tab">
 
-                    </div>-->
+                </nv-tab>
 
-                </div>
+                <nv-tab title="Fifth Tab">
 
-            </div>
+                </nv-tab>
+
+                <nv-tab title="Sixth Tab">
+
+                </nv-tab>
+
+            </nv-tabs>
+
+
 
             <div class="form-actions">
                 <button class="btn btn-secondary">Validate</button>

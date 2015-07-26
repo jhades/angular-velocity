@@ -1,0 +1,9 @@
+<div class="tabcontainer">
+
+       <ul class="tabcontainer-buttons">
+            <li *ng-for="#tab of tabs" [class.selected]="tab.selected">{{tab.title}}</li>
+       </ul>
+
+      <ng-content></ng-content>
+
+</div>

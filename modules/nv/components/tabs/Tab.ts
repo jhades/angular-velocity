@@ -1,14 +1,24 @@
 
-import {Directive, View} from 'angular2/angular2';
+import {Component, View, Attribute, coreDirectives} from 'angular2/angular2';
 
-@Directive({
+@Component({
     selector: 'nv-tab'
+})
+@View({
+    directives: [coreDirectives],
+    template: `<div class="tabcontainer-body" *ng-if="selected">
+
+                    <ng-content></ng-content>
+
+                </div>`
 })
 export class Tab {
 
-    constructor() {
-        console.log("tab ");
-    }
+    title:string;
+    selected:boolean = false;
 
+    constructor(@Attribute("title") title) {
+        this.title = title;
+    }
 
 }

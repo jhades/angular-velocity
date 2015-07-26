@@ -18,7 +18,7 @@ import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData
 
 ])
 @View({
-    templateUrl: 'demo-app.html',
+    templateUrl: 'showcase/demo-app.html',
     directives: [RouterOutlet, RouterLink]
 })
 class DemoApp {}
