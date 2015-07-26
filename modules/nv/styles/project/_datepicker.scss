@@ -22,18 +22,25 @@
   }
 
   .calendar-title {
+    font-family: $Regular;
+    color: $darkest-text;
     @include vertical-align-middle(25px);
     text-align: center;
     background: $primary-lightest;
   }
 
   .calendar-body {
-    padding: 0 5px 5px 5px;
+    padding: 0;
     table {
       table-layout: fixed;
       width: 100%;
+      th {
+        font-family: $Condensed-Bold;
+        font-size: 12px;
+      }
       td , th {
         padding: 6px;
+        border: 1px solid $secondary-darker;
       }
     }
 
