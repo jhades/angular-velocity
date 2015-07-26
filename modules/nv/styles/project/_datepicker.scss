@@ -23,7 +23,7 @@
 
   .calendar-title {
     font-family: $Regular;
-    color: $darkest-text;
+    color: $secondary-darkest;
     @include vertical-align-middle(25px);
     text-align: center;
     background: $primary-lightest;
@@ -46,6 +46,7 @@
       }
       td {
         cursor: pointer;
+        font-size: 14px;
       }
     }
 
