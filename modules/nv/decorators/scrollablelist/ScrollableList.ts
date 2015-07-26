@@ -144,6 +144,6 @@ export class ScrollableList {
 
 
     scrollStep(scrollSteps:number) {
-        this.el.nativeElement.scrollTop += scrollSteps * 22;
+        this.el.nativeElement.scrollTop += scrollSteps * 25;
     }
 }
