@@ -16,20 +16,24 @@
     z-index:15;
     @include paper-element;
     font-family: $Light;
-    width: 280px;
+    font-size: 15px;
+    width: 290px;
     background: $secondary-lightest;
   }
 
   .calendar-title {
+    @include vertical-align-middle(25px);
+    text-align: center;
     background: $primary-lightest;
   }
 
   .calendar-body {
+    padding: 0 5px 5px 5px;
     table {
       table-layout: fixed;
       width: 100%;
       td , th {
-        padding: 4px;
+        padding: 6px;
       }
     }
 
