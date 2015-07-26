@@ -1,8 +1,9 @@
 <div class="collapsible-panel">
 
     <div class="collapsible-panel-title expanded">
-        <i class="nv-icon">arrow_drop_down</i>
-        <span>Single Selection Controls</span>
+        <i class="nv-icon" *ng-if="collapsed">play_arrow</i>
+        <i class="nv-icon" *ng-if="!collapsed">arrow_drop_down</i>
+        <span>{{title}}</span>
     </div>
 
     <div class="collapsible-panel-body">
