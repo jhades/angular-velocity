@@ -22,7 +22,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     template: ` <div class="select-one typeahead clearfix" [class.active]="active">
 
                     <div class="input">
-                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
+                        <input type="text" (focus)="onFocus()" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
                         focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
 
                         <div class="widget-button dropdown-button"
