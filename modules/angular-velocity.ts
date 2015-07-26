@@ -45,3 +45,4 @@ export {
 }
 
 
+export const angularVelocityDirectives = [Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete];
