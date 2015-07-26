@@ -30,13 +30,11 @@ export class ScrollableListElement {
     highlight: EventEmitter = new EventEmitter();
     highlighted:boolean;
     disabled: boolean = false;
-    onMouseWheel: Function;
 
 
     constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef, private fUtils: FunctionalUtils) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
-        this.onMouseWheel = fUtils.debounce(this.onDebouncedMouseWheel,10);
     }
 
     onChange(changes) {
@@ -67,7 +65,7 @@ export class ScrollableListElement {
         this.highlight.next(false);
     }
 
-    onDebouncedMouseWheel($event) {
+    onMouseWheel($event) {
         $event.preventDefault();
         $event.stopPropagation();
         var delta = $event.wheelDelta || -$event.detail;
