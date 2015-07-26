@@ -55,8 +55,15 @@
       & > thead {
         text-align: left;
         border-bottom: 1px solid $secondary-dark;
+
+        tr:hover {
+            background: $secondary-hover;
+        }
+
         th {
+
           padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
+
 
           &:first-child {
             padding-left: $first-child-padding-left;
@@ -73,6 +80,10 @@
 
         & > tr {
           border-bottom: 1px solid $secondary-dark;
+          
+          &:hover {
+            background: $secondary-hover;
+          }
 
           td {
             padding: $vertical-cell-padding $horizontal-cell-padding $vertical-cell-padding $horizontal-cell-padding;
