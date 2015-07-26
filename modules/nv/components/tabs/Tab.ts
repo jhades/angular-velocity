@@ -30,4 +30,8 @@ export class Tab {
         }
     }
 
+    get selected() {
+        return this._selected;
+    }
+
 }
