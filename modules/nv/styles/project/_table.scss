@@ -24,14 +24,6 @@
       display: inline-block;
       font-family: $Light;
       font-size: 14px;
-      .btn {
-        height: 27px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-right: 5px;
-        @include light-paper-element;
-        @include active-button;
-      }
     }
 
   }
