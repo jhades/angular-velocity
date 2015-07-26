@@ -44,7 +44,7 @@
     <form [ng-form-model]="form" class="nv-form nv-form-labels-on-top">
 
         <nv-tabs>
-            <nv-tab title="First Tab">
+            <nv-tab title="First Tab" (selection)="onFirstTabSelected()">
                 <div class="collapsible-panel">
 
                     <div class="collapsible-panel-title expanded">

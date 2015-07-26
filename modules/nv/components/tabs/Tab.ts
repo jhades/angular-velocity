@@ -1,12 +1,13 @@
 
-import {Component, View, Attribute, coreDirectives} from 'angular2/angular2';
+import {Component, View, Attribute, coreDirectives, EventEmitter} from 'angular2/angular2';
 
 @Component({
-    selector: 'nv-tab'
+    selector: 'nv-tab',
+    events: ['selection']
 })
 @View({
     directives: [coreDirectives],
-    template: `<div class="tabcontainer-body" *ng-if="selected">
+    template: `<div class="tabcontainer-body" *ng-if="_selected">
 
                     <ng-content></ng-content>
 
@@ -15,10 +16,18 @@ import {Component, View, Attribute, coreDirectives} from 'angular2/angular2';
 export class Tab {
 
     title:string;
-    selected:boolean = false;
+    _selected:boolean = false;
+    selection: EventEmitter = new EventEmitter();
 
     constructor(@Attribute("title") title) {
         this.title = title;
+    }
+
+    set selected(isSelected) {
+        this._selected = isSelected;
+        if (this._selected) {
+            this.selection.next(null);
+        }
     }
 
 }

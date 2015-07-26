@@ -63,4 +63,8 @@ export class Main {
         console.log("looking for country " + search);
     }
 
+    onFirstTabSelected() {
+        console.log("On first tab selected ...");
+    }
+
 }
