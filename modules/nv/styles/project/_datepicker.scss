@@ -12,7 +12,23 @@
   }
 
   .calendar-panel {
+    position: absolute;
+    z-index:10;
+    @include paper-element;
+    font-family: $Light;
+    border-radius: 4px;
+
 
   }
+
+  .calendar-title {
+    background: $primary-lightest;
+  }
+
+  .calendar-body {
+    background: $secondary-lightest;
+
+  }
+
 
 }
