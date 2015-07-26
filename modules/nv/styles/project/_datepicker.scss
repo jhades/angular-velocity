@@ -32,6 +32,8 @@
 
   .calendar-body {
     padding: 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
     table {
       table-layout: fixed;
       width: 100%;
