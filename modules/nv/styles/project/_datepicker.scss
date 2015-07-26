@@ -16,9 +16,6 @@
     z-index:10;
     @include paper-element;
     font-family: $Light;
-    border-radius: 4px;
-
-
   }
 
   .calendar-title {
@@ -27,6 +24,13 @@
 
   .calendar-body {
     background: $secondary-lightest;
+
+    table {
+      table-layout: fixed;
+      td , th {
+        padding: 4px;
+      }
+    }
 
   }
 
