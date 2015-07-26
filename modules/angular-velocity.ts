@@ -45,4 +45,4 @@ export {
 }
 
 
-export const angularVelocityDirectives = [Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete];
+export const angularVelocityDirectives = [Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete, Tabs, Tab, SelectionList];
