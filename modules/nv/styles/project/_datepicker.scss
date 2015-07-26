@@ -27,6 +27,7 @@
     @include vertical-align-middle(25px);
     text-align: center;
     background: $primary-lightest;
+    cursor: pointer;
   }
 
   .calendar-body {
@@ -34,13 +35,17 @@
     table {
       table-layout: fixed;
       width: 100%;
+      text-align: center;
       th {
         font-family: $Condensed-Bold;
         font-size: 12px;
       }
       td , th {
         padding: 6px;
-        border: 1px solid $secondary-darker;
+        border: 1px solid $secondary-dark;
+      }
+      td {
+        cursor: pointer;
       }
     }
 
