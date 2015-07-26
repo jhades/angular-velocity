@@ -1,8 +1,7 @@
 <div class="collapsible-panel">
 
     <div class="collapsible-panel-title expanded">
-        <i class="nv-icon" *ng-if="collapsed" (click)="toggleCollapsed()">play_arrow</i>
-        <i class="nv-icon" *ng-if="!collapsed" (click)="toggleCollapsed()">arrow_drop_down</i>
+        <i class="nv-icon" (click)="toggleCollapsed()">arrow_drop_down</i>
         <span (click)="toggleCollapsed()">{{title}}</span>
     </div>
 
