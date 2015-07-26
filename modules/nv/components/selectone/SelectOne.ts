@@ -70,6 +70,15 @@ export class SelectOne<T extends SelectionOption> {
     }
 
     /**
+     *
+     * display the focus border if the user tabs into or clicks the field
+     *
+     */
+    onFocus() {
+        this.active = true;
+    }
+
+    /**
      * if the focus is lost from the input component, wait a small amount of time to see if the focus is really lost,
      * as there are occasions where we would want to cancel the focus loss.
      *

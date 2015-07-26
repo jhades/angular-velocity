@@ -41,6 +41,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 
                     <div #input class="input"
                         tabindex="0"
+                        (focus)="onFocus()"
                         nv-type-search
                         (search)="onTypeSearch($event)"
                         (click)="onButtonToggle()"
