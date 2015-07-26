@@ -38,6 +38,10 @@
     @include active-button;
   }
 
+  &.btn-larger {
+    width: 120px;
+    margin-right: 10px;
+  }
 
 
 }
