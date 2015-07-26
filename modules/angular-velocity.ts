@@ -18,7 +18,8 @@ import {TypeAhead} from 'nv/components/typeahead/TypeAhead';
 import {FilterOptionsPipeFactory} from 'nv/components/typeahead/FilterOptionsPipe';
 import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
 import {NvValidators} from 'nv/core/validators/NvValidators';
-
+import {Tabs} from 'nv/components/tabs/Tabs';
+import {Tab} from 'nv/components/tabs/Tab';
 
 export {
     Highlightable,
