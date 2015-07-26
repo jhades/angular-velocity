@@ -18,7 +18,7 @@
     font-family: $Light;
     font-size: 15px;
     width: 290px;
-    background: $secondary-even-lighter;
+    background: $popup-light;
   }
 
   .calendar-header {
@@ -69,7 +69,6 @@
         font-size: 14px;
         &:hover {
           color: $primary-color;
-          font-family: $Bold;
           background: $primary-lightest;
         }
       }
