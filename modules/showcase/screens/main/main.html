@@ -45,6 +45,12 @@
 
         <nv-tabs>
             <nv-tab title="First Tab" (selection)="onFirstTabSelected()">
+
+                <nv-collapsible-panel title="Single Selection Controls">
+
+
+                </nv-collapsible-panel>
+
                 <div class="collapsible-panel">
 
                     <div class="collapsible-panel-title expanded">
@@ -195,109 +201,111 @@
 
                     </div>
 
-                    <div class="data-table">
+                </div>
 
-                        <div class="data-table-header">
-                            <span>Data Table</span>
+                <div class="data-table">
 
-                            <div class="data-table-actions">
-                                <button class="btn btn-secondary btn-medium">Add</button>
-                                <button class="btn btn-secondary btn-medium" (click)="onSubmit()">Open Selection
-                                </button>
-                                <button class="btn btn-secondary btn-medium">Delete</button>
-                            </div>
+                    <div class="data-table-header">
+                        <span>Data Table</span>
+
+                        <div class="data-table-actions">
+                            <button class="btn btn-secondary btn-medium">Add</button>
+                            <button class="btn btn-secondary btn-medium" (click)="onSubmit()">Open Selection
+                            </button>
+                            <button class="btn btn-secondary btn-medium">Delete</button>
                         </div>
+                    </div>
 
 
-                        <div class="data-table-body">
+                    <div class="data-table-body">
 
-                            <table class="col-1">
-                                <thead>
-                                <th>
+                        <table class="col-1">
+                            <thead>
+                            <th>
+                                <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
+                            </th>
+                            <th>Number</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Points</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
                                     <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
-                                </th>
-                                <th>Number</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Points</th>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
-                                    </td>
-                                    <td>1</td>
-                                    <td>Eve</td>
-                                    <td>Jackson</td>
-                                    <td>94</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
-                                    </td>
-                                    <td>2</td>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>80</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
-                                    </td>
-                                    <td>3</td>
-                                    <td>Adam</td>
-                                    <td>Johnson</td>
-                                    <td>67</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><i class="nv-icon">check_box</i></div>
-                                    </td>
-                                    <td>3</td>
-                                    <td>Adam</td>
-                                    <td>Johnson</td>
-                                    <td>67</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
-                                    </td>
-                                    <td>4</td>
-                                    <td>Jill</td>
-                                    <td>Smith</td>
-                                    <td>50</td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                        <div class="data-table-footer">
-                            <div class="pager">
-                                <div class="pager-btn pager-btn-nav pager-btn-first">
-                                    <i class="nv-icon">chevron_left</i>
-                                    <i class="nv-icon">chevron_left</i>
-                                </div>
-                                <div class="pager-btn pager-btn-nav">
-                                    <i class="nv-icon">chevron_left</i>
-                                </div>
-                                <div class="pager-btn pager-btn-nbr">1</div>
-                                <div class="pager-btn pager-btn-nbr">2</div>
-                                <div class="pager-btn pager-btn-nbr">3</div>
-                                <div class="pager-btn pager-btn-nbr">4</div>
-                                <div class="pager-btn pager-btn-nav">
-                                    <i class="nv-icon">chevron_right</i>
-                                </div>
-                                <div class="pager-btn pager-btn-nav pager-btn-last">
-                                    <i class="nv-icon">chevron_right</i>
-                                    <i class="nv-icon">chevron_right</i>
-                                </div>
-                                <div class="pager-btn pager-btn-first"></div>
-                            </div>
-                        </div>
+                                </td>
+                                <td>1</td>
+                                <td>Eve</td>
+                                <td>Jackson</td>
+                                <td>94</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
+                                </td>
+                                <td>2</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
+                                </td>
+                                <td>3</td>
+                                <td>Adam</td>
+                                <td>Johnson</td>
+                                <td>67</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox"><i class="nv-icon">check_box</i></div>
+                                </td>
+                                <td>3</td>
+                                <td>Adam</td>
+                                <td>Johnson</td>
+                                <td>67</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox"><i class="nv-icon">check_box_outline_blank</i></div>
+                                </td>
+                                <td>4</td>
+                                <td>Jill</td>
+                                <td>Smith</td>
+                                <td>50</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </div>
+
+                    <div class="data-table-footer">
+                        <div class="pager">
+                            <div class="pager-btn pager-btn-nav pager-btn-first">
+                                <i class="nv-icon">chevron_left</i>
+                                <i class="nv-icon">chevron_left</i>
+                            </div>
+                            <div class="pager-btn pager-btn-nav">
+                                <i class="nv-icon">chevron_left</i>
+                            </div>
+                            <div class="pager-btn pager-btn-nbr">1</div>
+                            <div class="pager-btn pager-btn-nbr">2</div>
+                            <div class="pager-btn pager-btn-nbr">3</div>
+                            <div class="pager-btn pager-btn-nbr">4</div>
+                            <div class="pager-btn pager-btn-nav">
+                                <i class="nv-icon">chevron_right</i>
+                            </div>
+                            <div class="pager-btn pager-btn-nav pager-btn-last">
+                                <i class="nv-icon">chevron_right</i>
+                                <i class="nv-icon">chevron_right</i>
+                            </div>
+                            <div class="pager-btn pager-btn-first"></div>
+                        </div>
+                    </div>
+
                 </div>
+
             </nv-tab>
 
             <nv-tab title="Second Tab">
