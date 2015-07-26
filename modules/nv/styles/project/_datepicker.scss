@@ -30,19 +30,20 @@
     cursor: pointer;
 
     i {
+      cursor: pointer;
       color: $secondary-darkest;
     }
 
     .calendar-previous-month {
-
+      float: left;
     }
 
     .calendar-zoom-out {
-
+      font-size: 21px;
     }
 
     .calendar-next-month {
-
+      float: right;
     }
 
   }
