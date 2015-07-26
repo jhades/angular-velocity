@@ -1,6 +1,6 @@
-.nv-app .tab-container {
+.nv-app .tabcontainer {
 
-  .tab-container-buttons {
+  .tabcontainer-buttons {
       position: relative;
       z-index: 5;
       @include vertical-align-middle(25px);
@@ -37,7 +37,7 @@
       }
   }
 
-  .tab-container-body {
+  .tabcontainer-body {
     margin-top: 1px;
     position: relative;
     @include paper-element;
