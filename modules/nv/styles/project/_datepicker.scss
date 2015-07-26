@@ -24,12 +24,13 @@
   .calendar-header {
     font-family: $Regular;
     color: $secondary-darkest;
-    @include vertical-align-middle(25px);
+    @include vertical-align-middle(28px);
     text-align: center;
     background: $primary-lightest;
     cursor: pointer;
 
     i {
+      @include vertical-align-middle(28px);
       cursor: pointer;
       color: $secondary-darkest;
     }
