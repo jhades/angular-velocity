@@ -20,6 +20,7 @@ import {Autocomplete} from 'nv/components/autocomplete/Autocomplete';
 import {NvValidators} from 'nv/core/validators/NvValidators';
 import {Tabs} from 'nv/components/tabs/Tabs';
 import {Tab} from 'nv/components/tabs/Tab';
+import {CollapsiblePanel} from 'nv/components/collapsiblepanel/CollapsiblePanel';
 
 export {
     Highlightable,
@@ -41,8 +42,22 @@ export {
     KeyCodes,
     TypeAhead,
     Autocomplete,
+    CollapsiblePanel,
+    Tabs,
+    Tab,
     NvValidators
 }
 
 
-export const angularVelocityDirectives = [Dropdown,NvSelect, NvSelectOption, NvOptGroup, TypeAhead, Autocomplete, Tabs, Tab, SelectionList];
+export const angularVelocityDirectives = [
+    Dropdown,
+    NvSelect,
+    NvSelectOption,
+    NvOptGroup,
+    TypeAhead,
+    Autocomplete,
+    Tabs,
+    Tab,
+    SelectionList,
+    CollapsiblePanel
+];
