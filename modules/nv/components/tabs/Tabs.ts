@@ -29,4 +29,9 @@ export class Tabs {
         }
     }
 
+    selectTab(tab) {
+        this.tabs.forEach((tab) => tab.selected = false);
+        tab.selected = true;
+    }
+
 }
