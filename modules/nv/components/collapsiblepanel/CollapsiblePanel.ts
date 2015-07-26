@@ -18,4 +18,8 @@ export class CollapsiblePanel {
         this.title = title;
     }
 
+    toggleCollapsed() {
+        this.collapsed = !this.collapsed;
+    }
+
 }
