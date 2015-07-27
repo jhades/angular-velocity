@@ -6,6 +6,7 @@ import {formInjectables} from 'angular2/forms';
 import {Main} from './screens/main/Main';
 import {DataTableExample} from './screens/datatable/DataTableExample';
 import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
+import {angularVelocityLayoutDirectives} from 'angular-velocity';
 
 
 @Component({
@@ -19,7 +20,7 @@ import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData
 ])
 @View({
     templateUrl: 'showcase/demo-app.html',
-    directives: [RouterOutlet, RouterLink]
+    directives: [RouterOutlet, RouterLink, angularVelocityLayoutDirectives]
 })
 class DemoApp {}
 
