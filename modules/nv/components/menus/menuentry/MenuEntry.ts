@@ -1,9 +1,10 @@
 import {Component, View, coreDirectives, Attribute, Query, QueryList} from 'angular2/angular2';
 import {RouterLink} from 'angular2/router';
+import {MenuOption} from './MenuOption';
 
 @Component({
     selector: 'menu-entry',
-    properties: ['title', 'routing']
+    properties: ['option']
 })
 @View({
     directives: [coreDirectives, RouterLink],
@@ -11,13 +12,14 @@ import {RouterLink} from 'angular2/router';
 })
 export class MenuEntry {
 
-    title: string;
-    routing:string;
     menuEntries: QueryList<MenuEntry>;
 
-    constructor(@Attribute("routing") routing, @Query(MenuEntry, {descendants: false}) menuEntries: QueryList<MenuEntry>) {
-        this.routing = routing;
-        this.menuEntries = menuEntries;
+    constructor(/*, @Query(MenuEntry, {descendants: true}) menuEntries: QueryList<MenuEntry>*/) {
+        console.log("builded menu entry");
+    }
+
+    hasSubEntries() {
+        return this.menuEntries && this.menuEntries.length > 0;
     }
 
 }
