@@ -14,43 +14,36 @@
     </header>
 
     <nv-top-menu>
-        <menu-entry title="Components" router-link="['/home1']"></menu-entry>
-        <menu-entry title="Complex Forms" router-link="['/home']"></menu-entry>
-        <menu-entry title="UI Patterns" router-link="['/home']"></menu-entry>
-        <menu-entry title="Validations & Messages" router-link="['/home']"></menu-entry>
+        <menu-entry title="Components" routing="/home1"></menu-entry>
+        <menu-entry title="Complex Forms" routing="/home"></menu-entry>
+        <menu-entry title="UI Patterns" routing="/home"></menu-entry>
+        <menu-entry title="Validations & Messages" routing="/home"></menu-entry>
         <menu-entry title="Examples">
-            <nv-dropdown-menu>
-                <menu-entry title="Example 1" router-link="['/examples']"></menu-entry>
-                <menu-entry title="Example 2" router-link="['/examples']"></menu-entry>
+            <menu-entry title="Example 1" routing="/examples"></menu-entry>
+            <menu-entry title="Example 2" routing="/examples"></menu-entry>
+            <menu-entry title="Example 3">
+                <menu-entry title="Example 1" routing="/examples"></menu-entry>
+                <menu-entry title="Example 2" routing="/examples"></menu-entry>
                 <menu-entry title="Example 3">
-                    <nv-dropdown-menu>
-                        <menu-entry title="Example 1" router-link="['/examples']"></menu-entry>
-                        <menu-entry title="Example 2" router-link="['/examples']"></menu-entry>
-                        <menu-entry title="Example 3">
-                            <menu-entry title="Example 10" router-link="['/home']"></menu-entry>
-                            <menu-entry title="Example 11" router-link="['/home']"></menu-entry>
-                            <menu-entry title="Example 12" router-link="['/home']"></menu-entry>
-                            <menu-entry title="Example 13" router-link="['/home']"></menu-entry>
-                            <menu-entry title="Example 14">
-                                <nv-dropdown-menu>
-                                    <menu-entry title="Example 20" router-link="['/home']"></menu-entry>
-                                    <menu-entry title="Example 21" router-link="['/home']"></menu-entry>
-                                    <menu-entry title="Example 22" router-link="['/home']"></menu-entry>
-                                    <menu-entry title="Example 23" router-link="['/home']"></menu-entry>
-                                    <menu-entry title="Example 24" router-link="['/home']"></menu-entry>
-                                </nv-dropdown-menu>
-                            </menu-entry>
-                            <menu-entry title="Example 15" router-link="['/home']"></menu-entry>
-                            <menu-entry title="Example 16" router-link="['/home']"></menu-entry>
-                        </menu-entry>
-                    </nv-dropdown-menu>
+                    <menu-entry title="Example 10" routing="/home"></menu-entry>
+                    <menu-entry title="Example 11" routing="/home"></menu-entry>
+                    <menu-entry title="Example 12" routing="/home"></menu-entry>
+                    <menu-entry title="Example 13" routing="/home"></menu-entry>
+                    <menu-entry title="Example 14">
+                        <menu-entry title="Example 20" routing="/home"></menu-entry>
+                        <menu-entry title="Example 21" routing="/home"></menu-entry>
+                        <menu-entry title="Example 22" routing="/home"></menu-entry>
+                        <menu-entry title="Example 23" routing="/home"></menu-entry>
+                        <menu-entry title="Example 24" routing="/home"></menu-entry>
+                    </menu-entry>
+                    <menu-entry title="Example 15" routing="/home"></menu-entry>
+                    <menu-entry title="Example 16" routing="/home"></menu-entry>
                 </menu-entry>
-            </nv-dropdown-menu>
-            <menu-entry title="Example 4" router-link="['/examples']"></menu-entry>
-            <menu-entry title="Example 5" router-link="['/examples']"></menu-entry>
-            <menu-entry title="Example 6" router-link="['/examples']"></menu-entry>
+            </menu-entry>
+            <menu-entry title="Example 4" routing="/examples"></menu-entry>
+            <menu-entry title="Example 5" routing="/examples"></menu-entry>
+            <menu-entry title="Example 6" routing="/examples"></menu-entry>
         </menu-entry>
-
     </nv-top-menu>
 
     <nav class="layout-top-menu">

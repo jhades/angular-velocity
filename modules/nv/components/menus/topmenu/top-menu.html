@@ -1,1 +1,5 @@
-<h1>Hello World</h1>
+<nav class="layout-top-menu">
+    <ul>
+        <menu-entry *ng-for="#entry of topMenuEntries" [title]="entry.title" [routing]="entry.routing"></menu-entry>
+    </ul>
+</nav>

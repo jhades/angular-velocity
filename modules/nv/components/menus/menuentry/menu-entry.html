@@ -1,0 +1,12 @@
+<li [ng-switch]="menuEntries.length === 0">
+    <a [ng-switch-when]="true">{{title}}</a>
+    <div [ng-switch-when]="false">
+        <a [router-link]="routing">{{title}}</a><i class="nv-icon">arrow_drop_down</i>
+        <div class="layout-dropdown-menu slided">
+            <ul>
+                <menu-entry *ng-for="#entry of menuEntries" [title]="entry.title" [routing]="entry.routing"></menu-entry>
+            </ul>
+        </div>
+    </div>
+<li>
+
