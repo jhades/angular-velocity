@@ -1,5 +1,5 @@
 <nav class="layout-top-menu">
     <ul>
-        <menu-entry *ng-for="#option of options" [option]="option"></menu-entry>
+        <li *ng-for="#option of options"><a>{{option.title}}</a></li>
     </ul>
 </nav>
