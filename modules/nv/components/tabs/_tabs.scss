@@ -28,6 +28,7 @@
         margin-right: -2px;
         font-size: 12px;
         font-family: $Light;
+        @include cancel-text-selection;
         text-transform: uppercase;
         display: inline-block;
         list-style-type: none;

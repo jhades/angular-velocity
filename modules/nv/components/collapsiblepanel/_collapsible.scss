@@ -5,6 +5,7 @@
 
   .collapsible-panel-title {
     @include vertical-align-middle(22px);
+    @include cancel-text-selection;
     font-family: $Regular;
     font-size: 18px;
     color: $secondary-darkest;
