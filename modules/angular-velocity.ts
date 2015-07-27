@@ -24,8 +24,6 @@ import {CollapsiblePanel} from 'nv/components/collapsiblepanel/CollapsiblePanel'
 import {TopMenu} from 'nv/components/menus/topmenu/TopMenu';
 import {MenuOption} from 'nv/components/menus/menuentry/MenuOption';
 import {MenuOptionGroup} from 'nv/components/menus/menuentry/MenuOptionGroup';
-import {MenuEntry} from 'nv/components/menus/menuentry/MenuEntry';
-
 
 export {
     Highlightable,
@@ -52,7 +50,6 @@ export {
     Tab,
     NvValidators,
     TopMenu,
-    MenuEntry,
     MenuOption,
     MenuOptionGroup
 }
@@ -73,7 +70,6 @@ export const angularVelocityDirectives = [
 
 export const angularVelocityLayoutDirectives = [
     TopMenu,
-    MenuEntry,
     MenuOption,
     MenuOptionGroup
 ];
