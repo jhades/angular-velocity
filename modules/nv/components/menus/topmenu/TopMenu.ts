@@ -14,7 +14,7 @@ export class TopMenu {
 
     options: QueryList<MenuOption>;
 
-    //TODO pending https://github.com/angular/angular/issues/3034
+    //TODO pending https://github.com/angular/angular/issues/3034   https://github.com/angular/angular/issues/1828
     /**
      *
      * design: inject a list of both groups and options. loop through them and do an ng-switch - it's either a <a> or a <dropdown-menu [options]="option.options">
