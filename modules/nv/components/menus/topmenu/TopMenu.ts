@@ -1,7 +1,7 @@
 
 import {Component, View, coreDirectives, Query, QueryList} from 'angular2/angular2';
 import {MenuOption} from '../menuentry/MenuOption';
-import {MenuOptionGroup} from '../menuentry/MenuOptionGroup';
+import {MenuOptionGroup} from '../menuentry/Submenu';
 
 @Component({
     selector: 'nv-top-menu'
