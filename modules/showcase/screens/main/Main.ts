@@ -11,7 +11,7 @@ import * as Rx from 'rx';
 @View({
     templateUrl: "showcase/screens/main/main.html",
     directives: [coreDirectives,formDirectives, NgModel,angularVelocityDirectives],
-    viewInjector: [FormBuilder, ReferenceDataService]
+    viewBindings: [FormBuilder, ReferenceDataService]
 })
 export class Main {
     refData: ReferenceData;

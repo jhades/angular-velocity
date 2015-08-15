@@ -1,7 +1,7 @@
 
 import {Component, View, coreDirectives, Query, QueryList} from 'angular2/angular2';
 import {MenuOption} from '../menuentry/MenuOption';
-import {MenuOptionGroup} from '../menuentry/Submenu';
+import {Submenu} from '../menuentry/Submenu';
 
 @Component({
     selector: 'nv-top-menu'
@@ -28,11 +28,5 @@ export class TopMenu {
            console.log(this.options);
         });
     }
-
-
-    static queryOptionsAndOptionGroups(obj) {
-        return obj instanceof MenuOption || obj instanceof MenuOptionGroup;
-    }
-
 
 }

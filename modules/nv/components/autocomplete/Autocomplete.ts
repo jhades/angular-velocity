@@ -9,7 +9,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     selector: 'nv-autocomplete',
     events: ['change','search'],
     properties: ['options', 'dropdownHeight', 'dropdownWidth'],
-    viewInjector: [KeyboardUtils]
+    viewBindings: [KeyboardUtils]
 })
 @View({
     template: ` <div class="select-one autocomplete clearfix" [class.active]="active">

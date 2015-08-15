@@ -19,7 +19,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
         '(keydown)': 'onKeyDown($event)'
     },
     events: ['search'],
-    hostInjector: [KeyboardUtils]
+    bindings: [KeyboardUtils]
 
 })
 export class TypeSearch {

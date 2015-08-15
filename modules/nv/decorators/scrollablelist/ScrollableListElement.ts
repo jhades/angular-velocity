@@ -1,4 +1,4 @@
-import {Directive, Ancestor, ElementRef, EventEmitter, LifecycleEvent} from 'angular2/angular2';
+import {Directive, Ancestor, ElementRef, EventEmitter, LifecycleEvent, Host} from 'angular2/angular2';
 import {ScrollableList} from 'angular-velocity';
 import {FunctionalUtils} from 'nv/services/FunctionalUtils';
 
@@ -23,7 +23,7 @@ import {FunctionalUtils} from 'nv/services/FunctionalUtils';
     },
     events: ['highlight'],
     lifecycle: [LifecycleEvent.onChange],
-    hostInjector: [FunctionalUtils]
+    bindings: [FunctionalUtils]
 })
 export class ScrollableListElement {
     scrollable: ScrollableList;
@@ -32,7 +32,7 @@ export class ScrollableListElement {
     disabled: boolean = false;
 
 
-    constructor(@Ancestor(ScrollableList) scrollable: ScrollableList, public el: ElementRef, private fUtils: FunctionalUtils) {
+    constructor(@Host(ScrollableList) scrollable: ScrollableList, public el: ElementRef, private fUtils: FunctionalUtils) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
     }

@@ -11,7 +11,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     selector: 'nv-typeahead',
     events: ['change'],
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
-    viewInjector: [
+    viewBindings: [
         Pipes.extend({
             'filterOptions': filterOptions
         }),

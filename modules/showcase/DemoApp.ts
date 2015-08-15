@@ -11,7 +11,7 @@ import {angularVelocityLayoutDirectives} from 'angular-velocity';
 
 @Component({
     selector: 'app',
-    viewInjector: [ReferenceDataService]
+    viewBindings: [ReferenceDataService]
 })
 @RouteConfig([
     { path: '/', component: Main, as: 'home' },
