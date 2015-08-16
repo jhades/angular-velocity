@@ -27,7 +27,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
 @View({
     template: `
                 <div class="selection-list" [style.max-height]="height"  [style.width]="width"
-                     nv-scrollable-list [navigation-action]="navigationAction" [hidden]="hidden || isEmptyOptions()">
+                     nv-scrollable-list [navigation-action]="navigationAction" [class.hidden]="hidden || isEmptyOptions()">
 
                     <div [ng-switch]="isGroupMode()">
                         <template [ng-switch-when]="true">

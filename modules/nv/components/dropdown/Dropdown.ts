@@ -57,7 +57,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
                     </div>
 
                     <nv-selection-list
-                        [hidden]="!showSelectionList"
+                        [class.hidden]="!showSelectionList"
                         [height]="dropdownHeight"
                         [width]="dropdownWidth"
                         [options]="options"

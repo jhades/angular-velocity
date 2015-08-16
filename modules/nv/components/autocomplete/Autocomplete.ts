@@ -21,7 +21,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
                     </div>
 
                     <nv-selection-list
-                        [hidden]="!showSelectionList"
+                        [class.hidden]="!showSelectionList"
                         [height]="dropdownHeight"
                         [width]="dropdownWidth"
                         [options]="options"
