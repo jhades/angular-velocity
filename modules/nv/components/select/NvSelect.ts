@@ -5,7 +5,7 @@ import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 
 @Component({
-    selector:"nv-select-TODO", // TODO nv-select stopped working in alpha 32 due to https://github.com/angular/angular/issues/3206
+    selector:"nv-select",
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     events: ['change']
 })
