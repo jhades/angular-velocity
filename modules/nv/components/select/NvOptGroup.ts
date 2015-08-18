@@ -1,9 +1,14 @@
-import {Directive, Query, QueryList} from 'angular2/angular2';
-import {NvSelectOption, SelectionOption} from 'angular-velocity';
+import {Component, View, Query, QueryList} from 'angular2/angular2';
+import {SelectionOption} from 'angular-velocity';
+import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 
-@Directive({
+@Component({
     selector:"nv-select optgroup",
     properties: ['label']
+})
+@View({
+    template: `<div></div>`,
+    directives: [NvSelectOption]
 })
 export class NvOptGroup {
 
