@@ -40,7 +40,7 @@
         list-style-type: none;
         margin-left: 10px;
         margin-right: 10px;
-        font-family: $Light;
+        font-family: $Regular;
         font-size: 13px;
         text-transform: uppercase;
         &.selected {
@@ -84,7 +84,7 @@
     min-width: $menu-width;
     @include paper-element;
     @include dropdown-menu(150px);
-    font-family: $Light;
+    font-family: $Regular;
     font-size: 14px;
     & > ul {
       list-style-type: none;
@@ -125,7 +125,7 @@
       }
     }
 
-    .layout-dropdown-menu{
+    .layout-dropdown-menu {
       & > ul {
         li {
           padding-top: 0;
