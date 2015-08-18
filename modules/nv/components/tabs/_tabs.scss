@@ -6,7 +6,8 @@
       z-index: 5;
       @include vertical-align-middle(25px);
       padding-left: 0;
-      margin-bottom: 0;
+      margin-bottom: -4px;
+      margin-left: -1px;
       li {
         background: $secondary-light;
 
