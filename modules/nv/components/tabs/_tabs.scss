@@ -1,6 +1,7 @@
 .nv-app .tabcontainer {
 
   .tabcontainer-buttons {
+      color: $secondary-darkest;
       position: relative;
       z-index: 5;
       @include vertical-align-middle(25px);
