@@ -7,7 +7,7 @@ import {NvSelectOption} from 'nv/components/select/NvSelectOption';
     properties: ['label']
 })
 @View({
-    template: `<div style='display:none'></div>`,
+    template: `<div style='display:none'></div>`, //TODO check if this is really needed, cant this be made a @Directive instead ?
     directives: [NvSelectOption]
 })
 export class NvOptGroup {
