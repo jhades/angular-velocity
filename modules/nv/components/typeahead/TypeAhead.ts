@@ -72,7 +72,7 @@ export class TypeAhead<T extends SelectionOption> extends SelectOne<T> {
         super.onKeyDown(event, input);
         var key = event.keyCode;
         if (!this.keyUtils.isMeta(key) && !this.showSelectionList && key !== KeyCodes.ESC &&
-            key !== KeyCodes.ENTER && key !== KeyCodes.LEFT && key !== KeyCodes.RIGHT && key !== KeyCodes.TAB) {
+            key !== KeyCodes.ENTER && key !== KeyCodes.LEFT && key !== KeyCodes.RIGHT && key !== KeyCodes.TAB && key != KeyCodes.SHIFT) {
             this.showSelectionList = true;
         }
     }
