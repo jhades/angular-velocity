@@ -24,6 +24,7 @@ export class Main {
         this.refDataService = refDataService;
 
         this.form = fb.group({
+            "countryDropdown": ["", Validators.required],
             "username": ["", Validators.required],
             "password": ["", Validators.required],
             //"country": ["", Validators.required]
