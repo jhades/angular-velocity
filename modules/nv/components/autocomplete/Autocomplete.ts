@@ -1,7 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
-import {SelectOne} from 'nv/components/selectone/SelectOne';
+import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
@@ -33,7 +33,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
                 </div>`,
     directives: [SelectionList]
 })
-export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
+export class Autocomplete<T extends SelectionOption> extends SelectOneWithInput<T> {
 
     search: EventEmitter = new EventEmitter();
 
