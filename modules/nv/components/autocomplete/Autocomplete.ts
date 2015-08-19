@@ -61,8 +61,7 @@ export class Autocomplete<T extends SelectionOption> extends SelectOne<T> {
     onKeyDown(event, input) {
         super.onKeyDown(event, input);
         var key = event.keyCode;
-        if (!this.keyUtils.isMeta(key) && !this.showSelectionList && key !== KeyCodes.ESC &&
-            key !== KeyCodes.ENTER && key !== KeyCodes.LEFT && key !== KeyCodes.RIGHT && key !== KeyCodes.TAB) {
+        if (this.keyUtils.isSpecialKey(key) && !this.showSelectionList) {
             this.showSelectionList = true;
         }
     }
