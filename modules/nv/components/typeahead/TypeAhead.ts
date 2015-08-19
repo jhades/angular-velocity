@@ -49,31 +49,7 @@ export class TypeAhead<T extends SelectionOption> extends SelectOneWithInput<T> 
 
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
                 private keyUtils: KeyboardUtils) {
-        super(dropdownHeight, dropdownWidth);
-    }
-
-    onInputFocus($event, input) {
-        input.select();
-        this.active = true;
-    }
-
-    onInputClicked($event, input) {
-        this.onInputFocus($event, input);
-        $event.preventDefault();
-    }
-
-    onSelectionChanged(option: T, input) {
-        super.onSelectionChanged(option, input);
-        input.value = option.description;
-        input.select();
-    }
-
-    onKeyDown(event, input) {
-        super.onKeyDown(event, input);
-        var key = event.keyCode;
-        if (this.keyUtils.isSpecialKey(key) && !this.showSelectionList) {
-            this.showSelectionList = true;
-        }
+        super(keyUtils, dropdownHeight, dropdownWidth);
     }
 
     onKeyUp(event, input) {
