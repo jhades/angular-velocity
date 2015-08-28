@@ -1,26 +1,49 @@
-'use strict';
-
 var gulp = require('gulp');
-var del = require('del');
-var Builder = require('systemjs-builder');
-var ts = require('gulp-typescript');
-var plumber = require('gulp-plumber');
-var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
-var http = require('http');
-var connect = require('connect');
-var serveStatic = require('serve-static');
-var openResource = require('open');
+var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var spritesmith = require('gulp.spritesmith');
 
 
+var PATHS = {
+    src: {
+        js: 'modules/**/*.ts',
+        html: 'modules/**/*.html'
+    },
+    lib: [
+        'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
+        'node_modules/angular2/bundles/angular2.dev.js',
+        'node_modules/angular2/bundles/router.dev.js',
+        'node_modules/systemjs/dist/system-csp-production.js'
+    ],
+    typings: 'node_modules/angular2/bundles/typings/angular2/angular2.d.ts'
+};
+
 gulp.task('clean', function (done) {
+    var del = require('del');
     del(['dist'], done);
 });
 
-gulp.task('clean:lib', function (done) {
-    del(['lib'], done);
+gulp.task('js', function () {
+    var typescript = require('gulp-typescript');
+    var tsResult = gulp.src([PATHS.src.js])
+        .pipe(typescript({
+            noImplicitAny: true,
+            module: 'system',
+            target: 'ES5',
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true
+        }));
+
+    return tsResult.js.pipe(gulp.dest('dist'));
+});
+
+gulp.task('html', function () {
+    return gulp.src(PATHS.src.html).pipe(gulp.dest('dist'));
+});
+
+gulp.task('libs', function () {
+    return gulp.src(PATHS.lib).pipe(gulp.dest('dist/lib'));
 });
 
 gulp.task('sprite', function () {
@@ -37,7 +60,6 @@ gulp.task('sprite', function () {
 
     spriteData.img.pipe(gulp.dest('./dist'))
 });
-
 
 gulp.task('build-nv-css', function() {
     return gulp.src('./modules/nv/**/*.*css')
@@ -61,54 +83,6 @@ gulp.task('build-css', function(done) {
         done
     );});
 
-
-gulp.task('build:angular2', function () {
-    var builder = new Builder({
-        paths: {
-            'angular2/*': 'node_modules/angular2/es6/dev/*.js',
-            rx: 'node_modules/angular2/node_modules/rx/dist/rx.js'
-        },
-        meta: {
-            rx: {
-                format: 'cjs'
-            }
-        }
-    });
-    return builder.build('angular2/angular2', './lib/angular2.js', {});
-});
-
-gulp.task('build:lib', ['build:angular2'], function () {
-    gulp.src([
-        './node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-        './node_modules/angular2/node_modules/zone.js/dist/zone.js',
-        './node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.js',
-        './node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.js.map',
-        './node_modules/reflect-metadata/Reflect.js',
-        './node_modules/reflect-metadata/Reflect.js.map',
-        './node_modules/systemjs/dist/system.src.js'
-    ])
-        .pipe(gulp.dest('./lib'));
-});
-
-var tsProject = ts.createProject('tsconfig.json', {
-    typescript: require('typescript')
-});
-
-
-gulp.task('build-ts', function (done) {
-    return  gulp.src('./modules/**/*.ts')
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(ts(tsProject))
-        .js.pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('build-html', function (done) {
-    return gulp.src(['./modules/showcase/index.html','./modules/**/*.html'])
-        .pipe(gulp.dest('dist'));
-});
-
 gulp.task('build-fonts', function (done) {
     return gulp.src(['./modules/nv/styles/fonts/*'])
         .pipe(gulp.dest('dist/fonts'));
@@ -120,39 +94,21 @@ gulp.task('build-copy', function (done) {
 });
 
 
+gulp.task('default', ['libs', 'html', 'js', 'build-css','build-fonts', 'build-copy'], function () {
+    var http = require('http');
+    var connect = require('connect');
+    var serveStatic = require('serve-static');
+    var open = require('open');
 
-gulp.task('default', function (done) {
-    runSequence(
-        'clean',
-        'clean:lib',
-        'build:lib',
-        'build-css',
-        'build-ts',
-        'build-html',
-        'build-fonts',
-        'build-copy',
-        done
-    );
-});
+    var port = 9000, app;
 
-gulp.task('build-dev', function (done) {
-    runSequence(
-        'build-css',
-        'build-ts',
-        'build-html',
-        'build-copy',
-        done
-    );
-});
+    gulp.watch(PATHS.src.html, ['html']);
+    gulp.watch(PATHS.src.js, ['js']);
 
-gulp.task('serve', ['build-dev'], function () {
-    var port = 5555;
-    var app;
-
-    gulp.watch(['./modules/**/*.html', './modules/*.ts','./modules/**/*.ts', './modules/**/*.scss'], ['build-dev']);
-
-    app = connect().use(serveStatic(__dirname));
+    app = connect().use(serveStatic(__dirname ));  // serve everything that is static
     http.createServer(app).listen(port, function () {
-        openResource('http://localhost:' + port + '/dist');
+        open('http://localhost:' + port + "/dist/showcase");
     });
 });
+
+

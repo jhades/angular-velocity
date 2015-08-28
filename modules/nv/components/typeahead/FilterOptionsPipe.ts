@@ -1,5 +1,5 @@
 
-import {Pipe, PipeFactory, NullPipeFactory} from 'angular2/angular2';
+import {Pipe} from 'angular2/angular2';
 import {SelectionOption} from 'angular-velocity';
 
 export class FilterOptionsPipe implements Pipe {
@@ -26,15 +26,5 @@ export class FilterOptionsPipe implements Pipe {
 
 }
 
-export class FilterOptionsPipeFactory implements PipeFactory {
-    supports(txt): boolean {
-        return true;
-    }
-    create(cdRef): Pipe {
-        return new FilterOptionsPipe();
-    }
-}
-
-export const filterOptions = [ new FilterOptionsPipeFactory(), new NullPipeFactory() ];
 
 

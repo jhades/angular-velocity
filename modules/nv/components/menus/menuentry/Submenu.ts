@@ -1,5 +1,5 @@
 
-import {Directive, View, coreDirectives, Query, QueryList} from 'angular2/angular2';
+import {Directive, View, CORE_DIRECTIVES, Query, QueryList} from 'angular2/angular2';
 
 @Directive({
     selector: 'nv-top-menu submenu'

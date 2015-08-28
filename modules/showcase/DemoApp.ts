@@ -2,12 +2,11 @@
 import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
 
-import {formInjectables} from 'angular2/forms';
+import {FORM_BINDINGS} from 'angular2/forms';
 import {Main} from './screens/main/Main';
 import {DataTableExample} from './screens/datatable/DataTableExample';
-import {ReferenceData, ReferenceDataService} from 'showcase/common/referenceData';
+import {ReferenceData, ReferenceDataService} from './common/referenceData';
 import {angularVelocityLayoutDirectives} from 'angular-velocity';
-
 
 @Component({
     selector: 'app',
@@ -25,4 +24,4 @@ import {angularVelocityLayoutDirectives} from 'angular-velocity';
 class DemoApp {}
 
 
-bootstrap(DemoApp, [formInjectables, routerInjectables, ReferenceDataService]);
+bootstrap(DemoApp, [ReferenceDataService, routerInjectables, FORM_BINDINGS]);

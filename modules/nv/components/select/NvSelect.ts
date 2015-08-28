@@ -1,5 +1,5 @@
 
-import {Component, View, Query, QueryList,  coreDirectives,Attribute, EventEmitter} from 'angular2/angular2';
+import {Component, View, Query, QueryList,  CORE_DIRECTIVES,Attribute, EventEmitter} from 'angular2/angular2';
 import {SelectionList, Dropdown, SelectionOption, SelectionGroup} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
@@ -18,7 +18,7 @@ import {NvOptGroup} from 'nv/components/select/NvOptGroup';
                     </nv-dropdown>
                 </div>
                 `,
-    directives: [SelectionList, NvSelectOption, NvOptGroup,coreDirectives, Dropdown]
+    directives: [SelectionList, NvSelectOption, NvOptGroup,CORE_DIRECTIVES, Dropdown]
 })
 export class NvSelect<T extends SelectionOption> {
 

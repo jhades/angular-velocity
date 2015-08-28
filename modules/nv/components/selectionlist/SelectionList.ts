@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, EventEmitter, Attribute, coreDirectives, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, CORE_DIRECTIVES, LifecycleEvent} from 'angular2/angular2';
 import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
 /**
@@ -59,7 +59,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
 
 
                 </div>`,
-    directives: [ScrollableList, ScrollableListElement, coreDirectives]
+    directives: [ScrollableList, ScrollableListElement, CORE_DIRECTIVES]
 })
 export class SelectionList<T extends SelectionOption> {
 

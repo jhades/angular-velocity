@@ -1,11 +1,11 @@
 
-import {Component, View, EventEmitter, coreDirectives, Attribute} from "angular2/angular2";
+import {Component, View, EventEmitter, CORE_DIRECTIVES, Attribute} from "angular2/angular2";
 
 @Component({
     selector:'nv-collapsible-panel'
 })
 @View({
-    directives: [coreDirectives],
+    directives: [CORE_DIRECTIVES],
     templateUrl:'nv/components/collapsiblepanel/collapsible-panel.html'
 })
 export class CollapsiblePanel {

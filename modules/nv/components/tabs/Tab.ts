@@ -1,12 +1,12 @@
 
-import {Component, View, Attribute, coreDirectives, EventEmitter} from 'angular2/angular2';
+import {Component, View, Attribute, CORE_DIRECTIVES, EventEmitter} from 'angular2/angular2';
 
 @Component({
     selector: 'nv-tab',
     events: ['selection']
 })
 @View({
-    directives: [coreDirectives],
+    directives: [CORE_DIRECTIVES],
     template: `<div class="tabcontainer-body" *ng-if="_selected">
 
                     <ng-content></ng-content>

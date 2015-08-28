@@ -4,7 +4,7 @@ import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {Pipes} from 'angular2/change_detection';
-import {filterOptions} from 'nv/components/typeahead/FilterOptionsPipe';
+import {FilterOptionsPipe} from 'nv/components/typeahead/FilterOptionsPipe';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Component({
@@ -12,11 +12,9 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     events: ['change'],
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     viewBindings: [
-        Pipes.extend({
-            'filterOptions': filterOptions
-        }),
         KeyboardUtils
-    ]
+    ],
+    pipes: [FilterOptionsPipe]
 })
 @View({
     template: ` <div class="select-one typeahead clearfix" [class.active]="active">

@@ -1,5 +1,5 @@
 
-import {Component, View, coreDirectives, Query, QueryList} from 'angular2/angular2';
+import {Component, View, CORE_DIRECTIVES, Query, QueryList} from 'angular2/angular2';
 import {MenuOption} from '../menuentry/MenuOption';
 import {Submenu} from '../menuentry/Submenu';
 
@@ -7,7 +7,7 @@ import {Submenu} from '../menuentry/Submenu';
     selector: 'nv-top-menu'
 })
 @View({
-    directives: [coreDirectives],
+    directives: [CORE_DIRECTIVES],
     templateUrl: 'nv/components/menus/topmenu/top-menu.html'
 })
 export class TopMenu {

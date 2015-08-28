@@ -1,12 +1,12 @@
 
-import {Component, View, Query, QueryList, coreDirectives} from 'angular2/angular2';
+import {Component, View, Query, QueryList, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Tab} from './Tab';
 
 @Component({
     selector: 'nv-tabs'
 })
 @View({
-    directives: [coreDirectives],
+    directives: [CORE_DIRECTIVES],
     templateUrl: 'nv/components/tabs/tabs.html'
 })
 export class Tabs {
