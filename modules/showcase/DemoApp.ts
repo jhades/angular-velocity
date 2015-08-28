@@ -6,7 +6,7 @@ import {FORM_BINDINGS} from 'angular2/forms';
 import {Main} from './screens/main/Main';
 import {DataTableExample} from './screens/datatable/DataTableExample';
 import {ReferenceData, ReferenceDataService} from './common/referenceData';
-import {angularVelocityLayoutDirectives} from 'angular-velocity';
+import {NV_LAYOUT_DIRECTIVES} from 'angular-velocity';
 
 @Component({
     selector: 'app',
@@ -19,7 +19,7 @@ import {angularVelocityLayoutDirectives} from 'angular-velocity';
 ])
 @View({
     templateUrl: 'showcase/demo-app.html',
-    directives: [RouterOutlet, RouterLink, angularVelocityLayoutDirectives]
+    directives: [RouterOutlet, RouterLink, NV_LAYOUT_DIRECTIVES]
 })
 class DemoApp {}
 

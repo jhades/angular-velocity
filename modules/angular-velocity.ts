@@ -56,7 +56,7 @@ export {
 }
 
 
-export const angularVelocityDirectives = [
+export const NV_DIRECTIVES = [
     Dropdown,
     NvSelect,
     NvSelectOption,
@@ -70,7 +70,7 @@ export const angularVelocityDirectives = [
     SelectOneValueAccessor
 ];
 
-export const angularVelocityLayoutDirectives = [
+export const NV_LAYOUT_DIRECTIVES = [
     TopMenu,
     MenuOption,
     Submenu
