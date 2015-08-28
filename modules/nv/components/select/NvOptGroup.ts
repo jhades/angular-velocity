@@ -1,13 +1,12 @@
-import {Component, View, Query, QueryList} from 'angular2/angular2';
+import {Directive, View, Query, QueryList} from 'angular2/angular2';
 import {SelectionOption, EMPTY_TEMPLATE} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 
-@Component({
+@Directive({
     selector:"nv-select optgroup",
     properties: ['label']
 })
 @View({
-    template: `<div style='display:none'></div>`, //TODO check if this is really needed, cant this be made a @Directive instead ?
     directives: [NvSelectOption]
 })
 export class NvOptGroup {
