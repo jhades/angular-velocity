@@ -1,8 +1,12 @@
 
-import {Pipe} from 'angular2/angular2';
+import {Pipe} from 'angular2/metadata';
+import {PipeTransform} from 'angular2/change_detection';
 import {SelectionOption} from 'angular-velocity';
+import {Injectable} from 'angular2/di';
 
-export class FilterOptionsPipe implements Pipe {
+@Injectable()
+@Pipe({name: 'filterOptions'})
+export class FilterOptionsPipe implements PipeTransform {
 
     transform(options:Array<SelectionOption>, args: Array<any>):Array<SelectionOption> {
         if (!options || args.length === 0 || !args[0]) {

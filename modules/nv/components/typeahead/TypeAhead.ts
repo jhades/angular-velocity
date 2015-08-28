@@ -13,8 +13,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     viewBindings: [
         KeyboardUtils
-    ],
-    pipes: [FilterOptionsPipe]
+    ]
 })
 @View({
     template: ` <div class="select-one typeahead clearfix" [class.active]="active">
@@ -39,7 +38,8 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
                     </nv-selection-list>
 
                 </div>`,
-    directives: [SelectionList, TypeSearch]
+    directives: [SelectionList, TypeSearch],
+    pipes: [FilterOptionsPipe]
 })
 export class TypeAhead<T extends SelectionOption> extends SelectOneWithInput<T> {
 
