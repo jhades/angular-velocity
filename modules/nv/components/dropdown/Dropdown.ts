@@ -10,10 +10,9 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
  * @ngdoc Component
  *
  * @description
- * A dropdown component, similar to a native browser <select> element
+ * A dropdown component with behaviour similar to a native browser <select> element, but with several commonly needed enhancements:
  *
- * Visually it consists of an input box, a dropdown button and and option selection list. Features:
- *
+ *  - integrated with Angular 2 Forms and ng-model
  *  - fully stylable (dropdown width, height ,etc.)
  *  - scrolling using mouse or keyboard
  *  - scrolling via keyboard takes over scrolling via mouse seamlessly and vice-versa
