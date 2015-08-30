@@ -1,13 +1,14 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {SelectOne} from 'nv/components/selectone/SelectOne';
+import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {SelectionOption} from 'angular-velocity';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 export class SelectOneWithInput<T extends SelectionOption> extends SelectOne<T> {
 
-    constructor(private keyUtils: KeyboardUtils, dropdownHeight, dropdownWidth) {
-        super(dropdownHeight, dropdownWidth);
+    constructor(private keyUtils: KeyboardUtils, dropdownHeight, dropdownWidth, valueAccessor: SelectOneValueAccessor) {
+        super(dropdownHeight, dropdownWidth, valueAccessor);
     }
 
     onInputFocus($event, input) {

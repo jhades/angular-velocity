@@ -1,6 +1,7 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
+import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes} from 'angular-velocity';
 
 /**
@@ -27,10 +28,12 @@ export class SelectOne<T extends SelectionOption> {
 
     navigationAction: NavigationAction;
     cancelFocusLost: boolean = false;
+    valueAccessor: SelectOneValueAccessor;
 
-    constructor(dropdownHeight, dropdownWidth) {
+    constructor(dropdownHeight, dropdownWidth, valueAccessor: SelectOneValueAccessor) {
         this.dropdownHeight = dropdownHeight || '250px';
         this.dropdownWidth = dropdownWidth || '200px';
+        this.valueAccessor = valueAccessor;
     }
 
     /**
@@ -40,7 +43,7 @@ export class SelectOne<T extends SelectionOption> {
     onButtonToggle(input) {
         this.showSelectionList = !this.showSelectionList;
         if (!this.active) {
-            this.active = true;
+            this.activate();
         }
     }
 
@@ -64,6 +67,9 @@ export class SelectOne<T extends SelectionOption> {
             this.selected = option;
             this.showSelectionList = false;
             this.change.next(option);
+            if (this.valueAccessor) {
+                this.valueAccessor.onChange(option);
+            }
         }
         this.cancelFocusLost = true;
         input.focus();
@@ -75,7 +81,7 @@ export class SelectOne<T extends SelectionOption> {
      *
      */
     onFocus() {
-        this.active = true;
+        this.activate();
     }
 
     /**
@@ -91,6 +97,18 @@ export class SelectOne<T extends SelectionOption> {
             }
             this.cancelFocusLost = false;
         },200);
+    }
+
+    /**
+     *
+     * change the status to active, and report the control as touched in case Angular 2 Forms is being used.
+     *
+     */
+    activate() {
+        this.active = true;
+        if (this.valueAccessor) {
+            this.valueAccessor.onTouched();
+        }
     }
 
     /**

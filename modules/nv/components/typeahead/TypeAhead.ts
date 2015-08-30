@@ -1,11 +1,14 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
-import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
+import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption,
+    SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {Pipes} from 'angular2/change_detection';
 import {FilterOptionsPipe} from 'nv/components/typeahead/FilterOptionsPipe';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
+import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
+
 
 @Component({
     selector: 'nv-typeahead',
@@ -46,8 +49,8 @@ export class TypeAhead<T extends SelectionOption> extends SelectOneWithInput<T> 
     search: string;
 
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
-                private keyUtils: KeyboardUtils) {
-        super(keyUtils, dropdownHeight, dropdownWidth);
+                private keyUtils: KeyboardUtils, @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
+        super(keyUtils, dropdownHeight, dropdownWidth, valueAccessor);
     }
 
     onKeyUp(event, input) {

@@ -1,7 +1,8 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
+import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
@@ -38,8 +39,8 @@ export class Autocomplete<T extends SelectionOption> extends SelectOneWithInput<
     search: EventEmitter = new EventEmitter();
 
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
-                private keyUtils: KeyboardUtils) {
-        super(keyUtils, dropdownHeight, dropdownWidth);
+                private keyUtils: KeyboardUtils, @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
+        super(keyUtils, dropdownHeight, dropdownWidth, valueAccessor);
     }
 
     onKeyUp(event, input) {

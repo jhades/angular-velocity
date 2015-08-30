@@ -1,7 +1,8 @@
 /// <reference path="../../../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
+import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes} from 'angular-velocity';
 
 
@@ -72,9 +73,9 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 })
 export class Dropdown<T extends SelectionOption> extends SelectOne<T> {
 
-
-    constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth) {
-        super(dropdownHeight, dropdownWidth);
+    constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
+        @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
+        super(dropdownHeight, dropdownWidth, valueAccessor);
     }
 
     /**
