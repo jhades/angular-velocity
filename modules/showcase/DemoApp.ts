@@ -1,6 +1,6 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 import {Component, View, bootstrap, NgFor, NgModel} from 'angular2/angular2';
-import {RouteConfig, RouterOutlet, RouterLink, routerInjectables} from 'angular2/router';
+import {RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS} from 'angular2/router';
 
 import {FORM_BINDINGS} from 'angular2/forms';
 import {Main} from './screens/main/Main';
@@ -24,4 +24,4 @@ import {NV_LAYOUT_DIRECTIVES} from 'angular-velocity';
 class DemoApp {}
 
 
-bootstrap(DemoApp, [ReferenceDataService, routerInjectables, FORM_BINDINGS]);
+bootstrap(DemoApp, [ReferenceDataService, ROUTER_BINDINGS, FORM_BINDINGS]);
