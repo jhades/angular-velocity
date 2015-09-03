@@ -68,6 +68,7 @@ export class SelectOne<T extends SelectionOption> {
             this.showSelectionList = false;
             this.change.next(option);
             if (this.valueAccessor) {
+                debugger;
                 this.valueAccessor.onChange(option);
             }
         }

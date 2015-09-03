@@ -29,6 +29,7 @@ export class Main {
             "password": ["", Validators.required],
             //"country": ["", Validators.required]
             "numbersOnly": ["",NvValidators.integer],
+            "countryTypeAhead": ["", Validators.required],
             "ssn": [""]
 
         });

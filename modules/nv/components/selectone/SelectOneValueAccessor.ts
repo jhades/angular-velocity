@@ -3,7 +3,7 @@ import {DefaultValueAccessor, Directive, Self, NgControl, Renderer, ElementRef} 
 
 @Directive({
     selector:
-        'nv-dropdown[ng-control],nv-dropdown[ng-form-control],nv-dropdown[ng-model]',
+        'nv-dropdown[ng-control],nv-dropdown[ng-form-control],nv-dropdown[ng-model],nv-typeahead[ng-control],nv-typeahead[ng-form-control],nv-typeahead[ng-model]',
     host: {
         '[class.ng-untouched]': 'ngClassUntouched',
         '[class.ng-touched]': 'ngClassTouched',
