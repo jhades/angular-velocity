@@ -1,0 +1,12 @@
+
+.nv-app nv-typeahead {
+
+  &.ng-invalid .input, &.ng-pristine.ng-invalid input:focus {
+    border: 1px solid red;
+  }
+
+  &.ng-pristine .input {
+    border: 1px solid dimgrey;
+  }
+
+}
