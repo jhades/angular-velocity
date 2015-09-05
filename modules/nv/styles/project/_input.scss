@@ -15,7 +15,7 @@
     font-size: 0.9em;
     cursor: pointer;
     outline: none;
-    border: 1px solid #cccccc;
+    border: 1px solid $control-border-color;
     width: 175px;
     line-height: 27px;
     height: 27px;
@@ -54,7 +54,7 @@
       background-color: $primary-lightest;
       border-width: 1px;
       border-style: solid;
-      border-color: #cccccc;
+      border-color: $control-border-color;
       border-left-width: 0;
       border-radius: 0 4px 4px 0;
       margin: 0 0 0 -5px;
