@@ -98,7 +98,7 @@
 
         &:hover {
           a {
-            color: $darkest-text;
+            color: $secondary-darkest;
           }
           background: $secondary-hover;
         }
@@ -113,7 +113,7 @@
 
         &.selected:hover {
           a {
-            color: $darkest-text;
+            color: $secondary-darkest;
           }
         }
 

@@ -33,7 +33,7 @@
 
         &:hover {
           a {
-            color: $darkest-text;
+            color: $secondary-darkest;
             opacity: 1;
           }
           background: $secondary-lighter;
@@ -42,7 +42,7 @@
       }
     }
     a {
-      color: $darkest-text;
+      color: $secondary-darkest;
       display: inline-block;
     }
 
