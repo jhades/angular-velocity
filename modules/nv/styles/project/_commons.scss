@@ -102,3 +102,13 @@
   user-select: none;
 }
 
+
+&.ng-invalid .input, &.ng-pristine.ng-invalid .active .input {
+  border: 1px solid #F64343;
+  box-shadow: none;
+}
+
+&.ng-pristine .input {
+  border: 1px solid $control-border-color;
+}
+
