@@ -2,7 +2,8 @@
 .nv-app nv-typeahead {
 
   &.ng-invalid .input, &.ng-pristine.ng-invalid .active .input {
-    border: 1px solid red;
+    border: 1px solid #F64343;
+    box-shadow: none;
   }
 
   &.ng-pristine .input {
