@@ -23,7 +23,8 @@ export class TopMenu {
     constructor(@Query(MenuOption) topMenuEntries: QueryList<MenuOption>) {
         console.log("builded top menu");
         this.options = topMenuEntries;
-        this.options.onChange(() => {
+
+        this.options.changes.toRx().subscribe(() => {
             console.log("received query results");
            console.log(this.options);
         });

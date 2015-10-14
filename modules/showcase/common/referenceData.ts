@@ -1,4 +1,4 @@
-import {Injectable} from "angular2/di";
+import {Injectable} from "angular2/angular2";
 
 export class ReferenceData {
     COUNTRIES  = [

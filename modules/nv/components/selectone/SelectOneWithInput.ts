@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/angular2/angular2.d.ts" />
-
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {SelectionOption} from 'angular-velocity';

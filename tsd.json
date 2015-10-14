@@ -10,12 +10,6 @@
     },
     "rx/rx-lite.d.ts": {
       "commit": "8c9ede30fca2a095018e70940806cc9c8aa122f6"
-    },
-    "es6-promise/es6-promise.d.ts": {
-      "commit": "8c9ede30fca2a095018e70940806cc9c8aa122f6"
-    },
-    "angular2/angular2.d.ts": {
-      "commit": "f6c8ca47193fb67947944a3170912672ac3e908e"
     }
   }
 }

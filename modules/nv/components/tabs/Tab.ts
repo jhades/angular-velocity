@@ -3,7 +3,7 @@ import {Component, View, Attribute, CORE_DIRECTIVES, EventEmitter} from 'angular
 
 @Component({
     selector: 'nv-tab',
-    events: ['selection']
+    outputs: ['selection']
 })
 @View({
     directives: [CORE_DIRECTIVES],

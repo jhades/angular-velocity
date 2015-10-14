@@ -1,7 +1,5 @@
-/// <reference path="../../../typings/angular2/angular2.d.ts" />
-
 import {KeyCodes} from 'angular-velocity';
-import {Injectable} from "angular2/di";
+import {Injectable} from "angular2/angular2";
 
 @Injectable()
 export class KeyboardUtils {

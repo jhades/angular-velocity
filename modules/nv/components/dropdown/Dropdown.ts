@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/angular2/angular2.d.ts" />
-
 import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
@@ -34,8 +32,8 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 
 @Component({ 
     selector: 'nv-dropdown',
-    events: ['change'],
-    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth','ngFormControl']
+    outputs: ['change'],
+    inputs: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth','ngFormControl']
 })
 @View({
     template: ` <div class="select-one dropdown clearfix" [class.active]="active">

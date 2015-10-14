@@ -3,7 +3,7 @@ import {SelectionOption} from 'angular-velocity';
 
 @Directive({
     selector:"nv-select option",
-    properties: ['value', 'text']
+    inputs: ['value', 'text']
 })
 export class NvSelectOption {
 

@@ -1,4 +1,4 @@
-import {Directive, ElementRef, LifecycleEvent} from 'angular2/angular2';
+import {Directive, ElementRef, OnChanges, SimpleChange} from 'angular2/angular2';
 import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-velocity';
 
 /**
@@ -18,11 +18,9 @@ import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-vel
 
 @Directive({
     selector: "[nv-scrollable-list]",
-    properties: ['navigationAction','hidden'],
-    lifecycle: [LifecycleEvent.onChange]
-
+    inputs: ['navigationAction','hidden']
 })
-export class ScrollableList {
+export class ScrollableList implements OnChanges {
     navigationAction: NavigationAction;
     hidden: boolean;
     scrollableElements: Array<ScrollableListElement> = [];
@@ -35,7 +33,7 @@ export class ScrollableList {
 
     }
 
-    onChange(changes) {
+    onChanges(changes: {[propName: string]: SimpleChange}) {
         if (changes['navigationAction'] && this.navigationAction) {
             this.onNavigationAction();
         }

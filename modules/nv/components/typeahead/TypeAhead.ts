@@ -1,10 +1,7 @@
-/// <reference path="../../../../typings/angular2/angular2.d.ts" />
-
 import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption,
     SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
-import {Pipes} from 'angular2/change_detection';
 import {FilterOptionsPipe} from 'nv/components/typeahead/FilterOptionsPipe';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
@@ -12,8 +9,8 @@ import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAcce
 
 @Component({
     selector: 'nv-typeahead',
-    events: ['change'],
-    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
+    outputs: ['change'],
+    inputs: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     viewBindings: [
         KeyboardUtils
     ]
@@ -22,8 +19,8 @@ import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAcce
     template: ` <div class="select-one typeahead clearfix" [class.active]="active">
 
                     <div class="input">
-                        <input type="text" (focus)="onFocus()" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
-                        focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
+                        <input type="text" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)"
+                        (focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
 
                         <div class="widget-button dropdown-button"
                             (click)="onButtonToggle(input)">
@@ -49,7 +46,7 @@ export class TypeAhead<T extends SelectionOption> extends SelectOneWithInput<T> 
     search: string;
 
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
-                private keyUtils: KeyboardUtils, @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
+                keyUtils: KeyboardUtils, @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
         super(keyUtils, dropdownHeight, dropdownWidth, valueAccessor);
     }
 

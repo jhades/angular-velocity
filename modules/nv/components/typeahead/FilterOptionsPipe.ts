@@ -1,8 +1,7 @@
 
-import {Pipe} from 'angular2/metadata';
-import {PipeTransform} from 'angular2/change_detection';
+import {Pipe,PipeTransform,Injectable} from 'angular2/angular2';
+import {} from 'angular2/change_detection';
 import {SelectionOption} from 'angular-velocity';
-import {Injectable} from 'angular2/di';
 
 @Injectable()
 @Pipe({name: 'filterOptions'})

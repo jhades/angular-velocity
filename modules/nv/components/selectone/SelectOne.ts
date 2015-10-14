@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/angular2/angular2.d.ts" />
-
 import {Component, View, EventEmitter, Attribute} from 'angular2/angular2';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes} from 'angular-velocity';

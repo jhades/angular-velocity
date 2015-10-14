@@ -28,7 +28,7 @@ gulp.task('js', function () {
     var typescript = require('gulp-typescript');
     var tsResult = gulp.src([PATHS.src.js])
         .pipe(typescript({
-            noImplicitAny: true,
+            noImplicitAny: false,
             module: 'system',
             target: 'ES5',
             emitDecoratorMetadata: true,

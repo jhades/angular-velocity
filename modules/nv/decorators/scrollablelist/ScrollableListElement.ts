@@ -1,6 +1,5 @@
-import {Directive, Ancestor, ElementRef, EventEmitter, LifecycleEvent, Host} from 'angular2/angular2';
+import {Directive, ElementRef, EventEmitter, Host, OnChanges, SimpleChange} from 'angular2/angular2';
 import {ScrollableList} from 'angular-velocity';
-import {FunctionalUtils} from 'nv/services/FunctionalUtils';
 
 
 /**
@@ -14,16 +13,14 @@ import {FunctionalUtils} from 'nv/services/FunctionalUtils';
 
 @Directive({
     selector: "[nv-scrollable-list-element]",
-    properties: ['disabled', 'highlighted'],
+    inputs: ['disabled', 'highlighted'],
     host: {
       '(mouseover)': 'onMouseOver()',
       '(mouseleave)': 'onMouseOut()',
       '(mousewheel)': 'onMouseWheel($event)',
       '(DOMMouseScroll)': 'onMouseWheel($event)'
     },
-    events: ['highlight'],
-    lifecycle: [LifecycleEvent.onChange],
-    bindings: [FunctionalUtils]
+    outputs: ['highlight']
 })
 export class ScrollableListElement {
     scrollable: ScrollableList;
@@ -32,12 +29,12 @@ export class ScrollableListElement {
     disabled: boolean = false;
 
 
-    constructor(@Host(ScrollableList) scrollable: ScrollableList, public el: ElementRef, private fUtils: FunctionalUtils) {
+    constructor(@Host(ScrollableList) scrollable: ScrollableList, public el: ElementRef) {
         this.scrollable = scrollable;
         this.scrollable.addScrollableElement(this);
     }
 
-    onChange(changes) {
+    onChanges(changes: {[propName: string]: SimpleChange}) {
         if (changes['highlighted'] && this.highlighted) {
             this.scrollable.setHighlightedIndex(this);
             this.scrollable.scrollHighlightedIntoViewIfNeeded();

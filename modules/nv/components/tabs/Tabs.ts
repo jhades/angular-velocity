@@ -1,6 +1,7 @@
 
 import {Component, View, Query, QueryList, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Tab} from './Tab';
+import {ObservableWrapper} from 'angular2/src/core/facade/async';
 
 @Component({
     selector: 'nv-tabs'
@@ -16,7 +17,7 @@ export class Tabs {
 
     constructor(@Query(Tab) tabsQuery: QueryList<Tab>) {
         this.tabsQuery = tabsQuery;
-        tabsQuery.onChange(() => this.onTabsChanged());
+        ObservableWrapper.subscribe(tabsQuery.changes, () => this.onTabsChanged());
     }
 
     onTabsChanged() {

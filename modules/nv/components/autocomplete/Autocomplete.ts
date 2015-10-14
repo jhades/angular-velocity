@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/angular2/angular2.d.ts" />
-
 import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
@@ -8,16 +6,16 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Component({
     selector: 'nv-autocomplete',
-    events: ['change','search'],
-    properties: ['options', 'dropdownHeight', 'dropdownWidth'],
+    outputs: ['change','search'],
+    inputs: ['options', 'dropdownHeight', 'dropdownWidth'],
     viewBindings: [KeyboardUtils]
 })
 @View({
     template: ` <div class="select-one autocomplete clearfix" [class.active]="active">
 
                     <div class="input">
-                        <input type="text" (focus)="onFocus()" (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)" (
-                        focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
+                        <input type="text"  (blur)="onFocusLost()" (keydown)="onKeyDown($event, input)" (keyup)="onKeyUp($event, input)"
+                        (focus)="onInputFocus($event, input)" (click)="onInputClicked($event, input)" #input>
 
                     </div>
 
@@ -39,7 +37,7 @@ export class Autocomplete<T extends SelectionOption> extends SelectOneWithInput<
     search: EventEmitter = new EventEmitter();
 
     constructor(@Attribute("dropdown-height") dropdownHeight, @Attribute("dropdown-width") dropdownWidth,
-                private keyUtils: KeyboardUtils, @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
+                 keyUtils: KeyboardUtils, @Optional() @Self() valueAccessor: SelectOneValueAccessor) {
         super(keyUtils, dropdownHeight, dropdownWidth, valueAccessor);
     }
 

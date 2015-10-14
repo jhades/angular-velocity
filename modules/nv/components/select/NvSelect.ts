@@ -3,11 +3,12 @@ import {Component, View, Query, QueryList,  CORE_DIRECTIVES,Attribute, EventEmit
 import {SelectionList, Dropdown, SelectionOption, SelectionGroup} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
+import {ObservableWrapper} from 'angular2/src/core/facade/async';
 
 @Component({
     selector:"nv-select",
-    properties: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
-    events: ['change']
+    inputs: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
+    outputs: ['change']
 })
 @View({
     template: `
@@ -40,8 +41,8 @@ export class NvSelect<T extends SelectionOption> {
         this.dropdownHeight = dropdownHeight;
         this.dropdownWidth = dropdownWidth;
 
-        optionElements.onChange(() => this.onOptionsChanged());
-        optionGroups.onChange(() => this.onOptGroupsChanged());
+        ObservableWrapper.subscribe(optionElements.changes, () => this.onOptionsChanged());
+        ObservableWrapper.subscribe(optionGroups.changes, () => this.onOptGroupsChanged());
     }
 
     onOptionsChanged() {

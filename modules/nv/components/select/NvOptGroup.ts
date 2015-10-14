@@ -1,10 +1,11 @@
 import {Directive, View, Query, QueryList} from 'angular2/angular2';
-import {SelectionOption, EMPTY_TEMPLATE} from 'angular-velocity';
+import {SelectionOption} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
+import {ObservableWrapper} from 'angular2/src/core/facade/async';
 
 @Directive({
     selector:"nv-select optgroup",
-    properties: ['label']
+    inputs: ['label']
 })
 @View({
     directives: [NvSelectOption]
@@ -16,7 +17,7 @@ export class NvOptGroup {
 
     constructor(@Query(NvSelectOption) optionElements: QueryList<NvSelectOption>) {
         this.optionElementsQuery = optionElements;
-        optionElements.onChange(() => this.onOptionsChanged());
+        ObservableWrapper.subscribe(optionElements.changes, () => this.onOptionsChanged());
     }
 
     onOptionsChanged() {

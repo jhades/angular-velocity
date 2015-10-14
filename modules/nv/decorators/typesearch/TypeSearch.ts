@@ -18,7 +18,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
     host: {
         '(keydown)': 'onKeyDown($event)'
     },
-    events: ['search'],
+    outputs: ['search'],
     bindings: [KeyboardUtils]
 
 })

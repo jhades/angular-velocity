@@ -7,7 +7,7 @@ import {Directive, View, CORE_DIRECTIVES, Query, QueryList, Attribute} from 'ang
 export class MenuOption {
     title: string;
 
-    constructor(@Attribute("title") title) {
+    constructor(@Attribute("title") title:string) {
         console.log("builded menu option");
         this.title = title;
     }

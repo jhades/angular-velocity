@@ -1,6 +1,4 @@
-/// <reference path="../../../../typings/angular2/angular2.d.ts" />
-
-import {Component, View, EventEmitter, Attribute, CORE_DIRECTIVES, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, CORE_DIRECTIVES, OnChanges, SimpleChange} from 'angular2/angular2';
 import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 
 /**
@@ -20,9 +18,8 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
  */
 @Component({
     selector: 'nv-selection-list',
-    properties: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
-    events: ['change','highlight'],
-    lifecycle: [LifecycleEvent.onChange]
+    inputs: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
+    outputs: ['change','highlight']
 })
 @View({
     template: `
@@ -61,7 +58,7 @@ import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, S
                 </div>`,
     directives: [ScrollableList, ScrollableListElement, CORE_DIRECTIVES]
 })
-export class SelectionList<T extends SelectionOption> {
+export class SelectionList<T extends SelectionOption> implements OnChanges {
 
     options: Array<T>;
     optionGroups: Array<SelectionGroup<T>>;
@@ -69,7 +66,7 @@ export class SelectionList<T extends SelectionOption> {
     highlightedOption: T;
     highlight: EventEmitter = new EventEmitter();
 
-    onChange(changes) {
+    onChanges(changes: {[propName: string]: SimpleChange}) {
         if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
             throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
