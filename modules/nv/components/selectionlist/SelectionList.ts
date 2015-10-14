@@ -67,7 +67,10 @@ export class SelectionList<T extends SelectionOption> implements OnChanges {
     highlight: EventEmitter = new EventEmitter();
 
     onChanges(changes: {[propName: string]: SimpleChange}) {
-        if ((changes['options'] || changes['optionGroups']) && this.options && this.optionGroups) {
+        if (changes['options'] && changes['options'].length && changes['options'].length > 0 && this.optionGroups) {
+            throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
+        }
+        if (changes['optionGroups'] && changes['optionGroups'].length && changes['optionGroups'].length > 0 && this.options) {
             throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
         if (changes['highlightedOption'] && this.highlightedOption) {
