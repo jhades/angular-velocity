@@ -1,5 +1,7 @@
 import {Component, View, EventEmitter, Attribute, CORE_DIRECTIVES, OnChanges, SimpleChange} from 'angular2/angular2';
-import {NavigationAction,NavActionEnum ,ScrollableList, ScrollableListElement, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
+import {NavigationAction,NavActionEnum, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
+import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
+import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableListElement';
 
 /**
  *

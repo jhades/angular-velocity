@@ -1,5 +1,5 @@
 import {Directive, ElementRef, EventEmitter, Host, OnChanges, SimpleChange} from 'angular2/angular2';
-import {ScrollableList} from 'angular-velocity';
+import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
 
 
 /**
