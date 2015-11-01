@@ -1,10 +1,12 @@
 import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
-import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption,
+import {NavigationAction,NavActionEnum, SelectionOption, BlankOption,
     SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
+import {SelectionList} from 'nv/components/selectionlist/SelectionList';
 import {FilterOptionsPipe} from 'nv/components/typeahead/FilterOptionsPipe';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
+import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
 
 
 @Component({
