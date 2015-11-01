@@ -48,11 +48,9 @@ import {SelectionList} from 'nv/components/selectionlist/SelectionList';
                         (blur)="onFocusLost()"
                         (keydown)="onKeyDown($event, input)">
                         
-                        <span (click)="onButtonToggle()">{{selected.description}}</span>
+                        <span>{{selected.description}}</span>
 
-                        <div class="widget-button dropdown-button"
-                            (click)="onButtonToggle(input)">
-                        </div>
+                        <div class="widget-button dropdown-button"></div>
 
                     </div>
 
