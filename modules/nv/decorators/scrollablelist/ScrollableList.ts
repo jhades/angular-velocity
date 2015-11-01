@@ -28,7 +28,7 @@ export class ScrollableList implements OnChanges {
     scrollIntoViewOngoing: boolean = false;
     scrollOngoingTimeoutHandle: number;
 
-    //TODO inject a list with live content and subscribe to onchange - this prevents the filtering of auto-completes from working, see  https://github.com/angular/angular/issues/1792 - <option> elements inside <optgroup> dont' show up on the query
+    //TODO inject a list with live content and subscribe to it - probably using @ContentChildren
     constructor(private el: ElementRef) {
 
     }
