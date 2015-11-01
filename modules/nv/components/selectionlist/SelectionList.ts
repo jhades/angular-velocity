@@ -101,9 +101,11 @@ export class SelectionList<T extends SelectionOption> implements OnChanges {
     }
 
     highlightOption(options: Array<T>) {
-        options.forEach((option) => option.highlighted = false);
-        options[options.indexOf(this.highlightedOption)].highlighted = true;
-
+        let highlightedPosition = options.indexOf(this.highlightedOption);
+        if (highlightedPosition >= 0) {
+            options.forEach((option) => option.highlighted = false);
+            options[options.indexOf(this.highlightedOption)].highlighted = true;
+        }
     }
 
     isEmptyOptions() {
