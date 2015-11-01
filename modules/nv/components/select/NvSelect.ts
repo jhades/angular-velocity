@@ -3,7 +3,6 @@ import {Component, View, Query, QueryList,  CORE_DIRECTIVES,Attribute, EventEmit
 import {SelectionOption, SelectionGroup} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
-import {ObservableWrapper} from 'angular2/src/core/facade/async';
 import {SelectionList} from 'nv/components/selectionlist/SelectionList';
 import {Dropdown} from 'nv/components/dropdown/Dropdown';
 
@@ -43,8 +42,8 @@ export class NvSelect<T extends SelectionOption> {
         this.dropdownHeight = dropdownHeight;
         this.dropdownWidth = dropdownWidth;
 
-        ObservableWrapper.subscribe(optionElements.changes, () => this.onOptionsChanged());
-        ObservableWrapper.subscribe(optionGroups.changes, () => this.onOptGroupsChanged());
+        optionElements.changes.toRx().subscribe(() => this.onOptionsChanged());
+        optionGroups.changes.toRx().subscribe(() => this.onOptGroupsChanged());
     }
 
     onOptionsChanged() {
