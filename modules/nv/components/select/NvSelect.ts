@@ -47,9 +47,10 @@ export class NvSelect<T extends SelectionOption> {
     }
 
     onOptionsChanged() {
-        if (this.optionElementsQuery._results.length > 0) {
+        let options = this.optionElementsQuery.toArray();
+        if (options.length > 0) {
             this.options = [];
-            this.optionElementsQuery._results.forEach((optionEl) => this.options.push(optionEl.option));
+            options.forEach((optionEl) => this.options.push(optionEl.option));
         }
     }
 
