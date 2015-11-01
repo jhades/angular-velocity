@@ -3,19 +3,16 @@ import {DefaultValueAccessor, Directive, Self, NgControl, Renderer, ElementRef} 
 
 @Directive({
     selector:
-        'nv-dropdown[ng-control],nv-dropdown[ng-form-control],nv-dropdown[ng-model],nv-typeahead[ng-control],nv-typeahead[ng-form-control],nv-typeahead[ng-model]',
+        'nv-dropdown-TODO[ng-control],nv-dropdown-TODO[ng-form-control],nv-dropdown-TODO[ng-model],nv-typeahead-TODO[ng-control],nv-typeahead-TODO[ng-form-control],nv-typeahead-TODO[ng-model]',
     host: {
-        '[class.ng-untouched]': 'ngClassUntouched',
-        '[class.ng-touched]': 'ngClassTouched',
-        '[class.ng-pristine]': 'ngClassPristine',
-        '[class.ng-dirty]': 'ngClassDirty',
-        '[class.ng-valid]': 'ngClassValid',
-        '[class.ng-invalid]': 'ngClassInvalid'
+        '(change)': 'onChange($event.target.value)',
+        '(input)': 'onChange($event.target.value)',
+        '(blur)': 'onTouched()'
     }
 })
 export class SelectOneValueAccessor extends DefaultValueAccessor {
 
-    constructor(@Self() cd: NgControl, private renderer: Renderer, private elementRef: ElementRef) {
-        super(cd, renderer, elementRef);
+    constructor(private renderer: Renderer, private elementRef: ElementRef) {
+        super(renderer, elementRef);
     }
 }

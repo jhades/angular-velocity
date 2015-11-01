@@ -22,12 +22,12 @@ export class Main {
         this.refDataService = refDataService;
 
         this.form = fb.group({
-            "countryDropdown": ["", Validators.required],
+            //"countryDropdown": ["", Validators.required], //TODO
             "username": ["", Validators.required],
             "password": ["", Validators.required],
             //"country": ["", Validators.required]
             "numbersOnly": ["",NvValidators.integer],
-            "countryTypeAhead": ["", Validators.required],
+            /*"countryTypeAhead": ["", Validators.required],*/ //TODO
             "ssn": [""]
 
         });
