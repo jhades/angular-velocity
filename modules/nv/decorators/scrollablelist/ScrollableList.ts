@@ -23,7 +23,7 @@ import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-vel
 export class ScrollableList implements OnChanges {
     navigationAction: NavigationAction;
     hidden: boolean;
-    scrollableElements: Array<ScrollableListElement> = [];
+    scrollableElements: ScrollableListElement[] = [];
     selectedIndex: number = null;
     scrollIntoViewOngoing: boolean = false;
     scrollOngoingTimeoutHandle: number;

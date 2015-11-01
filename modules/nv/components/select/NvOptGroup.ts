@@ -12,7 +12,7 @@ import {ObservableWrapper} from 'angular2/src/core/facade/async';
 })
 export class NvOptGroup {
 
-    options: Array<SelectionOption>;
+    options: SelectionOption[];
     optionElementsQuery: QueryList<NvSelectOption>;
 
     constructor(@Query(NvSelectOption) optionElements: QueryList<NvSelectOption>) {

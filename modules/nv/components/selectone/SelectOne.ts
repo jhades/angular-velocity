@@ -14,8 +14,8 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
 export class SelectOne<T extends SelectionOption> {
     selection: EventEmitter = new EventEmitter();
 
-    options: Array<T>;
-    optionGroups: Array<SelectionGroup<T>>;
+    options: T[];
+    optionGroups: SelectionGroup<T>[];
     dropdownHeight: number;
     dropdownWidth: string;
 
@@ -193,7 +193,7 @@ export class SelectOne<T extends SelectionOption> {
      * returns all the options, independently if they are grouped or not - useful to apply an operation to all options without checking if the dropdown is in group mode
      *
      */
-    findAllOptions(): Array<T> {
+    findAllOptions(): T[] {
         if (this.options) {
             return this.options;
         }

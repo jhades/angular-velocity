@@ -7,7 +7,7 @@ import {SelectionOption} from 'angular-velocity';
 @Pipe({name: 'filterOptions'})
 export class FilterOptionsPipe implements PipeTransform {
 
-    transform(options:Array<SelectionOption>, args: Array<any>):Array<SelectionOption> {
+    transform(options:SelectionOption[], args: any[]):SelectionOption[] {
         if (!options || args.length === 0 || !args[0]) {
             return options;
         }

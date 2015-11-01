@@ -27,8 +27,8 @@ export class NvSelect<T extends SelectionOption> {
 
     optionElementsQuery: QueryList<NvSelectOption>;
     optionGroupsQuery: QueryList<NvOptGroup>;
-    options: Array<T>;
-    optionGroups: Array<SelectionGroup<T>>;
+    options: T[];
+    optionGroups: SelectionGroup<T>[];
     dropdownHeight: number;
     dropdownWidth: string;
     selection: EventEmitter = new EventEmitter();

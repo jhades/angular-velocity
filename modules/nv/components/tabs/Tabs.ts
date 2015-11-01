@@ -13,7 +13,7 @@ import {ObservableWrapper} from 'angular2/src/core/facade/async';
 export class Tabs {
 
     tabsQuery: QueryList<Tab>;
-    tabs: Array<Tab>;
+    tabs: Tab[];
 
     constructor(@Query(Tab) tabsQuery: QueryList<Tab>) {
         this.tabsQuery = tabsQuery;

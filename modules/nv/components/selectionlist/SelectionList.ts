@@ -82,7 +82,7 @@ export class SelectionList<T extends SelectionOption> implements OnChanges {
                 this.highlightOption(this.options);
             }
             else if (this.optionGroups) {
-                this.highlightOption(this.optionGroups.reduce( (all: Array<T>, optionGroup) => all.concat(optionGroup.options) ,[]));
+                this.highlightOption(this.optionGroups.reduce( (all: T[], optionGroup) => all.concat(optionGroup.options) ,[]));
             }
         }
     }
@@ -102,7 +102,7 @@ export class SelectionList<T extends SelectionOption> implements OnChanges {
         return (typeof this.optionGroups !== "undefined");
     }
 
-    highlightOption(options: Array<T>) {
+    highlightOption(options: T[]) {
         let highlightedPosition = options.indexOf(this.highlightedOption);
         if (highlightedPosition >= 0) {
             options.forEach((option) => option.highlighted = false);
