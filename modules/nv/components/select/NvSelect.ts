@@ -1,9 +1,11 @@
 
 import {Component, View, Query, QueryList,  CORE_DIRECTIVES,Attribute, EventEmitter} from 'angular2/angular2';
-import {SelectionList, Dropdown, SelectionOption, SelectionGroup} from 'angular-velocity';
+import {SelectionOption, SelectionGroup} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 import {NvOptGroup} from 'nv/components/select/NvOptGroup';
 import {ObservableWrapper} from 'angular2/src/core/facade/async';
+import {SelectionList} from 'nv/components/selectionlist/SelectionList';
+import {Dropdown} from 'nv/components/dropdown/Dropdown';
 
 @Component({
     selector:"nv-select",
@@ -15,7 +17,7 @@ import {ObservableWrapper} from 'angular2/src/core/facade/async';
                 <div class="nv-select">
                     <nv-dropdown [dropdown-height]="dropdownHeight" [dropdown-width]="dropdownWidth"
                         [options]="options" [option-groups]="optionGroups"
-                        (change)="onSelection($event)">
+                        (selection)="onSelection($event)">
                     </nv-dropdown>
                 </div>
                 `,
@@ -29,7 +31,7 @@ export class NvSelect<T extends SelectionOption> {
     optionGroups: Array<SelectionGroup<T>>;
     dropdownHeight: number;
     dropdownWidth: string;
-    change: EventEmitter = new EventEmitter();
+    selection: EventEmitter = new EventEmitter();
 
     constructor(@Query(NvSelectOption, {descendants: false}) optionElements: QueryList<NvSelectOption>,
                 @Query(NvOptGroup) optionGroups: QueryList<NvOptGroup>,
@@ -62,7 +64,7 @@ export class NvSelect<T extends SelectionOption> {
     }
 
     onSelection(option) {
-        this.change.next(option.value);
+        this.selection.next(option.value);
     }
 
 }
