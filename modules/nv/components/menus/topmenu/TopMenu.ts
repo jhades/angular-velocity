@@ -8,7 +8,12 @@ import {Submenu} from '../menuentry/Submenu';
 })
 @View({
     directives: [CORE_DIRECTIVES],
-    templateUrl: 'nv/components/menus/topmenu/top-menu.html'
+    template: `
+        <nav class="layout-top-menu">
+            <ul>
+                <li *ng-for="#option of options"><a>{{option.title}}</a></li>
+            </ul>
+        </nav>`
 })
 export class TopMenu {
 
