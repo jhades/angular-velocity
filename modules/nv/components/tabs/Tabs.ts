@@ -20,10 +20,7 @@ export class Tabs {
     }
 
     onTabsChanged() {
-        this.tabs= [];
-        for (let tab of this.tabsQuery.toArray()) { //TODO refactor once Query list is an observable
-            this.tabs.push(tab);
-        }
+        this.tabs= this.tabsQuery.toArray();
         if (this.tabs.length > 0) {
             this.tabs[0].selected = true;
         }
