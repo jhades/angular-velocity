@@ -25,14 +25,28 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
 })
 @View({
     template: `
-                <div class="selection-list" [style.max-height]="height"  [style.width]="width"
-                     nv-scrollable-list [navigation-action]="navigationAction" [class.hidden]="hidden || isEmptyOptions()">
-
                     <div [ng-switch]="isGroupMode()">
                         <template [ng-switch-when]="true">
-                            <div *ng-for="#group of optionGroups;">
-                                <div class="option-group" (click)="onOptionClicked(null)">{{group.label}}</div>
-                                <div *ng-for="#option of group.options;"
+                            <div class="selection-list" [style.max-height]="height"  [style.width]="width"
+                                 nv-scrollable-list [navigation-action]="navigationAction" [class.hidden]="hidden || isEmptyOptions()">
+                                <div *ng-for="#group of optionGroups;">
+                                    <div class="option-group" (click)="onOptionClicked(null)">{{group.label}}</div>
+                                    <div *ng-for="#option of group.options;"
+                                        class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
+
+                                        <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [disabled]="option.disabled"
+                                            class="selection-description"
+                                            (click)="onOptionClicked(option)">
+                                                {{option.description}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template [ng-switch-when]="false">
+                            <div class="selection-list" [style.max-height]="height"  [style.width]="width"
+                                 nv-scrollable-list [navigation-action]="navigationAction" [class.hidden]="hidden || isEmptyOptions()">
+                                <div *ng-for="#option of options;"
                                     class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
                                     <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [disabled]="option.disabled"
@@ -40,17 +54,6 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
                                         (click)="onOptionClicked(option)">
                                             {{option.description}}
                                     </div>
-                                </div>
-                            </div>
-                        </template>
-                        <template [ng-switch-when]="false">
-                            <div *ng-for="#option of options;"
-                                class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
-
-                                <div nv-scrollable-list-element [highlighted]="option.highlighted" (highlight)="onHighlightChanged($event, option)" [disabled]="option.disabled"
-                                    class="selection-description"
-                                    (click)="onOptionClicked(option)">
-                                        {{option.description}}
                                 </div>
                             </div>
                         </template>
