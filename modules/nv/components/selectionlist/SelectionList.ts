@@ -45,7 +45,7 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
                         </template>
                         <template [ng-switch-when]="false">
                             <div class="selection-list" [style.max-height]="height"  [style.width]="width"
-                                 nv-scrollable-list [navigation-action]="navigationAction" [class.hidden]="hidden || isEmptyOptions()">
+                                 nv-scrollable-list [navigation-action]="navigationAction" [class.hidden]="false">
                                 <div *ng-for="#option of options;"
                                     class="selection-option" [class.highlighted]="option.highlighted" [class.disabled]="option.disabled">
 
