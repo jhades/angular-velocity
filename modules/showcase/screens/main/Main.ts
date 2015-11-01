@@ -17,7 +17,7 @@ export class Main {
     form;
     user: Object = {};
 
-    constructor(@Inject(FormBuilder) fb: FormBuilder, @Inject(ReferenceDataService) refDataService: ReferenceDataService) { //TODO remove @Inject? https://github.com/angular/angular/issues/2788
+    constructor(fb: FormBuilder, @Inject(ReferenceDataService) refDataService: ReferenceDataService) {
         this.refData = new ReferenceData();
         this.refDataService = refDataService;
 
