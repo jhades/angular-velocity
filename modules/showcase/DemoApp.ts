@@ -2,7 +2,6 @@
 /// <reference path="../../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts" />
 /// <reference path="../../node_modules/angular2/bundles/typings/angular2/http.d.ts" />
 /// <reference path="../../node_modules/angular2/bundles/typings/angular2/router.d.ts" />
-/// <reference path="../../node_modules/angular2/bundles/typings/angular2/test_lib.d.ts" />
 /// <reference path="../../typings/rx/rx-lite.d.ts" />
 
 import {Component, View, bootstrap, NgFor, NgModel,FORM_BINDINGS, bind} from 'angular2/core';
