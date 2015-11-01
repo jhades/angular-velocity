@@ -22,36 +22,15 @@ export class Main {
         this.refDataService = refDataService;
 
         this.form = fb.group({
-            //"countryDropdown": ["", Validators.required], //TODO
+            //"countryDropdown": ["", Validators.required], //TODO pending SelectOneValueAccessor - need more info on how to do a custom component
             "username": ["", Validators.required],
             "password": ["", Validators.required],
             //"country": ["", Validators.required]
             "numbersOnly": ["",NvValidators.integer],
-            /*"countryTypeAhead": ["", Validators.required],*/ //TODO
+            /*"countryTypeAhead": ["", Validators.required],*/ //TODO pending SelectOneValueAccessor - need more info on how to do a custom component
             "ssn": [""]
 
         });
-
-        /*
-        this.form.valueChanges.toRx().map((value) =>value).subscribe((value) => {
-            console.log(value);
-            console.log(this.user);
-        });
-        */
-
-        //TODO default pipes not on by default https://github.com/angular/angular/issues/3173
-        // TODO passing an observable to autocomplete should just work, but iterableDiff Pipe is not on to make ng-for use the observable out of the box
-        /*
-        this.countriesObs = Rx.Observable.create((observer: Rx.Observer) => {
-
-            observer.onNext([
-                {
-                    description: 'Finland'
-                }
-            ]);
-
-        });
-        */
 
     }
 

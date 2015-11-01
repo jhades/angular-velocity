@@ -14,12 +14,6 @@ export class TopMenu {
 
     options: QueryList<MenuOption>;
 
-    //TODO pending https://github.com/angular/angular/issues/3034
-    /**
-     *
-     * design: inject a list of both groups and options. loop through them and do an ng-switch - it's either a <a> or a <dropdown-menu [options]="option.options">
-     *
-     */
     constructor(@Query(MenuOption) topMenuEntries: QueryList<MenuOption>) {
         console.log("builded top menu");
         this.options = topMenuEntries;
