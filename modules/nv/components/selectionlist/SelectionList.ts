@@ -62,17 +62,19 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
 })
 export class SelectionList<T extends SelectionOption> implements OnChanges {
 
-    options: Array<T>;
-    optionGroups: Array<SelectionGroup<T>>;
+    options: T[];
+    optionGroups: SelectionGroup<T>[];
     selection: EventEmitter = new EventEmitter();
     highlightedOption: T;
     highlight: EventEmitter = new EventEmitter();
 
     onChanges(changes: {[propName: string]: SimpleChange}) {
-        if (changes['options'] && changes['options'].length && changes['options'].length > 0 && this.optionGroups) {
+        let optionChanges : T[] = <T[]> changes['options'];
+        let optionGroupsChanges: SelectionGroup<T>[] = <SelectionGroup<T>[]> changes['optionGroups'];
+        if (optionChanges && optionChanges.length && optionChanges.length > 0 && this.optionGroups) {
             throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
-        if (changes['optionGroups'] && changes['optionGroups'].length && changes['optionGroups'].length > 0 && this.options) {
+        if (optionGroupsChanges && optionGroupsChanges.length && optionGroupsChanges.length > 0 && this.options) {
             throw new Error("both option and option-groups  cannot be defined at the same time for a nv-dropdown component.");
         }
         if (changes['highlightedOption'] && this.highlightedOption) {
