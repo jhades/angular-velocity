@@ -11,6 +11,7 @@ import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 })
 export class NvOptGroup {
 
+    label:string;
     options: SelectionOption[];
     optionElementsQuery: QueryList<NvSelectOption>;
 
