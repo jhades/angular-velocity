@@ -1,8 +1,9 @@
 import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
 import {SelectOneWithInput} from 'nv/components/selectone/SelectOneWithInput';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
-import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
+import {NavigationAction,NavActionEnum,TypeSearch, SelectionOption, BlankOption, SelectionGroup, KeyCodes, Dropdown} from 'angular-velocity';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
+import {SelectionList} from 'nv/components/selectionlist/SelectionList';
 
 @Component({
     selector: 'nv-autocomplete',
