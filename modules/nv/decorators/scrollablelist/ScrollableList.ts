@@ -28,7 +28,7 @@ export class ScrollableList implements OnChanges {
     scrollIntoViewOngoing: boolean = false;
     scrollOngoingTimeoutHandle: number;
 
-    //TODO inject a list with live content and subscribe to it - probably using @ContentChildren
+    //TODO inject a list with live content and subscribe to it - probably using @ContentChildren - opened this issue for this -> https://github.com/angular/angular/issues/5051
     constructor(private el: ElementRef) {
 
     }
