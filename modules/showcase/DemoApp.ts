@@ -4,7 +4,7 @@
 /// <reference path="../../node_modules/angular2/bundles/typings/angular2/router.d.ts" />
 /// <reference path="../../typings/rx/rx-lite.d.ts" />
 
-import {Component, View, bootstrap, NgFor, NgModel,FORM_BINDINGS, bind} from 'angular2/core';
+import {Component, View, bootstrap, NgFor, NgModel,FORM_BINDINGS, bind} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS, ROUTER_PRIMARY_COMPONENT} from 'angular2/router';
 import {Main} from './screens/main/Main';
 import {DataTableExample} from './screens/datatable/DataTableExample';
