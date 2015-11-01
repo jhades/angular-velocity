@@ -21,7 +21,7 @@ export class NvOptGroup {
 
     onOptionsChanged() {
         this.options = [];
-        this.optionElementsQuery._results.forEach((optionEl) => this.options.push(optionEl.option));
+        this.optionElementsQuery.toArray().forEach((optionEl) => this.options.push(optionEl.option));
     }
 
 
