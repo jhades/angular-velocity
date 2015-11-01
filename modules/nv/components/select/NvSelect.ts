@@ -8,7 +8,7 @@ import {ObservableWrapper} from 'angular2/src/core/facade/async';
 @Component({
     selector:"nv-select",
     inputs: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
-    outputs: ['change']
+    outputs: ['selection']
 })
 @View({
     template: `

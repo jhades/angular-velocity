@@ -21,7 +21,7 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
 @Component({
     selector: 'nv-selection-list',
     inputs: ['options','optionGroups', 'highlightedOption', 'height', 'width', 'navigationAction', 'hidden'],
-    outputs: ['change','highlight']
+    outputs: ['selection','highlight']
 })
 @View({
     template: `
@@ -64,7 +64,7 @@ export class SelectionList<T extends SelectionOption> implements OnChanges {
 
     options: Array<T>;
     optionGroups: Array<SelectionGroup<T>>;
-    change: EventEmitter = new EventEmitter();
+    selection: EventEmitter = new EventEmitter();
     highlightedOption: T;
     highlight: EventEmitter = new EventEmitter();
 
@@ -93,7 +93,7 @@ export class SelectionList<T extends SelectionOption> implements OnChanges {
     }
 
     onOptionClicked(option: SelectionOption) {
-        this.change.next(option);
+        this.selection.next(option);
     }
 
     isGroupMode() {

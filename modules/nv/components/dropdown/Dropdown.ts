@@ -33,7 +33,7 @@ import {SelectionList} from 'nv/components/selectionlist/SelectionList';
 
 @Component({ 
     selector: 'nv-dropdown',
-    outputs: ['change'],
+    outputs: ['selection'],
     inputs: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth','ngFormControl']
 })
 @View({

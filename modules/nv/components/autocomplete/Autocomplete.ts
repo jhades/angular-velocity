@@ -6,7 +6,7 @@ import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 @Component({
     selector: 'nv-autocomplete',
-    outputs: ['change','search'],
+    outputs: ['selection','search'],
     inputs: ['options', 'dropdownHeight', 'dropdownWidth'],
     viewBindings: [KeyboardUtils]
 })

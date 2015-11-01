@@ -9,7 +9,7 @@ import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAcce
 
 @Component({
     selector: 'nv-typeahead',
-    outputs: ['change'],
+    outputs: ['selection'],
     inputs: ['options', 'optionGroups', 'dropdownHeight', 'dropdownWidth'],
     viewBindings: [
         KeyboardUtils

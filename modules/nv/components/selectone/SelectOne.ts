@@ -12,7 +12,7 @@ import {NavigationAction,NavActionEnum,TypeSearch,SelectionList, SelectionOption
  *
  */
 export class SelectOne<T extends SelectionOption> {
-    change: EventEmitter = new EventEmitter();
+    selection: EventEmitter = new EventEmitter();
 
     options: Array<T>;
     optionGroups: Array<SelectionGroup<T>>;
@@ -61,10 +61,11 @@ export class SelectOne<T extends SelectionOption> {
      *
      */
     onSelectionChanged(option: SelectionOption, input) {
+        console.log('onSelectionChanged');
         if (option && !option.disabled) {
             this.selected = option;
             this.showSelectionList = false;
-            this.change.next(option);
+            this.selection.next(option);
             if (this.valueAccessor) {
                 this.valueAccessor.onChange(option);
             }
