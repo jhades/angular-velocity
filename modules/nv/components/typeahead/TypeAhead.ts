@@ -53,10 +53,10 @@ export class TypeAhead<T extends SelectionOption> extends SelectOneWithInput<T> 
     }
 
     onKeyUp(event, input) {
-        var key = event.keyCode;
+        let key = event.keyCode;
         if (key !== KeyCodes.UP && key != KeyCodes.DOWN) {
             this.search = input.value;
-            var match = this.findClosestMatch(this.search.toUpperCase());
+            let match = this.findClosestMatch(this.search.toUpperCase());
             if (match) {
                 this.highlighted = match;
             }

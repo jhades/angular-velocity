@@ -27,7 +27,7 @@ export class SelectOneWithInput<T extends SelectionOption> extends SelectOne<T> 
 
     onKeyDown(event, input) {
         super.onKeyDown(event, input);
-        var key = event.keyCode;
+        let key = event.keyCode;
         if (this.keyUtils.isSpecialKey(key) && !this.showSelectionList) {
             this.showSelectionList = true;
         }

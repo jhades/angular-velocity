@@ -34,12 +34,12 @@ export class TypeSearch {
     }
 
     onKeyDown(evt) {
-        var key = evt.keyCode;
+        let key = evt.keyCode;
         if (this.keyUtils.isAlphaNumeric(key)) {
             if (this.resetSearchHandle) {
                 clearTimeout(this.resetSearchHandle);
             }
-            var keyTyped = String.fromCharCode(key);
+            let keyTyped = String.fromCharCode(key);
             this.searchText += keyTyped;
 
             this.search.next(this.searchText);

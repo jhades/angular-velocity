@@ -58,7 +58,7 @@ export class NvSelect<T extends SelectionOption> {
         if (this.optionGroupsQuery._results.length) {
             this.optionGroups = [];
             for (let optionGroupEl of this.optionGroupsQuery._results) { //TODO refactor once Query list is an observable
-                var optionGroup = <SelectionGroup<T>> {
+                let optionGroup = <SelectionGroup<T>> {
                     label: optionGroupEl.label,
                     options: optionGroupEl.options
                 };

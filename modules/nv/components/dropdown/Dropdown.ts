@@ -82,7 +82,7 @@ export class Dropdown<T extends SelectionOption> extends SelectOne<T> {
      * @param search - the current search the user is typing
      */
     onTypeSearch(search) {
-        var match = this.findClosestMatch(search);
+        let match = this.findClosestMatch(search);
         if (match) {
             this.highlighted = match;
             if (!this.showSelectionList) {

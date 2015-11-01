@@ -46,7 +46,7 @@ export class ScrollableList implements OnChanges {
     }
 
     onNavigationAction() {
-        var action = this.navigationAction.actionType;
+        let action = this.navigationAction.actionType;
         switch(action) {
             case NavActionEnum.DOWN:
                 this.onArrowDown();
@@ -92,11 +92,11 @@ export class ScrollableList implements OnChanges {
     }
 
     scrollHighlightedIntoViewIfNeeded() {
-        var deltaScrollDown = (this.getCurrentHighlighted().el.nativeElement.offsetTop + this.getCurrentHighlighted().el.nativeElement.offsetHeight  - this.el.nativeElement.scrollTop - this.el.nativeElement.offsetHeight);
+        let deltaScrollDown = (this.getCurrentHighlighted().el.nativeElement.offsetTop + this.getCurrentHighlighted().el.nativeElement.offsetHeight  - this.el.nativeElement.scrollTop - this.el.nativeElement.offsetHeight);
         if (deltaScrollDown > 0) {
             this.launchScroll(deltaScrollDown);
         }
-        var deltaScrollUp = (this.getCurrentHighlighted().el.nativeElement.offsetTop - this.el.nativeElement.scrollTop);
+        let deltaScrollUp = (this.getCurrentHighlighted().el.nativeElement.offsetTop - this.el.nativeElement.scrollTop);
         if (deltaScrollUp < 0) {
             this.launchScroll(deltaScrollUp);
         }

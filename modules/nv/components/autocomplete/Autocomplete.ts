@@ -43,7 +43,7 @@ export class Autocomplete<T extends SelectionOption> extends SelectOneWithInput<
     }
 
     onKeyUp(event, input) {
-        var key = event.keyCode;
+        let key = event.keyCode;
         if (key !== KeyCodes.UP && key != KeyCodes.DOWN) {
             this.search.next(input.value);
 

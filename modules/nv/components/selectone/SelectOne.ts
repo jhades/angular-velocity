@@ -116,7 +116,7 @@ export class SelectOne<T extends SelectionOption> {
      *
      */
     onKeyDown(event, input) {
-        var key = event.keyCode;
+        let key = event.keyCode;
 
         switch (key) {
             case KeyCodes.ESC:
@@ -182,7 +182,7 @@ export class SelectOne<T extends SelectionOption> {
     }
 
     findClosestMatch(search: string) {
-        var regex = new RegExp('^' + search);
+        let regex = new RegExp('^' + search);
         return this.findAllOptions().find((option:T) => {
             return option.description === null ? false : option.description.toUpperCase().match(regex) && !option.disabled;
         });
