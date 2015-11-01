@@ -48,19 +48,24 @@ export class NvSelect<T extends SelectionOption> {
     }
 
     onOptionsChanged() {
-        this.options = [];
-        this.optionElementsQuery._results.forEach((optionEl) => this.options.push(optionEl.option));
+        if (this.optionElementsQuery._results.length > 0) {
+            this.options = [];
+            this.optionElementsQuery._results.forEach((optionEl) => this.options.push(optionEl.option));
+        }
     }
 
     onOptGroupsChanged() {
-        this.optionGroups = [];
-        for (let optionGroupEl of this.optionGroupsQuery._results) { //TODO refactor once Query list is an observable
-            var optionGroup = <SelectionGroup<T>> {
-                label: optionGroupEl.label,
-                options: optionGroupEl.options
-            };
-            this.optionGroups.push(optionGroup);
+        if (this.optionGroupsQuery._results.length) {
+            this.optionGroups = [];
+            for (let optionGroupEl of this.optionGroupsQuery._results) { //TODO refactor once Query list is an observable
+                var optionGroup = <SelectionGroup<T>> {
+                    label: optionGroupEl.label,
+                    options: optionGroupEl.options
+                };
+                this.optionGroups.push(optionGroup);
+            }
         }
+
     }
 
     onSelection(option) {

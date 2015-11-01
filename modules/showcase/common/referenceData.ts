@@ -310,7 +310,7 @@ export class ReferenceData {
         }
         ];
 
-    NBA_TEAMS = this.NBA_DIVISIONS.reduce((all: Array<any>, division: any) => all.concat(division.options), []);
+    NBA_TEAMS = this.NBA_DIVISIONS.map((division) => division.options).reduce((teamA,teamB) => teamA.concat(teamB));
 
 }
 
