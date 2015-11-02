@@ -1,7 +1,6 @@
 
 import {Component, View, CORE_DIRECTIVES, Query, QueryList} from 'angular2/angular2';
-import {MenuOption} from '../menuentry/MenuOption';
-import {Submenu} from '../menuentry/Submenu';
+import {MenuEntry} from '../menuentry/MenuEntry';
 
 @Component({
     selector: 'nv-top-menu'
@@ -17,9 +16,9 @@ import {Submenu} from '../menuentry/Submenu';
 })
 export class TopMenu {
 
-    options: QueryList<MenuOption>;
+    options: QueryList<MenuEntry>;
 
-    constructor(@Query(MenuOption) topMenuEntries: QueryList<MenuOption>) {
+    constructor(@Query(MenuEntry) topMenuEntries: QueryList<MenuEntry>) {
         console.log("builded top menu");
         this.options = topMenuEntries;
 

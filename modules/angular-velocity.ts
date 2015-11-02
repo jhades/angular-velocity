@@ -22,8 +22,7 @@ import {Tabs} from 'nv/components/tabs/Tabs';
 import {Tab} from 'nv/components/tabs/Tab';
 import {CollapsiblePanel} from 'nv/components/collapsiblepanel/CollapsiblePanel';
 import {TopMenu} from 'nv/components/menus/topmenu/TopMenu';
-import {MenuOption} from 'nv/components/menus/menuentry/MenuOption';
-import {Submenu} from 'nv/components/menus/menuentry/Submenu';
+import {MenuEntry} from 'nv/components/menus/menuentry/MenuEntry';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 
 export {
@@ -51,8 +50,7 @@ export {
     Tab,
     NvValidators,
     TopMenu,
-    MenuOption,
-    Submenu
+    MenuEntry
 }
 
 
@@ -72,6 +70,5 @@ export const NV_DIRECTIVES = [
 
 export const NV_LAYOUT_DIRECTIVES = [
     TopMenu,
-    MenuOption,
-    Submenu
+    MenuEntry
 ];
