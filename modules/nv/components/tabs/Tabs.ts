@@ -16,7 +16,7 @@ export class Tabs {
 
     constructor(@Query(Tab) tabsQuery: QueryList<Tab>) {
         this.tabsQuery = tabsQuery;
-        tabsQuery.changes.toRx().subscribe(() => this.onTabsChanged());
+        tabsQuery.changes.subscribe(() => this.onTabsChanged());
     }
 
     onTabsChanged() {

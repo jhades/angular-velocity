@@ -42,8 +42,8 @@ export class NvSelect<T extends SelectionOption> {
         this.dropdownHeight = dropdownHeight;
         this.dropdownWidth = dropdownWidth;
 
-        optionElements.changes.toRx().subscribe(() => this.onOptionsChanged());
-        optionGroups.changes.toRx().subscribe(() => this.onOptGroupsChanged());
+        optionElements.changes.subscribe(() => this.onOptionsChanged());
+        optionGroups.changes.subscribe(() => this.onOptGroupsChanged());
     }
 
     onOptionsChanged() {

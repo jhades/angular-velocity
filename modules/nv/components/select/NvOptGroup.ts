@@ -17,7 +17,7 @@ export class NvOptGroup {
 
     constructor(@Query(NvSelectOption) optionElements: QueryList<NvSelectOption>) {
         this.optionElementsQuery = optionElements;
-        optionElements.changes.toRx().subscribe(() => this.onOptionsChanged());
+        optionElements.changes.subscribe(() => this.onOptionsChanged());
     }
 
     onOptionsChanged() {
