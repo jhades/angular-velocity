@@ -1,9 +1,3 @@
-/// <reference path="../../node_modules/angular2/bundles/typings/angular2/angular2.d.ts" />
-/// <reference path="../../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts" />
-/// <reference path="../../node_modules/angular2/bundles/typings/angular2/http.d.ts" />
-/// <reference path="../../node_modules/angular2/bundles/typings/angular2/router.d.ts" />
-/// <reference path="../../typings/rx/rx-lite.d.ts" />
-
 import {Component, View, bootstrap, NgFor, NgModel,FORM_BINDINGS, bind} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS, ROUTER_PRIMARY_COMPONENT} from 'angular2/router';
 import {Main} from './screens/main/Main';
