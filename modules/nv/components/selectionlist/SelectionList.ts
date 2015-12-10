@@ -57,10 +57,7 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
                                 </div>
                             </div>
                         </template>
-                    </div>
-
-
-                </div>`,
+                    </div>`,
     directives: [ScrollableList, ScrollableListElement, CORE_DIRECTIVES]
 })
 export class SelectionList<T extends SelectionOption> implements OnChanges {
