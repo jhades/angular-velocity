@@ -26,8 +26,8 @@ import {SelectionList} from 'nv/components/selectionlist/SelectionList';
                         [width]="dropdownWidth"
                         [options]="options"
                         (selection)="onSelectionChanged($event, input)"
-                        [navigation-action]="navigationAction"
-                        [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
+                        [navigationAction]="navigationAction"
+                        [highlightedOption]="highlighted" (highlight)="onHighlightedChanged($event)">
                     </nv-selection-list>
 
                 </div>`,

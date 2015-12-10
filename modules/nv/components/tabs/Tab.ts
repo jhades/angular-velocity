@@ -7,7 +7,7 @@ import {Component, View, Attribute, CORE_DIRECTIVES, EventEmitter} from 'angular
 })
 @View({
     directives: [CORE_DIRECTIVES],
-    template: `<div class="tabcontainer-body" *ng-if="_selected">
+    template: `<div class="tabcontainer-body" *ngIf="_selected">
 
                     <ng-content></ng-content>
 

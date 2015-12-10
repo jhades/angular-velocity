@@ -5,7 +5,7 @@
         <span (click)="toggleCollapsed()">{{title}}</span>
     </div>
 
-    <div class="collapsible-panel-body" *ng-if="!collapsed">
+    <div class="collapsible-panel-body" *ngIf="!collapsed">
         <ng-content></ng-content>
     </div>
 </div>

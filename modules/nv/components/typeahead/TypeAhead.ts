@@ -35,8 +35,8 @@ import {TypeSearch} from 'nv/decorators/typesearch/TypeSearch';
                         [width]="dropdownWidth"
                         [options]="options | filterOptions: search"
                         (selection)="onSelectionChanged($event, input)"
-                        [navigation-action]="navigationAction"
-                        [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
+                        [navigationAction]="navigationAction"
+                        [highlightedOption]="highlighted" (highlight)="onHighlightedChanged($event)">
                     </nv-selection-list>
 
                 </div>`,

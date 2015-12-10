@@ -1,9 +1,9 @@
 <div class="tabcontainer">
 
        <ul class="tabcontainer-buttons">
-           <!--TODO https://github.com/angular/angular/issues/3397 use shorthand syntax of ng-for once this issue is solved -->
+           <!--TODO https://github.com/angular/angular/issues/3397 use shorthand syntax of ngFor once this issue is solved -->
            <!-- inspect the tab buttons, there is a tempalte element AFTER the first tab, seems to break some styles like  margin-right: -2px; see _tabs.scss  -->
-           <template ng-for #tab [ng-for-of]="tabs">
+           <template ngFor #tab [ngForOf]="tabs">
                <li [class.selected]="tab.selected" (click)="selectTab(tab)">{{tab.title}}</li>
            </template>
        </ul>

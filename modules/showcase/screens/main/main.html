@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <form [ng-form-model]="form" class="nv-form nv-form-labels-on-top">
+    <form [ngFormModel]="form" class="nv-form nv-form-labels-on-top">
 
         <nv-tabs>
             <nv-tab title="First Tab" (selection)="onFirstTabSelected()">
@@ -169,7 +169,7 @@
                              <label>Select Option:</label>
                              <nv-select dropdown-height="250px" dropdown-width="200px"
                                        (selection)="onSelection($event)">
-                                <option *ng-for="#team of refData.NBA_TEAMS" [value]="team"
+                                <option *ngFor="#team of refData.NBA_TEAMS" [value]="team"
                                         [text]="team.description"></option>
                             </nv-select>
                         </div>
@@ -177,9 +177,9 @@
                             <label>Select With Groups:</label>
                             <nv-select dropdown-height="250px" dropdown-width="200px"
                                        (selection)="onSelection($event)">
-                                <optgroup *ng-for="#division of refData.NBA_DIVISIONS;"
+                                <optgroup *ngFor="#division of refData.NBA_DIVISIONS;"
                                           [label]="division.label">
-                                    <option *ng-for="#team of division.options" [value]="team"
+                                    <option *ngFor="#team of division.options" [value]="team"
                                             [text]="team.description"></option>
                                 </optgroup>
                             </nv-select>
@@ -308,7 +308,7 @@
                             <div class="ng-grid-row">
                                 <div class="col-1-3">
                                     <label>Username:</label>
-                                    <input type="text" ng-control="username" [(ng-model)]="user.username">
+                                    <input type="text" ng-control="username" [(ngModel)]="user.username">
                                 </div>
                                 <div class="col-1-3">
                                     <label>Password:</label>

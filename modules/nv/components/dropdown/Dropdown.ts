@@ -12,7 +12,7 @@ import {SelectionList} from 'nv/components/selectionlist/SelectionList';
  * @description
  * A dropdown component with behaviour similar to a native browser <select> element, but with several commonly needed enhancements:
  *
- *  - integrated with ng-model (but does not require it)
+ *  - integrated with ngModel (but does not require it)
  *  - integrated with Angular 2 Forms - can have standard and custom validators plugged, etc.
  *  - fully stylable (dropdown width, height ,etc.)
  *  - scrolling using mouse or keyboard
@@ -61,7 +61,7 @@ import {SelectionList} from 'nv/components/selectionlist/SelectionList';
                         [options]="options"
                         [option-groups]="optionGroups"
                         (selection)="onSelectionChanged($event, input)"
-                        [navigation-action]="navigationAction"
+                        [navigationAction]="navigationAction"
                         [highlighted-option]="highlighted" (highlight)="onHighlightedChanged($event)">
                     </nv-selection-list>
 

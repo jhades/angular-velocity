@@ -3,7 +3,7 @@ import {DefaultValueAccessor, Directive, Self, NgControl, Renderer, ElementRef} 
 
 @Directive({
     selector:
-        'nv-dropdown-TODO[ng-control],nv-dropdown-TODO[ng-form-control],nv-dropdown-TODO[ng-model],nv-typeahead-TODO[ng-control],nv-typeahead-TODO[ng-form-control],nv-typeahead-TODO[ng-model]',
+        'nv-dropdown-TODO[ngControl],nv-dropdown-TODO[ngFormControl],nv-dropdown-TODO[ngModel],nv-typeahead-TODO[ngControl],nv-typeahead-TODO[ngForm-Control],nv-typeahead-TODO[ngModel]',
     host: {
         '(change)': 'onChange($event.target.value)',
         '(input)': 'onChange($event.target.value)',

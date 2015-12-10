@@ -10,7 +10,7 @@ import {Component, View, CORE_DIRECTIVES, Query, QueryList} from 'angular2/angul
     template: `
         <nav class="layout-top-menu">
             <ul>
-                <li *ng-for="#option of options"><a>{{option.title}}</a></li>
+                <li *ngFor="#option of options"><a>{{option.title}}</a></li>
             </ul>
         </nav>`
 })
