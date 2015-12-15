@@ -1,4 +1,6 @@
-import {Component, View, bootstrap, NgFor, NgModel,FORM_BINDINGS, bind} from 'angular2/angular2';
+import {Component, View, bind} from 'angular2/core';
+import {NgFor, NgModel,FORM_BINDINGS} from 'angular2/common';
+import {bootstrap} from 'angular2/platform/browser';
 import {RouteConfig, RouterOutlet, RouterLink, ROUTER_BINDINGS, ROUTER_PRIMARY_COMPONENT} from 'angular2/router';
 import {Main} from './screens/main/Main';
 import {DataTableExample} from './screens/datatable/DataTableExample';

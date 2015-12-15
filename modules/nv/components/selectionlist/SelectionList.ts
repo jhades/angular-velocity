@@ -1,4 +1,4 @@
-import {Component, View, EventEmitter, Attribute, CORE_DIRECTIVES, OnChanges, SimpleChange} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, OnChanges, SimpleChange} from 'angular2/core';
 import {NavigationAction,NavActionEnum, SelectionOption, BlankOption, SelectionGroup} from 'angular-velocity';
 import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
 import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableListElement';
@@ -58,7 +58,7 @@ import {ScrollableListElement} from 'nv/decorators/scrollablelist/ScrollableList
                             </div>
                         </template>
                     </div>`,
-    directives: [ScrollableList, ScrollableListElement, CORE_DIRECTIVES]
+    directives: [ScrollableList, ScrollableListElement]
 })
 export class SelectionList<T extends SelectionOption> implements OnChanges {
 

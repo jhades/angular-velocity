@@ -1,4 +1,4 @@
-import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/angular2';
+import {Component, View, EventEmitter, Attribute, Self, Optional} from 'angular2/core';
 import {SelectOne} from 'nv/components/selectone/SelectOne';
 import {SelectOneValueAccessor} from 'nv/components/selectone/SelectOneValueAccessor';
 import {NavigationAction,NavActionEnum, SelectionOption, BlankOption, SelectionGroup, KeyCodes} from 'angular-velocity';

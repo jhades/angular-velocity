@@ -1,12 +1,11 @@
 
-import {Component, View, CORE_DIRECTIVES, Query, QueryList} from 'angular2/angular2';
+import {Component, View, Query, QueryList} from 'angular2/core';
 
 
 @Component({
     selector: 'nv-top-menu'
 })
 @View({
-    directives: [CORE_DIRECTIVES],
     template: `
         <nav class="layout-top-menu">
             <ul>

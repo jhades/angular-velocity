@@ -1,4 +1,4 @@
-import {Directive, EventEmitter} from 'angular2/angular2';
+import {Directive, EventEmitter} from 'angular2/core';
 import {KeyboardUtils} from 'nv/services/KeyboardUtils';
 
 /**

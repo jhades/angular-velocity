@@ -1,6 +1,5 @@
 
-import {Pipe,PipeTransform,Injectable} from 'angular2/angular2';
-import {} from 'angular2/change_detection';
+import {Pipe,PipeTransform,Injectable} from 'angular2/core';
 import {SelectionOption} from 'angular-velocity';
 
 @Injectable()

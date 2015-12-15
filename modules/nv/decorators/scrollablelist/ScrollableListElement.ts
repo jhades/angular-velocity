@@ -1,4 +1,4 @@
-import {Directive, ElementRef, EventEmitter, Host, OnChanges, SimpleChange} from 'angular2/angular2';
+import {Directive, ElementRef, EventEmitter, Host, OnChanges, SimpleChange} from 'angular2/core';
 import {ScrollableList} from 'nv/decorators/scrollablelist/ScrollableList';
 
 

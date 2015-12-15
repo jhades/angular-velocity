@@ -1,5 +1,6 @@
 
-import {DefaultValueAccessor, Directive, Self, NgControl, Renderer, ElementRef} from 'angular2/angular2';
+import {Directive, Self, Renderer, ElementRef} from 'angular2/core';
+import {DefaultValueAccessor,NgControl} from  'angular2/common';
 
 @Directive({
     selector:

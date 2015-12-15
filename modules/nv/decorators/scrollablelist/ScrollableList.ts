@@ -1,4 +1,4 @@
-import {Directive, ElementRef, OnChanges, SimpleChange} from 'angular2/angular2';
+import {Directive, ElementRef, OnChanges, SimpleChange} from 'angular2/core';
 import {NavigationAction, NavActionEnum,ScrollableListElement} from 'angular-velocity';
 
 /**

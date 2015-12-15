@@ -1,4 +1,4 @@
-import {Directive, View, Query, QueryList} from 'angular2/angular2';
+import {Directive, View, Query, QueryList} from 'angular2/core';
 import {SelectionOption} from 'angular-velocity';
 import {NvSelectOption} from 'nv/components/select/NvSelectOption';
 

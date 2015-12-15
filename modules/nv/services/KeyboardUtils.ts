@@ -1,5 +1,5 @@
 import {KeyCodes} from 'angular-velocity';
-import {Injectable} from "angular2/angular2";
+import {Injectable} from "angular2/core";
 
 @Injectable()
 export class KeyboardUtils {
